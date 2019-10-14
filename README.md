@@ -31,7 +31,7 @@ Slogan (s): "Whatever, match with other enthusiasts developers"
 
 ### Team : 
 
-      - Product Owner : Thomas 
+      - Product Owner : Everybody
 
       - Scrum Master : Jerem
 
