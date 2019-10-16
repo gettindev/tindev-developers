@@ -31,10 +31,10 @@ Slogan (s): "Whatever, match with other enthusiasts developers"
 
 ### Team : 
 
-      - Product Owner : Everybody
-
       - Scrum Master : Jerem
 
       - Lead Dev Back : Gael / Damien
+      
+      - GIT Master : Damien
 
-      - Lead Dev Front : Florian
+      - Product Owner \ Lead Dev Front : Florian
