@@ -4,11 +4,14 @@ import React from 'react';
 // == Import : local
 import './app.scss';
 
+// == Import : style
+import { Container } from 'semantic-ui-react';
+
 // == Composant
 const App = () => (
-  <div id="app">
+  <Container className="app">
     App React
-  </div>
+  </Container>
 );
 
 // == Export
