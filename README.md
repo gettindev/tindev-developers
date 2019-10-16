@@ -38,3 +38,15 @@ Slogan (s): "Whatever, match with other enthusiasts developers"
       - GIT Master : Damien
 
       - Product Owner \ Lead Dev Front : Florian
+    
+### Tech specs:
+
+      - Primary color : Dark blue { rgb(26, 22, 71) ou #1A1647 }
+      - Cards color :  Light dark blue { #1d2c4e }
+      - Actions / events color  :  Purple { #a11ec6 } and turquoise { #92eaff }
+      - Links color : Pink - purple  { #a31ec8 }
+      - Secondary Color : Yellow { #fff922 }  
+      - Text color : White { #fff }
+      - Font family : Space Mono
+
+
