@@ -5,13 +5,13 @@ import React from 'react';
 import './app.scss';
 
 // == Import : style
-import { Container } from 'semantic-ui-react';
+
 
 // == Composant
 const App = () => (
-  <Container className="app">
+  <div className="app">
     App React
-  </Container>
+  </div>
 );
 
 // == Export

@@ -9,7 +9,7 @@ import App from 'src/components/App';
 import store from 'src/store';
 
 // == Import : Semantic Css
-import 'semantic-ui-css/semantic.min.css';
+
 
 // == Render
 const rootComponent = (
