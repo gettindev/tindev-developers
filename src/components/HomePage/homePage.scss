@@ -1,29 +1,22 @@
 @import 'src/styles/vars';
 
-.mainHome {
-  padding: 1rem 0 0.2rem 0;
-  color: white;
-  background-image: url(./HomePageDesktop.jpg);
-  background-size: cover;
+#home {
+  font-family: 'Oswald', sans-serif;
+}
+
+// .mainHome {
+//   max-height: 100%;
+// }
+
+.carousel {
   
-  
-  h1 {
-    color: rgb(158, 220, 245);
-    font-size: 4em;
-    font-family: fantasy;
+  img {
+    max-width: 100%;
+    height: auto;
   }
 
-  h2 {
-    font-weight: bold;
-  }
-
-  h3 {
-    font-size: 1em;
-  }
-
-  p {
-    padding: 11rem 0 0 0;
-    color: white;
+  p{
+    margin-top: 15rem;
   }
 }
 
@@ -41,3 +34,4 @@
     font-size: 0.8em;
   }
 } 
+

@@ -3,27 +3,78 @@ import React from 'react';
 
 // imports styles
 import { Button } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 
 // == Import : local
 import './homePage.scss';
-// import { Navbar } from 'react-bootstrap';
 
 // == Composant
 const HomePage = () => (
   <>
   <div id="home">
       <div className='mainHome'>
-        <h1>Tindev</h1>
-        <h2>Connectes-toi aux Devs des internets</h2> 
-        <h3>(aussi infini que node-modules)</h3>
-        <p>Montes en compétences</p>
+        
+        <Carousel>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="./src/data/homePage-mobile.jpg"
+              alt="first slide"
+            />
+            <Carousel.Caption>
+              <h3>Connectes-toi aux Devs des internets (aussi infini que node-modules)</h3>
+              <p>Montes en compétences</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="./src/data/side-project.jpg"
+              alt="second slide"
+            />
+            <Carousel.Caption>
+              <h3>Parce que la meilleure façon de monter en compétences est de pratiquer une techno sur un projet réel.</h3>
+              <p>Staffes un side project</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="./src/data/bangkok-breakfast.jpg"
+              alt="Third slide"
+            />
+            <Carousel.Caption>
+              <h3>Tu veux rencontrer des Devs qui partagent la même passion, ou tu as une idée de projet en tête?</h3>
+              <p>Élargis ton cercle de connaissances</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="./src/data/pizza.jpg"
+              alt="fourth slide"
+            />
+            <Carousel.Caption>
+              <h3>Parce que tu veux manger des pizzas, ou pourquoi pas trouver l'amour?</h3>
+              <p>Ou manges des pizzas.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+        </Carousel>
+        
       </div>
+
       <div className='footerHome'>
         <h2>Peu importe que tu sois Dev, CTO ou CEO, que tu préfères les Ninjas ou les NOObs</h2>
         <p>Trouves ici ton perfect Dev-Match pour staffer tes projets</p>
         <Button variant="dark"> S'identifier via GitHub </Button>
       </div>
     </div>
+    
   </>
 );
 
