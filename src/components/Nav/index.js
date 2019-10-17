@@ -9,16 +9,14 @@ import './nav.scss';
 
 // Component
 const Nav = () => {
-
   return (
-        <div className="navbar">
-            <div className="navbar-item"><FaUserAlt /></div>
-            <img src='src/data/logo.png'/>
-            <div className="navbar-item"><FaRegCommentDots /></div>
-        </div>
-    )
+    <div className="navbar">
+      <div className="navbar-item"><FaUserAlt /></div>
+      <img alt="Tindev" src="src/data/logo.png" />
+      <div className="navbar-item"><FaRegCommentDots /></div>
+    </div>
+  )
 };
-
 
 // export
 export default Nav;
