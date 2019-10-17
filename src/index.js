@@ -9,7 +9,7 @@ import App from 'src/components/App';
 import store from 'src/store';
 
 // == Import : Semantic Css
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // == Render
 const rootComponent = (

@@ -6,11 +6,13 @@ import './app.scss';
 
 // == Import : style
 
+// Import locaux
+import Nav from 'src/components/Nav';
 
 // == Composant
 const App = () => (
   <div className="app">
-    App React
+    <Nav />
   </div>
 );
 
