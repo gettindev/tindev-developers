@@ -11,11 +11,11 @@ import './nav.scss';
 const Nav = () => {
 
   return (
-        <div className="navbar">
-            <div className="navbar-item"><FaUserAlt /></div>
-            <img src='src/data/logo.png'/>
-            <div className="navbar-item"><FaRegCommentDots /></div>
-        </div>
+    <div className="navbar">
+        <div className="navbar-item"><FaUserAlt /></div>
+        <img src='src/data/logo.png'/>
+        <div className="navbar-item"><FaRegCommentDots /></div>
+    </div>
     )
 };
 

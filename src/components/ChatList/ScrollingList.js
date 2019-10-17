@@ -10,7 +10,58 @@ import './scrollinglist.scss';
 
 // == Composant
 const ScrollingList = () => (
-  <Image src='http://placeimg.com/100/100/people' roundedCircle />
+  <div className="scrolling-wrapper d-flex">
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+    <Image
+      className="user-card"
+      src='http://placeimg.com/150/150/people'
+      roundedCircle
+    />
+  </div>
 );
 
 // == Export

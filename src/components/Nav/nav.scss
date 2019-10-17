@@ -30,13 +30,12 @@
 }
 
 // Logo of TinDev in the NavBar
-img {
-    margin: 0;
-    width: 7em;
-    height: 2.5em;
+// img {
+//     margin: 0;
+//     width: 7em;
+//     height: 2.5em;
     
     @media (min-width: $lg) {
         height: 4rem;
         width: 10rem;
         }
-}

@@ -1,18 +1,56 @@
+@import 'src/styles/vars';
+
 .scrolling-wrapper {
-  background-color: green;
+  background-color: $primaryColorLight;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
   scroll-behavior: smooth;
 
 
+
   & .user-card {
     flex: 0 0 auto;
-    margin: 1.2rem;
+    margin: .8rem;
+    width: 100px;
+
+  }
+
+  @media (min-width: $md) {
+    & .user-card {
+      width: 125px;
+    }
+  }
+
+  @media (min-width: $lg) {
+    & .user-card {
+      width: 150px;
+    }
   }
 }
+
+
 
 // remove scrollbar but keep content scrollable
 ::-webkit-scrollbar {
   display: none;
 }
+
+
+// @import 'src/styles/vars';
+
+// .scrolling-wrapper {
+//   overflow-x: scroll;
+//   scroll-behavior: smooth;
+
+//   & .user-card {
+//     flex: 0 0 auto;
+//     margin: .8rem .6rem;
+//     width: 75px;
+//   }
+// }
+
+// // remove scrollbar but keep content scrollable
+// ::-webkit-scrollbar {
+//   display: none;
+// }
