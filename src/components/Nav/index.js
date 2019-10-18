@@ -15,7 +15,7 @@ import NavBackLeft from './NavBackLeft';
 // Component
 const Nav = (props) => {
   const { nav } = props;
-  // const { title } = props;
+  const { title } = props;
   return (
     <>
       {/* use <Nav /> for Main Nav with user and matchs icons */}
@@ -26,7 +26,7 @@ const Nav = (props) => {
       {/* use <Nav nav="back-right" /> for  Nav for my profil edition with back button right */}
       { nav === 'back-right' && <NavBackRight />}
       {/* use <Nav nav="close-right" /> for  Nav with close button right */}
-      { nav === 'close-right' && <NavCloseRight />}
+      { nav === 'close-right' && <NavCloseRight title={title} />}
       {/* use <Nav nav="close-left" /> for  Nav with close button left */}
       { nav === 'close-left' && <NavCloseLeft />}
     </>
@@ -35,10 +35,12 @@ const Nav = (props) => {
 
 Nav.propTypes = {
   nav: PropTypes.string,
+  title: PropTypes.string,
 };
 
 Nav.defaultProps = {
   nav: 'default',
+  title: '',
 };
 
 // export
