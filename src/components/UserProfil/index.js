@@ -3,15 +3,14 @@ import React from 'react';
 
 // == Import : local
 import './user-profil.scss';
-
-// == Import : style
-
-// Import locaux
+import { Navbar } from 'react-bootstrap';
 
 // == Composant
 const UserProfil = () => (
   <div className="user-profil">
-    User Profil Page
+    <Navbar bg="dark">
+      User Profil Page
+    </Navbar>
   </div>
 );
 
