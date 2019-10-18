@@ -12,7 +12,7 @@ const NavBackLeft = () => (
       <Navbar.Text onClick={(e) => {console.log('>>> Back Button', e)}}><MdArrowBack className="icon" /></Navbar.Text>
     </Navbar.Collapse>
     <Navbar.Collapse>
-      <Navbar.Text>Match</Navbar.Text>
+      <Navbar.Text className="padding-left">Match</Navbar.Text>
     </Navbar.Collapse>
   </Navbar>
 );

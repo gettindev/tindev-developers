@@ -16,7 +16,6 @@ import NavBackLeft from './NavBackLeft';
 const Nav = (props) => {
   const { nav } = props;
   // const { title } = props;
-  console.log(nav);
   return (
     <>
       {/* use <Nav /> for Main Nav with user and matchs icons */}
