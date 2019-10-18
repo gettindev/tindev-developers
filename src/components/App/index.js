@@ -14,7 +14,7 @@ import UserProfil from 'src/components/UserProfil';
 const App = () => (
   <div className="app">
     <UserProfil />
-    <Nav />
+    <Nav nav="back-right" />
   </div>
 );
 
