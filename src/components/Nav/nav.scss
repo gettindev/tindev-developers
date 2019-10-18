@@ -4,6 +4,8 @@
 .td-navbar  {
   background-color: $primaryColorLight;
   color: $textColor;
+  padding-left:.5rem !important;
+  padding-right:.5rem !important;
   .navbar{
     &-text {
       color: rgba($textColor, .5) !important;
@@ -14,9 +16,10 @@
     }
   }
   .navbar-title{
+    position: absolute;
     display: block;
-    width: 100%;
-    text-align: right;
+    width: calc(100% - 1rem);
+    text-align: center;
   }
   .icon{
     font-size: 2.25rem;
