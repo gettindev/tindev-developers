@@ -2,10 +2,7 @@
 
 #home {
   font-family: 'Oswald', sans-serif;
-  padding: 0;
-  margin: 0;
 }
-
 
 .carousel { 
   h3 {
@@ -29,10 +26,8 @@
 }
 
 .footerHome {
-  padding: 0 0 0.5rem 0;
+  padding-bottom: 0.5rem;
   background-color: $primaryColor;
-  color: white;
-  font-family: 'Oswald', sans-serif;
 
   h2 {
     padding: 1rem 0 1rem 0;
