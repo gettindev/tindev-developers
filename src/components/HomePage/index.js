@@ -3,7 +3,7 @@ import React from 'react';
 
 // imports styles
 import { Button } from 'react-bootstrap';
-import { Carousel } from 'react-bootstrap';
+import { Carousel} from 'react-bootstrap';
 
 // == Import : local
 import './homePage.scss';
@@ -13,15 +13,20 @@ const HomePage = () => (
   <>
   <div id="home">
       <div className='mainHome'>
-        
+            
         <Carousel>
-
+       
           <Carousel.Item>
+            <img 
+            className="img-fluid"
+            src='./src/data/logo.png'
+            />
             <img
               className="img-responsive"
               src="./src/data/homePage-mobile.jpg"
               alt="first slide"
             />
+            
             <Carousel.Caption>
               <h3>Connectes-toi aux Devs des internets (aussi infini que node-modules)</h3>
               <p>Montes en compétences</p>
@@ -29,6 +34,10 @@ const HomePage = () => (
           </Carousel.Item>
 
           <Carousel.Item>
+            <img 
+            className="img-fluid"
+            src='./src/data/logo.png'
+            />
             <img
               className="img-responsive"
               src="./src/data/side-project.jpg"
@@ -41,6 +50,10 @@ const HomePage = () => (
           </Carousel.Item>
 
           <Carousel.Item>
+            <img 
+            className="img-fluid"
+            src='./src/data/logo.png'
+            />
             <img
               className="img-responsive"
               src="./src/data/bangkok-breakfast.jpg"
@@ -53,6 +66,10 @@ const HomePage = () => (
           </Carousel.Item>
 
           <Carousel.Item>
+            <img 
+            className="img-fluid"
+            src='./src/data/logo.png'
+            />
             <img
               className="img-responsive"
               src="./src/data/pizza.jpg"
@@ -65,15 +82,14 @@ const HomePage = () => (
           </Carousel.Item>
 
         </Carousel>
-        
+        </div>  
       </div>
 
       <div className='footerHome'>
         <h2>Peu importe que tu sois Dev, CTO ou CEO, que tu préfères les Ninjas ou les NOObs</h2>
         <p>Trouves ici ton perfect Dev-Match pour staffer tes projets</p>
-        <Button variant="dark"> S'identifier via GitHub </Button>
+        <Button variant="info"> S'identifier via GitHub </Button>
       </div>
-    </div>
     
   </>
 );
