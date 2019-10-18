@@ -1,5 +1,6 @@
 // imports npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // imports local
 import './nav.scss';
@@ -19,7 +20,7 @@ const Nav = (props) => {
   return (
     <>
       {/* use <Nav /> for Main Nav with user and matchs icons */}
-      { !nav && <NavDefault />}
+      { nav === 'default' && <NavDefault />}
       {/* use <Nav nav="back-left" /> for Nav for the
           my profil / Matchs preferences with back button left */}
       { nav === 'back-left' && <NavBackLeft />}
@@ -33,7 +34,13 @@ const Nav = (props) => {
   );
 };
 
+Nav.propTypes = {
+  nav: PropTypes.string,
+};
 
+Nav.defaultProps = {
+  nav: 'default',
+};
 
 // export
 export default Nav;
