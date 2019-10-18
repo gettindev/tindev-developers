@@ -1,0 +1,55 @@
+@import 'src/styles/vars';
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+.messages {
+  padding: 1rem;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 85vh;
+  scrollbar-color: $eventColorBlue $primaryColorLight;
+  scrollbar-width: 2em;
+
+}
+
+.message {
+  overflow-wrap: break-word;
+  color: $textColor;
+  font-size: .8em;
+
+  @media (min-width: $sm) {
+    font-size: 1.2em;
+  }
+
+
+  &-author {
+    padding-left: 1rem;
+    margin-bottom: .8rem;
+    color: $secondaryColor;
+  }
+
+  &-content {
+    background-color: $primaryColorLight;
+    padding: .8rem;
+    border-radius: .8rem;
+    display: inline-block;
+    position: relative;
+    width: 75%;
+    border: $eventColorBlue .2rem solid;
+
+    @media (min-width: $sm) {
+      width: 50%;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 2rem;
+      bottom: 100%;
+      border-bottom: 10px solid $eventColorBlue;
+      border-right: 10px solid transparent;
+    }
+  }
+}
