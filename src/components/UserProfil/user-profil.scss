@@ -36,7 +36,7 @@
         color: lighten($eventColorPurple, 30%);
         &:hover{
           border-color: darken($eventColorPurple, 10%);
-          color: darken($eventColorPurple, 10%);
+          color: darken($eventColorPurple, 20%);
           background-color: rgb(238, 238, 238);
         }
       }
