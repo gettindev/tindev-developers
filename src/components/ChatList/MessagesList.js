@@ -4,13 +4,22 @@ import Image from 'react-bootstrap/Image';
 // import { NavLink } from 'react-router-dom';
 
 // == Import : local
-import './scrollinglist.scss';
-
+import MessagePreview from './MessagePreview';
 // == Import : style
+import './scrollinglist.scss';
 
 // == Composant
 const MessagesList = () => (
-  <div> toto </div>
+  <div className="messages-list">
+    <MessagePreview />
+    <MessagePreview />
+    <MessagePreview />
+    <MessagePreview />
+    <MessagePreview />
+    <MessagePreview />
+    <MessagePreview />
+    <MessagePreview />
+  </div>
 );
 
 // == Export

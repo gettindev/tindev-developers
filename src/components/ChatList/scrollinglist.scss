@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 .scrolling-wrapper {
-  background-color: $primaryColorLight;
+  background-color: $primaryColor;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
@@ -11,7 +11,7 @@
 
   & .user-card {
     flex: 0 0 auto;
-    margin: .8rem;
+    margin: .6rem;
     width: 100px;
 
   }
@@ -19,6 +19,8 @@
   @media (min-width: $md) {
     & .user-card {
       width: 125px;
+      margin: .8rem;
+
     }
   }
 

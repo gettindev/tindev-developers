@@ -1,0 +1,30 @@
+@import "src/styles/vars";
+
+.message-wrapper {
+  padding: 0.6rem;
+  background-color: $primaryColorLight;
+
+  &:hover {
+    box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  &.active {
+    border-right-color: #fd5068;
+  }
+
+  & .user-card {
+    width: 70px;
+  }
+
+  & .message-preview-container {
+    padding: 0.6em;
+    color: $textColor;
+    line-height: 0.9em;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}

@@ -15,7 +15,7 @@ const ChatList = () => (
   <div className="messages">
     {/* <MenuNav /> */}
     <ScrollingList />
-    {/* <MessagesList /> */}
+    <MessagesList />
   </div>
 );
 
