@@ -7,3 +7,7 @@ dist/
 Thumbs.db
 
 yarn-error.log
+
+# Except for the themes directories:
+
+!node_modules/react-swipe-card

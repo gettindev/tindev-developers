@@ -55,6 +55,8 @@
     "react-icons": "^3.7.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.1.2",
+    "react-swipeable-cards": "^1.0.6",
+    "react-swipy": "^0.0.6",
     "redux": "^4.0.1",
     "socket.io": "^2.3.0"
   }
