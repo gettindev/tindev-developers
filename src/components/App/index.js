@@ -8,11 +8,12 @@ import './app.scss';
 
 // Import locaux
 import UserProfil from 'src/components/UserProfil';
+import EditUserProfil from 'src/components/UserProfil/EditUserProfil';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <UserProfil />
+    <EditUserProfil />
   </div>
 );
 
