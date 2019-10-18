@@ -7,14 +7,12 @@ import './app.scss';
 // == Import : style
 
 // Import locaux
-import Nav from 'src/components/Nav';
 import UserProfil from 'src/components/UserProfil';
 
 // == Composant
 const App = () => (
   <div className="app">
     <UserProfil />
-    <Nav nav="back-right" />
   </div>
 );
 
