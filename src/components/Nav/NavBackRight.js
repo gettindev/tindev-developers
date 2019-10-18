@@ -12,7 +12,7 @@ const NavBackRight = () => (
       <Navbar.Text className="navbar-title">Mon profil</Navbar.Text>
     </Navbar.Collapse>
     <Navbar.Collapse className="justify-content-end">
-      <Navbar.Text className="icon"><MdArrowForward /></Navbar.Text>
+      <Navbar.Text onClick={(e) => {console.log('>>> Back Button', e)}}><MdArrowForward className="icon" /></Navbar.Text>
     </Navbar.Collapse>
   </Navbar>
 );
