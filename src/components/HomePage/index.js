@@ -18,7 +18,7 @@ const HomePage = () => (
 
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="img-responsive"
               src="./src/data/homePage-mobile.jpg"
               alt="first slide"
             />
@@ -30,7 +30,7 @@ const HomePage = () => (
 
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="img-responsive"
               src="./src/data/side-project.jpg"
               alt="second slide"
             />
@@ -42,7 +42,7 @@ const HomePage = () => (
 
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="img-responsive"
               src="./src/data/bangkok-breakfast.jpg"
               alt="Third slide"
             />
@@ -54,7 +54,7 @@ const HomePage = () => (
 
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="img-responsive"
               src="./src/data/pizza.jpg"
               alt="fourth slide"
             />

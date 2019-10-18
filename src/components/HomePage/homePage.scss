@@ -4,20 +4,17 @@
   font-family: 'Oswald', sans-serif;
 }
 
-// .mainHome {
-//   max-height: 100%;
-// }
-
 .carousel {
-  
-  img {
-    max-width: 100%;
-    height: auto;
+  h3 {
+    margin-bottom: 8rem;
   }
+}
 
-  p{
-    margin-top: 15rem;
-  }
+.img-responsive {
+  width: 400px;
+  height: 500px;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .footerHome {
