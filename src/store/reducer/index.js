@@ -5,7 +5,7 @@ import { combineReducers } from 'redux';
 
 // we import each of the sub-reducers
 // import user from './user';
-import home from './home';
+import chatroom from './chatroom';
 
 // combineReducers returns us the generated parent reducer
 // we must supply an object as parameter
@@ -13,9 +13,7 @@ import home from './home';
 // https://redux.js.org/api/combinereducers
 
 const reducer = combineReducers({
-  // user: user
-  // user,
-  home,
+  chatroom,
 });
 
 export default reducer;

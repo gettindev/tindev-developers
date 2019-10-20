@@ -3,7 +3,7 @@ import React from 'react';
 
 // == Import : local
 import Form from 'src/components/ChatRoom/Form';
-import Messages from 'src/components/ChatRoom/Messages';
+import Messages from 'src/containers/ChatRoom/Messages';
 
 // == Import : style
 import './app.scss';
