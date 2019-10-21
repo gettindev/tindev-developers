@@ -1,9 +1,8 @@
 // == Import : npm
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 
 // == Import : local
-import Form from 'src/components/ChatRoom/Form';
+import Form from 'src/containers/ChatRoom/Form';
 import Messages from 'src/containers/ChatRoom/Messages';
 
 // == Import : style

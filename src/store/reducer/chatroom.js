@@ -3,19 +3,20 @@ import messageData from 'src/data/messages'; // data
 
 const initialState = {
   messages: messageData,
+  messageValue: 'test',
 };
 
 // == Types
-const DO_SOMETHING = 'DO_SOMETHING';
+const CHANGE_MESSAGE = 'CHANGE_MESSAGE';
 
 const chatroom = (state = initialState, action = {}) => {
+  console.log(action);
   switch (action.type) {
-    case DO_SOMETHING:
+    case CHANGE_MESSAGE:
       return {
         ...state,
-        message: action.message,
+        messageValue: 'coucou',
       };
-
     default:
       return state;
   }
@@ -27,9 +28,7 @@ const chatroom = (state = initialState, action = {}) => {
 //   message,
 // });
 
-
 // // == Selectors
-
 
 // == Export
 export default chatroom;
