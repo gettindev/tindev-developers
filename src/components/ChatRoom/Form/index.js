@@ -5,14 +5,19 @@ import PropTypes from 'prop-types';
 
 import './form.scss';
 
-const Form = ({ messageValue, doChange }) => {
+const Form = ({ messageValue, doChange, sendMessage }) => {
   const handleChange = (e) => {
     const { value } = e.target;
     doChange(value);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('toto');
+    sendMessage();
+  };
 
   return (
-    <form className="form">
+    <form onSubmit={handleSubmit} className="form">
       <input
         className="form-input"
         value={messageValue}
@@ -29,6 +34,7 @@ const Form = ({ messageValue, doChange }) => {
 Form.propTypes = {
   messageValue: PropTypes.string.isRequired,
   doChange: PropTypes.func.isRequired,
+  sendMessage: PropTypes.func.isRequired,
 };
 
 

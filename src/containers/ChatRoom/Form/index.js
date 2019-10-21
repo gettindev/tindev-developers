@@ -20,6 +20,12 @@ const mapDispatchToProps = (dispatch) => ({
     };
     dispatch(action);
   },
+  sendMessage: () => {
+    const action = {
+      type: 'ADD_MESSAGE',
+    };
+    dispatch(action);
+  },
 });
 
 // container

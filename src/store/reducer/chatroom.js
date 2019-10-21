@@ -8,6 +8,7 @@ const initialState = {
 
 // == Types
 const CHANGE_MESSAGE = 'CHANGE_MESSAGE';
+const ADD_MESSAGE = 'ADD_MESSAGE';
 
 const chatroom = (state = initialState, action = {}) => {
   console.log(action);
@@ -17,6 +18,19 @@ const chatroom = (state = initialState, action = {}) => {
         ...state,
         messageValue: action.value,
       };
+    case ADD_MESSAGE: {
+      const newMessage = {
+        text: state.messageValue,
+        id: 999,
+      };
+      return {
+        ...state,
+        messages: [
+          ...state.messages,
+          newMessage,
+        ],
+      };
+    }
     default:
       return state;
   }
@@ -27,6 +41,9 @@ const chatroom = (state = initialState, action = {}) => {
 //   type: DO_SOMETHING,
 //   message,
 // });
+export const addMessage = () => ({
+  type: ADD_MESSAGE,
+});
 
 // // == Selectors
 
