@@ -1,55 +1,128 @@
 @import 'src/styles/vars';
 
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-}
+// ::-webkit-scrollbar-thumb {
+//   border-radius: 10px;
+// }
 
 .messages {
-  padding: 1rem;
+  height: 85vh;
   overflow: scroll;
   overflow-x: hidden;
-  height: 85vh;
-  scrollbar-color: $eventColorBlue $primaryColorLight;
   scrollbar-width: 2em;
-
-}
-
-.message {
-  overflow-wrap: break-word;
+  position: relative;
+  scrollbar-color: $eventColorBlue $primaryColorLight;
   color: $textColor;
-  font-size: .8em;
 
-  @media (min-width: $sm) {
-    font-size: 1.2em;
-  }
-
-
-  &-author {
-    padding-left: 1rem;
-    margin-bottom: .8rem;
-    color: $secondaryColor;
-  }
-
-  &-content {
-    background-color: $primaryColorLight;
-    padding: .8rem;
-    border-radius: .8rem;
-    display: inline-block;
-    position: relative;
-    width: 75%;
-    border: $eventColorBlue .2rem solid;
+  & .message {
+    height: 3rem;
+    overflow-wrap: break-word;
+    font-size: .8em;
+    margin-bottom: 2.2rem;
 
     @media (min-width: $sm) {
-      width: 50%;
+      font-size: 1.1em;
     }
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: 2rem;
-      bottom: 100%;
-      border-bottom: 10px solid $eventColorBlue;
-      border-right: 10px solid transparent;
+
+    &-author {
+      padding-left: 1rem;
+      color: $secondaryColor;
+    }
+
+    &-content {
+      padding: .8rem;
+      border-radius: .8rem;
+      border: $eventColorBlue .1rem solid;
+      background-color: $primaryColorLight;
+
+      // &::after {
+      //   content: '';
+      //   position: absolute;
+      //   top: 0;
+      //   left: 50%;
+      //   width: 0;
+      //   height: 0;
+      //   border: 20px solid transparent;
+      //   border-bottom-color: #00aabb;
+      //   border-top: 0;
+      //   border-left: 0;
+      //   margin-left: -10px;
+      //   margin-top: -20px;
+      // }
+    }
+
+    &--not-mine {
+      height: 3rem;
+      overflow-wrap: break-word;
+      font-size: .8em;
+      text-align: right;
+      color: $secondaryColor;
+      margin-bottom: 2.2rem;
+
+      @media (min-width: $sm) {
+        font-size: 1.1em;
+      }
+
+      // & .message-content {
+      //   background-color: $secondaryColor;
+      //   padding: .8rem;
+      //   border-radius: .8rem;
+      //   border: $eventColorBlue .2rem solid;
+      // }
     }
   }
 }
+
+
+
+// .message {
+//   overflow-wrap: break-word;
+//   color: $textColor;
+//   font-size: .8em;
+
+
+//   @media (min-width: $sm) {
+//     font-size: 1.2em;
+//   }
+
+//   &--not-mine {
+//     position: relative;
+//     color: $secondaryColor;
+//     left: 100px;
+
+//     @media (min-width: $sm) {
+//       left: 50%;
+//       font-size: 1.2em;
+//     }
+//   }
+
+
+//   }
+
+//   &-content {
+//     background-color: $primaryColorLight;
+//     padding: .8rem;
+//     border-radius: .8rem;
+//     display: block;
+//     position: relative;
+//     width: max-content;
+//     border: $eventColorBlue .2rem solid;
+
+
+
+//     @media (min-width: $sm) {
+//       width: 50%;
+//     }
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       left: 2rem;
+//       bottom: 100%;
+//       border-bottom: 10px solid $eventColorBlue;
+//       border-right: 10px solid transparent;
+//     }
+//   }
+
+//   &--not-mine {}
+// }

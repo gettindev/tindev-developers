@@ -23,8 +23,9 @@
       font-size: 1em;
 
       @media (min-width: $sm) {
-        font-size: 1.4em;
+        font-size: 1.2em;
       }
+
     }
 
     // &:focus {
@@ -43,9 +44,9 @@
     // color: $color;
     padding: 0 1em;
     color: $secondaryColor;
-    //   &:hover {
-    //     color:darken($color, 5%);
-    //   }
-    // }
+
+    @media (min-width: $sm) {
+      font-size: 2.2em;
+    }
   }
 }

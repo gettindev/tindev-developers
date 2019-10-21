@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import Container from 'react-bootstrap/Container';
 
 // == Import : local
 import Form from 'src/components/ChatRoom/Form';
@@ -18,7 +19,6 @@ const App = () => (
     {/* <Nav /> */}
     <Messages messages={messages} />
     <Form />
-
   </div>
 );
 

@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Col from 'react-bootstrap/Col';
 
 import './messages.scss';
 
 import Message from './Message';
 
 const Messages = ({ messages }) => (
-  <div className="messages">
+  <Col className="messages no-gutters">
     {messages.map((message) => (
       <Message key={message.id} {...message} />
     ))}
-  </div>
+  </Col>
 );
 
 Messages.propTypes = {
