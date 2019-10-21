@@ -1,5 +1,6 @@
 // == Initial State
-import messageData from 'src/data/messages'; // data
+import messageData from 'src/data/messages';
+import { getMaxId } from 'src/store/selectors';
 
 const initialState = {
   messages: messageData,
@@ -19,9 +20,10 @@ const chatroom = (state = initialState, action = {}) => {
         messageValue: action.value,
       };
     case ADD_MESSAGE: {
+      const maxId = getMaxId(state.messages);
       const newMessage = {
         text: state.messageValue,
-        id: 999,
+        id: maxId + 1,
       };
       return {
         ...state,
