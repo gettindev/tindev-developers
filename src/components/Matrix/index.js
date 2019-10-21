@@ -27,7 +27,7 @@ const Matrix = () => (
         <div><p>#whatever</p></div>
       </section> 
       <h4 id="next">Next ></h4>
-      <h2 id="logo">TinDev</h2>
+      <h2 id="logo_matrix">TinDev</h2>
       <p>©2019 tous droits réservés</p>
     </div>
   </>

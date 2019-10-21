@@ -8,13 +8,15 @@ import './app.scss';
 import Nav from 'src/components/Nav';
 import HomePage from 'src/components/HomePage'
 import Matrix from 'src/components/Matrix'
+import Location from 'src/components/Location'
 
 // == Composant
 const App = () => (
   <div className="app">
     {/* <Nav /> */}
     {/* <HomePage /> */}
-    <Matrix />
+    {/* <Matrix /> */}
+    <Location />
   </div>
 );
 
