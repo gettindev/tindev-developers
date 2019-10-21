@@ -12,15 +12,15 @@ const mapStateToProps = (state) => {
 };
 
 // ecriture
-const mapDispatchToProps = (dispatch) => {
-  return {
-    doChange: () => {
-      dispatch({
-        type: 'CHANGE_MESSAGE',
-      });
-    },
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  doChange: (userInput) => {
+    const action = {
+      type: 'CHANGE_MESSAGE',
+      value: userInput,
+    };
+    dispatch(action);
+  },
+});
 
 // container
 const FormContainer = connect(

@@ -3,7 +3,7 @@ import messageData from 'src/data/messages'; // data
 
 const initialState = {
   messages: messageData,
-  messageValue: 'test',
+  messageValue: '',
 };
 
 // == Types
@@ -15,7 +15,7 @@ const chatroom = (state = initialState, action = {}) => {
     case CHANGE_MESSAGE:
       return {
         ...state,
-        messageValue: 'coucou',
+        messageValue: action.value,
       };
     default:
       return state;
