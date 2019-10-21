@@ -31,6 +31,7 @@ const chatroom = (state = initialState, action = {}) => {
           ...state.messages,
           newMessage,
         ],
+        messageValue: '',
       };
     }
     default:

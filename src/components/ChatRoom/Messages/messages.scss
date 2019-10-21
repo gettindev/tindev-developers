@@ -34,6 +34,7 @@
       border-radius: .8rem;
       border: $eventColorBlue .1rem solid;
       background-color: $primaryColorLight;
+      animation: grow .4s cubic-bezier(.36, 1.59, .89, 1.1);
 
       // &::after {
       //   content: '';
@@ -72,6 +73,16 @@
     }
   }
 }
+
+// @keyframes grow {
+//   0% {
+//     transform: scale(0);
+//   }
+
+//   100% {
+//     transform: scale(1);
+//   }
+// }
 
 
 
