@@ -3,21 +3,19 @@ import React from 'react';
 
 // == Import : local
 // import MenuNav from './Menu';
-import ScrollingList from './ScrollingList';
-import MessagesList from './MessagesList';
+import MatchList from 'src/containers/MatchList';
+import MessagesList from 'src/containers/ChatList';
 
 
 // == Import : style
 // import './chatlist.scss';
 
-import users from './users';
-
 // == Composant
 const ChatList = () => (
   <div className="messages">
     {/* <MenuNav /> */}
-    <ScrollingList users={users} />
-    <MessagesList users={users} />
+    <MatchList />
+    <MessagesList />
   </div>
 );
 

@@ -18,9 +18,8 @@ const MessagePreview = () => (
         roundedCircle
       />
     </div>
-    <div className="message-preview-container">
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit... </p>
-
+    <div className="message-preview-container my-auto ml-2">
+      <p>Lorem ipsum dolor sit lorem Lorem ipsum dolor sit lorem</p>
     </div>
   </div>
 );

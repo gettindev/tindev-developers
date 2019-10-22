@@ -1,12 +1,11 @@
 // == Import : npm
 import React from 'react';
-import Image from 'react-bootstrap/Image';
 // import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import MessagePreview from './MessagePreview';
 // == Import : style
-import './scrollinglist.scss';
+import './matchlist.scss';
 
 // == Composant
 const MessagesList = ({ users }) => (

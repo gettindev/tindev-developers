@@ -4,12 +4,12 @@ import Image from 'react-bootstrap/Image';
 // import { NavLink } from 'react-router-dom';
 
 // == Import : local
-import './scrollinglist.scss';
+import './matchlist.scss';
 
 // == Import : style
 
 // == Composant
-const ScrollingList = ({ users }) => (
+const MatchList = ({ users }) => (
   <div className="scrolling-wrapper d-flex flex-nowrap fixed-top">
     {users.map((user) => (
       <Image
@@ -22,6 +22,5 @@ const ScrollingList = ({ users }) => (
   </div>
 );
 
-
 // == Export
-export default ScrollingList;
+export default MatchList;
