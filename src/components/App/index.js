@@ -8,11 +8,14 @@ import './app.scss';
 
 // Import locaux
 import Nav from 'src/components/Nav';
+import ChatList from 'src/components/ChatList';
+
 
 // == Composant
 const App = () => (
   <div className="app">
-    <Nav />
+    {/* <Nav /> */}
+    <ChatList />
   </div>
 );
 

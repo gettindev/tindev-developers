@@ -5,15 +5,26 @@
   background-color: $primaryColorLight;
 
   &:hover {
-    box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.22);
+    background-color: $eventColorBlue;
   }
 
-  &.active {
-    border-right-color: #fd5068;
+  // &.active {
+  //   border-right: #0f0e0e 10px solid;
+  // }
+
+  .avatar-mini {
+    position: relative;
   }
 
   & .user-card {
-    width: 70px;
+    width: 50px;
+  }
+
+  @media (min-width: $md) {
+    & .user-card {
+      width: 80px;
+    }
+
   }
 
   & .message-preview-container {

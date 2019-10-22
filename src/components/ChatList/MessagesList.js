@@ -9,16 +9,11 @@ import MessagePreview from './MessagePreview';
 import './scrollinglist.scss';
 
 // == Composant
-const MessagesList = () => (
+const MessagesList = ({ users }) => (
   <div className="messages-list">
-    <MessagePreview />
-    <MessagePreview />
-    <MessagePreview />
-    <MessagePreview />
-    <MessagePreview />
-    <MessagePreview />
-    <MessagePreview />
-    <MessagePreview />
+    {users.map((user) => (
+      <MessagePreview key={user.username} />
+    ))}
   </div>
 );
 

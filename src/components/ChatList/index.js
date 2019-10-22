@@ -10,12 +10,14 @@ import MessagesList from './MessagesList';
 // == Import : style
 // import './chatlist.scss';
 
+import users from './users';
+
 // == Composant
 const ChatList = () => (
   <div className="messages">
     {/* <MenuNav /> */}
-    <ScrollingList />
-    <MessagesList />
+    <ScrollingList users={users} />
+    <MessagesList users={users} />
   </div>
 );
 
