@@ -7,12 +7,12 @@ import './app.scss';
 // == Import : style
 
 // Import locaux
-import Matching from 'src/components/Matching';
+import MatchingContainer from 'src/containers/MatchingContainer';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <Matching />
+    <MatchingContainer />
   </div>
 );
 

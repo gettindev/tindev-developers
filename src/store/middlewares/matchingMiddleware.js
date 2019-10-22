@@ -1,4 +1,4 @@
-const logMiddleware = (store) => (next) => (action) => {
+const matchingMiddleware = (store) => (next) => (action) => {
   console.log('I am the middleware, and I pass this action: ', action);
   next(action);
 
@@ -20,4 +20,4 @@ const logMiddleware = (store) => (next) => (action) => {
   // }
 };
 
-export default logMiddleware;
+export default matchingMiddleware;
