@@ -11,9 +11,9 @@ class Messages extends React.Component {
     this.chatZone.scrollBy(0, this.chatZone.scrollHeight);
   }
 
-  // componentDiMount() {
-  //   this.chatZone.scrollBy(0, this.chatZone.scrollHeight);
-  // }
+  componentDiMount() {
+    this.chatZone.scrollBy(0, this.chatZone.scrollHeight);
+  }
 
   render() {
     const { messages } = this.props;
