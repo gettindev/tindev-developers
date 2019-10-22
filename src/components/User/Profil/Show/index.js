@@ -12,7 +12,7 @@ const ShowUserProfil = ({ user }) => {
 
   return (
     <div className="show-profil">
-      <img className="avatar" src={user.avatar} alt={`Avatar de ${user.firstName} ${user.lastName}`} height="100" width="100" />
+      <img className="avatar" src={user.avatar} alt={`Avatar de ${user.firstName} ${user.lastName}`} height="120" width="120" />
       <h2>{`${user.firstName} ${user.lastName}`}</h2>
       <h3>{userLevel[user.level].desc} <small>{user.githubName}</small></h3>
       <section className="bio">
