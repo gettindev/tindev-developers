@@ -1,0 +1,54 @@
+.show-profil {
+  .avatar{
+    border-radius:100%;
+    margin:2rem 0 1rem;
+  }
+  h2{
+    font-size: 2.4em;
+    font-weight: bold;
+  }
+  h3{
+    font-size: 1.8em;
+    small{
+      background-color: black;
+      color: blanchedalmond;
+      padding: .25rem .5rem;
+      border-radius: .5rem;
+      font-size: .5em;
+      display: inline-block;
+    }
+  }
+  .bio, .wishes, .technos, .links{
+    text-align: left;
+    margin:0 1rem;
+  }
+  .wishes{
+    .list{
+      li{
+        display: inline-block;
+        margin-right: .5rem;
+      }
+      :last-child{
+        margin-right:0;
+      }
+    }
+  }
+  
+  .technos{
+    .list{
+      li{
+        display: inline-block;
+        padding:.25rem .5rem;
+        background-color: black;
+        color: blanchedalmond;
+        border-radius: .5rem;
+        margin-right: .5rem;
+        font-size: .7em;
+        font-weight: bold;
+      }
+      :last-child{
+        margin-right:0;
+      }
+    }
+  }  
+}

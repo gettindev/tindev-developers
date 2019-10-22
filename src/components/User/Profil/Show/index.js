@@ -1,31 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import './show-profil.scss';
+import './show-profil.scss';
+import List from './List';
 
 const ShowUserProfil = ({ user }) => {
   const userlinks = user.links;
+  const userWishes = user.wishes;
+  const userTechnos = user.technos;
+  const userLevel = user.levelsList;
+  // info from other table
+  const wishesTable = user.wishesList;
+
+  // const filtered = userWishes.filter(user.wishes);
+  console.log(userWishes, wishesTable);
 
   return (
     <div className="show-profil">
-      <img src={user.avatar} alt={`Avatar de ${user.firstName} ${user.lastName}`} />
+      <img className="avatar" src={user.avatar} alt={`Avatar de ${user.firstName} ${user.lastName}`} />
       <h2>{`${user.firstName} ${user.lastName}`}</h2>
-      <h3>Level ({user.level}) <small>{user.githubName}</small></h3>
+      <h3>{userLevel[user.level].desc} <small>{user.githubName}</small></h3>
       <section className="bio">
         <p>{user.biography}</p>
       </section>
       <section className="wishes">
         <h4>Mes attentes :</h4>
-        {user.wishes}
+        <List list={userWishes} />
       </section>
       <section className="technos">
         <h4>Mes technos :</h4>
-        {user.technos}
+        <List list={userTechnos} />
       </section>
       <section className="links">
+        <h4>Mes liens :</h4>
         <ul>
           {userlinks.map((link) => (
-            <li><a href={link.url}>{link.title}</a></li>
+            <li key={link.id}><a href={link.url}>{link.title}</a></li>
           ))}
         </ul>
       </section>
