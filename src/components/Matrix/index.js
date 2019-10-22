@@ -6,31 +6,21 @@ import './matrix.scss';
 
 
 // == Composant
-const Matrix = () => (
-  <>
+const Matrix = ({ prefs }) => (
+  
     <div id="matrix">
       <h3>Bienvenue dans la matrice ami Dev !</h3>
       <h4 className="what">Qu'est ce qui t'ammènes?</h4>
       <section id="choice">
-        <div><p>#entraide</p></div>
-        <div><p>#discussion</p></div>
-        <div><p>#pizzas</p></div>
-      </section>
-      <section id="choice">   
-        <div><p>#l'amour</p></div>
-        <div><p>#stafferUnProjet</p></div>
-        <div><p>#meetUp</p></div>
-      </section>  
-      <section id="choice">  
-        <div><p>#job</p></div>
-        <div><p>#iHaveAnIdea</p></div>
-        <div><p>#whatever</p></div>
+      {prefs.map((pref) =>
+        <div key={pref.id}><p>{pref.choice}</p></div>
+      )}
       </section> 
       <h4 id="next">Next ></h4>
       <h2 id="logo_matrix">TinDev</h2>
       <p>©2019 tous droits réservés</p>
     </div>
-  </>
+  
 );
 
 
@@ -38,3 +28,13 @@ const Matrix = () => (
 
 // == Export
 export default Matrix;
+
+
+// react.development.js:172 Warning: Each child in a list should have a unique "key" prop.
+
+// Check the render method of `Matrix`. See https://fb.me/react-warning-keys for more information.
+//     in div (created by Matrix)
+//     in Matrix (created by App)
+//     in div (created by App)
+//     in App
+//     in Provider

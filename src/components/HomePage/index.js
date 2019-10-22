@@ -21,7 +21,7 @@ const HomePage = () => (
           />
           <img
             className="img-responsive"
-            src="./src/data/homePage-mobile.jpg"
+            src="./src/data/pictures/homePage-mobile.jpg"
             alt="first slide"
           />            
           <Carousel.Caption>
@@ -37,7 +37,7 @@ const HomePage = () => (
           />
           <img
             className="img-responsive"
-            src="./src/data/side-project.jpg"
+            src="./src/data/pictures/side-project.jpg"
             alt="second slide"
           />
           <Carousel.Caption>
@@ -53,7 +53,7 @@ const HomePage = () => (
           />
           <img
             className="img-responsive"
-            src="./src/data/bangkok-breakfast.jpg"
+            src="./src/data/pictures/bangkok-breakfast.jpg"
             alt="Third slide"
           />
           <Carousel.Caption>
@@ -69,7 +69,7 @@ const HomePage = () => (
           />
           <img
             className="img-responsive"
-            src="./src/data/pizza.jpg"
+            src="./src/data/pictures/pizza.jpg"
             alt="fourth slide"
           />
           <Carousel.Caption>

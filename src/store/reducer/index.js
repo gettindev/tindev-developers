@@ -6,7 +6,7 @@ import { combineReducers } from 'redux';
 // we import each of the sub-reducers
 // import user from './user';
 import home from './home';
-
+import matrix from './matrixReducer';
 // combineReducers returns us the generated parent reducer
 // we must supply an object as parameter
 // with a given name given to each reducer and in value, each function reducer
@@ -16,6 +16,7 @@ const reducer = combineReducers({
   // user: user
   // user,
   home,
+  matrix,
 });
 
 export default reducer;

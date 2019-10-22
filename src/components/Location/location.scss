@@ -3,8 +3,12 @@
 #header_location 
 {
   width: 100%;
-  padding: 1rem 0 1rem 0;
   background-color: $cardColor;
+
+  img {
+    width: 80%;
+    // padding-right: 4.5rem;
+  }
 }
 
 .location {
@@ -15,7 +19,7 @@
   h2 {
     font-size: 1.3em;
     font-weight: bold;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     color: $secondaryColor;
   }
 
@@ -51,7 +55,7 @@
 }
 
 #see {
-  margin: 6rem 0 1rem 0;
+  margin: 5.2rem 0 0.5rem 0;
   background-color: $linkColor;
 
   &:hover {
