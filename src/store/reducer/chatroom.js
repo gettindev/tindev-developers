@@ -13,7 +13,7 @@ const CHANGE_MESSAGE = 'CHANGE_MESSAGE';
 const ADD_MESSAGE = 'ADD_MESSAGE';
 
 const chatroom = (state = initialState, action = {}) => {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case CHANGE_MESSAGE:
       return {
