@@ -11,6 +11,7 @@ import NavCloseRight from './NavCloseRight';
 import NavCloseLeft from './NavCloseLeft';
 import NavBackRight from './NavBackRight';
 import NavBackLeft from './NavBackLeft';
+import NavLogo from './NavLogo';
 
 // Component
 const Nav = (props) => {
@@ -20,6 +21,8 @@ const Nav = (props) => {
     <>
       {/* use <Nav /> for Main Nav with user and matchs icons */}
       { nav === 'default' && <NavDefault />}
+      {/* use <Nav nav="logo" /> for displaying the Nav nar with the logo only */}
+      { nav === 'logo' && <NavLogo />}
       {/* use <Nav nav="back-left" /> for Nav for the
           my profil / Matchs preferences with back button left */}
       { nav === 'back-left' && <NavBackLeft />}
