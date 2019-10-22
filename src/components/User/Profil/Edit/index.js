@@ -5,12 +5,11 @@ import { Typeahead } from 'react-bootstrap-typeahead';
 // import PropTypes from 'prop-types';
 
 // == Import : local
-import './user-profil.scss';
+// import './user-profil.scss';
 import './edit-profil.scss';
 // css for the Typeahead
 import 'react-bootstrap-typeahead/css/Typeahead.css';
-//
-import Nav from 'src/components/Nav';
+// Bootstrap Components
 import {
   Container,
   Row,
@@ -20,10 +19,12 @@ import {
   InputGroup,
   FormControl,
 } from 'react-bootstrap';
-// data for the tech select
+//
+import Nav from 'src/components/Nav';
+import Header from './Header';
 
 // == Composant
-class EditUserProfil extends React.Component {
+class UserProfilEdit extends React.Component {
   state = {
     avatar: 'https://avatars1.githubusercontent.com/u/1433968',
     firstName: 'Damien',
@@ -66,9 +67,8 @@ class EditUserProfil extends React.Component {
   }
 
   handleAddUrl = () => {
-    // console.log(this.state.sharedNewUrl);
-    let { sharedNewUrl } = this.state;
-    let { sharedNewTitleUrl } = this.state;
+    const { sharedNewUrl } = this.state;
+    const { sharedNewTitleUrl } = this.state;
     const { sharedUrl } = this.state;
     const urlId = this.generateId();
     const updateSharedUrl = sharedUrl;
@@ -103,12 +103,7 @@ class EditUserProfil extends React.Component {
       <div className="edit-profil">
         <Nav nav="close-right" title="Éditer mon profil" />
         <Container className="text-left">
-          <Row>
-            <Col>
-              <h2>Hello {userName}</h2>
-              <p>Bienvenue sur l'édition de ton profil.</p>
-            </Col>
-          </Row>
+          <Header userName={userName} avatar={avatar} />
           <Form>
             <h3>Les infos de ton profil</h3>
             <Form.Group controlId="formFirstName">
@@ -178,7 +173,6 @@ class EditUserProfil extends React.Component {
                 })}
               </ul>
             </Form.Group>
-
             <Button className="mb-10" onClick={(e) => { e.preventDefault(); console.log(this.state) }} block variant="primary" type="submit">Sauvegarder</Button>
           </Form>
           <Row>
@@ -203,4 +197,4 @@ EditUserProfil.propTypes = {
 */
 
 // == Export
-export default EditUserProfil;
+export default UserProfilEdit;

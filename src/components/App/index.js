@@ -7,13 +7,14 @@ import './app.scss';
 // == Import : style
 
 // Import locaux
-import UserProfil from 'src/components/UserProfil';
-import EditUserProfil from 'src/components/UserProfil/EditUserProfil';
+import UserMenu from 'src/components/User/Menu';
+import UserProfilEdit from 'src/components/User/Profil/Edit';
+// import EditUserProfil from 'src/components/UserProfil/EditUserProfil';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <EditUserProfil />
+    <UserProfilEdit />
   </div>
 );
 

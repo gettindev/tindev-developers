@@ -1,16 +1,24 @@
 // == Import : npm
 import React from 'react';
+import { MdEdit, MdSettings } from 'react-icons/md';
+import {
+  Container,
+  Row,
+  Col,
+  Image,
+  Button,
+} from 'react-bootstrap';
 // import PropTypes from 'prop-types';
 
 // == Import : local
 import './user-profil.scss';
 import Nav from 'src/components/Nav';
-import { MdEdit, MdSettings } from 'react-icons/md';
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
 // == Composant
 const UserProfil = () => {
+  // use the state instaid //
   const userName = 'myGithubName';
+  //
   return (
     <div className="user-profil">
       <Nav nav="back-right" />
