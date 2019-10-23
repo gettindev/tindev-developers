@@ -21,7 +21,7 @@ const UserProfil = () => {
   //
   return (
     <div className="user-profil">
-      <Nav nav="back-right" />
+      <Nav nav="chat" username="Gael" />
       <Container className="user-profil-info">
         <Row>
           <Col>
