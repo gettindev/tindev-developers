@@ -21,13 +21,13 @@ import ShowUserProfil from 'src/containers/User/Profil/Show';
 const App = () => (
   <div className="app">
     {/* <Page logged={true} /> */}
-    <Messages />
-    <Form />
     {/* <ChatList /> */}
+    {/* <Messages /> */}
+    {/* <Form /> */}
     {/* <MatchingContainer /> */}
-    {/* <UserMenu /> */}
-    {/* <EditUserProfil /> */}
-    {/* <ShowUserProfil /> */}
+    {<UserMenu />}
+    {<EditUserProfil />}
+    {<ShowUserProfil />}
   </div>
 );
 
