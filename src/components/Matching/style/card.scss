@@ -29,7 +29,7 @@
             font-size: 1rem;
             margin-top: 1rem !important;
             word-spacing: 1rem;
-            
+            left: 3rem;
             position: relative;
            
             overflow-wrap: break-word;
@@ -102,7 +102,8 @@
                         position: relative;
                         font-size: 0.7rem !important;
                         margin-top: 6rem;
-                      
+                        left: 2.4rem;
+
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
                           margin-top: 6rem;
@@ -118,7 +119,7 @@
                         color: black;
                         font-size: 0.8rem;
                         position: relative;
-                        
+                        text-align: center;
                       
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
@@ -141,6 +142,11 @@
   bottom: -1.5em;
   font-size: 2rem !important;
   left: 1.6em;
+}
+
+p.card-content-bio {
+  bottom: -18rem;
+  padding: 0.2rem;
 }
 
 
