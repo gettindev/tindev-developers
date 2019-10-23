@@ -1,5 +1,6 @@
 // Node import
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 // Plugins de traitement pour dist/
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -144,4 +145,8 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
 };
