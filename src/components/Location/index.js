@@ -14,6 +14,7 @@ const Location = () => {
 
   return (
       <>
+      <div className="location_newUser"> 
         <div id="header_location"><img src='src/data/logo.png'/></div>
         <div className="location">
           <h2>Hello githubUserName</h2> 
@@ -53,7 +54,8 @@ const Location = () => {
             Voir les profils
           </Button>
         </div>
-       </> 
+      </div>   
+      </> 
     )
 };
 

@@ -1,10 +1,23 @@
 @import 'src/styles/vars';
 
+.location_newUser {
+  text-align: center;
+  height: 100vh;
+  font-size: 1.2em;
+
+  @media (min-width: $md) {
+    font-size: 2em;
+  }
+
+  @media (min-width: $lg) {
+    font-size: 3em;
+  }
+}
+
 #header_location 
 {
   width: 100%;
   background-color: $cardColor;
-  text-align: center;
 
   img {
     width: 80%;
@@ -15,8 +28,6 @@
   
   padding: 1.8rem;
   background-color: $primaryColorLight;
-  font-size: 1.2em;
-  text-align: center;
   
   h2 {
     font-size: 1.3em;
