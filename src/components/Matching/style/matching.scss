@@ -16,8 +16,10 @@
   
 }
 // End text
-p.card-content-bio {
+p.card-content-bio-end {
   position: relative;
   bottom: -18rem;
   padding: 0.2rem;
+  color: #fff !important;
+  overflow-wrap: break-word;
 }
