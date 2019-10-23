@@ -10,7 +10,7 @@ import './matchlist.scss';
 
 // == Composant
 const MatchList = ({ users }) => (
-  <div className="scrolling-wrapper d-flex flex-nowrap fixed-top">
+  <div className="scrolling-wrapper d-flex flex-nowrap">
     {users.map((user) => (
       <Image
         className="user-card"
