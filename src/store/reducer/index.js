@@ -5,8 +5,12 @@ import { combineReducers } from 'redux';
 
 // we import each of the sub-reducers
 import matchlistReducer from './matchlistReducer';
-
 import chatlistReducer from './chatlistReducer';
+import matching from './matching';
+import home from './home';
+import matrix from './matrixReducer';
+import user from './user';
+
 // combineReducers returns us the generated parent reducer
 // we must supply an object as parameter
 // with a given name given to each reducer and in value, each function reducer
@@ -15,6 +19,10 @@ import chatlistReducer from './chatlistReducer';
 const reducer = combineReducers({
   matchlistReducer,
   chatlistReducer,
+  matching,
+  home,
+  matrix,
+  user,
 });
 
 export default reducer;
