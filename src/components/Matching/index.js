@@ -76,7 +76,7 @@ class Matching extends Component {
     <SwipeableList>
       <SwipeableListItem
         swipeLeft={{
-          content:<Image roundedCircle className="right" src='src/data/glass.gif' /> ,
+          content:<Image roundedCircle className="right" src='./data/glass.gif' /> ,
           action: () => (
              console.info('swiped on left'),
              this.setState ({
@@ -87,7 +87,7 @@ class Matching extends Component {
              this.checkEnd()
           )}}
         swipeRight={{
-          content:<Image roundedCircle className="right" src='src/data/beer.gif' />,
+          content:<Image roundedCircle className="right" src='./data/beer.gif' />,
           action: () => (
             console.info('swiped on right'),
             this.setState ({
@@ -134,7 +134,7 @@ class Matching extends Component {
           {end &&
             <div className="card-special">
               <p className="card-content-bio">Plus de profil à proximité..</p>
-              <Image fluid roundedCircle className="right" src='src/data/kid.gif' />
+              <Image fluid roundedCircle className="right" src='./data/kid.gif' />
               <p className="card-content-bio" >Nous en recherchons au plus vite..</p>
             </div>
           }
