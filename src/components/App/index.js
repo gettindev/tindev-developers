@@ -5,6 +5,7 @@ import React from 'react';
 import './app.scss';
 
 // Import locaux
+import ChatList from 'src/components/ChatList';
 import Page from 'src/components/Page';
 import MatchingContainer from 'src/containers/MatchingContainer';
 import UserMenu from 'src/components/User/Menu';

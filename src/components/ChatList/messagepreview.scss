@@ -1,0 +1,42 @@
+@import "src/styles/vars";
+
+.message-wrapper {
+  padding: 0.6rem;
+  background-color: $primaryColorLight;
+
+  &:hover {
+    background-color: $eventColorBlue;
+  }
+
+  // &.active {
+  //   border-right: #0f0e0e 10px solid;
+  // }
+
+  .avatar-mini {
+    position: relative;
+  }
+
+  & .user-card {
+    width: 50px;
+  }
+
+  @media (min-width: $md) {
+    & .user-card {
+      width: 80px;
+    }
+
+  }
+
+  & .message-preview-container {
+    padding: 0.6em;
+    color: $textColor;
+    line-height: 0.9em;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 1rem;
+  }
+}
