@@ -4,9 +4,8 @@ import React from 'react';
 // == Import : local
 import './app.scss';
 
-// == Import : style
-
 // Import locaux
+import Page from 'src/components/Page';
 import MatchingContainer from 'src/containers/MatchingContainer';
 import UserMenu from 'src/components/User/Menu';
 import EditUserProfil from 'src/components/User/Profil/Edit';
@@ -16,7 +15,8 @@ import ShowUserProfil from 'src/containers/User/Profil/Show';
 // == Composant
 const App = () => (
   <div className="app">
-    <MatchingContainer />
+    <Page logged={true} />
+    {/* <MatchingContainer /> */}
     {/* <UserMenu /> */}
     {/* <EditUserProfil /> */}
     {/* <ShowUserProfil /> */}

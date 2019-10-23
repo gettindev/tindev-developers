@@ -1,0 +1,66 @@
+@import 'src/styles/vars';
+
+#header_location 
+{
+  width: 100%;
+  background-color: $cardColor;
+
+  img {
+    width: 80%;
+    // padding-right: 4.5rem;
+  }
+}
+
+.location {
+  
+  padding: 1.8rem;
+  background-color: $primaryColorLight;
+  
+  h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    color: $secondaryColor;
+  }
+
+   p {
+     margin-top: 3rem;;
+     font-size: 0.7em;
+     color: $textColor;
+   }
+
+  h3 {
+    font-size: 1.2em;
+    margin-bottom: 2rem;
+    color: $eventColorBlue;
+  }
+
+  .buttonChoice {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    justify-content: flex-start;
+    font-weight: bold;
+    background-color: $cardColor;
+
+    &:hover {
+      background-color: $eventColorBlue;
+      color: grey;
+    }
+  }
+}
+
+.camp_logo {
+    display: inline;
+    padding-right: 1rem;
+}
+
+#see {
+  margin: 5.2rem 0 0.5rem 0;
+  background-color: $linkColor;
+
+  &:hover {
+    background-color: $eventColorBlue;
+    color: grey;
+  }
+}
+

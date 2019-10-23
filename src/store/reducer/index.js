@@ -6,6 +6,7 @@ import { combineReducers } from 'redux';
 // we import each of the sub-reducers
 // import user from './user';
 import home from './home';
+import matrix from './matrixReducer';
 import matching from './matching';
 import user from './user';
 
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   // user,
   matching,
   home,
+  matrix,
   user,
 });
 
