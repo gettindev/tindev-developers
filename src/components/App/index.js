@@ -19,10 +19,10 @@ import ShowUserProfil from 'src/containers/User/Profil/Show';
 // == Composant
 const App = () => (
   <div className="app">
-    {<Page logged={true} />}
+    {/*<Page logged={true} />*/}
     {/* <Messages /> */}
     {/* <Form /> */}
-    {/* <MatchingContainer /> */}
+    <MatchingContainer />
     {/* <UserMenu /> */}
     {/* <EditUserProfil /> */}
     {/* <ShowUserProfil /> */}
