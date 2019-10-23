@@ -1,8 +1,7 @@
 @import "src/styles/vars";
 
-.messages {
+.chatlist {
 
-  position: relative;
 
   & .scrolling-wrapper {
     background-color: $primaryColor;
@@ -14,18 +13,41 @@
       margin: 0.6rem;
       width: 80px;
     }
+  }
 
-    @media (min-width: $md) {
+  & .messages-list {
+    height: calc(100vh - 152px);
+    overflow-y: scroll;
+  }
+
+  @media (min-width: $xs) {
+    & .messages-list {
+      height: calc(100vh - 152px);
+    }
+  }
+
+  @media (min-width: $md) {
+    .scrolling-wrapper {
       & .user-card {
         width: 100px;
         margin: 0.8rem;
       }
     }
 
-    @media (min-width: $lg) {
+    & .messages-list {
+      height: calc(100vh - 152px);
+    }
+  }
+
+  @media (min-width: $lg) {
+    .scrolling-wrapper {
       & .user-card {
         width: 125px;
       }
+    }
+
+    & .messages-list {
+      height: calc(100vh - 172px);
     }
   }
 }

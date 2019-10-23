@@ -6,6 +6,7 @@ import './app.scss';
 
 // Import locaux
 import messages from 'src/data/messages';
+import Nav from 'src/components/Nav';
 
 import Form from 'src/containers/ChatRoom/Form';
 import Messages from 'src/containers/ChatRoom/Messages';
@@ -20,6 +21,7 @@ import ShowUserProfil from 'src/containers/User/Profil/Show';
 const App = () => (
   <div className="app">
     {/* <Page logged={true} /> */}
+    {/* <ChatList /> */}
     {/* <Messages /> */}
     {/* <Form /> */}
     {/* <MatchingContainer /> */}
