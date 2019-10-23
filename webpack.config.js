@@ -41,7 +41,7 @@ module.exports = {
     chunkFilename: 'vendors.js',
     // Cible des bundles
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'http://ec2-3-86-235-24.compute-1.amazonaws.com/projet-Tinder-developper',
+    publicPath: '/dist/index.html',
   },
   // Optimisation pour le build
   optimization: {
