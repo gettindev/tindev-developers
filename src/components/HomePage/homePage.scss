@@ -1,0 +1,46 @@
+@import 'src/styles/vars';
+
+#home {
+  font-family: 'Oswald', sans-serif;
+}
+
+.carousel { 
+  h3 {
+    margin-bottom: 9rem;
+    opacity: 0.85;
+  }
+
+  & .carousel-control-next-icon, .carousel-control-prev-icon  { visibility: hidden; }
+}
+
+.img-fluid {
+  top: .5rem;
+  width: 17rem;
+  margin: 0 0 0 3.1rem;
+  position: absolute;
+}
+
+.img-responsive {
+  width: 400px;
+  height: 502px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.footerHome {
+  padding-bottom: 0.5rem;
+  background-color: $primaryColor;
+
+  h2 {
+    padding: 1rem 0 1rem 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: $eventColorBlue;
+  }
+
+  p {
+    font-size: 0.8em;
+    color: $secondaryColor;
+  }
+} 
+

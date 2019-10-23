@@ -1,0 +1,54 @@
+@import "src/styles/vars";
+
+.messages {
+
+  position: relative;
+
+  & .scrolling-wrapper {
+    background-color: $primaryColor;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+
+    & .user-card {
+      flex: 0 0 auto;
+      margin: 0.6rem;
+      width: 80px;
+    }
+
+    @media (min-width: $md) {
+      & .user-card {
+        width: 100px;
+        margin: 0.8rem;
+      }
+    }
+
+    @media (min-width: $lg) {
+      & .user-card {
+        width: 125px;
+      }
+    }
+  }
+}
+
+// remove scrollbar but keep content scrollable
+::-webkit-scrollbar {
+  display: none;
+}
+
+// @import 'src/styles/vars';
+
+// .scrolling-wrapper {
+//   overflow-x: scroll;
+//   scroll-behavior: smooth;
+
+//   & .user-card {
+//     flex: 0 0 auto;
+//     margin: .8rem .6rem;
+//     width: 75px;
+//   }
+// }
+
+// // remove scrollbar but keep content scrollable
+// ::-webkit-scrollbar {
+//   display: none;
+// }

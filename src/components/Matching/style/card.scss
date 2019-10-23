@@ -1,0 +1,156 @@
+// Import vars scss
+@import 'src/styles/vars';
+
+/* All the card */
+.card {
+  height: 400px;
+  width: 270px;
+  margin: 3rem auto;
+  background-color: $primaryColorLight !important;
+  border-radius: 0.75rem !important;
+  cursor: pointer;
+
+          /* The img on the card */
+          &-img-responsive {
+            width: 25%;
+            height: 18%;
+            object-fit: cover;
+            position: relative;
+            margin: 0;
+            top: .8rem;
+            left: .8rem;
+            border: solid 2px $secondaryColor;
+            
+          }
+          
+          /* The tags on the card like #entraide #lamour */
+          &-tag {
+            color: $secondaryColor;
+            font-size: 1rem;
+            margin-top: 1rem !important;
+            word-spacing: 1rem;
+            
+            position: relative;
+           
+            overflow-wrap: break-word;
+          
+              @media screen and (device-aspect-ratio: 40/71){
+              font-size: 1rem !important;
+              margin: 3%;
+              }
+          }
+          
+          /* Regroup the name and the exp */
+          &-top {
+            left: 6rem;
+            top: -3.2rem;
+            text-align: center;
+            position: relative;
+
+                    &-name {
+                      position: relative;
+                      font-size: 1.5rem;
+                      color: $textColor;
+                      width: max-content;
+                      margin:0;
+                        @media screen and (device-aspect-ratio: 40/71){
+                        font-size: 1.3rem !important;
+                        }
+                    }
+          
+                    &-exp {
+                      color: $secondaryColor;
+                      font-size: 1rem;
+                      position: relative;
+                      width: max-content;
+                      margin:0;
+                        @media screen and (device-aspect-ratio: 40/71){
+                        font-size: 0.9rem !important;
+                        
+                        }
+                    }
+            }
+            
+            /* Regroup the bio, button and techs / On middle of the card */
+            &-content {
+              width: 90%;
+              height: 60%;
+              margin: -4.3% auto; 
+              background-color: #D7D2D5;
+              border-radius: 5px;
+              
+              position: relative;
+            
+              @media screen and (device-aspect-ratio: 40/71){
+              height: 60%;
+              }
+            
+                      &-bio {
+                        font-size: 0.8rem;
+                        
+                        padding: 1rem;
+                        text-align: justify;
+                        width: auto;
+                        height: 30%;
+                        color: #fff !important;
+                        overflow-wrap: break-word;
+                      }
+          
+                      &-btn {
+                        background-color: $linkColor !important;
+                        border-radius: 5px;
+                        position: relative;
+                        font-size: 0.7rem !important;
+                        margin-top: 6rem;
+                      
+                          @media screen and (device-aspect-ratio: 40/71){
+                          font-size: 0.7rem !important;
+                          margin-top: 6rem;
+                          }
+                      
+                          @media screen and (min-width: 425px) {
+                          margin: 37% auto 3%;
+                        }
+                      }
+          
+
+                      &-tech {
+                        color: black;
+                        font-size: 0.8rem;
+                        position: relative;
+                        
+                      
+                          @media screen and (device-aspect-ratio: 40/71){
+                          font-size: 0.7rem !important;
+                          }
+                      }
+            }
+                      
+          
+}
+
+.bg-transparent {
+  background-color: $primaryColorLight !important;
+  cursor: pointer;
+}
+
+.footer {
+  
+  position: absolute !important;
+  color: $primaryColorLight !important;
+  bottom: -1.5em;
+  font-size: 2rem !important;
+  left: 1.6em;
+}
+
+
+
+
+
+
+
+
+
+
+
+

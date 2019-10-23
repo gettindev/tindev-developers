@@ -6,6 +6,12 @@ import { combineReducers } from 'redux';
 // we import each of the sub-reducers
 // import user from './user';
 import chatroom from './chatroom';
+import matchlistReducer from './matchlistReducer';
+import chatlistReducer from './chatlistReducer';
+import matching from './matching';
+import home from './home';
+import matrix from './matrixReducer';
+import user from './user';
 
 // combineReducers returns us the generated parent reducer
 // we must supply an object as parameter
@@ -14,6 +20,12 @@ import chatroom from './chatroom';
 
 const reducer = combineReducers({
   chatroom,
+  matchlistReducer,
+  chatlistReducer,
+  matching,
+  home,
+  matrix,
+  user,
 });
 
 export default reducer;

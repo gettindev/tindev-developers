@@ -1,0 +1,39 @@
+@import 'src/styles/vars';
+
+.edit-profil {
+  .input-group > .rbt .rbt-input-hint-container {display: inline;}
+  .form-control{height: auto;}
+
+  &-url-list{
+    padding: .2rem .5rem;
+    background-color: lighten($primaryColor,75%);
+    border-radius: .3em;
+    li{
+      display: block;
+      position: relative;
+      margin-bottom: .5rem;
+      border-bottom: 1px dashed rgba(white, .7);
+      .link{
+        display: inline-block;
+        text-overflow: ellipsis;
+      /* Required for text-overflow to do anything */
+        white-space: nowrap;
+        overflow: hidden;
+        width: calc(100% - 90px);
+      }
+      .suppr{
+        position: absolute;
+        right: 0;
+        font-size: .8em;
+
+      }
+      &:last-child{
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+    }
+    &-url{
+      font-size: .9rem;
+    }
+  }
+}
