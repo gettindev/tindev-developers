@@ -1,17 +1,5 @@
 // Vars Scss
 
-<<<<<<< HEAD
-        // All project colors and font
-        $primaryColor :  #1A1647 ;
-        $primaryColorLight : lighten(#1A1647, 10%);
-        $cardColor :  #1d2c4e ;
-        $eventColorPurple  :  #a11ec6 ;
-        $eventColorBlue :  #92eaff ;
-        $linkColor : #C36EDB ;
-        $secondaryColor : #fff922 ;
-        $textColor  : #fff ;
-        $font : 'Space Mono', monospace;
-=======
 // All project colors
 $primaryColor :  #1A1647 ;
 $primaryColorLight : lighten(#1A1647, 10%);
@@ -22,8 +10,7 @@ $linkColor : #a31ec8 ;
 $secondaryColor : #fff922 ;
 $textColor  : #fff ;
 $font : 'Roboto Mono', monospace;
->>>>>>> master
-
+// $font : 'Space Mono', monospace;
 
 // Media queries
 $xs : 576px;
