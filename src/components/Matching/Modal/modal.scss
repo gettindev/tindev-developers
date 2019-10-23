@@ -1,0 +1,75 @@
+// Import vars scss
+@import 'src/styles/vars';
+
+.mod {
+  background-color: #fff;
+
+      &-header {
+        background-color: $primaryColorLight;
+        color: $textColor;
+      }
+
+      &-body {
+        background-color: $primaryColorLight;
+
+          &-img {
+            border: 2px solid $secondaryColor;
+            height: 10rem;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+
+          &-name {
+            color: $textColor;
+            font-size: 1.5rem;
+          }
+
+          &-exp {
+            color: $secondaryColor;
+            font-size: 1rem;
+          }
+
+          &-loc {
+            color: $linkColor;
+            font-size: 1rem;
+          }
+
+          &-bio {
+            background-color: transparent !important;
+            overflow-wrap: break-word;
+            padding: 1rem;
+            color: $textColor;
+            border: 2px solid $textColor !important;
+            border-radius: 10px !important;
+          }
+
+          &-tag {
+            margin-right: 1rem;
+            background-color: transparent !important;
+            
+          }
+
+          &-link {
+            color: $linkColor;
+            font-size: 1.3rem;
+            opacity: 1.50 !important;
+            @media (max-width: 425px) {
+              font-size: 1rem;
+            }
+          }
+          
+      }
+
+      &-footer {
+        background-color: $primaryColorLight ;
+        
+          &-btn {
+            border: 2px solid $textColor !important;
+            background-color: $primaryColorLight !important;
+            color: $secondaryColor !important;
+          }
+         
+      }
+
+      
+}

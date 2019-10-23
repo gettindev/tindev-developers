@@ -7,6 +7,7 @@ import './app.scss';
 // == Import : style
 
 // Import locaux
+import MatchingContainer from 'src/containers/MatchingContainer';
 import UserMenu from 'src/components/User/Menu';
 import EditUserProfil from 'src/components/User/Profil/Edit';
 import ShowUserProfil from 'src/containers/User/Profil/Show';
@@ -15,9 +16,10 @@ import ShowUserProfil from 'src/containers/User/Profil/Show';
 // == Composant
 const App = () => (
   <div className="app">
+    <MatchingContainer />
     {/* <UserMenu /> */}
     {/* <EditUserProfil /> */}
-    <ShowUserProfil />
+    {/* <ShowUserProfil /> */}
   </div>
 );
 
