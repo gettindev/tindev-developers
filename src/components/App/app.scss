@@ -1,6 +1,7 @@
 @import 'src/styles/vars';
 
 .app {
-  font-size: 1.2em;
   font-family: $font;
+  position: relative;
+  background-color: $primaryColorLight;
 }

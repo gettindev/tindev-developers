@@ -4,6 +4,8 @@
 import { combineReducers } from 'redux';
 
 // we import each of the sub-reducers
+// import user from './user';
+import chatroom from './chatroom';
 import matchlistReducer from './matchlistReducer';
 import chatlistReducer from './chatlistReducer';
 import matching from './matching';
@@ -17,6 +19,7 @@ import user from './user';
 // https://redux.js.org/api/combinereducers
 
 const reducer = combineReducers({
+  chatroom,
   matchlistReducer,
   chatlistReducer,
   matching,
