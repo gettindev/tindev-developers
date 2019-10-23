@@ -1,0 +1,55 @@
+@import 'src/styles/vars';
+
+.user-profil{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-info{
+    margin-top:1rem;
+    &-user-name{
+      font-size:1.5em;
+      font-weight: 700;
+    }
+    &-avatar{
+      margin-bottom: 1rem;
+    }
+    &--edit-link{
+      font-size:1em;
+    }
+  }
+  &-navigation{
+    .btn{
+      font-size: .8em;
+      height:46px;
+      &-primary{
+        background-color: $primaryColorLight;
+        border: darken($primaryColorLight, 20%);
+        &:hover{
+          background-color: lighten($primaryColorLight, 30%);
+          border: darken($primaryColorLight, 50%);
+        }
+      }
+      &-outline-secondary {
+        border-color: lighten($eventColorPurple, 30%);
+        color: lighten($eventColorPurple, 30%);
+        &:hover{
+          border-color: darken($eventColorPurple, 10%);
+          color: darken($eventColorPurple, 20%);
+          background-color: rgb(238, 238, 238);
+        }
+      }
+    }
+    .icon{
+      font-size: 1.6rem;
+    }
+  }
+  &-disconnect{
+    margin-bottom: .8rem;
+    .btn-danger{
+      background-color: $eventColorPurple;
+      border: darken($eventColorPurple, 10%);
+    }
+  }
+}
