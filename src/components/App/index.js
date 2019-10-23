@@ -15,7 +15,6 @@ import ChatList from 'src/components/ChatList';
 const App = () => (
   <div className="app">
     {/* <Nav /> */}
-    <ChatList />
   </div>
 );
 

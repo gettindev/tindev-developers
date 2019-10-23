@@ -1,38 +1,39 @@
-@import 'src/styles/vars';
+@import "src/styles/vars";
 
-.scrolling-wrapper {
-  background-color: $primaryColor;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
+.messages {
 
-  & .user-card {
-    flex: 0 0 auto;
-    margin: .6rem;
-    width: 80px;
+  position: relative;
 
-  }
+  & .scrolling-wrapper {
+    background-color: $primaryColor;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
 
-  @media (min-width: $md) {
     & .user-card {
-      width: 100px;
-      margin: .8rem;
+      flex: 0 0 auto;
+      margin: 0.6rem;
+      width: 80px;
     }
-  }
 
-  @media (min-width: $lg) {
-    & .user-card {
-      width: 125px;
+    @media (min-width: $md) {
+      & .user-card {
+        width: 100px;
+        margin: 0.8rem;
+      }
+    }
+
+    @media (min-width: $lg) {
+      & .user-card {
+        width: 125px;
+      }
     }
   }
 }
-
-
 
 // remove scrollbar but keep content scrollable
 ::-webkit-scrollbar {
   display: none;
 }
-
 
 // @import 'src/styles/vars';
 
