@@ -26,25 +26,25 @@ const App = () => (
     {/* <Form /> */}
     <Nav nav="logo" />
     <Switch >
-      <Route exact path="/projet-Tinder-developper/dist/">
+      <Route exact path="/">
         <Page />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/1">
+      <Route exact path ="/1">
         <UserMenu />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/2">
+      <Route exact path ="/2">
         <EditUserProfil />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/3">
+      <Route exact path ="/3">
         <ShowUserProfil />
       </Route>
-      <Route exact path="/projet-Tinder-developper/dist/4">
+      <Route exact path="/4">
         <MatchingContainer />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/5">
+      <Route exact path ="/5">
         <ChatList />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/6">
+      <Route exact path ="/6">
         <Messages />
       </Route>
     {/* <UserMenu /> */}
