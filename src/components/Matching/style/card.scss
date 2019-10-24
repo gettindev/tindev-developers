@@ -85,7 +85,7 @@
               width: 90%;
               height: 60%;
               margin: -4.3% auto; 
-              background-color: #D7D2D5;
+              background-color: #8C99A6;
               border-radius: 5px;
               
               position: relative;
@@ -117,11 +117,13 @@
           
                       &-btn {
                         background-color: $linkColor !important;
+                        padding: 0.2rem;
                         border-radius: 5px;
+                        border: 0;
                         position: relative;
-                        font-size: 0.7rem !important;
+                        font-size: 0.8rem !important;
                         margin-top: 6rem;
-                        left: 2.3rem;
+                        left: 2.1rem;
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
                           margin-top: 6rem;
@@ -138,7 +140,8 @@
                         font-size: 0.8rem;
                         position: relative;
                         text-align: center;
-                      
+                        margin-top: 0.4rem;
+
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
                           }
