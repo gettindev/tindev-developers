@@ -2,8 +2,10 @@
 
 .app {
   font-family: $font;
-  height: 100vh;
   background-color: $primaryColorVeryLight;
+}
 
+html {
+  background-color: $primaryColorVeryLight;
 }
 
