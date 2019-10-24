@@ -29,22 +29,22 @@ const App = () => (
       <Route exact path="">
         <Page />
       </Route>
-      <Route exact path ="1">
+      <Route path ="1">
         <UserMenu />
       </Route>
-      <Route exact path ="2">
+      <Route path ="2">
         <EditUserProfil />
       </Route>
-      <Route exact path ="3">
+      <Route path ="3">
         <ShowUserProfil />
       </Route>
-      <Route exact path="4">
+      <Route path="4">
         <MatchingContainer />
       </Route>
-      <Route exact path ="5">
+      <Route path ="5">
         <ChatList />
       </Route>
-      <Route exact path ="6">
+      <Route path ="6">
         <Messages />
       </Route>
     {/* <UserMenu /> */}
