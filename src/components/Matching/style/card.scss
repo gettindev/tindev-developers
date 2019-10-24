@@ -7,12 +7,13 @@
   width: 270px;
   margin: 3rem auto;
   //background-color: $primaryColorLight !important;
+  background-color: transparent !important;
   background: repeating-linear-gradient(
   45deg,
   $primaryColor,
   $primaryColor 10px,
-  $primaryColorLight 10px,
-  $primaryColorLight 30px
+  $primaryColorVeryLight 10px,
+  $primaryColorVeryLight 30px
 );
   border-radius: 0.75rem !important;
   cursor: pointer;
