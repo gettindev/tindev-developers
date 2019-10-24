@@ -26,25 +26,25 @@ const App = () => (
     {/* <Form /> */}
     <Nav nav="logo" />
     <Switch >
-      <Route exact path="/">
+      <Route exact path="">
         <Page />
       </Route>
-      <Route exact path ="/user/1">
+      <Route exact path ="user/1">
         <UserMenu />
       </Route>
-      <Route exact path ="/user/2">
+      <Route exact path ="user/2">
         <EditUserProfil />
       </Route>
-      <Route exact path ="/user/3">
+      <Route exact path ="user/3">
         <ShowUserProfil />
       </Route>
-      <Route exact path="/matching">
+      <Route exact path="matching">
         <MatchingContainer />
       </Route>
-      <Route exact path ="/chat/1">
+      <Route exact path ="chat/1">
         <ChatList />
       </Route>
-      <Route exact path ="/chat/2">
+      <Route exact path ="chat/2">
         <Messages />
       </Route>
     {/* <UserMenu /> */}
