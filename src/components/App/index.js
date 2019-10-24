@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 // == Import : style
 import './app.scss';
@@ -24,10 +25,32 @@ const App = () => (
     {/* <Messages /> */}
     {/* <Form /> */}
     <Nav nav="logo" />
-    <MatchingContainer />
+    <Switch >
+      <Route exact path="/">
+        <Page />
+      </Route>
+      <Route exact path ="/user/1">
+        <UserMenu />
+      </Route>
+      <Route exact path ="/user/2">
+        <EditUserProfil />
+      </Route>
+      <Route exact path ="/user/3">
+        <ShowUserProfil />
+      </Route>
+      <Route exact path="/matching">
+        <MatchingContainer />
+      </Route>
+      <Route exact path ="/chat/1">
+        <ChatList />
+      </Route>
+      <Route exact path ="/chat/2">
+        <Messages />
+      </Route>
     {/* <UserMenu /> */}
     {/* <EditUserProfil /> */}
     {/* <ShowUserProfil /> */}
+    </Switch>
   </div>
 );
 
