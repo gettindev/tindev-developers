@@ -67,9 +67,9 @@
 }
 
 #next{
-  margin: 0.8rem 5rem 0 0;
-  font-size: 1.3em;
-  text-align: right;
+  margin: 0.8rem 0 0 15rem;
+  font-size: 1.4em;
+  color: $textColor;
 
   &:hover {
     color: $eventColorBlue;
@@ -80,6 +80,6 @@
   font-family: fantasy;
   color: rgb(158, 220, 245);
   font-size: 1em;
-  margin: 3.8rem 0 0 0;
+  margin: 2.5rem 0 0 0;
 }
 

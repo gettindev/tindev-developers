@@ -1,6 +1,9 @@
 // == Import : npm
 import React from 'react';
 
+// imports styles
+import { Button } from 'react-bootstrap';
+
 // == Import : local
 import './matrix.scss';
 
@@ -16,7 +19,8 @@ const Matrix = ({ prefs }) => (
         <div key={pref.id}><p>{pref.choice}</p></div>
       )}
       </section> 
-      <h4 id="next">Next ></h4>
+      {/* <h4 id="next">Next ></h4> */}
+      <Button id="next" href="/location" variant="Link"> Next </Button>
       <h2 id="logo_matrix">TinDev</h2>
       <p>©2019 tous droits réservés</p>
     </div>
