@@ -23,7 +23,7 @@ const App = () => (
     {/*<Page logged={true} />*/}
     {/* <Messages /> */}
     {/* <Form /> */}
-    <Nav nav={logo} />
+    <Nav nav="logo" />
     <MatchingContainer />
     {/* <UserMenu /> */}
     {/* <EditUserProfil /> */}
