@@ -29,22 +29,22 @@ const App = () => (
       <Route exact path="/projet-Tinder-developper/dist/">
         <Page />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/user/1">
+      <Route exact path ="/projet-Tinder-developper/dist/1">
         <UserMenu />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/user/2">
+      <Route exact path ="/projet-Tinder-developper/dist/2">
         <EditUserProfil />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/user/3">
+      <Route exact path ="/projet-Tinder-developper/dist/3">
         <ShowUserProfil />
       </Route>
-      <Route exact path="/projet-Tinder-developper/dist/matching">
+      <Route exact path="/projet-Tinder-developper/dist/4">
         <MatchingContainer />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/chat/1">
+      <Route exact path ="/projet-Tinder-developper/dist/5">
         <ChatList />
       </Route>
-      <Route exact path ="/projet-Tinder-developper/dist/chat/2">
+      <Route exact path ="/projet-Tinder-developper/dist/6">
         <Messages />
       </Route>
     {/* <UserMenu /> */}
