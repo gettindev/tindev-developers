@@ -126,16 +126,16 @@ class Matching extends Component {
                 <div className="card-content-tech">{display.tech}</div>
             </div>
             <div className="card-tag">{display.tag}</div> 
-            <div className="footer"><TiArrowBack/>SWIPE<TiArrowForward/></div>
+            <div className="footer"><TiArrowBack className="footer-left"/>SWIPE<TiArrowForward className="footer-right"/></div>
           </>  
           }
 
           {/* The card when list of cards is ended*/}
           {end &&
             <div className="card-special">
-              <p className="card-content-bio">Plus de profil à proximité..</p>
+              <p className="card-content-bio-end">Plus de profil à proximité..</p>
               <Image fluid roundedCircle className="right" src='src/data/kid.gif' />
-              <p className="card-content-bio" >Nous en recherchons au plus vite..</p>
+              <p className="card-content-bio-end" >Nous en recherchons au plus vite..</p>
             </div>
           }
         </div>

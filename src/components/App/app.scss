@@ -2,6 +2,10 @@
 
 .app {
   font-family: $font;
-  position: relative;
-  background-color: $primaryColorLight;
+  height: 100vh;
+  background-color: $primaryColorVeryLight;
+}
+
+body {
+  height: 100vh;
 }
