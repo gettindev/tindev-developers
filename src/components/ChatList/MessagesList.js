@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import MessagePreview from './MessagePreview';
@@ -11,7 +11,9 @@ import './matchlist.scss';
 const MessagesList = ({ users }) => (
   <div className="messages-list">
     {users.map((user) => (
+    <NavLink to ="/chat/1">
       <MessagePreview key={user.username} />
+    </NavLink>
     ))}
   </div>
 );

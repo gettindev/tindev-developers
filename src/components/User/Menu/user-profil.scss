@@ -1,8 +1,15 @@
 @import 'src/styles/vars';
 
 .user-profil{
-  background-color: white;
-  height: 100vh;
+  background: repeating-linear-gradient(
+  45deg,
+  $primaryColor,
+  $primaryColor 10px,
+  $primaryColorVeryLight 10px,
+  $primaryColorVeryLight 30px
+  );
+  min-height: 92vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,6 +18,7 @@
     text-align: center;
     margin-top:1rem;
     &-user-name{
+      color: $textColor;
       font-size:1.5em;
       font-weight: 700;
     }
@@ -23,7 +31,7 @@
   }
   &-navigation{
     .btn{
-      font-size: .8em;
+      font-size: 1em;
       height:46px;
       &-primary{
         background-color: $primaryColorLight;
@@ -34,8 +42,10 @@
         }
       }
       &-outline-secondary {
-        border-color: lighten($eventColorPurple, 30%);
-        color: lighten($eventColorPurple, 30%);
+        //border-color: lighten($eventColorPurple, 30%);
+        //color: lighten($eventColorPurple, 30%);
+        background-color: $eventColorPurple;
+        color: $textColor;
         &:hover{
           border-color: darken($eventColorPurple, 10%);
           color: darken($eventColorPurple, 20%);
@@ -50,8 +60,9 @@
   &-disconnect{
     margin-bottom: .8rem;
     .btn-danger{
-      background-color: $eventColorPurple;
-      border: darken($eventColorPurple, 10%);
+      background-color: transparent !important;
+      border-color: lighten($eventColorPurple, 30%) !important;
+      border: 3px solid darken($eventColorPurple, 10%) !important;
     }
   }
 }

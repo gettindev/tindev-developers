@@ -6,9 +6,18 @@
   height: 400px;
   width: 270px;
   margin: 3rem auto;
-  background-color: $primaryColorLight !important;
+  //background-color: $primaryColorLight !important;
+  background-color: transparent !important;
+  background: repeating-linear-gradient(
+  45deg,
+  $primaryColor,
+  $primaryColor 10px,
+  $primaryColorVeryLight 10px,
+  $primaryColorVeryLight 30px
+);
   border-radius: 0.75rem !important;
   cursor: pointer;
+  font-family: $font;
 
           /* The img on the card */
           &-img-responsive {
@@ -29,7 +38,7 @@
             font-size: 1rem;
             margin-top: 1rem !important;
             word-spacing: 1rem;
-            
+            text-align: center;
             position: relative;
            
             overflow-wrap: break-word;
@@ -76,7 +85,7 @@
               width: 90%;
               height: 60%;
               margin: -4.3% auto; 
-              background-color: #D7D2D5;
+              background-color: #8C99A6;
               border-radius: 5px;
               
               position: relative;
@@ -94,22 +103,36 @@
                         height: 30%;
                         color: #fff !important;
                         overflow-wrap: break-word;
+
+
+                            &-end {
+
+                              position: relative;
+                              bottom: -17.8rem;
+                              color: white;
+                              font-size: 0.9rem;
+                              padding-left: 0.7rem;
+                            }
                       }
           
                       &-btn {
                         background-color: $linkColor !important;
+                        padding: 0.2rem;
                         border-radius: 5px;
+                        border: 0;
                         position: relative;
-                        font-size: 0.7rem !important;
+                        font-size: 0.8rem !important;
                         margin-top: 6rem;
-                      
+                        left: 2.1rem;
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
                           margin-top: 6rem;
+                          left: 2.7rem;
                           }
                       
                           @media screen and (min-width: 425px) {
                           margin: 37% auto 3%;
+                          left: 2.7rem;
                         }
                       }
           
@@ -118,8 +141,9 @@
                         color: black;
                         font-size: 0.8rem;
                         position: relative;
-                        
-                      
+                        text-align: center;
+                        margin-top: 0.4rem;
+
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
                           }
@@ -137,11 +161,22 @@
 .footer {
   
   position: absolute !important;
-  color: $primaryColorLight !important;
-  bottom: -1.5em;
+  color: $textColor;
+  bottom: -1.8em;
   font-size: 2rem !important;
-  left: 1.6em;
+  left: 1.2em;
+
+      &-right {
+        font-size: 3rem !important;
+      }
+
+      &-left {
+        font-size: 3rem !important
+      }
 }
+
+
+
 
 
 

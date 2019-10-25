@@ -2,6 +2,10 @@
 
 .app {
   font-family: $font;
-  position: relative;
-  background-color: $primaryColorLight;
+  background-color: $primaryColorVeryLight;
 }
+
+html {
+  background-color: $primaryColorVeryLight;
+}
+
