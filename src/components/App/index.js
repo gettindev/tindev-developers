@@ -13,7 +13,7 @@ import Form from 'src/containers/ChatRoom/Form';
 import Messages from 'src/containers/ChatRoom/Messages';
 import ChatList from 'src/components/ChatList';
 import Page from 'src/components/Page';
-import MatchingContainer from 'src/containers/MatchingContainer';
+import MatchingContainer from 'src/containers/Matching/MatchingContainer';
 import UserMenu from 'src/components/User/Menu';
 import EditUserProfil from 'src/components/User/Profil/Edit';
 import ShowUserProfil from 'src/containers/User/Profil/Show';

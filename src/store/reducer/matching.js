@@ -7,9 +7,11 @@ const initialState = {
 };
 
 // == Types
-const DO_SOMETHING = 'DO_SOMETHING';
-const GET_USERS = 'GET_USERS;';
-const DO_REQUEST = 'DO_REQUEST';
+export const DO_SOMETHING = 'DO_SOMETHING';
+export const GET_USERS = 'GET_USERS;';
+export const DO_REQUEST = 'DO_REQUEST';
+export const DO_LIKE = 'DO_LIKE';
+export const DO_UNLIKE = 'DO_UNLIKE';
 
 // == Reducer
 const matching = (state = initialState, action = {}) => {
@@ -37,6 +39,14 @@ export const getUsers = () => ({
 
 export const doRequest = () => ({
   type: DO_REQUEST,
+})
+
+export const doLike = () => ({
+  type: DO_LIKE,
+})
+
+export const doUnlike = () => ({
+  type: DO_UNLIKE,
 })
 
 

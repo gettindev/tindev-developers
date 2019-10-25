@@ -1,23 +1,26 @@
-const matchingMiddleware = (store) => (next) => (action) => {
-  console.log('I am the middleware, and I pass this action: ', action);
-  next(action);
+// Import npm
+import axios from 'axios';
 
-  // // POUR EXEMPLE: Requests with Axios
-  // // I have to react only to certain types of action
-  // switch (action.type) {
-  //   case FETCH_QQCHOSE:
-  //     axios.get(url)
-  //       .then(response => {
-  //         // Here you know that you have successfully obtained your answer
-  //         // You can recover it in response.data
-  //         const { data } = response.
-  //         // The reducer must then be informed of the new data received
-  //         store.dispatch(receivedQqchose(data));
-  //       })
-  //       .catch()
-  //   default:
-  //      next(action);
-  // }
+// Import actions
+import { DO_REQUEST, DO_LIKE, DO_UNLIKE, getUsers } from 'src/store/reducer/matching.js';
+
+const matchingMiddleware = (store) => (next) => (action) => {
+
+  console.log('I am the middleware, and I pass this action: ', action);
+  
+  switch (action.type) {
+      case DO_REQUEST:
+            console.log("Une requête Ajax est envoyée pour avoir de nouveaux profils");
+            break;
+      case DO_LIKE:
+            console.log("Cet utilisateur est envoyé dans mes profils likés");
+            break;
+      case DO_UNLIKE:
+            console.log("Cet utilisateur est envoyé dans mes profils Dislikés");
+            break;
+       default:
+          next(action);
+  }
 };
 
 export default matchingMiddleware;
