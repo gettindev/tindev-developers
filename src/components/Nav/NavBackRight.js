@@ -1,5 +1,6 @@
 // imports npm
 import React from 'react';
+import { NavLink } from'react-router-dom';
 
 // imports local
 import './nav.scss';
@@ -12,7 +13,9 @@ const NavBackRight = () => (
       <Navbar.Text className="navbar-title padding-right">Mon profil</Navbar.Text>
     </Navbar.Collapse>
     <Navbar.Collapse className="justify-content-end">
-      <Navbar.Text onClick={(e) => {console.log('>>> Back Button', e)}}><MdArrowForward className="icon" /></Navbar.Text>
+      <Navbar.Text 
+      onClick={(e) => {console.log('>>> Back Button', e)}}>
+      <NavLink to ="/matching"><MdArrowForward className="icon" /></NavLink></Navbar.Text>
     </Navbar.Collapse>
   </Navbar>
 );

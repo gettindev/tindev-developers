@@ -12,11 +12,13 @@ import NavCloseLeft from './NavCloseLeft';
 import NavBackRight from './NavBackRight';
 import NavBackLeft from './NavBackLeft';
 import NavLogo from './NavLogo';
+import NavChat from './NavChat';
 
 // Component
 const Nav = (props) => {
   const { nav } = props;
   const { title } = props;
+  const { username } = props;
   return (
     <>
       {/* use <Nav /> for Main Nav with user and matchs icons */}
@@ -32,6 +34,8 @@ const Nav = (props) => {
       { nav === 'close-right' && <NavCloseRight title={title} />}
       {/* use <Nav nav="close-left" /> for  Nav with close button left */}
       { nav === 'close-left' && <NavCloseLeft />}
+      {/* use <Nav nav="close-left" /> for  Nav with close button left */}
+      { nav === 'chat' && <NavChat username={username} />}
     </>
   );
 };
@@ -39,6 +43,7 @@ const Nav = (props) => {
 Nav.propTypes = {
   nav: PropTypes.string,
   title: PropTypes.string,
+  username: PropTypes.string.isRequired,
 };
 
 Nav.defaultProps = {
