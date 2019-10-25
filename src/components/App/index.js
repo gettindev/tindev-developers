@@ -1,5 +1,5 @@
 // == Import : npm
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import : style
@@ -26,7 +26,17 @@ import NavBackRight from 'src/components/Nav/NavBackRight.js';
 import NavCloseRight from 'src/components/Nav/NavCloseRight.js';
 
 // == Composant
-const App = () => (
+const App = ({ logged, doRequest }) => {
+
+  // CDM - send Axios Request if User logged
+  useEffect(() => {
+    console.log("Le Dom est créé");
+    if (logged) {
+      doRequest();
+    }
+  }, []);
+
+  return (
   <div className="app">
     <>
       <Switch > 
@@ -61,7 +71,7 @@ const App = () => (
         <Page logged />
       </Route>
   </div>
-);
+  )};
 
 // == Export
 export default App;

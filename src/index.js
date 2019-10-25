@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 // == Import : local
-import App from 'src/components/App';
+import AppContainer from 'src/containers/App/AppContainer';
 import store from 'src/store';
 
 // == Import : Semantic Css
@@ -15,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const rootComponent = (
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <AppContainer />
     </BrowserRouter>
   </Provider>
 );
