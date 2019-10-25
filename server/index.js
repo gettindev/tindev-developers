@@ -1,9 +1,25 @@
 /* eslint-disable radix */
+// https://github.com/socketio/socket.io/issues/936
 const express = require('express');
 
-const cors = require('cors');
-
 const app = express();
+
+const http = require('http');
+
+app.set('port', process.env.PORT || 3001);
+
+const server = http.createServer(app).listen(app.get('port'), () => {
+  console.log(`Express server listening on port ${app.get('port')}`);
+});
+
+const socket = require('socket.io');
+
+const io = socket.listen(server);
+io.sockets.on('connection', () => {
+  console.log('hello world im a hot socket');
+});
+
+const cors = require('cors');
 
 const user = require('./routes/profil');
 
@@ -21,9 +37,21 @@ app.get('/', (req, res) => {
   res.send('Tindev API');
 });
 
-const PORT = process.env.PORT || 3001;
+/*
+ * Socket.io
+ */
+let id = 0;
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+io.on('connection', (socket) => {
+  socket.on('send_message', (message) => {
+    message.id = ++id;
+    io.emit('send_message', message);
+  });
+});
+
+// const PORT = process.env.PORT || 3001;
+
+// app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 
 // X mettre le script "start:server": "node server/index.js" dans package.json

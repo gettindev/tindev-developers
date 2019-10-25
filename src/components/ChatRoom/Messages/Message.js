@@ -9,10 +9,10 @@ const Message = ({ author, text }) => (
       <Col className="message-author">{author}</Col>
       <p className="message-content">{text}</p>
     </Col>
-    <Col className="message--not-mine" xs={{ span: 11, offset: 1 }} sm={{ span: 8, offset: 4 }}>
+    {/* <Col className="message--not-mine" xs={{ span: 11, offset: 1 }} sm={{ span: 8, offset: 4 }}>
       <Col className="message-author">{author}</Col>
       <p className="message-content">{text}</p>
-    </Col>
+    </Col> */}
 
   </>
 
