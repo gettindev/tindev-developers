@@ -42,7 +42,11 @@
     "build:dev:win": "set NODE_ENV=development && webpack",
     "build:prod": "NODE_ENV=production webpack --mode production",
     "build:prod:win": "set NODE_ENV=production && webpack --mode production",
-    "save-deps": "rm -rf node_modules && npm update --save && npm update --save-dev"
+    "save-deps": "rm -rf node_modules && npm update --save && npm update --save-dev",
+    "start:server": "node index.js",
+    "serve": "nodemon index.js"
+
+
   },
   "dependencies": {
     "@sandstreamdev/react-swipeable-list": "^0.2.1",
