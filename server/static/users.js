@@ -1,0 +1,66 @@
+const users = [
+  {
+    id: 1,
+    firstName: 'Damien',
+    lastName: 'Tailhades',
+    avatar: 'https://avatars1.githubusercontent.com/u/1433968',
+    githubName: 'regulardesigner',
+    biography: "I'm a designer trying to become developer after 12 years designing website and mobile apps.",
+    level: 1,
+    wishes: ['#entraide', '#stafferUnProjet', '#iHaveAnIdea'],
+    wishedId: [0, 3, 8],
+    technos: ['ES6', 'JSX', 'React', 'Redux', 'HTML5', 'CSS3'],
+    links: [
+      { id: 0, title: 'Porfolio', url: 'http://www.regulardesigner.com' },
+      { id: 1, title: 'Tindev', url: 'http://tindev.me' },
+    ],
+  },
+  {
+    id: 2,
+    firstName: 'Gael',
+    lastName: 'Guyon',
+    avatar: 'https://avatars3.githubusercontent.com/u/30653088',
+    githubName: 'oldschoolstarsman',
+    biography: 'Studying web development with https://oclock.io #TeamQuantum #TeamUnivers',
+    level: 1,
+    wishes: ['#entraide', '#stafferUnProjet', '#iHaveAnIdea'],
+    wishedId: [0, 3, 8],
+    technos: ['ES6', 'JSX', 'React', 'Redux', 'HTML5', 'CSS3'],
+    links: [
+      { id: 0, title: 'Codeur.com', url: 'https://www.codeur.com/-gaelg5' },
+      { id: 1, title: 'Tindev', url: 'http://tindev.me' },
+    ],
+  },
+  {
+    id: 3,
+    firstName: 'Jerem',
+    lastName: 'Dumas',
+    avatar: 'https://avatars1.githubusercontent.com/u/50885769',
+    githubName: 'Developer-Musclay',
+    biography: 'Eat code night and day',
+    level: 1,
+    wishes: ['#entraide', '#stafferUnProjet', '#iHaveAnIdea'],
+    wishedId: [0, 3, 8],
+    technos: ['ES6', 'JSX', 'React', 'Redux', 'HTML5', 'CSS3'],
+    links: [
+      { id: 0, title: 'Tindev', url: 'http://tindev.me' },
+    ],
+  },
+  {
+    id: 4,
+    firstName: 'Florian',
+    lastName: 'Merrien',
+    avatar: 'https://avatars2.githubusercontent.com/u/50869779',
+    githubName: 'FlorianMrn',
+    biography: 'Tu veux ma photo ?',
+    level: 1,
+    wishes: ['#entraide', '#stafferUnProjet', '#iHaveAnIdea'],
+    wishedId: [0, 3, 8],
+    technos: ['ES6', 'JSX', 'React', 'Redux', 'HTML5', 'CSS3'],
+    links: [
+      { id: 0, title: 'Tindev', url: 'http://tindev.me' },
+    ],
+  },
+];
+
+module.exports = users;
