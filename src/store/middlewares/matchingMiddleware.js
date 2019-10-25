@@ -14,6 +14,16 @@ const matchingMiddleware = (store) => (next) => (action) => {
             break;
       case DO_LIKE:
             console.log("Cet utilisateur est envoyé dans mes profils likés");
+            axios.get('http://localhost:3001/profil')
+            .then((response) => {
+                  console.log('succès', response.data);
+                  // je veux faire en sorte d'alimenter le state avec la réponse
+                  })
+                  .catch((error) => {
+                  console.error(error);
+                  })
+                  .finally(() => {
+                  });
             break;
       case DO_UNLIKE:
             console.log("Cet utilisateur est envoyé dans mes profils Dislikés");

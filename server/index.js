@@ -1,6 +1,8 @@
 /* eslint-disable radix */
 const express = require('express');
 
+const cors = require('cors');
+
 const app = express();
 
 const user = require('./routes/profil');
@@ -8,6 +10,8 @@ const user = require('./routes/profil');
 const matchs = require('./routes/matchs');
 
 app.use(express.json());
+
+app.use(cors());
 
 app.use('/profil', user);
 
