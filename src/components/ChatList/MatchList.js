@@ -13,7 +13,7 @@ import './matchlist.scss';
 const MatchList = ({ users }) => (
   <div className="scrolling-wrapper d-flex flex-nowrap">
     {users.map((user) => (
-      <NavLink to ="/chat/1">
+      <NavLink key={user} to ="/chat/1">
         <Image
           className="user-card"
           src="http://placeimg.com/150/150/people"
