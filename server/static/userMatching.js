@@ -23,6 +23,12 @@ const userMatch = [
     swipedUserId: 2,
     swipedUserStatus: null,
   },
+  {
+    currentUserid: 2,
+    currentUserStatus: false,
+    swipedUserId: 3,
+    swipedUserStatus: null,
+  },
 ];
 
 module.exports = userMatch;
