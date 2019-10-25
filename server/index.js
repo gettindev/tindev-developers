@@ -4,10 +4,12 @@ const express = require('express');
 const app = express();
 
 const user = require('./routes/profil');
+const matching = require ('./routes/matching');
 
 app.use(express.json());
 
 app.use('/profil', user);
+app.use('/matching', matching);
 
 app.get('/', (req, res) => {
   res.send('Tindev API');
