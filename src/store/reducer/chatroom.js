@@ -1,10 +1,10 @@
 // == Initial State
 import messageData from 'src/data/messages';
 
-const initialState = {
+export const initialState = {
   messages: messageData,
   messageValue: '',
-  currentUser: 'Toto',
+  currentUser: '',
 };
 
 // == Types

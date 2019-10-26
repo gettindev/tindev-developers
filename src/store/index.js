@@ -3,7 +3,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 
 // == Import : local
 import reducer from './reducer';
-import { websocketConnect } from './reducer/chatroom';
+import { websocketConnect  } from './reducer/chatroom';
 import matchingMiddleware from './middlewares/matchingMiddleware';
 import socketMiddleware from './middlewares/socketMiddleware';
 
@@ -20,7 +20,7 @@ const enhancers = composeEnhancers(
 
 const store = createStore(
   reducer,
-  // preloadedState,
+  // initialState,
   enhancers,
 );
 

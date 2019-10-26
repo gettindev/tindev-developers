@@ -12,19 +12,17 @@ const socketMiddleware = (store) => (next) => (action) => {
         store.dispatch(receiveMessage(message));
       });
       break;
-      
+
     case ADD_MESSAGE: {
       const { currentUser, messageValue } = store.getState();
-
+      console.log('store', store.getState());
       const newMessage = {
         text: messageValue,
         author: currentUser,
       };
 
-      console.log(newMessage);
-
       socket.emit('send_message', newMessage);
-
+      console.log('newMessage:', newMessage);
       next(action);
 
       break;

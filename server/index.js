@@ -6,6 +6,8 @@ const app = express();
 
 const http = require('http');
 
+app.use(express.json());
+
 app.set('port', process.env.PORT || 3001);
 
 const server = http.createServer(app).listen(app.get('port'), () => {
@@ -23,19 +25,20 @@ const cors = require('cors');
 
 const user = require('./routes/profil');
 
+app.use('/profil', user);
+
 const matchs = require('./routes/matchs');
 
-app.use(express.json());
+app.use('/match', matchs);
+
 
 app.use(cors());
 
-app.use('/profil', user);
-
-app.use('/match', matchs);
 
 app.get('/', (req, res) => {
   res.send('Tindev API');
 });
+
 
 /*
  * Socket.io
@@ -45,7 +48,7 @@ let id = 0;
 io.on('connection', (socket) => {
   socket.on('send_message', (message) => {
     message.id = ++id;
-    io.emit('send_message', message);
+    io.emit('send_message', { message });
   });
 });
 
