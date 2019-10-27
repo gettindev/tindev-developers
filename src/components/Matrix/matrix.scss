@@ -1,13 +1,25 @@
+@import 'src/styles/vars';
+
 #matrix {
   color: rgb(233, 233, 233);
   background-image: url(/src/data/pictures/Matrix.jpg);
   background-size: cover;
-  height: 667px;
+  height: 100vh;
   padding: 2.5rem 0 0 0;
   font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+
+  @media (min-width: $sm) {
+      font-size: 1.8em;
+  }
 
   h3 {
     font-size: 1.3em;
+
+    @media (min-width: $sm) {
+      margin-top: 10rem;
+  }
   }
 
   p {
@@ -40,16 +52,28 @@
     margin: 0 8px 9px 0;
     border-radius: 0.3%;
 
+    &:hover {
+      transform: scale(1.02);
+      background-color: $eventColorBlue;
+      border-radius: 0.8%;
+    }
+
     p {
       line-height: 6.5rem;
       font-size: 1em;
+      
     }
   }
 }
 
 #next{
-  margin: 0.8rem 0 0 14rem;
+  margin: 0.8rem 5rem 0 0;
   font-size: 1.3em;
+  text-align: right;
+
+  &:hover {
+    color: $eventColorBlue;
+  }
 }
 
 #logo_matrix{
