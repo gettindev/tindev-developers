@@ -32,4 +32,10 @@ module.exports = {
     Model.push(newMatch);
     return newMatch;
   },
+  isAMatch: (result) => {
+    if (result.currentUserStatus === true && result.swipedUserStatus === true) {
+      return true;
+    }
+    return false;
+  },
 };

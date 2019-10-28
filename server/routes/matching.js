@@ -31,7 +31,7 @@ router.get('/nope/:id', (req, res) => {
   res.send(result);
 });
 
-router.post('/yep', (req, res) => { 
+router.post('/yep', (req, res) => {
   // I get the current user ID and the swiped user ID
   const yep = {
     currentUser: req.body.currentId,
@@ -54,7 +54,7 @@ router.post('/yep', (req, res) => {
     // and do an update on that matching
     // because the current user give a 'YEP' to that matching the second params is TRUE
     const update = helpers.updateMatchingResult(matchingExistId, true, MatchingModel);
-    res.send(update);
+    res.send(helpers.isAMatch(update));
   }
 });
 
