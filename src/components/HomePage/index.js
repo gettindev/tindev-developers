@@ -83,7 +83,7 @@ const HomePage = () => (
       <div className='footerHome'>
         <h2>Peu importe que tu sois Dev, CTO ou CEO, que tu préfères les Ninjas ou les NOObs</h2>
         <p>Trouves ici ton perfect Dev-Match pour staffer tes projets</p>
-        <Button href="/matrix" variant="info"> S'identifier via GitHub </Button>
+        {/* <Button href="/matrix" variant="info"> S'identifier via GitHub </Button> */}
       </div>
     </div>  
   </>

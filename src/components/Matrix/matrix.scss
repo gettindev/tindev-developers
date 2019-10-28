@@ -55,7 +55,10 @@
     &:hover {
       transform: scale(1.02);
       background-color: $eventColorBlue;
-      border-radius: 0.8%;
+    }
+
+    &.click {
+      color: crimson;
     }
 
     p {

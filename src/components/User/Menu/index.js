@@ -8,6 +8,10 @@ import {
   Image,
   Button,
 } from 'react-bootstrap';
+
+// == Import : Firebase
+import firebase from "firebase"
+
 // import PropTypes from 'prop-types';
 
 // == Import : local
@@ -43,7 +47,7 @@ const UserProfil = () => {
       <Container className="user-profil-disconnect">
         <Row>
           <Col>
-            <Button size="lg" variant="danger" block>Déconnexion</Button>
+            <Button onClick={() => firebase.auth().signOut()} size="lg" variant="danger" block>Déconnexion</Button>
           </Col>
         </Row>
       </Container>
@@ -61,3 +65,12 @@ UserProfil.propTypes = {
 
 // == Export
 export default UserProfil;
+
+
+// lien de déconnexion sur button ok
+ 
+// afin d'importer le pseudo Github, intégrer:
+// {firebase.auth().currentUser.displayName}
+
+// et pour l'avatar:
+// src={firebase.auth().currentUser.photoURL}
