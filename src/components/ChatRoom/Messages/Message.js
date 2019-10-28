@@ -1,11 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
+import classNames from 'classnames';
 
 
-const Message = ({ author, text }) => (
+const Message = ({ author, text, isMe }) => (
   <>
-    <Col className="message" xs={11} sm={8}>
+    <Col
+      // className={
+      //   classNames(
+      //     'message',
+      //     { 'message--not-mine': !isMe },
+      //   )
+      // }
+      className="message"
+      xs={11}
+      sm={8}
+    >
       <Col className="message-author">{author}</Col>
       <p className="message-content">{text}</p>
     </Col>
@@ -22,6 +33,7 @@ const Message = ({ author, text }) => (
 Message.propTypes = {
   author: PropTypes.string,
   text: PropTypes.string.isRequired,
+  isMe: PropTypes.bool.isRequired,
 };
 
 Message.defaultProps = {

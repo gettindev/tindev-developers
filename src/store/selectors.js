@@ -8,3 +8,6 @@ export const getMaxId = (messages) => {
   }
   return maxId;
 };
+
+
+export const isMe = (messageAuthor, currentUser) => messageAuthor === currentUser;

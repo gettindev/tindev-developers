@@ -7,22 +7,29 @@ const socketMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case WEBSOCKET_CONNECT:
       socket = window.io('http://localhost:3001');
-      socket.on('send_message', (message) => {
-        console.log(message);
-        store.dispatch(receiveMessage(message));
+      // socket.on('send_message', (message) => {
+      socket.on('send_message', ({ message }) => {
+        // console.log('send', message.message.text);
+        // DESTRUCTOR
+        // const { id, text } = message.message;
+        // const messageToState = { id, text };
+        // const messageToState = message.message;
+        const messageToState = message;
+        store.dispatch(receiveMessage(messageToState));
       });
       break;
 
     case ADD_MESSAGE: {
-      const { currentUser, messageValue } = store.getState();
-      console.log('store', store.getState());
+      const dataFromState = store.getState();
+      const { messageValue, currentUser } = dataFromState.chatroom;
+
       const newMessage = {
         text: messageValue,
         author: currentUser,
       };
 
       socket.emit('send_message', newMessage);
-      console.log('newMessage:', newMessage);
+      // console.log('newMessage:', newMessage);
       next(action);
 
       break;

@@ -1,6 +1,6 @@
 // == Initial State
 const initialState = {
-    logged: false,
+  logged: false,
 };
 
 // == Types
@@ -22,7 +22,7 @@ const app = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
-export const doSomething = message => ({
+export const doSomething = (message) => ({
   type: DO_SOMETHING,
   message,
 });

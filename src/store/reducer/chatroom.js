@@ -14,7 +14,7 @@ export const WEBSOCKET_CONNECT = 'WEBSOCKET_CONNECT';
 const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 
 const chatroom = (state = initialState, action = {}) => {
-  // console.log(action);
+  // console.log(action); 
   switch (action.type) {
     case CHANGE_MESSAGE:
       return {
