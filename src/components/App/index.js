@@ -44,6 +44,8 @@ const App = ({ logged, doRequest }) => {
         <Route exact path="/">
           <Page logged />
         </Route>
+        {logged && 
+        <>
         <Route exact path ="/profil">
           <NavBackRight/>
           <UserMenu />
@@ -69,6 +71,8 @@ const App = ({ logged, doRequest }) => {
           <Messages />
           <Form />
         </Route>
+        </>
+        }
         <Route >
           <NotFound/>
         </Route>
