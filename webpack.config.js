@@ -10,7 +10,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 // Config pour le devServer
 const host = 'localhost';
-const port = 8080;
+const port = 80;
 
 const devMode = process.env.NODE_ENV !== 'production';
 
