@@ -3,10 +3,35 @@ const express = require('express');
 
 const app = express();
 
-const user = require('./routes/profil');
+app.use(express.json());
+// const Sequelize = require('sequelize');
+
+// const user = require('./routes/profil');
 const matching = require('./routes/matching');
 
-app.use(express.json());
+const db = require('./config/database');
+const userModel = require('./models/user');
+const user = require('./routes/profil');
+
+db
+  .authenticate()
+  .then(() => {
+    userModel.create({ pseudo: "toto" })
+      .then((user) => {
+        console.log('inseres Toto');
+      });
+    console.log('Connection has been established successfully.');
+  })
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
+  });
+
+
+
+// app.get('/create', (req, res) => {
+  
+//   // res.send(toto);
+// });
 
 app.use('/profil', user);
 app.use('/matching', matching);
