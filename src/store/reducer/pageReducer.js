@@ -10,7 +10,7 @@ const initialState = {
 const DO_SOMETHING = 'DO_SOMETHING';
 
 // == Reducer
-const matrix = (state = initialState, action = {}) => {
+const page = (state = initialState, action = {}) => {
   switch (action.type) {
     case DO_SOMETHING:
       return {
@@ -34,4 +34,4 @@ export const doSomething = message => ({
 
 
 // == Export
-export default matrix;
+export default page;

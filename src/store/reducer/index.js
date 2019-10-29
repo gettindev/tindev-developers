@@ -10,10 +10,10 @@ import matchlistReducer from './matchlistReducer';
 import chatlistReducer from './chatlistReducer';
 import matching from './matching';
 import home from './home';
-import matrix from './matrixReducer';
 import user from './user';
 import userEdit from './user';
 import app from './app';
+import page from './pageReducer';
 
 // combineReducers returns us the generated parent reducer
 // we must supply an object as parameter
@@ -26,10 +26,10 @@ const reducer = combineReducers({
   chatlistReducer,
   matching,
   home,
-  matrix,
   user,
   userEdit,
   app,
+  page,
 });
 
 export default reducer;

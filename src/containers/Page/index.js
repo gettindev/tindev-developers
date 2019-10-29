@@ -2,23 +2,23 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import Matrix from 'src/components/Matrix';
+import Page from 'src/components/Page';
 
 // Action Creators
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
-  prefs: state.matrix.prefs,
+  prefs: state.page.prefs,
 });
 
 /* === Actions === */
 const mapDispatchToProps = {};
 
 // Container
-const MatrixContainer = connect(
+const PageContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Matrix);
+)(Page);
 
 // == Export
-export default MatrixContainer;
+export default PageContainer;

@@ -7,7 +7,7 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
 // Import locaux
 import HomePage from 'src/components/HomePage'
-import MatrixContainer from 'src/containers/Matrix'
+import Matrix from 'src/components/Matrix'
 import Location from 'src/components/Location'
 import UserProfil from 'src/components/User/Menu';
 
@@ -19,14 +19,22 @@ firebase.initializeApp({
 
 // == Composant
 class Page extends Component {
-  state = { isSignedIn : false }
+  state = { 
+    isSignedIn : false,
+    inscrip : 0,
+    mail : "",
+    id : "",
+    pref: "",
+    localisation: "",
+  }
+
   uiConfig = {
     signInFlow: "popup",
     signInOptions: [
       firebase.auth.GithubAuthProvider.PROVIDER_ID,
     ],
     callbacks: {
-      signInSuccessWithAuthResult: () => <MatrixContainer />
+      signInSuccessWithAuthResult: () => false
     }
   }
 
@@ -42,22 +50,9 @@ class Page extends Component {
     return (
       <div>
         {this.state.isSignedIn ? (
-
-          <>
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
-          <Route path="/matrix" exact>
-            <MatrixContainer />
-          </Route>
-          <Route path="/location" exact>
-            <Location />
-          </Route>
-          <Route path="/show" exact>
-            <UserProfil />
-          </Route>
-          </>
-
+       
+          <Matrix prefs={this.props.prefs}/>
+  
         ) : (     
 
           <>
