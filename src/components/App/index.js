@@ -1,5 +1,5 @@
 // == Import : npm
-import React, { Component } from 'react';
+import React from 'react';
 
 // == Import : style
 import './app.scss';
