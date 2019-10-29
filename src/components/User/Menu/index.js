@@ -8,6 +8,9 @@ import {
   Image,
   Button,
 } from 'react-bootstrap';
+// == Import : Firebase
+import firebase from "firebase"
+
 import { NavLink } from'react-router-dom';
 // import PropTypes from 'prop-types';
 
@@ -45,21 +48,14 @@ const UserProfil = () => {
       <Container className="user-profil-disconnect">
         <Row>
           <Col>
-            <Button size="lg" variant="danger" block>Déconnexion</Button>
+            <Button onClick={() => firebase.auth().signOut()} size="lg" variant="danger" block>Déconnexion</Button>
           </Col>
         </Row>
       </Container>
     </div>
   );
-};
+};  
 
-/*
-
-UserProfil.propTypes = {
-  userName: PropTypes.string.isRequired,
-};
-
-*/
 
 // == Export
 export default UserProfil;

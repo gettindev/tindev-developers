@@ -26,6 +26,7 @@ import NavChat from 'src/components/Nav/NavChat.js';
 import NavBackRight from 'src/components/Nav/NavBackRight.js';
 import NavCloseRight from 'src/components/Nav/NavCloseRight.js';
 
+
 // == Composant
 const App = ({ logged, doRequest }) => {
 
@@ -78,10 +79,9 @@ const App = ({ logged, doRequest }) => {
         </Route>
       </Switch>
     </>
-      
   </div>
   )};
 
+
 // == Export
 export default App;
-
