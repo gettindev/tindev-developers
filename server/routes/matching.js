@@ -4,28 +4,30 @@ const router = express.Router();
 
 const MatchingModel = require('../static/userMatching');
 
-const helpers = require('./../helper');
+const helpers = require('./../helpers/matching');
 
 
-// FETCH All Matching
-/* router.get('/', (req, res) => {
-  res.send(MatchingModel);
-}); */
 router.get('/', (req, res) => {
-  const result = MatchingModel.filter(
+  /* const result = MatchingModel.filter(
     (matching) => helpers.isAMatch(matching),
-  );
-  res.send({
-    message: 'You get all the match on tindev',
-    result,
-  });
+  ); */
+  res.send(MatchingModel);
 });
 
 router.get('/:id', (req, res) => {
   const result = MatchingModel.filter(
     (matching) => helpers.isAMatch(matching),
   );
-  res.send(helpers.isMyMatch(req.params.id, result));
+  // the matchs list according to my USER ID
+  const matchs = helpers.isMyMatch(req.params.id, result);
+  // console.log(matchs);
+  // We generate an array with all the users id in that match list
+  // with that array we should get the users informations
+  const usersMatchList = helpers.myUsersMatchList(req.params.id, matchs);
+  res.send({
+    usersList: usersMatchList,
+    myMatchs: matchs,
+  });
 });
 
 // this is the route to get the matchs with a YEP on the specified USER ID.
