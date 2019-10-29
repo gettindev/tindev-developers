@@ -25,22 +25,19 @@ import Header from './Header';
 
 // == Composant
 class UserProfilEdit extends React.Component {
+
   state = {
-    avatar: 'https://avatars1.githubusercontent.com/u/1433968',
-    firstName: 'Damien',
-    lastName: 'Tailhades',
-    biography: "I'm a designer trying to become developer after 12 years designing website and mobile apps",
-    level: '1',
-    technos: ['html', 'php', 'javascript'],
+    avatar: this.props.currentUser.avatar,
+    firstName: this.props.currentUser.firstName,
+    lastName: this.props.currentUser.lastName,
+    biography: this.props.currentUser.biography,
+    level: this.props.currentUser.level,
+    technos: this.props.currentUser.technos,
+    sharedUrl: this.props.currentUser.links,
     sharedNewUrl: '',
     sharedNewTitleUrl: '',
-    sharedUrl: [
-      { id: 0, title: 'Google', url: 'http://www.google.com' },
-      { id: 1, title: 'Regular', url: 'http://www.regulardesigner.com' },
-      { id: 2, title: 'Webibli', url: 'http://www.webibli.fr' },
-    ],
   }
-
+  
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -86,7 +83,14 @@ class UserProfilEdit extends React.Component {
 
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { sendRequest } = this.props;
+    sendRequest();
+  }
+
   render() {
+    console.log(this.props.currentUser);
     const userName = 'myGithubName';
     const {
       avatar,
@@ -104,7 +108,7 @@ class UserProfilEdit extends React.Component {
         
         <Container className="text-left">
           <Header userName={userName} avatar={avatar} />
-          <Form>
+          <Form >
             <h3>Les infos de ton profil</h3>
             <Form.Group controlId="formFirstName">
               <Form.Label>Prénom</Form.Label>
@@ -173,7 +177,7 @@ class UserProfilEdit extends React.Component {
                 })}
               </ul>
             </Form.Group>
-            <Button className="mb-10" onClick={(e) => { e.preventDefault(); console.log(this.state) }} block variant="primary" type="submit">Sauvegarder</Button>
+            <Button className="mb-10" onClick={this.handleSubmit} block variant="primary" type="submit">Sauvegarder</Button>
           </Form>
           <Row>
             <Col className="mt-5">
