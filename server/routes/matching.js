@@ -7,14 +7,29 @@ const MatchingModel = require('../static/userMatching');
 const helpers = require('./../helper');
 
 
-// FETCH All users
-router.get('/', (req, res) => {
+// FETCH All Matching
+/* router.get('/', (req, res) => {
   res.send(MatchingModel);
+}); */
+router.get('/', (req, res) => {
+  const result = MatchingModel.filter(
+    (matching) => helpers.isAMatch(matching),
+  );
+  res.send({
+    message: 'You get all the match on tindev',
+    result,
+  });
 });
 
+router.get('/:id', (req, res) => {
+  const result = MatchingModel.filter(
+    (matching) => helpers.isAMatch(matching),
+  );
+  res.send(helpers.isMyMatch(req.params.id, result));
+});
+
+// this is the route to get the matchs with a YEP on the specified USER ID.
 router.get('/yep/:id', (req, res) => {
-  // pour l'id en parametre je veux avoir la liste des
-  // matching YEP qui ont étés donnés par les autres utilisateurs
   const result = MatchingModel.filter(
     (matching) => matching.swipedUserId === parseInt(req.params.id, 10)
     && matching.currentUserStatus === true,
@@ -22,8 +37,8 @@ router.get('/yep/:id', (req, res) => {
   res.send(result);
 });
 
+// this is the route to get the matchs with a NOPE on the specified USER ID.
 router.get('/nope/:id', (req, res) => {
-  // return the matching with my nope match
   const result = MatchingModel.filter(
     (matching) => matching.swipedUserId === parseInt(req.params.id, 10)
     && matching.currentUserStatus === false,
@@ -31,6 +46,7 @@ router.get('/nope/:id', (req, res) => {
   res.send(result);
 });
 
+// this is the route to give a YEP to a user
 router.post('/yep', (req, res) => {
   // I get the current user ID and the swiped user ID
   const yep = {
@@ -52,12 +68,13 @@ router.post('/yep', (req, res) => {
     // the matching exist, I can get his ID
     const matchingExistId = result[0].id;
     // and do an update on that matching
-    // because the current user give a 'YEP' to that matching the second params is TRUE
     const update = helpers.updateMatchingResult(matchingExistId, true, MatchingModel);
+    // because the current user give a 'YEP' to that matching the second params is TRUE
     res.send(helpers.isAMatch(update));
   }
 });
 
+// this is the route to give a NOPE to a user
 router.post('/nope', (req, res) => {
   // I get the current user ID and the swiped user ID
   const nope = {
@@ -79,8 +96,8 @@ router.post('/nope', (req, res) => {
     // the matching exist, I can get his ID
     const matchingExistId = result[0].id;
     // and do an update on that matching
-    // because the current user give a 'NOPE' to that matching the second params is FALSE
     const update = helpers.updateMatchingResult(matchingExistId, false, MatchingModel);
+    // because the current user give a 'NOPE' to that matching the second params is FALSE
     res.send(update);
   }
 });

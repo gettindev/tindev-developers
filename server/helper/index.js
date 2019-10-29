@@ -38,4 +38,11 @@ module.exports = {
     }
     return false;
   },
+  isMyMatch: (myId, isAMatchArray) => {
+    const isMyMatch = isAMatchArray.filter(
+      (matching) => matching.currentUserid === parseInt(myId, 10)
+      || matching.swipedUserId === parseInt(myId, 10),
+    );
+    return isMyMatch;
+  },
 };

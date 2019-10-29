@@ -11,7 +11,7 @@ const userMatch = [
     currentUserid: 10,
     currentUserStatus: true,
     swipedUserId: 2,
-    swipedUserStatus: null,
+    swipedUserStatus: true,
   },
   {
     id: 3,
@@ -33,6 +33,13 @@ const userMatch = [
     currentUserStatus: false,
     swipedUserId: 3,
     swipedUserStatus: null,
+  },
+  {
+    id: 6,
+    currentUserid: 8,
+    currentUserStatus: true,
+    swipedUserId: 7,
+    swipedUserStatus: true,
   },
 ];
 

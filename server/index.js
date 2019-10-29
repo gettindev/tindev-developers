@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 const user = require('./routes/profil');
-const matching = require ('./routes/matching');
+const matching = require('./routes/matching');
 
 app.use(express.json());
 
