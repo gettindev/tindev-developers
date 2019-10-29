@@ -1,21 +1,22 @@
 // == Initial State
 const initialState = {
-    logged: true,
+  message: 'Hello',
 };
 
 // == Types
 const DO_SOMETHING = 'DO_SOMETHING';
-export const GET_ALL_DATAS = 'GET_ALL_DATAS';
+export const SEND_REQUEST = 'SEND_REQUEST';
+
 
 // == Reducer
-const app = (state = initialState, action = {}) => {
+const userEdit = (state = initialState, action = {}) => {
   switch (action.type) {
     case DO_SOMETHING:
       return {
         ...state,
         message: action.message,
       };
-
+    
     default:
       return state;
   }
@@ -25,14 +26,16 @@ const app = (state = initialState, action = {}) => {
 export const doSomething = message => ({
   type: DO_SOMETHING,
   message,
-});
+})
 
-export const getAllDatas = () => ({
-  type: GET_ALL_DATAS,
-});
+export const sendRequest = () => ({
+  type: SEND_REQUEST,
+})
+
+
 
 // == Selectors
 
 
 // == Export
-export default app;
+export default userEdit;

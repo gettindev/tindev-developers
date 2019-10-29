@@ -43,7 +43,7 @@ const Nav = (props) => {
 Nav.propTypes = {
   nav: PropTypes.string,
   title: PropTypes.string,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
 };
 
 Nav.defaultProps = {

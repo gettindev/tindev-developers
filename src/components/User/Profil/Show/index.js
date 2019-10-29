@@ -11,12 +11,15 @@ const ShowUserProfil = ({ user }) => {
   const userTechnos = user.technos;
   const userLevel = user.levelsList;
   const generalWishList = user.wishesList;
+  const userWishId = user.wishedId;
 
   /* const tab = userWishId.filter((item) => {
     return !generalWishList.includes(item);
   }); */
 
-  const userWishId = user.wishedId;
+  // Destructor
+  const { avatar, firstName, lastName, githubName, level, biography} = user;
+  
   // I create a new tab with id and wish name ! //
   const tab = generalWishList.filter(item => userWishId.includes(item.id));
   console.log(tab);
@@ -26,11 +29,11 @@ const ShowUserProfil = ({ user }) => {
     <div className="show-profil">
       <Container>
         <section className="show-profil-info">
-          <img className="avatar" src={user.avatar} alt={`Avatar de ${user.firstName} ${user.lastName}`} height="120" width="120" />
-          <h2>{`${user.firstName} ${user.lastName}`}</h2>
-          <h3>{userLevel[user.level].desc} <small>{user.githubName}</small></h3>
+          <img className="avatar" src={avatar} alt={`Avatar de ${firstName} ${lastName}`} height="120" width="120" />
+          <h2>{`${firstName} ${lastName}`}</h2>
+          <h3>{userLevel[level].desc} <small>{githubName}</small></h3>
           <section className="show-profil-info-bio">
-            <p>{user.biography}</p>
+            <p>{biography}</p>
           </section>
         </section>
         <section className="wishes">
