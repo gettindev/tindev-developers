@@ -1,11 +1,12 @@
-node_modules/
+node_modules/*
+!node_modules/@sandstreamdev/
 
 .vs/
 .vs-code/
 
 .DS_Store
 Thumbs.db
-!node_modules/@sandstreamdev/
+
 yarn-error.log
 
 
