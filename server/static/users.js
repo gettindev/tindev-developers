@@ -100,7 +100,7 @@ const users = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     firstName: 'Monica',
     lastName: 'Dinculescu',
     avatar: 'https://avatars1.githubusercontent.com/u/1369170',
@@ -114,7 +114,7 @@ const users = [
     ],
   },
   {
-    id: 8,
+    id: 9,
     firstName: 'Mandy',
     lastName: 'Michael',
     avatar: 'https://avatars3.githubusercontent.com/u/11938879',
@@ -128,7 +128,7 @@ const users = [
     ],
   },
   {
-    id: 9,
+    id: 10,
     firstName: 'Ada Rose',
     lastName: 'Cannon',
     avatar: 'https://avatars2.githubusercontent.com/u/4225330',
@@ -142,7 +142,7 @@ const users = [
     ],
   },
   {
-    id: 10,
+    id: 11,
     firstName: 'Omayeli',
     lastName: 'Arenyeka',
     avatar: 'https://avatars0.githubusercontent.com/u/8635106',
