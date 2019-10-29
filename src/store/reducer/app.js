@@ -1,6 +1,6 @@
 // == Initial State
 const initialState = {
-    logged: false,
+    logged: true,
 };
 
 // == Types
