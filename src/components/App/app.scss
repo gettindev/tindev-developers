@@ -2,6 +2,11 @@
 
 .app {
   font-family: $font;
-  position: relative;
-  background-color: $primaryColorLight;
+  background-color: $primaryColorVeryLight;
+  cursor: pointer;
 }
+
+html {
+  background-color: $primaryColorVeryLight;
+}
+

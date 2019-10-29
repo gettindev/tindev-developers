@@ -8,10 +8,10 @@ import {
   Image,
   Button,
 } from 'react-bootstrap';
-
 // == Import : Firebase
 import firebase from "firebase"
 
+import { NavLink } from'react-router-dom';
 // import PropTypes from 'prop-types';
 
 // == Import : local
@@ -25,13 +25,14 @@ const UserProfil = () => {
   //
   return (
     <div className="user-profil">
-      <Nav nav="back-right" />
       <Container className="user-profil-info">
         <Row>
           <Col>
             <h2 className="user-profil-info-user-name">{userName}</h2>
-            <Image className="user-profil-info-avatar" src="http://placeimg.com/100/100/people" roundedCircle />
-            <p><MdEdit /> <a className="user-profil-info--edit-link" href="#">Édites ton profil</a></p>
+            <NavLink to ="/profil/show"><Image className="user-profil-info-avatar" src="http://placeimg.com/100/100/people" roundedCircle /></NavLink>
+            <p><MdEdit /><a className="user-profil-info--edit-link" 
+            href="#">
+            <NavLink to ="/profil/edit">Édites ton profil</NavLink></a></p>
           </Col>
         </Row>
       </Container>
@@ -53,24 +54,8 @@ const UserProfil = () => {
       </Container>
     </div>
   );
-};
+};  
 
-/*
-
-UserProfil.propTypes = {
-  userName: PropTypes.string.isRequired,
-};
-
-*/
 
 // == Export
 export default UserProfil;
-
-
-// lien de déconnexion sur button ok
- 
-// afin d'importer le pseudo Github, intégrer:
-// {firebase.auth().currentUser.displayName}
-
-// et pour l'avatar:
-// src={firebase.auth().currentUser.photoURL}

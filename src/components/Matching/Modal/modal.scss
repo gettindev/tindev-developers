@@ -5,7 +5,13 @@
   background-color: #fff;
 
       &-header {
-        background-color: $primaryColorLight;
+        background: repeating-linear-gradient(
+          45deg,
+          $primaryColor,
+          $primaryColor 10px,
+          $primaryColorVeryLight 10px,
+          $primaryColorVeryLight 30px
+        );
         color: $textColor;
       }
 
@@ -61,7 +67,13 @@
       }
 
       &-footer {
-        background-color: $primaryColorLight ;
+        background: repeating-linear-gradient(
+          45deg,
+          $primaryColor,
+          $primaryColor 10px,
+          $primaryColorVeryLight 10px,
+          $primaryColorVeryLight 30px
+        );
         
           &-btn {
             border: 2px solid $textColor !important;

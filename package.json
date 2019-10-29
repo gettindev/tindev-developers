@@ -41,15 +41,24 @@
     "build:dev:win": "set NODE_ENV=development && webpack",
     "build:prod": "NODE_ENV=production webpack --mode production",
     "build:prod:win": "set NODE_ENV=production && webpack --mode production",
-    "save-deps": "rm -rf node_modules && npm update --save && npm update --save-dev"
+    "save-deps": "rm -rf node_modules && npm update --save && npm update --save-dev",
+    "start:server": "node index.js",
+    "serve": "nodemon index.js"
   },
   "dependencies": {
     "@sandstreamdev/react-swipeable-list": "^0.2.1",
     "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
+    "config": "^3.2.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase": "^7.2.2",
+    "express-validator": "^6.2.0",
+    "gravatar": "^1.8.0",
+    "mongoose": "^5.7.6",
+    "nodemon": "^1.19.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.14",
@@ -61,6 +70,8 @@
     "react-router-dom": "^5.1.2",
     "react-swipeable-views": "^0.13.3",
     "redux": "^4.0.1",
-    "socket.io": "^2.3.0"
+    "request": "^2.88.0",
+    "socket.io": "^2.3.0",
+    "terser-webpack-plugin": "^2.2.1"
   }
 }
