@@ -20,7 +20,7 @@ const Matrix = ({ prefs }) => (
       )}
       </section> 
       <Button id="next" href="/location" variant="Link"> Next </Button>
-      <h2 id="logo_matrix">TinDev</h2>
+      <div><img className="logo-matrix" src='./src/data/logo.png'/></div>
       <p>©2019 tous droits réservés</p>
     </div>
   

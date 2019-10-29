@@ -14,12 +14,12 @@
       font-size: 1.8em;
   }
 
-  h3 {
-    font-size: 1.3em;
+    h3 {
+      font-size: 1.3em;
 
-    @media (min-width: $sm) {
-      margin-top: 10rem;
-  }
+      @media (min-width: $sm) {
+        margin-top: 10rem;
+    }
   }
 
   p {
@@ -57,14 +57,13 @@
       background-color: $eventColorBlue;
     }
 
-    &.click {
+    &.onclick {
       color: crimson;
     }
 
     p {
       line-height: 6.5rem;
       font-size: 1em;
-      
     }
   }
 }
@@ -79,10 +78,7 @@
   }
 }
 
-#logo_matrix{
-  font-family: fantasy;
-  color: rgb(158, 220, 245);
-  font-size: 1em;
-  margin: 2.5rem 0 0 0;
+.logo-matrix {
+  width: 10rem;
 }
 
