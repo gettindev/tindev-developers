@@ -17,6 +17,7 @@ import MatchingContainer from 'src/containers/Matching/MatchingContainer';
 import UserMenu from 'src/components/User/Menu';
 import EditUserProfil from 'src/components/User/Profil/Edit';
 import ShowUserProfil from 'src/containers/User/Profil/Show';
+import NotFound from 'src/components/404/index';
 
 // Import all Nav Components
 import Nav from 'src/components/Nav';
@@ -40,6 +41,11 @@ const App = ({ logged, doRequest }) => {
   <div className="app">
     <>
       <Switch > 
+        <Route exact path="/">
+          <Page logged />
+        </Route>
+        {logged && 
+        <>
         <Route exact path ="/profil">
           <NavBackRight/>
           <UserMenu />
@@ -65,11 +71,14 @@ const App = ({ logged, doRequest }) => {
           <Messages />
           <Form />
         </Route>
+        </>
+        }
+        <Route >
+          <NotFound/>
+        </Route>
       </Switch>
     </>
-      <Route exact path="/">
-        <Page logged />
-      </Route>
+      
   </div>
   )};
 
