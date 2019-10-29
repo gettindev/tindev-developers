@@ -14,12 +14,12 @@
       font-size: 1.8em;
   }
 
-    h3 {
-      font-size: 1.3em;
+  h3 {
+    font-size: 1.3em;
 
-      @media (min-width: $sm) {
-        margin-top: 10rem;
-    }
+    @media (min-width: $sm) {
+      margin-top: 10rem;
+  }
   }
 
   p {
@@ -57,8 +57,8 @@
       background-color: $eventColorBlue;
     }
 
-    &.onclick {
-      color: crimson;
+    &:checked {
+      background-color: crimson;
     }
 
     p {

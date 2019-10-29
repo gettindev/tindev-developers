@@ -26,6 +26,5 @@ const Matrix = ({ prefs }) => (
   
 );
 
-
 // == Export
 export default Matrix;
