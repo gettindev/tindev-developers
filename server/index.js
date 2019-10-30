@@ -18,10 +18,6 @@ const user = require('./routes/profil');
 db
   .authenticate()
   .then(() => {
-    userModel.create({ pseudo: "toto" })
-      .then((user) => {
-        console.log('inseres Toto');
-      });
     console.log('Connection has been established successfully.');
   })
   .catch((err) => {
