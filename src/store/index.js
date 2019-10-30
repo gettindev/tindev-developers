@@ -6,6 +6,7 @@ import reducer from './reducer';
 import { websocketConnect } from './reducer/chatroom';
 import matchingMiddleware from './middlewares/matchingMiddleware';
 import socketMiddleware from './middlewares/socketMiddleware';
+import userEditMiddleware from './middlewares/userEditMiddleware';
 
 // == Store
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -15,6 +16,7 @@ const enhancers = composeEnhancers(
     matchingMiddleware,
     socketMiddleware,
     // secondMiddleware,
+    userEditMiddleware,
   ),
 );
 

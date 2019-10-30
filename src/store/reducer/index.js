@@ -12,6 +12,7 @@ import matching from './matching';
 import home from './home';
 import matrix from './matrixReducer';
 import user from './user';
+import userEdit from './user';
 import app from './app';
 
 // combineReducers returns us the generated parent reducer
@@ -27,6 +28,7 @@ const reducer = combineReducers({
   home,
   matrix,
   user,
+  userEdit,
   app,
 });
 
