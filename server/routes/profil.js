@@ -6,6 +6,13 @@ const router = express.Router();
 const WishModel = require('../models/wish');
 const UserModel = require('../models/user');
 
+UserModel.belongsToMany(WishModel, {
+  through: 'user_wishes',
+  foreignKey: 'userId',
+  // use as: 'toto', // to fit to table column name in the sequelize request
+  timestamps: false,
+});
+
 // FETCH All users
 router.get('/', (req, res) => {
   UserModel.findAll().then((users) => {
@@ -15,27 +22,25 @@ router.get('/', (req, res) => {
 
 // INSERT User
 router.post('/', (req, res) => {
+  const { pseudo, firstName, lastName, token, experience, photo, bio, url, mail, location } = req.body;
+
   const user = {
-    firstName: req.body.firstName,   
-    lastName: req.body.lastName,
-    pseudo: req.body.pseudo,
+    pseudo,
+    firstName,
+    lastName,
+    token,
+    experience,
+    photo,
+    bio,
+    url,
+    mail,
+    location,
   };
+
   UserModel.create(user).then(() => {
     res.send(user);
   });
 });
-
-UserModel.belongsToMany(WishModel, {
-  through: 'user_wishes',
-  foreignKey: 'userId',
-  timestamps: false,
-});
-
-// User.associate = function(models) {
-//   User.belongsTo(models.Company, {foreignKey: 'companyId', as: 'company'})
-//   User.belongsToMany(models.WorkingDay, {through: 'UsersWorkingDays', foreignKey: 'userId', as: 'days'})
-// };
-//
 
 // FETCH user by ID
 router.get('/:id', (req, res) => {
@@ -64,11 +69,25 @@ router.get('/:id', (req, res) => {
 
 // EDIT User details
 router.put('/:id', (req, res) => {
-  const user = UserModel.find((user) => user.id === parseInt(req.params.id, 10));
-  if (!user) return res.status(404).send('<h1 style="color:pink;">Status 404...</h1><p>The given id was not found.</p>');
-  user.firstName = req.body.firstName;
-  user.lastName = req.body.lastName;
-  res.send(user);
+  const { id } = req.params;
+  const { pseudo, firstName, lastName, token, experience, photo, bio, url, mail, location } = req.body;
+  UserModel.update(
+    { 
+      pseudo,
+      firstName,
+      lastName,
+      token,
+      experience,
+      photo,
+      bio,
+      url,
+      mail,
+      location, 
+  },
+    { where: { id } },
+  ).then((user) => {
+    res.send(user);
+  });
 });
 
 router.delete('/:id', (req, res) => {

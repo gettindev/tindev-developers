@@ -20,7 +20,7 @@ const User = db.define('users', {
   },
   pseudo: {
     type: Sequelize.STRING,
-    allowNull: true,
+    // allowNull: true,
   },
   experience: {
     type: Sequelize.STRING,
@@ -41,5 +41,7 @@ const User = db.define('users', {
     type: Sequelize.STRING,
   },
   createdAt: Sequelize.DATE,
+}, {
+  freezeTableName: true
 });
 module.exports = User;

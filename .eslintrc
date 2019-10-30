@@ -27,7 +27,7 @@
     "react/jsx-props-no-spreading": "off",
     "react/state-in-constructor": "off",
     "no-underscore-dangle": "off",
-    "linebreak-style": [2, "windows"]
+    // "linebreak-style": [2, "windows"]
   },
   "settings": {
     "import/resolver": "webpack"
