@@ -40,6 +40,6 @@ const User = db.define('USER', {
   location: {
     type: Sequelize.STRING,
   },
-  created_at: Sequelize.DATE,
+  createdAt: Sequelize.DATE,
 }, { freezeTableName: true });
 module.exports = User;

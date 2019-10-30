@@ -7,12 +7,11 @@ const app = express();
 
 app.use(express.json());
 // const Sequelize = require('sequelize');
-
 // const user = require('./routes/profil');
+
 const matching = require('./routes/matching');
 
 const db = require('./config/database');
-const userModel = require('./models/user');
 const user = require('./routes/profil');
 
 db
