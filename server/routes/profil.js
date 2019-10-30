@@ -5,7 +5,7 @@ const router = express.Router();
 const UserModel = require('../static/users');
 
 // FETCH All users
-router.get('/', (req, res) => {
+router.get('/',  (req, res) => {
   res.send(UserModel);
 });
 

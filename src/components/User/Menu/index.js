@@ -8,6 +8,10 @@ import {
   Image,
   Button,
 } from 'react-bootstrap';
+// == Import : Firebase
+import firebase from "firebase"
+
+import { NavLink } from'react-router-dom';
 // import PropTypes from 'prop-types';
 
 // == Import : local
@@ -21,13 +25,14 @@ const UserProfil = () => {
   //
   return (
     <div className="user-profil">
-      <Nav nav="back-right" />
       <Container className="user-profil-info">
         <Row>
           <Col>
             <h2 className="user-profil-info-user-name">{userName}</h2>
-            <Image className="user-profil-info-avatar" src="http://placeimg.com/100/100/people" roundedCircle />
-            <p><MdEdit /> <a className="user-profil-info--edit-link" href="#">Édites ton profil</a></p>
+            <NavLink to ="/profil/show"><Image className="user-profil-info-avatar" src="http://placeimg.com/100/100/people" roundedCircle /></NavLink>
+            <p><MdEdit /><a className="user-profil-info--edit-link" 
+            href="#">
+            <NavLink to ="/profil/edit">Édites ton profil</NavLink></a></p>
           </Col>
         </Row>
       </Container>
@@ -43,21 +48,14 @@ const UserProfil = () => {
       <Container className="user-profil-disconnect">
         <Row>
           <Col>
-            <Button size="lg" variant="danger" block>Déconnexion</Button>
+            <Button onClick={() => firebase.auth().signOut()} size="lg" variant="danger" block>Déconnexion</Button>
           </Col>
         </Row>
       </Container>
     </div>
   );
-};
+};  
 
-/*
-
-UserProfil.propTypes = {
-  userName: PropTypes.string.isRequired,
-};
-
-*/
 
 // == Export
 export default UserProfil;

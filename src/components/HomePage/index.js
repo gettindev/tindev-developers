@@ -1,5 +1,8 @@
 // == Import : npm
-import React from 'react';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import firebase from "firebase"
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
 // imports styles
 import { Button } from 'react-bootstrap';
@@ -83,7 +86,8 @@ const HomePage = () => (
       <div className='footerHome'>
         <h2>Peu importe que tu sois Dev, CTO ou CEO, que tu préfères les Ninjas ou les NOObs</h2>
         <p>Trouves ici ton perfect Dev-Match pour staffer tes projets</p>
-        <Button variant="info"> S'identifier via GitHub </Button>
+        {/* <Button href="/matrix" variant="info"> S'identifier via GitHub </Button> */}
+         
       </div>
     </div>  
   </>
