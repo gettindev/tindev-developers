@@ -6,13 +6,11 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
-// const Sequelize = require('sequelize');
-// const user = require('./routes/profil');
-
-const matching = require('./routes/matching');
 
 const db = require('./config/database');
 const user = require('./routes/profil');
+const matching = require('./routes/matching');
+const wish = require('./routes/wish');
 
 db
   .authenticate()
@@ -27,6 +25,7 @@ app.use(cors());
 
 app.use('/profil', user);
 app.use('/matching', matching);
+app.use('/wish', wish);
 
 app.get('/', (req, res) => {
   res.send('Tindev API');

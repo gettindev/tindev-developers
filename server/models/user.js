@@ -2,9 +2,9 @@ const Sequelize = require('sequelize');
 
 const db = require('../config/database');
 
-const User = db.define('USER', {
+const User = db.define('users', {
   id: {
-    // field: 'Userid',
+    field: 'id',
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
@@ -41,5 +41,5 @@ const User = db.define('USER', {
     type: Sequelize.STRING,
   },
   createdAt: Sequelize.DATE,
-}, { freezeTableName: true });
+});
 module.exports = User;
