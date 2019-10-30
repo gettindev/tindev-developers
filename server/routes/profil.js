@@ -3,7 +3,15 @@ const express = require('express');
 const router = express.Router();
 
 // const UserModel = require('../static/users');
+const WishModel = require('../models/wish');
 const UserModel = require('../models/user');
+
+UserModel.belongsToMany(WishModel, {
+  through: 'user_wishes',
+  foreignKey: 'userId',
+  // use as: 'toto', // to fit to table column name in the sequelize request
+  timestamps: false,
+});
 
 // FETCH All users
 router.get('/', (req, res) => {
@@ -36,9 +44,27 @@ router.post('/', (req, res) => {
 
 // FETCH user by ID
 router.get('/:id', (req, res) => {
-  const user = UserModel.find((user) => user.id === parseInt(req.params.id, 10));
-  if (!user) return res.status(404).send('<h1 style="color:pink;">Status 404...</h1><p>The given id was not found.</p>');
-  res.send(user);
+  const { id } = req.params;
+  // https://github.com/sequelize/sequelize/issues/2541 to see how show and hide attributes
+  UserModel.findByPk(id, {
+    include: [
+      {
+        model: WishModel,
+        attributes: ['id', 'name'],
+        through: {
+          attributes: [],
+        },
+      },
+    ],
+  })
+    .then((user) => {
+      if (user) {
+        res.json(user);
+      }
+      else {
+        res.status(404).send();
+      }
+    });
 });
 
 // EDIT User details
@@ -63,21 +89,14 @@ router.put('/:id', (req, res) => {
     res.send(user);
   });
 });
-// router.put('/:id', (req, res) => {
-//   const user = UserModel.find((user) => user.id === parseInt(req.params.id, 10));
-//   if (!user) return res.status(404).send('<h1 style="color:pink;">Status 404...</h1><p>The given id was not found.</p>');
-//   user.firstName = req.body.firstName;
-//   user.lastName = req.body.lastName;
-//   UserModel.update()
-//   res.send(user);
-// });
 
 router.delete('/:id', (req, res) => {
-  const user = UserModel.find((user) => user.id === parseInt(req.params.id, 10));
-  if (!user) return res.status(404).send('<h1 style="color:pink;">Status 404...</h1><p>The given id was not found.</p>');
-  const index = UserModel.indexOf(user);
-  UserModel.splice(index, 1);
-  res.send(user);
+  const { id } = req.params;
+  UserModel.findByPk(id).then((user) => {
+    user.destroy().then(() => {
+      res.status(204).send();
+    });
+  });
 });
 
 module.exports = router;
