@@ -5,11 +5,6 @@ const app = express();
 
 app.use(express.json());
 
-const Sequelize = require('sequelize');
-
-// const user = require('./routes/profil');
-const matching = require('./routes/matching');
-
 const db = require('./config/database');
 const user = require('./routes/profil');
 const matching = require('./routes/matching');
@@ -23,14 +18,6 @@ db
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
   });
-
-
-app.get('/users', (req, res) => {
-  userModel.findAll().then((users) => {
-    res.send(users);
-  });
-});
-
 
 app.use('/profil', user);
 app.use('/matching', matching);

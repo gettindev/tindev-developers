@@ -22,7 +22,9 @@ router.get('/', (req, res) => {
 
 // INSERT User
 router.post('/', (req, res) => {
-  const { pseudo, firstName, lastName, token, experience, photo, bio, url, mail, location } = req.body;
+  const {
+    pseudo, firstName, lastName, token, experience, photo, bio, url, mail, location,
+  } = req.body;
 
   const user = {
     pseudo,
@@ -70,9 +72,12 @@ router.get('/:id', (req, res) => {
 // EDIT User details
 router.put('/:id', (req, res) => {
   const { id } = req.params;
-  const { pseudo, firstName, lastName, token, experience, photo, bio, url, mail, location } = req.body;
+  const {
+    pseudo, firstName, lastName, token, experience, photo, bio, url, mail, location,
+  } = req.body;
+
   UserModel.update(
-    { 
+    {
       pseudo,
       firstName,
       lastName,
@@ -82,8 +87,8 @@ router.put('/:id', (req, res) => {
       bio,
       url,
       mail,
-      location, 
-  },
+      location,
+    },
     { where: { id } },
   ).then((user) => {
     res.send(user);
