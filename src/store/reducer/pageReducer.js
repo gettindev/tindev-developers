@@ -4,6 +4,8 @@ import prefs from 'src/data/matchPreferences.js';
 // == Initial State
 const initialState = {
   prefs: prefs,
+  step : 0,
+  
 };
 
 // == Types
