@@ -1,12 +1,11 @@
 /* eslint-disable radix */
 const express = require('express');
 
-const cors = require('cors');
-
 const app = express();
 
 app.use(express.json());
-// const Sequelize = require('sequelize');
+
+const Sequelize = require('sequelize');
 
 // const user = require('./routes/profil');
 const matching = require('./routes/matching');
@@ -24,7 +23,13 @@ db
     console.error('Unable to connect to the database:', err);
   });
 
-app.use(cors());
+
+app.get('/users', (req, res) => {
+  userModel.findAll().then((users) => {
+    res.send(users);
+  });
+});
+
 
 app.use('/profil', user);
 app.use('/matching', matching);
