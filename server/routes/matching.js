@@ -1,11 +1,12 @@
 const express = require('express');
 
 const router = express.Router();
-
+// Model
 const MatchingModel = require('../static/userMatching');
-
+const UsersModel = require('../static/users');
+// helpers
 const helpers = require('./../helpers/matching');
-
+const userHelpers = require('./../helpers/users');
 
 router.get('/', (req, res) => {
   /* const result = MatchingModel.filter(
@@ -24,9 +25,12 @@ router.get('/:id', (req, res) => {
   // We generate an array with all the users id in that match list
   // with that array we should get the users informations
   const usersMatchList = helpers.myUsersMatchList(req.params.id, matchs);
-  res.send({
-    usersList: usersMatchList,
+  const usermatchInfo = userHelpers.getUsernameAndAvatar(usersMatchList, UsersModel);
+  res.status(200).send({
+    userId: usersMatchList,
+    usersList: usermatchInfo,
     myMatchs: matchs,
+    conversations: '',
   });
 });
 
