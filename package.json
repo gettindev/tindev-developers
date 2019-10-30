@@ -54,10 +54,11 @@
     "config": "^3.2.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "firebase": "^7.2.2",
     "express-validator": "^6.2.0",
+    "firebase": "^7.2.2",
     "gravatar": "^1.8.0",
     "mongoose": "^5.7.6",
+    "mysql2": "^2.0.0",
     "nodemon": "^1.19.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -71,6 +72,7 @@
     "react-swipeable-views": "^0.13.3",
     "redux": "^4.0.1",
     "request": "^2.88.0",
+    "sequelize": "^5.21.2",
     "socket.io": "^2.3.0",
     "terser-webpack-plugin": "^2.2.1"
   }

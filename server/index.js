@@ -33,8 +33,6 @@ app.use(cors());
 app.use('/profil', user);
 app.use('/matching', matching);
 
-app.use('/match', matchs);
-
 app.get('/', (req, res) => {
   res.send('Tindev API');
 });
