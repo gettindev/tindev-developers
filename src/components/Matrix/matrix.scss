@@ -84,9 +84,10 @@
   font-size: 1.4em;
   color: $textColor;
 
-  &:hover {
-    color: $eventColorBlue;
-  }
+    &:hover {
+    color: $secondaryColor;
+    //background-color: $eventColorBlue;
+    }
 }
 
 .logo-matrix {
