@@ -40,6 +40,9 @@ const User = db.define('users', {
   location: {
     type: Sequelize.STRING,
   },
+  // levelId: {
+  //   type: Sequelize.INTEGER,
+  // },
   createdAt: Sequelize.DATE,
 }, {
   freezeTableName: true,

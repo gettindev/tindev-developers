@@ -2,10 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 
+const Sequelize = require('sequelize');
+
 // const UserModel = require('../static/users');
 const WishModel = require('../models/wish');
 const TechModel = require('../models/tech');
 const UserModel = require('../models/user');
+const LevelModel = require('../models/level');
+
 
 
 UserModel.belongsToMany(WishModel, {
@@ -20,6 +24,15 @@ UserModel.belongsToMany(TechModel, {
   foreignKey: 'userId',
   // use as: 'toto', // to fit to table column name in the sequelize request
   timestamps: false,
+});
+
+LevelModel.hasMany(UserModel, {
+  // foreignKey: 'levelId',
+  // targetKey: 'experience',
+});
+
+UserModel.belongsTo(LevelModel, {
+  // foreignKey: 'levelId',
 });
 
 // FETCH All users
@@ -73,6 +86,11 @@ router.get('/:id', (req, res) => {
           attributes: [],
         },
       },
+      // {
+      //   model: LevelModel,
+      //   where: { levelsId: Sequelize.col('levels.id') }
+      // },
+      // { model: LevelModel },
     ],
   })
     .then((user) => {
