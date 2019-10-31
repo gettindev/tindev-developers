@@ -34,14 +34,18 @@ firebase.initializeApp({
 class Page extends React.Component {
 
   // AH OUI, METS DES COMMENTAIRES POUR TE REPERER ! GOOD LUCK ****************
+
+// == initialize State 
   state = { 
     isSignedIn : false,
     pseudo: "",
     photoURL: "",
     email: "",
     idFire: "",
+    choosenPref: 0,
   }
 
+// == Firebase authentication
   uiConfig = {
     signInFlow: "popup",
     signInOptions: [
@@ -52,6 +56,7 @@ class Page extends React.Component {
     }
   }
 
+// == recovery of user data at registration and injection into the state
   componentDidMount = ()=> {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({
@@ -71,6 +76,17 @@ class Page extends React.Component {
     console.log(this.state.email);
     console.log(this.state.idFire);
   }
+
+// == recovery of user choices
+  addPref() {
+    this.setState({
+      choosenPref: this.state.choosenPref + 1
+    });
+    console.log(choosenPref);
+  }
+
+
+
 
   render() {
     return (

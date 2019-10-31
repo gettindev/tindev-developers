@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // imports styles
 import { Button } from 'react-bootstrap';
@@ -17,7 +18,7 @@ const Matrix = ({ prefs }) => (
       <section id="choice">
         {prefs.map((pref) =>
 
-          <div /*onClick={chosenPref}*/ key={pref.id}>
+          <div onClick={() => this.props.choosenPref} key={pref.id}>
             <p>{pref.choice}</p>
           </div>
 
