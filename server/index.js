@@ -3,13 +3,13 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-
-const http = require('http');
+app.set('port', process.env.PORT || 3001);
 
 const cors = require('cors');
 app.use(cors());
 
 const Sequelize = require('sequelize');
+
 const db = require('./config/database');
 
 const user = require('./routes/profil');
@@ -20,6 +20,10 @@ app.use('/profil', user);
 app.use('/matching', matching);
 app.use('/wish', wish);
 
+app.get('/', (req, res) => {
+  res.send('Tindev API');
+});
+
 db
   .authenticate()
   .then(() => {
@@ -29,7 +33,7 @@ db
     console.error('Unable to connect to the database:', err);
   });
 
-app.set('port', process.env.PORT || 3001);
+const http = require('http');
 
 const server = http.createServer(app).listen(app.get('port'), () => {
   console.log(`Express server listening on port ${app.get('port')}`);
@@ -40,10 +44,6 @@ const socket = require('socket.io');
 const io = socket.listen(server);
 io.sockets.on('connection', () => {
   console.log('hello world im a hot socket');
-});
-
-app.get('/', (req, res) => {
-  res.send('Tindev API');
 });
 
 /*
