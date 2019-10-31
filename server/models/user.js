@@ -42,6 +42,6 @@ const User = db.define('users', {
   },
   createdAt: Sequelize.DATE,
 }, {
-  freezeTableName: true
+  freezeTableName: true,
 });
 module.exports = User;

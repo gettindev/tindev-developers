@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize('Tindev', 'tindev', 'tindev', {
+module.exports = new Sequelize('tindev-development', 'tindev', 'tindev', {
   host: 'localhost',
   dialect: 'mysql',
   pool: {
