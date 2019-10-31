@@ -12,7 +12,6 @@ const Form = ({ messageValue, doChange, sendMessage }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('toto');
     sendMessage();
   };
 

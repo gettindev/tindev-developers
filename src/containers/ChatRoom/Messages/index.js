@@ -7,6 +7,7 @@ import Messages from 'src/components/ChatRoom/Messages';
 
 const mapStateToProps = (state) => ({
   messages: state.chatroom.messages,
+  currentUser: state.chatroom.currentUser,
 });
 
 

@@ -5,7 +5,7 @@ import Form from 'src/components/ChatRoom/Form';
 
 
 const mapStateToProps = (state) => {
-  console.log('mSTP called, props redistribuées, nouveau cycle de rendu');
+  // console.log('mSTP called, props redistribuées, nouveau cycle de rendu');
   return {
     messageValue: state.chatroom.messageValue,
   };
