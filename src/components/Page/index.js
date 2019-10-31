@@ -56,8 +56,7 @@ class Page extends React.Component {
     }
   }
 
-// == recovery of user data at registration and injection into the state
-  componentDidMount = ()=> {
+  componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({
         isSignedIn:!!user,

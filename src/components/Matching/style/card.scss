@@ -14,7 +14,7 @@
   $primaryColor 10px,
   $primaryColorVeryLight 10px,
   $primaryColorVeryLight 30px
-);
+  );
   border-radius: 0.75rem !important;
   cursor: pointer;
   font-family: $font;
@@ -117,22 +117,21 @@
           
                       &-btn {
                         background-color: $linkColor !important;
+                        color: white !important;
                         padding: 0.2rem;
                         border-radius: 5px;
                         border: 0;
                         position: relative;
                         font-size: 0.8rem !important;
                         margin-top: 6rem;
-                        left: 2.1rem;
+                        
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
                           margin-top: 6rem;
-                          left: 2.7rem;
                           }
                       
                           @media screen and (min-width: 425px) {
                           margin: 37% auto 3%;
-                          left: 2.7rem;
                         }
                       }
           
@@ -175,6 +174,30 @@
       }
 }
 
+// Force Boostrap CSS
+.SwipeableList_swipeableList__3dl6y {
+  background: $primaryColorVeryLight !important;
+}
+
+.SwipeableListItem_content__1k1mn {
+  background-color: transparent !important;
+}
+
+.mod {
+  background-color: transparent !important; 
+}
+
+.list-group-item {
+  border: none !important;
+}
+
+.card-body {
+  padding-left: 0 !important;
+}
+
+button.card-content-btn {
+  color: white !important;
+}
 
 
 
