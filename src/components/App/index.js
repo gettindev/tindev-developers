@@ -10,6 +10,7 @@ import messages from 'src/data/messages';
 
 // Import Unique Components
 import Form from 'src/containers/ChatRoom/Form';
+import Matrix from 'src/components/Matrix';
 import Messages from 'src/containers/ChatRoom/Messages';
 import ChatList from 'src/components/ChatList';
 import Page from 'src/containers/Page';

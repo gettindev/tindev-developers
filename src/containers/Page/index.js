@@ -10,7 +10,6 @@ import Page from 'src/components/Page';
 const mapStateToProps = (state) => ({
   prefs: state.page.prefs,
   step: state.page.step,
- 
 });
 
 /* === Actions === */
