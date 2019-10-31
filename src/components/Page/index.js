@@ -78,23 +78,19 @@ class Page extends React.Component {
   }
 
 // == recovery of user choices
-  addPref() {
-    this.setState({
-      choosenPref: this.state.choosenPref + 1
-    });
-    console.log(choosenPref);
-  }
-
-
+  //addPref = () => {
+  
+  //  console.log(choosenPref);
+ //}
 
 
   render() {
     return (
       <div>
         {this.state.isSignedIn ? (
-       
+          
           <Matrix prefs={this.props.prefs}/>
-
+          
         ) : (     
             <>
               <HomePage />   

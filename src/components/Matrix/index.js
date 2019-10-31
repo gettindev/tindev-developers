@@ -10,16 +10,25 @@ import './matrix.scss';
 
 
 // == Composant
-const Matrix = ({ prefs }) => (
+const Matrix = ({ prefs }) => {
   
+  const handlePref = (event) => {
+    let str = event.target;
+    console.log(str);
+    let value = str.substr(1);
+    console.log(value);
+    
+  };
+
+  return (
     <div id="matrix">
       <h3>Bienvenue dans la matrice ami Dev !</h3>
       <h4 className="what">Qu'est ce qui t'ammènes?</h4>
       <section id="choice">
         {prefs.map((pref) =>
 
-          <div onClick={() => this.props.choosenPref} key={pref.id}>
-            <p>{pref.choice}</p>
+          <div  onClick={handlePref} key={pref.id} value={pref.choice}>
+            <p >{pref.choice}</p>
           </div>
 
         )}
@@ -29,7 +38,7 @@ const Matrix = ({ prefs }) => (
       <p>©2019 tous droits réservés</p>
     </div>
   
-);
+  )};
 
 // == Export
 export default Matrix;
