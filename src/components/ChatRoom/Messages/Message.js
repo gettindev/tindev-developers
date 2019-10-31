@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import classNames from 'classnames';
 
-const Message = ({ author, text, isMe }) => {
+const Message = ({ author, text, isMe }) => 
   // const CssToDisplay = !isMe ? 'message--not-mine' : 'message';
 
-  return (
+   (
     <>
-      {isMe && (
+      {!isMe && (
         <Col
           className="message"
           xs={11}
@@ -18,7 +18,7 @@ const Message = ({ author, text, isMe }) => {
           <p className="message-content">{text}</p>
         </Col>
       )}
-      {!isMe && (
+      {/* {isMe && (
         <Col
           className="message--not-mine"
           xs={{ span: 10, offset: 2 }}
@@ -29,10 +29,10 @@ const Message = ({ author, text, isMe }) => {
           </Col>
           <p className="message-content">{text}</p>
         </Col>
-      )}
+      )} */}
     </>
-  );
-};
+  )
+;
 
 
 // const Message = ({ author, text, isMe }) => {

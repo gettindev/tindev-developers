@@ -30,7 +30,7 @@ class Page extends Component {
     }
   }
 
-  componentDidMount = ()=> {
+  componentDidMount = () => {
     
     firebase.auth().onAuthStateChanged(user => {
       this.setState({isSignedIn:!!user})
