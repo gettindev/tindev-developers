@@ -23,7 +23,7 @@ const User = db.define('users', {
     // allowNull: true,
   },
   experience: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
   },
   photo: {
     type: Sequelize.STRING,
