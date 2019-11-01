@@ -4,10 +4,19 @@ const router = express.Router();
 
 // const UserModel = require('../static/users');
 const WishModel = require('../models/wish');
+const TechModel = require('../models/tech');
 const UserModel = require('../models/user');
+
 
 UserModel.belongsToMany(WishModel, {
   through: 'user_wishes',
+  foreignKey: 'userId',
+  // use as: 'toto', // to fit to table column name in the sequelize request
+  timestamps: false,
+});
+
+UserModel.belongsToMany(TechModel, {
+  through: 'user_techs',
   foreignKey: 'userId',
   // use as: 'toto', // to fit to table column name in the sequelize request
   timestamps: false,
@@ -52,6 +61,13 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: WishModel,
+        attributes: ['id', 'name'],
+        through: {
+          attributes: [],
+        },
+      },
+      {
+        model: TechModel,
         attributes: ['id', 'name'],
         through: {
           attributes: [],
