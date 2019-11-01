@@ -1,11 +1,11 @@
-@import 'src/styles/vars';
+@import "src/styles/vars";
 
 // ::-webkit-scrollbar-thumb {
 //   border-radius: 10px;
 // }
 
 .messages {
-  height: 85vh;
+  height: 80vh;
   overflow: scroll;
   overflow-x: hidden;
   scrollbar-width: 2em;
@@ -16,13 +16,11 @@
   & .message {
     height: 3rem;
     overflow-wrap: break-word;
-    font-size: .8em;
-    margin-bottom: 2.2rem;
+    font-size: 0.8em;
 
     @media (min-width: $sm) {
       font-size: 1.1em;
     }
-
 
     &-author {
       padding-left: 1rem;
@@ -30,11 +28,11 @@
     }
 
     &-content {
-      padding: .8rem;
-      border-radius: .8rem;
-      border: $eventColorBlue .1rem solid;
+      padding: 0.8rem;
+      border-radius: 0.8rem;
+      border: $eventColorBlue 0.1rem solid;
       background-color: $primaryColorLight;
-      animation: grow .4s cubic-bezier(.36, 1.59, .89, 1.1);
+      animation: grow 0.4s cubic-bezier(0.36, 1.59, 0.89, 1.1);
 
       // &::after {
       //   content: '';
@@ -55,7 +53,7 @@
     &--not-mine {
       height: 3rem;
       overflow-wrap: break-word;
-      font-size: .8em;
+      font-size: 0.8em;
       text-align: right;
       color: $secondaryColor;
       margin-bottom: 2.2rem;
@@ -84,13 +82,10 @@
 //   }
 // }
 
-
-
 // .message {
 //   overflow-wrap: break-word;
 //   color: $textColor;
 //   font-size: .8em;
-
 
 //   @media (min-width: $sm) {
 //     font-size: 1.2em;
@@ -107,7 +102,6 @@
 //     }
 //   }
 
-
 //   }
 
 //   &-content {
@@ -118,8 +112,6 @@
 //     position: relative;
 //     width: max-content;
 //     border: $eventColorBlue .2rem solid;
-
-
 
 //     @media (min-width: $sm) {
 //       width: 50%;

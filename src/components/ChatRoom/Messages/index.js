@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Col from 'react-bootstrap/Col';
+import { Col, Row } from 'react-bootstrap';
+
 
 import './messages.scss';
 
@@ -20,7 +21,7 @@ class Messages extends React.Component {
   render() {
     const { messages } = this.props;
     return (
-      <Col
+      <Row
         ref={(elementDuDOM) => {
           this.chatZone = elementDuDOM;
         }}
@@ -29,7 +30,7 @@ class Messages extends React.Component {
         {messages.map((message) => (
           <Message key={message.id} {...message} />
         ))}
-      </Col>
+      </Row>
     );
   }
 }

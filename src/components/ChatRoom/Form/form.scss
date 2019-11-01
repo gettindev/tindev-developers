@@ -1,9 +1,8 @@
-@import 'src/styles/vars';
+@import "src/styles/vars";
 
 .form {
   position: relative;
-  height: 15vh;
-
+  height: calc(20vh - 52px);
 
   &-input {
     // background: darken($colorLight, 5%);
@@ -25,7 +24,6 @@
       @media (min-width: $sm) {
         font-size: 1.2em;
       }
-
     }
 
     // &:focus {

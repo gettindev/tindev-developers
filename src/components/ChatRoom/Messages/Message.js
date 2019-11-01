@@ -1,38 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Col from 'react-bootstrap/Col';
+import { Col, Row } from 'react-bootstrap';
 import classNames from 'classnames';
 
-const Message = ({ author, text, isMe }) => 
+const Message = ({ author, text, isMe }) =>
   // const CssToDisplay = !isMe ? 'message--not-mine' : 'message';
 
-   (
+  (
     <>
-      {!isMe && (
+      {/* {!isMe && (
         <Col
           className="message"
           xs={11}
           sm={8}
         >
-          <Col className="message-author">{author}</Col>
-          <p className="message-content">{text}</p>
+          <Row>
+            <div className="message-author ml-3 mb-1">{author}</div>
+          </Row>
+          <Row className="no-gutters">
+            <div className="message-content ml-2">{text}</div>
+          </Row>
         </Col>
-      )}
-      {/* {isMe && (
+      )} */}
+      {!isMe && (
         <Col
-          className="message--not-mine"
+          className="message--not-mine text-right"
           xs={{ span: 10, offset: 2 }}
           sm={{ span: 8, offset: 4 }}
         >
-          <Col className="message-author">
-            {author}
-          </Col>
-          <p className="message-content">{text}</p>
+          <Row>
+            <div className="message-author ml-3 mb-1">{author}</div>
+          </Row>
+          <Row className="no-gutters">
+            <div className="message-content ml-2">{text}</div>
+          </Row>
         </Col>
-      )} */}
+      )}
     </>
-  )
-;
+  );
 
 
 // const Message = ({ author, text, isMe }) => {
