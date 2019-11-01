@@ -79,58 +79,82 @@ router.get('/yep/:id', async (req, res) => {
 });
 
 // this is the route to give a YEP to a user
-router.post('/yep', (req, res) => {
+router.post('/yep', async (req, res) => {
   // I get the current user ID and the swiped user ID
-  const yep = {
-    currentUser: req.body.currentId,
-    swipedUser: req.body.swipedId,
-  };
-  // I can check if a matching already exist with both user ID
-  const result = helpers.isMatchingAlreadyExist(yep.currentUser, yep.swipedUser, MatchingModel);
-  // If the result of the checking is an empty Array
-  // This id means that the matching doesn't exist
-  if (Array.isArray(result) && result.length === 0) {
-    // because the matching doen't exist, I can create a new one
-    const create = helpers.createNewMatching(
-      yep.currentUser, true, yep.swipedUser, MatchingModel,
-    );
-    res.send(create);
+  const matchings = await Matching.findAll({
+    where: {
+      [Op.and]: [
+        { currentUserId: req.body.swipedId },
+        { swipedUserId: req.body.currentId },
+      ],
+    },
+  });
+  const matchId = matchings[0];
+  if (matchings.length !== 0) {
+    // do the match to update the matching
+    Matching.update(
+      {
+        swipedUserId: req.body.currentId,
+        swipedUserStatus: true,
+      },
+      {
+        where: { id: matchId.id },
+      },
+    ).then(() => {
+      res.status(200).send('updated match');
+    });
   }
   else {
-    // the matching exist, I can get his ID
-    const matchingExistId = result[0].id;
-    // and do an update on that matching
-    const update = helpers.updateMatchingResult(matchingExistId, true, MatchingModel);
-    // because the current user give a 'YEP' to that matching the second params is TRUE
-    res.send(helpers.isAMatch(update));
+    // do the math to create a new matching
+    const newMatching = {
+      currentUserId: req.body.currentId,
+      currentUserStatus: true,
+      swipedUserId: req.body.swipedId,
+      swipedUserStatus: null,
+    };
+    Matching.create(newMatching).then(() => {
+      res.status(200).send(newMatching);
+    });
   }
 });
 
 // this is the route to give a NOPE to a user
-router.post('/nope', (req, res) => {
+router.post('/nope', async (req, res) => {
   // I get the current user ID and the swiped user ID
-  const nope = {
-    currentUser: req.body.currentId,
-    swipedUser: req.body.swipedId,
-  };
-  // I can check if a matching already exist with both user ID
-  const result = helpers.isMatchingAlreadyExist(nope.currentUser, nope.swipedUser, MatchingModel);
-  // If the result of the checking is an empty Array
-  // This id means that the matching doesn't exist
-  if (Array.isArray(result) && result.length === 0) {
-    // because the matching doen't exist, I can create a new one
-    const create = helpers.createNewMatching(
-      nope.currentUser, false, nope.swipedUser, MatchingModel,
-    );
-    res.send(create);
+  const matchings = await Matching.findAll({
+    where: {
+      [Op.and]: [
+        { currentUserId: req.body.swipedId },
+        { swipedUserId: req.body.currentId },
+      ],
+    },
+  });
+  const matchId = matchings[0];
+  if (matchings.length !== 0) {
+    // do the match to update the matching
+    Matching.update(
+      {
+        swipedUserId: req.body.currentId,
+        swipedUserStatus: false,
+      },
+      {
+        where: { id: matchId.id },
+      },
+    ).then(() => {
+      res.status(200).send('updated match');
+    });
   }
   else {
-    // the matching exist, I can get his ID
-    const matchingExistId = result[0].id;
-    // and do an update on that matching
-    const update = helpers.updateMatchingResult(matchingExistId, false, MatchingModel);
-    // because the current user give a 'NOPE' to that matching the second params is FALSE
-    res.send(update);
+    // do the math to create a new matching
+    const newMatching = {
+      currentUserId: req.body.currentId,
+      currentUserStatus: false,
+      swipedUserId: req.body.swipedId,
+      swipedUserStatus: null,
+    };
+    Matching.create(newMatching).then(() => {
+      res.status(200).send(newMatching);
+    });
   }
 });
 

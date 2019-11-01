@@ -25,7 +25,7 @@ const Matchings = db.define('matchings', {
   },
   swipedUserStatus: {
     type: Sequelize.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
   },
 }, {
   timestamps: false,
