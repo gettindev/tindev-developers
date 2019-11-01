@@ -82,6 +82,32 @@ CREATE TABLE `techs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Structure de la table `matchings`
+--
+CREATE TABLE `matchings` (
+  `id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `currentUserId` int(10) NOT NULL,
+  `currentUserStatus` varchar(42) NOT NULL,
+  `swipedUserId` int(10) NOT NULL,
+  `swipedUserStatus` varchar(42) NOT NULL,
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour la table `matchings`
+--
+ALTER TABLE `matchings`
+  ADD KEY `fk_user_matching` (`currentUserId`),
+  ADD KEY `fk_swiped_matching` (`swipedUserId`);
+
+--
+-- Contraintes pour la table `matchings`
+--
+ALTER TABLE `matchings`
+  ADD CONSTRAINT `fk_user_matching` FOREIGN KEY (`currentUserId`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `fk_swiped_matching` FOREIGN KEY (`swipedUserId`) REFERENCES `users` (`id`);
+
+--
 -- Contraintes pour la table `user_wishes`
 --
 ALTER TABLE `user_wishes`
