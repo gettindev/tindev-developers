@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // imports styles
 import { Button } from 'react-bootstrap';
@@ -11,7 +12,7 @@ import './matrix.scss';
 
 
 // == Composant
-const Matrix = ({ prefs, setPref }) => {
+const Matrix = ({ prefs, setPref, setGlobalState }) => {
   
   // Get the user prefs
   const handlePref = (value, event) => {
@@ -28,6 +29,10 @@ const Matrix = ({ prefs, setPref }) => {
     }
   };
 
+  const handleState = () => {
+    setGlobalState();
+  }
+
   return (
     <div id="matrix">
       <h3>Bienvenue dans la matrice ami Dev !</h3>
@@ -41,7 +46,14 @@ const Matrix = ({ prefs, setPref }) => {
 
         )}
       </section> 
-      <Button id="next" href="/location" variant="Link">Next <FaArrowAltCircleRight/></Button>
+      
+      <Button 
+      as={Link} 
+      to="/location"
+       id="next"  
+      variant="Link"
+      onClick={() => handleState()}
+      >Next <FaArrowAltCircleRight/></Button>
       <div><img className="logo-matrix" src='./src/data/logo.png'/></div>
       <p>©2019 tous droits réservés</p>
     </div>

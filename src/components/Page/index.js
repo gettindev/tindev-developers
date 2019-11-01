@@ -1,9 +1,9 @@
 // == Import : npm
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
 import firebase from "firebase"
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import { Route, Switch } from 'react-router-dom';
 
 // Import locaux
 import HomePage from 'src/components/HomePage'
@@ -57,20 +57,13 @@ class Page extends React.Component {
 
 
   componentDidUpdate = () => {
-    console.log(this.state.isSignedIn);
-    console.log(this.state.pseudo);
-    console.log(this.state.photoURL);
-    console.log(this.state.email);
-    console.log(this.state.idFire);
-    console.log(this.state.userPref);
+  
   }
 
 
   // Set the user prefs in the state
   setPref = (value) => {
-
     const array = this.state.userPref;
-
     // Create a bool
     const elemSearching = (element) => {
       // checks whether an element is even
@@ -96,22 +89,27 @@ class Page extends React.Component {
     }
 
   }
-
+  // Send all datas on the Global state
+  setGlobalState = () => {
+      
+      const state = this.state;
+      this.props.getDatas(state);
+  }
 
   render() {
 
-   
-
     return (
       <div>
-        {/*this.state.isSignedIn ? (*/}
-          
+        {this.state.isSignedIn ? (
+        
           <Matrix 
-          prefs={this.props.prefs} 
-          classBox={this.state.classBox}
-          setPref={this.setPref}/>
+            prefs={this.props.prefs} 
+            setPref={this.setPref}
+            setGlobalState={this.setGlobalState}
+            isSignedIn={this.state.isSignedIn}
+          />
           
-         {/* ) : (     
+       ) : (     
              <>
               <HomePage />   
               <StyledFirebaseAuth
@@ -120,8 +118,7 @@ class Page extends React.Component {
                 className="gitHubButton"
               />
             </> 
-            ) 
-        }  */}
+            )}  
       </div>
     )  
   }

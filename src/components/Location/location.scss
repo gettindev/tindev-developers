@@ -40,10 +40,11 @@
      margin-top: 3rem;;
      font-size: 0.7em;
      color: $textColor;
+     font-style: italic;
    }
 
   h3 {
-    font-size: 1.2em;
+    font-size: 1em;
     margin-bottom: 2rem;
     color: $eventColorBlue;
   }
@@ -75,5 +76,10 @@
     background-color: $eventColorBlue;
     color: grey;
   }
+}
+
+.choice {
+  color: $secondaryColor;
+  font-size: 1.2em;
 }
 
