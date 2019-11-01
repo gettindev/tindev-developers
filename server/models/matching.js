@@ -2,7 +2,9 @@ const Sequelize = require('sequelize');
 
 const db = require('../config/database');
 
-const WishModel = db.define('matchings', {
+const { Op } = Sequelize;
+
+const Matchings = db.define('matchings', {
   id: {
     field: 'id',
     type: Sequelize.INTEGER,
@@ -14,7 +16,7 @@ const WishModel = db.define('matchings', {
     allowNull: false,
   },
   currentUserStatus: {
-    type: Sequelize.STRING,
+    type: Sequelize.BOOLEAN,
     allowNull: false,
   },
   swipedUserId: {
@@ -22,9 +24,11 @@ const WishModel = db.define('matchings', {
     allowNull: false,
   },
   swipedUserStatus: {
-    type: Sequelize.STRING,
+    type: Sequelize.BOOLEAN,
     allowNull: false,
   },
+}, {
+  timestamps: false,
 });
 
-module.exports = WishModel;
+module.exports = Matchings;

@@ -94,6 +94,14 @@ CREATE TABLE `matchings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- CHANGE column varchar to tinyint (bool) `matchings`
+--
+ALTER TABLE `tindev-developement`.`matchings` 
+  CHANGE COLUMN `currentUserStatus` `currentUserStatus` TINYINT NULL ,
+  CHANGE COLUMN `swipedUserStatus` `swipedUserStatus` TINYINT NULL ;
+
+
+--
 -- Index pour la table `matchings`
 --
 ALTER TABLE `matchings`
