@@ -19,6 +19,7 @@ import UserMenu from 'src/components/User/Menu';
 import EditUserProfil from 'src/containers/User/Profil/Edit';
 import ShowUserProfil from 'src/containers/User/Profil/Show';
 import NotFound from 'src/components/404/index';
+import Location from 'src/containers/Location/LocationContainer';
 
 // Import all Nav Components
 import Nav from 'src/components/Nav';
@@ -41,45 +42,56 @@ const App = ({ logged, doRequest }) => {
 
   return (
   <div className="app">
-    <>
-      <Switch > 
-        <Route exact path="/">
-          <Page />
-        </Route>
-        {logged && 
+      
+        {!logged &&
         <>
-          <Route exact path ="/profil">
-            <NavBackRight/>
-            <UserMenu />
-          </Route>
-          <Route exact path ="/profil/edit">
-            <NavCloseRight title="Éditer mon profil"/>
-            <EditUserProfil />
-          </Route>
-          <Route exact path ="/profil/show">
-            <Nav />
-            <ShowUserProfil />
-          </Route>
-          <Route exact path="/matching">
-              <Nav />
-              <MatchingContainer />
-          </Route>
-          <Route exact path ="/chat">
-            <NavBackLeft/>
-            <ChatList />
-          </Route>
-          <Route exact path ="/chat/1">
-            <NavChat />
-            <Messages />
-            <Form />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Page />
+            </Route>
+            <Route exact path="/location">
+              <Location />
+            </Route>
+            <Route >
+              <NotFound />
+            </Route>
+          </Switch>
         </>
         }
-        <Route >
-          <NotFound/>
-        </Route>
-      </Switch>
-    </>
+        {logged && 
+        <>
+          <Switch>
+            <Route exact path ="/profil">
+              <NavBackRight/>
+              <UserMenu />
+            </Route>
+            <Route exact path ="/profil/edit">
+              <NavCloseRight title="Éditer mon profil"/>
+              <EditUserProfil />
+            </Route>
+            <Route exact path ="/profil/show">
+              <Nav />
+              <ShowUserProfil />
+            </Route>
+            <Route exact path="/matching">
+                <Nav />
+                <MatchingContainer />
+            </Route>
+            <Route exact path ="/chat">
+              <NavBackLeft/>
+              <ChatList />
+            </Route>
+            <Route exact path ="/chat/1">
+              <NavChat />
+              <Messages />
+              <Form />
+            </Route>
+            <Route >
+              <NotFound logged={logged} />
+            </Route>
+          </Switch>
+        </>
+        }
   </div>
   )};
 

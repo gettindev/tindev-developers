@@ -2,10 +2,11 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import App from 'src/components/App';
+import Loc from 'src/components/Location';
 
 // Action Creators
-import { doRequest } from 'src/store/reducer/matching.js';
+import { setUserLoc, sendDatas  } from 'src/store/reducer/location.js';
+import { setLog } from 'src/store/reducer/app.js';
 
 
 /* === State (datas) ===
@@ -16,7 +17,9 @@ import { doRequest } from 'src/store/reducer/matching.js';
  * No need transfer data ? const mapStateToProps = null;
  */
 const mapStateToProps = ( state ) => ({
-      logged: state.app.log, // A changer par le state de matrix pour avoir le statut
+      locs: state.location.locs,
+      userLoc: state.location.userLoc,
+      datas: state.page.datas,
 });
 
 /* === Actions ===
@@ -27,20 +30,31 @@ const mapStateToProps = ( state ) => ({
  * No need transfer dispatch ? const mapDispatchToProps = {};
  */
 const mapDispatchToProps = ( dispatch ) => ({
-  doRequest: () => {
-      const action = doRequest();
+  setUserLoc: (loc) => {
+      const action = setUserLoc(loc);
       dispatch(action);
   },
+
+  sendDatas: (datas) => {
+    const action = sendDatas(datas);
+    dispatch(action);
+  },
+
+  setLog: (bool) => {
+    const action = setLog(bool);
+    dispatch(action);
+  }
+
 });
 
 // Container
-const AppContainer = connect(
+const LocationContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(Loc);
 
 // == Export
-export default AppContainer;
+export default LocationContainer;
 
 /* = export on the fly
 export default connect(
