@@ -11,7 +11,6 @@ const UserModel = require('../models/user');
 const LevelModel = require('../models/level');
 
 
-
 UserModel.belongsToMany(WishModel, {
   through: 'user_wishes',
   foreignKey: 'userId',
@@ -26,14 +25,14 @@ UserModel.belongsToMany(TechModel, {
   timestamps: false,
 });
 
-LevelModel.hasMany(UserModel, {
-  // foreignKey: 'levelId',
-  // targetKey: 'experience',
+LevelModel.hasMany(UserModel, { // will add levelId to UserModel
+  foreignKey: 'levelId',
+}); 
+
+UserModel.belongsTo(LevelModel, { // will add levelId to UserModel
+  foreignKey: 'levelId',
 });
 
-UserModel.belongsTo(LevelModel, {
-  // foreignKey: 'levelId',
-});
 
 // FETCH All users
 router.get('/', (req, res) => {
@@ -86,6 +85,18 @@ router.get('/:id', (req, res) => {
           attributes: [],
         },
       },
+      {
+        model: LevelModel,
+        // where: { id: Sequelize.col('levelId') },
+      },
+      /*
+      Project.findAll({
+          include: [{
+              model: Task,
+              where: { state: Sequelize.col('project.state') }
+          }]
+      })
+      */
       // {
       //   model: LevelModel,
       //   where: { levelsId: Sequelize.col('levels.id') }

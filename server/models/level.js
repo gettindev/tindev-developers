@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 
 const db = require('../config/database');
 
+
 const LevelModel = db.define('levels', {
   id: {
     // field: 'levelId',
@@ -12,6 +13,7 @@ const LevelModel = db.define('levels', {
   name: {
     type: Sequelize.STRING,
     allowNull: true,
+
   },
 }, {
   timestamps: false,

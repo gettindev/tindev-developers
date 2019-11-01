@@ -21,13 +21,11 @@ const tech = require('./routes/tech');
 const level = require('./routes/level');
 
 
-
 app.use('/profil', user);
 app.use('/matching', matching);
 app.use('/wish', wish);
 app.use('/tech', tech);
 app.use('/level', level);
-
 
 
 app.get('/', (req, res) => {
