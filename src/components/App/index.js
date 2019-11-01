@@ -10,9 +10,10 @@ import messages from 'src/data/messages';
 
 // Import Unique Components
 import Form from 'src/containers/ChatRoom/Form';
+import Matrix from 'src/components/Matrix';
 import Messages from 'src/containers/ChatRoom/Messages';
 import ChatList from 'src/components/ChatList';
-import Page from 'src/components/Page';
+import Page from 'src/containers/Page';
 import MatchingContainer from 'src/containers/Matching/MatchingContainer';
 import UserMenu from 'src/components/User/Menu';
 import EditUserProfil from 'src/containers/User/Profil/Edit';
@@ -43,7 +44,7 @@ const App = ({ logged, doRequest }) => {
     <>
       <Switch > 
         <Route exact path="/">
-          <Page logged />
+          <Page />
         </Route>
         {logged && 
         <>

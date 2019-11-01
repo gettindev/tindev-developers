@@ -2,11 +2,11 @@ const express = require('express');
 
 const router = express.Router();
 
-const WishModel = require('../models/wish');
+const TechModel = require('../models/tech');
 
 // FETCH All wishes
 router.get('/', (req, res) => {
-  WishModel.findAll().then((wishes) => {
+  TechModel.findAll().then((wishes) => {
     res.status(200).json(wishes);
   });
 });
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const { id } = req.params;
 
-  WishModel.findByPk(id)
+  TechModel.findByPk(id)
     .then((user) => {
       if (user) {
         res.json(user);

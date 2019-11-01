@@ -50,7 +50,7 @@ const Location = () => {
               <Dropdown.Item href="#/action-18">Mayotte</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Button variant="secondary" size="lg" id="see" block>
+          <Button variant="secondary" size="lg" href="/matching" id="see" block>
             Voir les profils
           </Button>
         </div>

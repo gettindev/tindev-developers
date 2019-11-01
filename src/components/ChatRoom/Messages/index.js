@@ -4,6 +4,8 @@ import Col from 'react-bootstrap/Col';
 
 import './messages.scss';
 
+import MessageDetailContainer from 'src/containers/ChatRoom/Messages/Message';
+
 import Message from './Message';
 
 class Messages extends React.Component {
