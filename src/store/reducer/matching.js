@@ -4,6 +4,7 @@ import  user  from 'src/data/user.js';
 // == Initial State
 const initialState = {
   users : user,
+  loading: false,
 };
 
 // == Types
@@ -12,6 +13,9 @@ export const GET_USERS = 'GET_USERS;';
 export const DO_REQUEST = 'DO_REQUEST';
 export const DO_LIKE = 'DO_LIKE';
 export const DO_UNLIKE = 'DO_UNLIKE';
+export const USER_NOT_FIND = 'USER_NOT_FIND';
+export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
+export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
 
 // == Reducer
 const matching = (state = initialState, action = {}) => {
@@ -21,7 +25,21 @@ const matching = (state = initialState, action = {}) => {
         ...state,
         message: action.message,
       };
-
+    case USER_NOT_FIND:
+      return {
+        ...state,
+      find: false,
+      }
+    case SET_LOADING_TRUE:
+      return {
+        ...state,
+        loading: true
+      }
+    case SET_LOADING_FALSE:
+      return {
+        ...state,
+        loading: false
+      }
     default:
       return state;
   }
@@ -37,8 +55,21 @@ export const getUsers = () => ({
   type: GET_USERS,
 })
 
-export const doRequest = () => ({
+export const doRequest = id => ({
   type: DO_REQUEST,
+  id,
+})
+
+export const userNotFind = () => ({
+  type: USER_NOT_FIND,
+})
+
+export const setLoadingTrue = () => ({
+  type: SET_LOADING_TRUE
+})
+
+export const setLoadingFalse = () => ({
+  type: SET_LOADING_FALSE
 })
 
 export const doLike = () => ({

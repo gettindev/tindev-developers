@@ -10,6 +10,7 @@ import HomePage from 'src/components/HomePage'
 import Matrix from 'src/components/Matrix'
 import Location from 'src/components/Location'
 import UserProfil from 'src/components/User/Menu';
+import 'src/components/Page/page.scss';
 
 // == initialize Firebase
 firebase.initializeApp({
@@ -53,13 +54,24 @@ class Page extends React.Component {
         idFire: firebase.auth().currentUser.uid,
       })
     })
+
   }
 
 
   componentDidUpdate = () => {
-  
+    //console.log(this.state.idFire);
+    console.log(firebase.auth().currentUser),
+    this.userExist();
   }
 
+  // Check if this user exist
+  userExist = () => {
+    // Set the matching state loading : true
+    this.props.setLoadingTrue;
+    // Send a axios request
+    const id = this.state.idFire;
+    this.props.doRequest(id);
+  }
 
   // Set the user prefs in the state
   setPref = (value) => {
@@ -89,6 +101,7 @@ class Page extends React.Component {
     }
 
   }
+
   // Send all datas on the Global state
   setGlobalState = () => {
       
@@ -100,25 +113,32 @@ class Page extends React.Component {
 
     return (
       <div>
-        {this.state.isSignedIn ? (
-        
+        {/* Loading spinner waiting axios Request */}
+        {this.props.loading &&  (
+
+          <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+          
+        )}
+        {/* First Page with Github Auth */}
+        {!this.state.isSignedIn && (
+          <>
+          <HomePage />   
+          <StyledFirebaseAuth
+            uiConfig={this.uiConfig}
+            firebaseAuth={firebase.auth()}
+            className="gitHubButton"
+          />
+        </> 
+        )}
+        {/* Page with User Prefs */}
+        {!this.props.find && (
           <Matrix 
             prefs={this.props.prefs} 
             setPref={this.setPref}
             setGlobalState={this.setGlobalState}
             isSignedIn={this.state.isSignedIn}
           />
-          
-       ) : (     
-             <>
-              <HomePage />   
-              <StyledFirebaseAuth
-                uiConfig={this.uiConfig}
-                firebaseAuth={firebase.auth()}
-                className="gitHubButton"
-              />
-            </> 
-            )}  
+        )}
       </div>
     )  
   }
