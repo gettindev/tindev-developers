@@ -21,16 +21,16 @@ class Messages extends React.Component {
   render() {
     const { messages } = this.props;
     return (
-      <Row
+      <div
         ref={(elementDuDOM) => {
           this.chatZone = elementDuDOM;
         }}
-        className="messages no-gutters"
+        className="messages"
       >
         {messages.map((message) => (
           <Message key={message.id} {...message} />
         ))}
-      </Row>
+      </div>
     );
   }
 }
