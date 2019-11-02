@@ -47,6 +47,7 @@
     display: inline-block;
     max-width: 80%;
     position: relative;
+    overflow-wrap: break-word;
 
     &::before {
       content: "";
@@ -67,6 +68,7 @@
       max-width: 80%;
       background-color: $eventColorBlue;
       color: $eventColorPurple;
+      text-align: left;
 
       &::before {
         left: auto;
