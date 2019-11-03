@@ -23,7 +23,7 @@
   overflow-wrap: break-word;
   font-size: 0.8em;
   align-self: flex-start;
-  margin-bottom: 0.2rem;
+  // margin-bottom: 0.2rem;
   max-width: 100%;
 
   @media (min-width: $sm) {
@@ -31,7 +31,6 @@
   }
 
   &-author {
-    padding-left: 1rem;
     margin-bottom: 0.5rem;
     color: $eventColorBlue;
     //animation: grow 0.4s cubic-bezier(0.36, 1.59, 0.89, 1.1);
@@ -41,18 +40,19 @@
     padding: 0.8rem;
     border-radius: 0.8rem;
     border: $eventColorBlue 0.1rem solid;
-    background-color: $primaryColorLight;
+    // background-color: #201c5d;
+    background: linear-gradient(to top, #1e2a3f 0%, #1e3c72 1%, #2a5298 100%);
     animation: grow 0.4s cubic-bezier(0.36, 1.59, 0.89, 1.1);
-    padding: 1rem;
     display: inline-block;
     max-width: 80%;
     position: relative;
     overflow-wrap: break-word;
+    word-spacing: -0.3rem;
 
     &::before {
       content: "";
       position: absolute;
-      left: 2rem;
+      left: 1rem;
       bottom: 100%;
       // background-color: $eventColorBlue;
       border-bottom: 10px solid $eventColorBlue;
@@ -62,21 +62,26 @@
 
   &--not-mine {
     text-align: right;
+    font-size: 0.8em;
 
     .message-content {
       display: inline-block;
       max-width: 80%;
-      background-color: $eventColorBlue;
-      color: $eventColorPurple;
+      background: $linear3;
+      color: $textColor;
       text-align: left;
+      border: transparent 0.1rem solid;
 
       &::before {
         left: auto;
-        right: 1.1rem;
-        border-bottom-color: $eventColorBlue;
+        right: 1rem;
+        border-bottom-color: #ff00a9;
         border-left: 15px solid transparent;
         border-right: 0;
       }
+    }
+    .message-author {
+      color: #ff00a9;
     }
   }
 }

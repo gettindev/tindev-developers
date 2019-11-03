@@ -5,21 +5,17 @@ import classNames from 'classnames';
 
 
 const Message = ({ author, text, isMe }) =>
-// const CssToDisplay = !isMe ? 'message--not-mine' : 'message';
+  // const CssToDisplay = !isMe ? 'message--not-mine' : 'message';
   (
     <>
-      {isMe && (
-        <div className="message">
-          <div className="message-author">{author}</div>
-          <p className="message-content">{text}</p>
-        </div>
-      )}
-      {!isMe && (
-        <div className="message--not-mine">
-          <div className="message-author">{author}</div>
-          <p className="message-content">{text}</p>
-        </div>
-      )}
+      <div className="message">
+        <div className="message-author">{author}</div>
+        <p className="message-content">{text}</p>
+      </div>
+      <div className="message--not-mine">
+        <div className="message-author">{author}</div>
+        <p className="message-content">{text}</p>
+      </div>
     </>
   );
 
