@@ -85,7 +85,7 @@ const App = ({ logged, doRequest, find, loading}) => {
               <Form />
             </Route>
             <Route path="/:slug">
-              <NotFound logged={logged} />
+              <NotFound />
             </Route>
           </Switch>
         </>

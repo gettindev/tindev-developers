@@ -16,6 +16,7 @@ export const DO_UNLIKE = 'DO_UNLIKE';
 export const USER_NOT_FIND = 'USER_NOT_FIND';
 export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
 export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
+export const SET_USERS = 'SET_USERS';
 
 // == Reducer
 const matching = (state = initialState, action = {}) => {
@@ -40,6 +41,11 @@ const matching = (state = initialState, action = {}) => {
         ...state,
         loading: false
       }
+    case SET_USERS:
+      return {
+        ...state,
+        users: actions.users
+      }
     default:
       return state;
   }
@@ -53,6 +59,11 @@ export const doSomething = message => ({
 
 export const getUsers = () => ({
   type: GET_USERS,
+})
+
+export const setUsers = (users) => ({
+  type: SET_USERS,
+  users
 })
 
 export const doRequest = id => ({

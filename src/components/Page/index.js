@@ -119,6 +119,7 @@ class Page extends React.Component {
           <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
           
         )}
+
         {/* First Page with Github Auth */}
         {!this.state.isSignedIn && (
           <>
@@ -130,6 +131,7 @@ class Page extends React.Component {
           />
         </> 
         )}
+        
         {/* Page with User Prefs */}
         {!this.props.find && (
           <Matrix 

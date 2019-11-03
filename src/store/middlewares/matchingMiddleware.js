@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Import actions
 import {
- DO_REQUEST, DO_LIKE, DO_UNLIKE, getUsers, userNotFind, setLoadingFalse
+ DO_REQUEST, DO_LIKE, DO_UNLIKE, getUsers, userNotFind, setLoadingFalse, GET_USERS, setUsers
 } from 'src/store/reducer/matching.js';
 
 
@@ -34,6 +34,8 @@ const matchingMiddleware = (store) => (next) => (action) => {
     case DO_UNLIKE:
       console.log('Cet utilisateur est envoyé dans mes profils Dislikés');
       break;
+    case GET_USERS:
+      console.log('J\'obtiens de nouveaux profils et je les envoient dans le state');
     default:
       next(action);
   }

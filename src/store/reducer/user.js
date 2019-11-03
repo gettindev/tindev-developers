@@ -22,7 +22,7 @@ const initialState = {
 };
 
 // == Types
-const DO_SOMETHING = 'DO_SOMETHING';
+
 export const CHANGE_STATE = 'CHANGE_STATE';
 /*
  * CREATE user infos
@@ -36,14 +36,17 @@ export const CHANGE_STATE = 'CHANGE_STATE';
 // == Reducer
 const user = (state = initialState, action = {}) => {
   switch (action.type) {
-    case DO_SOMETHING:
-      return {
-        ...state,
-        message: action.message,
-      };
     case CHANGE_STATE:
       return {
         ...state,
+        firstName: action.value.firstName,
+        lastName: action.value.lastName,
+        avatar: action.value.avatar,
+        githubName: action.value.githubName,
+        biography: action.value.biography,
+        level: action.value.level,
+        technos: action.value.technos,
+        links: action.value.sharedUrl,
       };
     default:
       return state;
@@ -51,11 +54,6 @@ const user = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
-export const doSomething = message => ({
-  type: DO_SOMETHING,
-  message,
-});
-
 export const changeState = (value) => ({
   type: CHANGE_STATE,
   value
