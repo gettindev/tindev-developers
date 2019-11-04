@@ -5,8 +5,13 @@ import { connect } from 'react-redux';
 import Matching from 'src/components/Matching';
 
 // Action Creators
-import { doRequest, doLike, doUnlike, getUsers } from 'src/store/reducer/matching.js';
+import {
+  doRequest, doLike, doUnlike, getUsers,
+} from 'src/store/reducer/matching.js';
+
 import { sendRequest } from 'src/store/reducer/userEdit';
+
+import { getMatchesAndMessages } from 'src/store/reducer/chatlistReducer';
 
 /* === State (datas) ===
  * - mapStateToProps retrieves a prop object for the presentation component
@@ -15,8 +20,8 @@ import { sendRequest } from 'src/store/reducer/userEdit';
  *  - ownProps : the props passed to the container
  * No need transfer data ? const mapStateToProps = null;
  */
-const mapStateToProps = ( state ) => ({
-      users: state.matching.users,
+const mapStateToProps = (state) => ({
+  users: state.matching.users,
 });
 
 /* === Actions ===
@@ -26,25 +31,29 @@ const mapStateToProps = ( state ) => ({
  *  - ownProps : the props passed to the container
  * No need transfer dispatch ? const mapDispatchToProps = {};
  */
-const mapDispatchToProps = ( dispatch ) => ({
+const mapDispatchToProps = (dispatch) => ({
   doRequest: () => {
-      const action = doRequest();
-      dispatch(action);
+    const action = doRequest();
+    dispatch(action);
   },
   doLike: () => {
-      const action = doLike();
-      dispatch(action)
+    const action = doLike();
+    dispatch(action);
   },
   doUnlike: () => {
-      const action = doUnlike();
-      dispatch(action)
+    const action = doUnlike();
+    dispatch(action);
   },
   getUsers: () => {
     const action = getUsers();
-    dispatch(action)
+    dispatch(action);
   },
   sendRequest: (currentUserDatas) => {
     const action = sendRequest(currentUserDatas);
+    dispatch(action);
+  },
+  getMatchesAndMessages: () => {
+    const action = getMatchesAndMessages();
     dispatch(action);
   },
 });
