@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import Matching from 'src/components/Matching';
 
 // Action Creators
-import { doRequest, doLike, doUnlike } from 'src/store/reducer/matching.js';
-
+import { doRequest, doLike, doUnlike, getUsers } from 'src/store/reducer/matching.js';
+import { sendRequest } from 'src/store/reducer/userEdit';
 
 /* === State (datas) ===
  * - mapStateToProps retrieves a prop object for the presentation component
@@ -38,7 +38,15 @@ const mapDispatchToProps = ( dispatch ) => ({
   doUnlike: () => {
       const action = doUnlike();
       dispatch(action)
-  }
+  },
+  getUsers: () => {
+    const action = getUsers();
+    dispatch(action)
+  },
+  sendRequest: (currentUserDatas) => {
+    const action = sendRequest(currentUserDatas);
+    dispatch(action);
+  },
 });
 
 // Container

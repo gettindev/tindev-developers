@@ -22,6 +22,13 @@ class Matching extends Component {
     modalShow: false,
   }
 
+  componentDidMount() {
+    console.log("la partie matching vient d'être créée");
+    this.props.getUsers();
+    this.props.sendRequest();
+    // A ajouter : requete pour obtenir les matchs et conversations en cours
+  }
+
   /* Func who tcheck the end of the list */
   checkEnd = () => {
     if (this.state.index === this.props.users.length) {
@@ -39,8 +46,7 @@ class Matching extends Component {
   /* Func to get new profiles */
   getProfils = () => {
     console.log("Envoi d'une requête Ajax");
-    const { doRequest } = this.props;
-    doRequest();
+    this.props.getUsers();
   }
 
   /* like an user */
