@@ -27,7 +27,6 @@ app.use('/wish', wish);
 app.use('/tech', tech);
 app.use('/level', level);
 
-
 app.get('/', (req, res) => {
   res.send('Tindev API');
 });

@@ -9,6 +9,7 @@ const WishModel = require('../models/wish');
 const TechModel = require('../models/tech');
 const UserModel = require('../models/user');
 const LevelModel = require('../models/level');
+const UserWishes = require('../models/user_wishes');
 
 
 UserModel.belongsToMany(WishModel, {
@@ -87,21 +88,7 @@ router.get('/:id', (req, res) => {
       },
       {
         model: LevelModel,
-        // where: { id: Sequelize.col('levelId') },
       },
-      /*
-      Project.findAll({
-          include: [{
-              model: Task,
-              where: { state: Sequelize.col('project.state') }
-          }]
-      })
-      */
-      // {
-      //   model: LevelModel,
-      //   where: { levelsId: Sequelize.col('levels.id') }
-      // },
-      // { model: LevelModel },
     ],
   })
     .then((user) => {
@@ -145,6 +132,59 @@ router.delete('/:id', (req, res) => {
   UserModel.findByPk(id).then((user) => {
     user.destroy().then(() => {
       res.status(204).send();
+    });
+  });
+});
+
+router.get('/settings/:id', (req, res) => {
+  const { id } = req.params;
+  UserModel.findByPk(id, {
+    attributes: ['id', 'location'],
+    include: [
+      {
+        model: WishModel,
+        through: {
+          attributes: [],
+        },
+      },
+    ],
+  })
+    .then((user) => {
+      if (user) {
+        res.json(user);
+      }
+      else {
+        res.status(404).send();
+      }
+    });
+});
+
+router.post('/settings/:id', (req, res) => {
+  const { id } = req.params;
+  const updatedWishes = req.body.wishesArray;
+  const { location } = req.body;
+
+  const bulkCreator = (userIdentifier, array) => {
+    const generateBulkCreate = array.map(
+      (item) => {
+        return { userId: parseInt(id, 10), wishId: item };
+      },
+    );
+    return generateBulkCreate;
+  };
+
+  UserWishes.destroy({
+    where: {
+      userId: id,
+    },
+  }).then(() => {
+    UserWishes.bulkCreate(bulkCreator(id, updatedWishes)).then((user) => {
+      if (user) {
+        res.json(user);
+      }
+      else {
+        res.status(404).send();
+      }
     });
   });
 });
