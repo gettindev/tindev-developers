@@ -73,7 +73,6 @@ const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
           to="/matching">
             Voir les profils
           </Button>
-          <Button onClick={() => firebase.auth().signOut()} size="lg" variant="danger" block>Déconnexion</Button>
         </div>
       </div>   
       </> 
