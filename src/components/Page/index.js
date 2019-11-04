@@ -133,7 +133,7 @@ class Page extends React.Component {
         )}
         
         {/* Page with User Prefs */}
-        {!this.props.find && (
+        {this.state.isSignedIn && !this.props.find && (
           <Matrix 
             prefs={this.props.prefs} 
             setPref={this.setPref}
