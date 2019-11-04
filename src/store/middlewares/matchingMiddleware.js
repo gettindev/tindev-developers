@@ -5,16 +5,42 @@ import axios from 'axios';
 import {
  DO_REQUEST, DO_LIKE, DO_UNLIKE, getUsers, userNotFind, setLoadingFalse, GET_USERS, setUsers
 } from 'src/store/reducer/matching.js';
-
+import { GET_USERFIND } from 'src/store/reducer/pageReducer';
+import { setLog } from 'src/store/reducer/app.js';
 
 const matchingMiddleware = (store) => (next) => (action) => {
   //   console.log('I am the middleware, and I pass this action: ', action);
 
   switch (action.type) {
     case DO_REQUEST:
-      console.log(`Cet utilisteur à l\'id ${action.id}`);
+      //console.log(`Cet utilisteur à l\'id ${action.id}`);
       // Si l'utilisateur on set le state logged à true pour afficher la page mathing
       // Sinon on l'envoi vers la page Matrix
+      
+      break;
+    case GET_USERFIND:
+      console.log(`Cet utilisteur à le mail ${action.email}`)
+      // axios.post('http://localhost:3001/profil', {
+      // email: action.mail
+      //}).then((response) => {
+              // if (response == null) {
+              //   return (
+              //     userNotFind(),
+              //     setLoadingFalse()
+              //   )
+              // } else {
+              //   return (
+              //     setLog (true)
+              //   )
+              // }
+      //       console.log('succès', response.data);
+      //       // je veux faire en sorte d'alimenter le state avec la réponse
+      //       })
+      //       .catch((error) => {
+      //       console.error(error);
+      //       })
+      //       .finally(() => {
+      //       });
       userNotFind();
       setLoadingFalse();
       break;
@@ -36,6 +62,18 @@ const matchingMiddleware = (store) => (next) => (action) => {
       break;
     case GET_USERS:
       console.log('J\'obtiens de nouveaux profils et je les envoient dans le state');
+      // axios.get('http://localhost:3001/profil')
+      // .then((response) => {
+      //       console.log('succès', response.data);
+      //       // je veux faire en sorte d'alimenter le state avec la réponse
+      //       setUsers(response)
+      //       })
+      //       .catch((error) => {
+      //       console.error(error);
+      //       })
+      //       .finally(() => {
+      //       });
+      break;
     default:
       next(action);
   }
