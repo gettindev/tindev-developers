@@ -28,7 +28,9 @@ const socketMiddleware = (store) => (next) => (action) => {
         author: currentUser,
       };
 
-      socket.emit('send_message', newMessage);
+      if (messageValue.length > 0) {
+        socket.emit('send_message', newMessage);
+      }
       // console.log('newMessage:', newMessage);
       next(action);
 

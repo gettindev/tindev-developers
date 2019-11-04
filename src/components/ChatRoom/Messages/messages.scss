@@ -1,139 +1,97 @@
-@import 'src/styles/vars';
-
-// ::-webkit-scrollbar-thumb {
-//   border-radius: 10px;
-// }
+@import "src/styles/vars";
 
 .messages {
-  height: 85vh;
-  overflow: scroll;
+  height: 80vh;
+  overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-width: 2em;
   position: relative;
   scrollbar-color: $eventColorBlue $primaryColorLight;
   color: $textColor;
+  scroll-behavior: smooth;
+  padding: 1rem;
+  // background: repeating-linear-gradient(
+  //   45deg,
+  //   $primaryColor,
+  //   $primaryColor 10px,
+  //   $primaryColorVeryLight 10px,
+  //   $primaryColorVeryLight 30px
+  // );
+}
 
-  & .message {
-    height: 3rem;
+.message {
+  height: auto;
+  overflow-wrap: break-word;
+  font-size: 0.8em;
+  align-self: flex-start;
+  // margin-bottom: 0.2rem;
+  max-width: 100%;
+
+  @media (min-width: $sm) {
+    font-size: 1.1em;
+  }
+
+  &-author {
+    margin-bottom: 0.5rem;
+    color: $eventColorBlue;
+    //animation: grow 0.4s cubic-bezier(0.36, 1.59, 0.89, 1.1);
+  }
+
+  &-content {
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    border: $eventColorBlue 0.1rem solid;
+    background-color: #201c5d;
+    // background: linear-gradient(to top, #1e2a3f 0%, #1e3c72 1%, #2a5298 100%);
+    animation: grow 0.4s cubic-bezier(0.36, 1.59, 0.89, 1.1);
+    display: inline-block;
+    max-width: 80%;
+    position: relative;
     overflow-wrap: break-word;
-    font-size: .8em;
-    margin-bottom: 2.2rem;
+    word-spacing: -0.3rem;
 
-    @media (min-width: $sm) {
-      font-size: 1.1em;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      bottom: 100%;
+      // background-color: $eventColorBlue;
+      border-bottom: 10px solid $eventColorBlue;
+      border-right: 10px solid transparent;
     }
+  }
 
+  &--not-mine {
+    text-align: right;
+    font-size: 0.8em;
 
-    &-author {
-      padding-left: 1rem;
-      color: $secondaryColor;
-    }
+    .message-content {
+      display: inline-block;
+      max-width: 80%;
+      background: $linear3;
+      color: $textColor;
+      text-align: left;
+      border: transparent 0.1rem solid;
 
-    &-content {
-      padding: .8rem;
-      border-radius: .8rem;
-      border: $eventColorBlue .1rem solid;
-      background-color: $primaryColorLight;
-      animation: grow .4s cubic-bezier(.36, 1.59, .89, 1.1);
-
-      // &::after {
-      //   content: '';
-      //   position: absolute;
-      //   top: 0;
-      //   left: 50%;
-      //   width: 0;
-      //   height: 0;
-      //   border: 20px solid transparent;
-      //   border-bottom-color: #00aabb;
-      //   border-top: 0;
-      //   border-left: 0;
-      //   margin-left: -10px;
-      //   margin-top: -20px;
-      // }
-    }
-
-    &--not-mine {
-      height: 3rem;
-      overflow-wrap: break-word;
-      font-size: .8em;
-      text-align: right;
-      color: $secondaryColor;
-      margin-bottom: 2.2rem;
-
-      @media (min-width: $sm) {
-        font-size: 1.1em;
+      &::before {
+        left: auto;
+        right: 1rem;
+        border-bottom-color: #ff00a9;
+        border-left: 15px solid transparent;
+        border-right: 0;
       }
-
-      // & .message-content {
-      //   background-color: $secondaryColor;
-      //   padding: .8rem;
-      //   border-radius: .8rem;
-      //   border: $eventColorBlue .2rem solid;
-      // }
+    }
+    .message-author {
+      color: #ff00a9;
     }
   }
 }
 
-// @keyframes grow {
-//   0% {
-//     transform: scale(0);
-//   }
+@keyframes grow {
+  0% {
+    transform: scale(0);
+  }
 
-//   100% {
-//     transform: scale(1);
-//   }
-// }
-
-
-
-// .message {
-//   overflow-wrap: break-word;
-//   color: $textColor;
-//   font-size: .8em;
-
-
-//   @media (min-width: $sm) {
-//     font-size: 1.2em;
-//   }
-
-//   &--not-mine {
-//     position: relative;
-//     color: $secondaryColor;
-//     left: 100px;
-
-//     @media (min-width: $sm) {
-//       left: 50%;
-//       font-size: 1.2em;
-//     }
-//   }
-
-
-//   }
-
-//   &-content {
-//     background-color: $primaryColorLight;
-//     padding: .8rem;
-//     border-radius: .8rem;
-//     display: block;
-//     position: relative;
-//     width: max-content;
-//     border: $eventColorBlue .2rem solid;
-
-
-
-//     @media (min-width: $sm) {
-//       width: 50%;
-//     }
-
-//     &::before {
-//       content: "";
-//       position: absolute;
-//       left: 2rem;
-//       bottom: 100%;
-//       border-bottom: 10px solid $eventColorBlue;
-//       border-right: 10px solid transparent;
-//     }
-//   }
-
-//   &--not-mine {}
-// }
+  100% {
+    transform: scale(1);
+  }
+}

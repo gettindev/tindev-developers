@@ -28,8 +28,9 @@ export const doSomething = message => ({
   message,
 })
 
-export const sendRequest = () => ({
+export const sendRequest = (userDatas) => ({
   type: SEND_REQUEST,
+  userDatas,
 })
 
 

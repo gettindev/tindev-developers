@@ -1,13 +1,11 @@
 @import "src/styles/vars";
 
-
 .message-wrapper {
-
   padding: 0.6rem;
   background-color: $primaryColorLight;
 
   &:hover {
-    background-color: $eventColorBlue;
+    background-color: lighten($primaryColorLight, 10%);
   }
 
   // &.active {
@@ -20,13 +18,13 @@
 
   & .user-card {
     width: 50px;
+    border: 2px solid $secondaryColor;
   }
 
   @media (min-width: $md) {
     & .user-card {
       width: 80px;
     }
-
   }
 
   & .message-preview-container {

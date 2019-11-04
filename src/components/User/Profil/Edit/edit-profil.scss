@@ -1,40 +1,125 @@
-@import 'src/styles/vars';
+@import "src/styles/vars";
 
 .edit-profil {
-  background-color: white;
-  .input-group > .rbt .rbt-input-hint-container {display: inline;}
-  .form-control{height: auto;}
+  color: $textColor;
+  // background-color: $primaryColorLight;
+  background: repeating-linear-gradient(
+    45deg,
+    #1a1647,
+    #1a1647 10px,
+    #2f2881 10px,
+    #2f2881 30px
+  );
 
-  &-url-list{
-    padding: .2rem .5rem;
-    background-color: lighten($primaryColor,75%);
-    border-radius: .3em;
-    li{
+  .input-group > .rbt .rbt-input-hint-container {
+    display: inline;
+  }
+
+  // .form-control{height: auto;}
+  .form-control {
+    background-color: $primaryColor;
+    height: auto;
+    color: $textColor;
+
+    &:focus {
+      background-color: $primaryColorLight !important;
+      color: $textColor;
+    }
+  }
+
+  &-url-list {
+    padding: 0.2rem 0.5rem;
+    // background-color: $primaryColorVeryLight;
+    background-color: $primaryColor;
+    color: $textColor;
+
+    border-radius: 0.3em;
+    li {
       display: block;
       position: relative;
-      margin-bottom: .5rem;
-      border-bottom: 1px dashed rgba(white, .7);
-      .link{
+      margin-bottom: 0.5rem;
+      border-bottom: 1px dashed rgba(white, 0.7);
+      .link {
         display: inline-block;
         text-overflow: ellipsis;
-      /* Required for text-overflow to do anything */
+        /* Required for text-overflow to do anything */
         white-space: nowrap;
         overflow: hidden;
         width: calc(100% - 90px);
       }
-      .suppr{
+      .suppr {
         position: absolute;
         right: 0;
-        font-size: .8em;
+        font-size: 0.8em;
+        margin-top: 0.2rem;
 
+        &:hover {
+          color: black;
+        }
       }
-      &:last-child{
+      &:last-child {
         margin-bottom: 0;
         border-bottom: none;
       }
     }
-    &-url{
-      font-size: .9rem;
+    &-url {
+      font-size: 0.9rem;
     }
   }
+}
+
+.form-info {
+  margin-left: 0.3rem !important;
+  color: $secondaryColor;
+}
+
+.level-select > option {
+  font-size: 0.8rem;
+ 
+}
+
+#level-select:focus {
+  width: 200px !important;
+}
+
+.btn-mycolor {
+  background-color: lighten($primaryColorVeryLight, 20%) !important;
+}
+
+
+
+.rbt-token {
+  background-color: $linkColor !important;
+  color: $textColor !important;
+}
+
+.rbt-menu {
+  background-color: $primaryColor !important;
+
+  & li > a {
+    color: $textColor !important;
+
+    &:hover {
+      background-color: $primaryColorLight;
+    }
+  }
+}
+.rbt-input-multi {
+  background-color: $primaryColor !important;
+  // background-color: red !important;
+  min-height: 120px;
+}
+
+.rbt-input-hint-container > div > input {
+  color: $textColor !important;
+}
+
+.avatar {
+  border: 3px solid $secondaryColor;
+}
+
+label {
+  margin-bottom: 0.1rem !important;
+  font-size: 0.9rem !important;
+  margin-left: 0.3rem !important;
 }

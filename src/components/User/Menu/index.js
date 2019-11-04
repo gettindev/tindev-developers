@@ -8,10 +8,12 @@ import {
   Image,
   Button,
 } from 'react-bootstrap';
-// == Import : Firebase
-import firebase from "firebase"
 
-import { NavLink } from'react-router-dom';
+// == Import : Firebase
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import { NavLink, Link } from'react-router-dom';
+
 // import PropTypes from 'prop-types';
 
 // == Import : local
@@ -19,7 +21,7 @@ import './user-profil.scss';
 import Nav from 'src/components/Nav';
 
 // == Composant
-const UserProfil = () => {
+const UserProfil = ({ setLog }) => {
   // use the state instaid //
   const userName = 'myGithubName';
   //
@@ -48,7 +50,19 @@ const UserProfil = () => {
       <Container className="user-profil-disconnect">
         <Row>
           <Col>
-            <Button onClick={() => firebase.auth().signOut()} size="lg" variant="danger" block>Déconnexion</Button>
+            <Button 
+             onClick={() => {
+              firebase.auth().signOut().then(function() {
+              console.log('Signed Out');
+              setLog(false);
+            }, function(error) {
+              console.error('Sign Out Error', error);
+            })}} 
+            as={Link}
+            to="/"
+            size="lg" 
+            variant="danger" 
+            block>Déconnexion</Button>
           </Col>
         </Row>
       </Container>

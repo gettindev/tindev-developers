@@ -7,10 +7,12 @@ import PropTypes from 'prop-types';
 
 const Header = ({ userName, avatar }) => (
   <Row>
-    <Col>
-      <h2>Hello {userName}</h2>
-      <p>Bienvenue sur l'édition de ton profil.</p>
-      <Image src={avatar} alt={`Avatar du profil de ${userName}`} width="80" height="80" roundedCircle />
+    <Col className="text-center mt-4 mb-4">
+      <h4> Hello {userName}
+        <span className="animated bounceIn delay-1s d-block">👋</span>
+      </h4>
+      <p className="subtitle">Bienvenue sur l'édition de ton profil.</p>
+      <Image src={avatar} alt={`Avatar du profil de ${userName}`} width="80" height="80" roundedCircle className="avatar" />
     </Col>
   </Row>
 );

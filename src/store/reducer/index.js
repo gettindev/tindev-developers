@@ -14,6 +14,7 @@ import user from './user';
 import userEdit from './user';
 import app from './app';
 import page from './pageReducer';
+import location from './location';
 
 // combineReducers returns us the generated parent reducer
 // we must supply an object as parameter
@@ -30,6 +31,7 @@ const reducer = combineReducers({
   userEdit,
   app,
   page,
+  location,
 });
 
 export default reducer;

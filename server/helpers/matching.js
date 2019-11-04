@@ -48,9 +48,9 @@ module.exports = {
   myUsersMatchList: (myId, isMyMatchArray) => {
     const myUsersMatchList = isMyMatchArray.map(
       (matching) => {
-        if (matching.currentUserid === parseInt(myId, 10)) {
+        if (matching.currentUserId === myId) {
           return matching.swipedUserId;
-        } return matching.currentUserid;
+        } return matching.currentUserId;
       },
     );
     return myUsersMatchList;

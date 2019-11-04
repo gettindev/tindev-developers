@@ -1,15 +1,16 @@
 // == Import : npm
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
 import firebase from "firebase"
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import { Route, Switch } from 'react-router-dom';
 
 // Import locaux
 import HomePage from 'src/components/HomePage'
 import Matrix from 'src/components/Matrix'
 import Location from 'src/components/Location'
 import UserProfil from 'src/components/User/Menu';
+import 'src/components/Page/page.scss';
 
 // == initialize Firebase
 firebase.initializeApp({
@@ -17,23 +18,10 @@ firebase.initializeApp({
   authDomain: "tindev-a9966.firebaseapp.com"
 })
 
-// ===* Plan d'action *===
-// 
-// *Je suis un tout nouveau utilisateur
-// *J'arrive sur "/" qui me propose l'inscription
-// *Je click sur github puis j'arrive sur les préférences
-// *(On a récupéré son adresse mail, son id qu'on met dans le state global en attendant la fin de l'inscription)
-// *Je choisis mes préférences (celles-ci sont également enregistrées dans le state global)  et je suis dirigé vers la dernière page de l'inscription : la localisation
-// *Je choisis local ou worldwide (ces infos sont également enregistrer dans le state global)
-// *Au moment ou je clique sur "voir le profil" (Toutes les infos de son inscription sont envoyées en BDD (middleware) et envoyer sur d'autres states pour l'affichage de son profil) (modifié) 
-// *Le container du composant - le composant - le middleware - le reducer - le store
-
-
-
 // == Composant
 class Page extends React.Component {
 
-  // AH OUI, METS DES COMMENTAIRES POUR TE REPERER ! GOOD LUCK ****************
+  
 
 // == initialize State 
   state = { 
@@ -42,10 +30,10 @@ class Page extends React.Component {
     photoURL: "",
     email: "",
     idFire: "",
-    choosenPref: 0,
+    userPref: [],
   }
 
-// == Firebase authentication
+//== Firebase authentication
   uiConfig = {
     signInFlow: "popup",
     signInOptions: [
@@ -66,41 +54,93 @@ class Page extends React.Component {
         idFire: firebase.auth().currentUser.uid,
       })
     })
+
   }
+
 
   componentDidUpdate = () => {
-    console.log(this.state.isSignedIn);
-    console.log(this.state.pseudo);
-    console.log(this.state.photoURL);
-    console.log(this.state.email);
-    console.log(this.state.idFire);
+    //console.log(this.state.idFire);
+    console.log(firebase.auth().currentUser),
+    this.userExist();
   }
 
-// == recovery of user choices
-  //addPref = () => {
-  
-  //  console.log(choosenPref);
- //}
+  // Check if this user exist
+  userExist = () => {
+    // Set the matching state loading : true
+    this.props.setLoadingTrue;
+    // Send a axios request
+    const id = this.state.idFire;
+    this.props.doRequest(id);
+  }
 
+  // Set the user prefs in the state
+  setPref = (value) => {
+    const array = this.state.userPref;
+    // Create a bool
+    const elemSearching = (element) => {
+      // checks whether an element is even
+      return element === value;
+    };
+    
+    // If the selected pref is don't find in the array
+    if (!array.some(elemSearching)) {
+      return (
+        this.setState({
+        userPref: [...this.state.userPref,
+                  value]
+        })
+      ) 
+    // Then, do the opposite
+    } else {
+      const  newArray = array.filter(pref => pref !== value);
+      return (
+        this.setState({
+          userPref: newArray
+        })
+      )
+    }
+
+  }
+
+  // Send all datas on the Global state
+  setGlobalState = () => {
+      
+      const state = this.state;
+      this.props.getDatas(state);
+  }
 
   render() {
+
     return (
       <div>
-        {this.state.isSignedIn ? (
+        {/* Loading spinner waiting axios Request */}
+        {this.props.loading &&  (
+
+          <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
           
-          <Matrix prefs={this.props.prefs}/>
-          
-        ) : (     
-            <>
-              <HomePage />   
-              <StyledFirebaseAuth
-                uiConfig={this.uiConfig}
-                firebaseAuth={firebase.auth()}
-                className="gitHubButton"
-              />
-            </>
-            ) 
-        }
+        )}
+
+        {/* First Page with Github Auth */}
+        {!this.state.isSignedIn && (
+          <>
+          <HomePage />   
+          <StyledFirebaseAuth
+            uiConfig={this.uiConfig}
+            firebaseAuth={firebase.auth()}
+            className="gitHubButton"
+          />
+        </> 
+        )}
+        
+        {/* Page with User Prefs */}
+        {this.state.isSignedIn && !this.props.find && (
+          <Matrix 
+            prefs={this.props.prefs} 
+            setPref={this.setPref}
+            setGlobalState={this.setGlobalState}
+            isSignedIn={this.state.isSignedIn}
+          />
+        )}
       </div>
     )  
   }

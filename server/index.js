@@ -1,11 +1,13 @@
 /* eslint-disable radix */
 // https://github.com/socketio/socket.io/issues/936
 const express = require('express');
+
 const app = express();
 app.use(express.json());
 app.set('port', process.env.PORT || 3001);
 
 const cors = require('cors');
+
 app.use(cors());
 
 const Sequelize = require('sequelize');
@@ -15,10 +17,16 @@ const db = require('./config/database');
 const user = require('./routes/profil');
 const matching = require('./routes/matching');
 const wish = require('./routes/wish');
+const tech = require('./routes/tech');
+const level = require('./routes/level');
+
 
 app.use('/profil', user);
 app.use('/matching', matching);
 app.use('/wish', wish);
+app.use('/tech', tech);
+app.use('/level', level);
+
 
 app.get('/', (req, res) => {
   res.send('Tindev API');

@@ -2,22 +2,22 @@ const express = require('express');
 
 const router = express.Router();
 
-const WishModel = require('../models/wish');
+const LevelModel = require('../models/level');
 
 // FETCH All wishes
 router.get('/', (req, res) => {
-  WishModel.findAll().then((wishes) => {
-    res.status(200).json(wishes);
+  LevelModel.findAll().then((levels) => {
+    res.status(200).json(levels);
   });
 });
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
 
-  WishModel.findByPk(id)
-    .then((user) => {
-      if (user) {
-        res.json(user);
+  LevelModel.findByPk(id)
+    .then((level) => {
+      if (level) {
+        res.json(level);
       }
       else {
         res.status(404).send();

@@ -87,8 +87,8 @@
               margin: -4.3% auto; 
               background-color: #8C99A6;
               border-radius: 5px;
-              
               position: relative;
+              padding: 1rem;
             
               @media screen and (device-aspect-ratio: 40/71){
               height: 60%;
@@ -96,8 +96,6 @@
             
                       &-bio {
                         font-size: 0.8rem;
-                        
-                        padding: 1rem;
                         text-align: justify;
                         width: auto;
                         height: 30%;
@@ -124,7 +122,9 @@
                         position: relative;
                         font-size: 0.8rem !important;
                         margin-top: 6rem;
-                        
+                        width: 100%;
+                        text-align: center;
+                    
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
                           margin-top: 6rem;
@@ -141,7 +141,7 @@
                         font-size: 0.8rem;
                         position: relative;
                         text-align: center;
-                        margin-top: 0.4rem;
+                        margin-top: 0.2rem;
 
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
@@ -197,6 +197,11 @@
 
 button.card-content-btn {
   color: white !important;
+}
+
+.mod-body-bio.list-group-item {
+  border: 2px solid #fff !important;
+  margin-right: -1rem;
 }
 
 
