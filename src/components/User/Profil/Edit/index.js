@@ -86,7 +86,10 @@ class UserProfilEdit extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { sendRequest } = this.props;
-    sendRequest();
+    const { changeState } = this.props;
+    const currentUserDatas = this.state;
+    sendRequest(currentUserDatas);
+    changeState(currentUserDatas);
   }
 
   render() {

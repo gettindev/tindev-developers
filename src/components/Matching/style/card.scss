@@ -124,8 +124,7 @@
                         margin-top: 6rem;
                         width: 100%;
                         text-align: center;
-                        
-                        
+                    
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
                           margin-top: 6rem;
@@ -198,6 +197,11 @@
 
 button.card-content-btn {
   color: white !important;
+}
+
+.mod-body-bio.list-group-item {
+  border: 2px solid #fff !important;
+  margin-right: -1rem;
 }
 
 

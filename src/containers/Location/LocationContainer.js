@@ -2,11 +2,12 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import Matching from 'src/components/Matching';
+import Loc from 'src/components/Location';
 
 // Action Creators
-import { doRequest, doLike, doUnlike, getUsers } from 'src/store/reducer/matching.js';
-import { sendRequest } from 'src/store/reducer/userEdit';
+import { setUserLoc, sendDatas  } from 'src/store/reducer/location.js';
+import { setLog } from 'src/store/reducer/app.js';
+
 
 /* === State (datas) ===
  * - mapStateToProps retrieves a prop object for the presentation component
@@ -16,7 +17,9 @@ import { sendRequest } from 'src/store/reducer/userEdit';
  * No need transfer data ? const mapStateToProps = null;
  */
 const mapStateToProps = ( state ) => ({
-      users: state.matching.users,
+      locs: state.location.locs,
+      userLoc: state.location.userLoc,
+      datas: state.page.datas,
 });
 
 /* === Actions ===
@@ -27,36 +30,31 @@ const mapStateToProps = ( state ) => ({
  * No need transfer dispatch ? const mapDispatchToProps = {};
  */
 const mapDispatchToProps = ( dispatch ) => ({
-  doRequest: () => {
-      const action = doRequest();
+  setUserLoc: (loc) => {
+      const action = setUserLoc(loc);
       dispatch(action);
   },
-  doLike: () => {
-      const action = doLike();
-      dispatch(action)
-  },
-  doUnlike: () => {
-      const action = doUnlike();
-      dispatch(action)
-  },
-  getUsers: () => {
-    const action = getUsers();
-    dispatch(action)
-  },
-  sendRequest: (currentUserDatas) => {
-    const action = sendRequest(currentUserDatas);
+
+  sendDatas: (datas) => {
+    const action = sendDatas(datas);
     dispatch(action);
   },
+
+  setLog: (bool) => {
+    const action = setLog(bool);
+    dispatch(action);
+  }
+
 });
 
 // Container
-const MatchingContainer = connect(
+const LocationContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Matching);
+)(Loc);
 
 // == Export
-export default MatchingContainer;
+export default LocationContainer;
 
 /* = export on the fly
 export default connect(

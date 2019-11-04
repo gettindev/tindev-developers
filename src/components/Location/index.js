@@ -1,5 +1,6 @@
 // imports npm
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // imports styles
 import { Dropdown } from 'react-bootstrap';
@@ -9,8 +10,29 @@ import { FaMapMarkerAlt, FaGlobeEurope } from "react-icons/fa";
 // imports local
 import './location.scss';
 
+
 // Component
-const Location = () => {
+const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
+
+  // Set the user loc choice to state
+  const handleLoc = (loc) => {
+      setUserLoc(loc);
+  }
+
+  // Finish the auth and send datas to BDD
+  const handleSend = () => {
+    
+    // Default userLoc
+    if (userLoc.length < 4 ) {
+      setUserLoc("Wordwide");
+    }
+    const allDatas = {...datas, userLoc};
+    const signBool = datas.isSignedIn
+    // Send sign in bool to app reducer
+    setLog(signBool);
+    // Send datas to the middleware
+    sendDatas(allDatas);
+  }
 
   return (
       <>
@@ -19,8 +41,13 @@ const Location = () => {
         <div className="location">
           <h2>Hello githubUserName</h2> 
           <p>Préférences de localisation des matchs</p>
-          <h3>Choisis ton camp :</h3>  
-          <Button variant="primary" size="lg" className="buttonChoice" block>
+          <h3>Choisis ton camp : <div className="choice">{userLoc}</div></h3>  
+          <Button 
+          variant="primary" 
+          size="lg" 
+          className="buttonChoice" 
+          block
+          onClick={() => handleLoc("Worlwide")}>
             <div className="camp_logo"><FaGlobeEurope /></div>
             Wordwide
           </Button>                      
@@ -30,27 +57,18 @@ const Location = () => {
               Local
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Auvergne-Rhône-Alpes</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Bourgogne-Franche-Comté</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Bretagne</Dropdown.Item>
-              <Dropdown.Item href="#/action-4">Centre-Val de Loire</Dropdown.Item>
-              <Dropdown.Item href="#/action-5">Corse</Dropdown.Item>
-              <Dropdown.Item href="#/action-6">Grand Est</Dropdown.Item>
-              <Dropdown.Item href="#/action-7">Hauts-de-France</Dropdown.Item>
-              <Dropdown.Item href="#/action-8">Île-de-France</Dropdown.Item>
-              <Dropdown.Item href="#/action-9">Normandie</Dropdown.Item>
-              <Dropdown.Item href="#/action-10">Nouvelle-Aquitaine</Dropdown.Item>
-              <Dropdown.Item href="#/action-11">Occitanie</Dropdown.Item>
-              <Dropdown.Item href="#/action-12">Pays de la Loire</Dropdown.Item>
-              <Dropdown.Item href="#/action-13">Provence-Alpes-Côte d'Azur</Dropdown.Item>
-              <Dropdown.Item href="#/action-14">Guadeloupe</Dropdown.Item>
-              <Dropdown.Item href="#/action-15">Martinique</Dropdown.Item>
-              <Dropdown.Item href="#/action-16">Guyane</Dropdown.Item>
-              <Dropdown.Item href="#/action-17">La Réunion</Dropdown.Item>
-              <Dropdown.Item href="#/action-18">Mayotte</Dropdown.Item>
+              {locs.map((loc)=>
+                <Dropdown.Item onClick={() => handleLoc(loc)} key={loc}>{loc}</Dropdown.Item>
+                )}
             </Dropdown.Menu>
           </Dropdown>
-          <Button variant="secondary" size="lg" href="/matching" id="see" block>
+          <Button 
+          variant="secondary" 
+          size="lg"  
+          id="see" block
+          onClick={()=> handleSend()}
+          as={Link}
+          to="/matching">
             Voir les profils
           </Button>
         </div>

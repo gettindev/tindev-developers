@@ -2,11 +2,12 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import Matching from 'src/components/Matching';
+import Menu from 'src/components/User/Menu';
 
 // Action Creators
-import { doRequest, doLike, doUnlike, getUsers } from 'src/store/reducer/matching.js';
-import { sendRequest } from 'src/store/reducer/userEdit';
+import { setUserLoc, sendDatas  } from 'src/store/reducer/location.js';
+import { setLog } from 'src/store/reducer/app.js';
+
 
 /* === State (datas) ===
  * - mapStateToProps retrieves a prop object for the presentation component
@@ -15,9 +16,7 @@ import { sendRequest } from 'src/store/reducer/userEdit';
  *  - ownProps : the props passed to the container
  * No need transfer data ? const mapStateToProps = null;
  */
-const mapStateToProps = ( state ) => ({
-      users: state.matching.users,
-});
+const mapStateToProps = null;
 
 /* === Actions ===
  * - mapDispatchToProps retrieves a prop object for the presentation component
@@ -27,36 +26,22 @@ const mapStateToProps = ( state ) => ({
  * No need transfer dispatch ? const mapDispatchToProps = {};
  */
 const mapDispatchToProps = ( dispatch ) => ({
-  doRequest: () => {
-      const action = doRequest();
-      dispatch(action);
-  },
-  doLike: () => {
-      const action = doLike();
-      dispatch(action)
-  },
-  doUnlike: () => {
-      const action = doUnlike();
-      dispatch(action)
-  },
-  getUsers: () => {
-    const action = getUsers();
-    dispatch(action)
-  },
-  sendRequest: (currentUserDatas) => {
-    const action = sendRequest(currentUserDatas);
+  
+  setLog: (bool) => {
+    const action = setLog(bool);
     dispatch(action);
-  },
+  }
+
 });
 
 // Container
-const MatchingContainer = connect(
+const MenuContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Matching);
+)(Menu);
 
 // == Export
-export default MatchingContainer;
+export default MenuContainer;
 
 /* = export on the fly
 export default connect(

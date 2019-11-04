@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.6.6deb5
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Mer 30 Octobre 2019 à 09:15
--- Version du serveur :  5.7.20-0ubuntu0.16.04.1
--- Version de PHP :  7.2.18-1+ubuntu16.04.1+deb.sury.org+1
+-- Client :  localhost:3306
+-- Généré le :  Mer 30 Octobre 2019 à 13:34
+-- Version du serveur :  5.7.27-0ubuntu0.18.04.1
+-- Version de PHP :  7.2.24-1+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `Tindev`
+-- Base de données :  `tindev`
 --
 
 -- --------------------------------------------------------
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `MATCH` (
   `id` int(10) NOT NULL,
-  `userid1` varchar(42) NOT NULL,
+  `userid1` int(10) NOT NULL,
   `statususerid1` varchar(42) NOT NULL,
-  `userid2` varchar(42) NOT NULL,
+  `userid2` int(10) NOT NULL,
   `statususerid2` varchar(42) NOT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -43,11 +43,11 @@ CREATE TABLE `MATCH` (
 
 CREATE TABLE `MESSAGE` (
   `id` int(10) NOT NULL,
-  `content` varchar(42) DEFAULT NULL,
-  `userID1` varchar(42) DEFAULT NULL,
-  `userID2` varchar(42) DEFAULT NULL,
+  `content` varchar(200) DEFAULT NULL,
+  `sender` int(10) NOT NULL,
+  `receiver` int(10) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NULL DEFAULT NULL
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -88,16 +88,8 @@ CREATE TABLE `USER` (
 --
 
 INSERT INTO `USER` (`id`, `firstName`, `lastName`, `token`, `pseudo`, `experience`, `photo`, `bio`, `url`, `mail`, `location`, `createdAt`, `updatedAt`) VALUES
-(1, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 17:03:17', '2019-10-29 17:03:17'),
-(2, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 17:51:10', '2019-10-29 17:51:10'),
-(3, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 18:52:16', '2019-10-29 18:52:16'),
-(4, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 18:52:38', '2019-10-29 18:52:38'),
-(5, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 19:10:58', '2019-10-29 19:10:58'),
-(6, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 19:11:01', '2019-10-29 19:11:01'),
-(7, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 19:11:10', '2019-10-29 19:11:10'),
-(8, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 19:27:40', '2019-10-29 19:27:40'),
-(9, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 19:28:02', '2019-10-29 19:28:02'),
-(10, NULL, NULL, NULL, 'toto', NULL, NULL, NULL, NULL, NULL, NULL, '2019-10-29 19:28:30', '2019-10-29 19:28:30');
+(1, 'Florian', 'Merrien', NULL, 'Flo', 'noob', NULL, 'sqfqfsfsqsqfqsfsqfqfqssffsq', 'www.google.com', 'fmerrien.dev@gmail.com', 'Quimper', '2019-10-29 17:03:17', '2019-10-29 17:03:17'),
+(2, 'Damien', 'Tailhades', NULL, 'regulardesigner', NULL, NULL, 'I\'m a designer trying to become developer after 12 years designing website and mobile apps.', NULL, NULL, 'Paris', '2019-10-29 17:51:10', '2019-10-29 17:51:10');
 
 -- --------------------------------------------------------
 
@@ -106,9 +98,9 @@ INSERT INTO `USER` (`id`, `firstName`, `lastName`, `token`, `pseudo`, `experienc
 --
 
 CREATE TABLE `USER_TECH` (
-  `tech_name` varchar(42) NOT NULL,
-  `user_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(10) NOT NULL,
+  `id_name` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -117,8 +109,8 @@ CREATE TABLE `USER_TECH` (
 --
 
 CREATE TABLE `USER_WISHES` (
-  `user_id` int(10) NOT NULL,
-  `wish_name` varchar(42) NOT NULL
+  `id` int(10) NOT NULL,
+  `id_name` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -140,13 +132,15 @@ CREATE TABLE `WISH` (
 -- Index pour la table `MATCH`
 --
 ALTER TABLE `MATCH`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user_match` (`userid1`);
 
 --
 -- Index pour la table `MESSAGE`
 --
 ALTER TABLE `MESSAGE`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user_sender` (`sender`);
 
 --
 -- Index pour la table `TECH`
@@ -164,17 +158,15 @@ ALTER TABLE `USER`
 -- Index pour la table `USER_TECH`
 --
 ALTER TABLE `USER_TECH`
-  ADD PRIMARY KEY (`tech_name`,`user_id`),
-  ADD KEY `tech_name` (`tech_name`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `tech_name_2` (`tech_name`),
-  ADD KEY `tech_name_3` (`tech_name`,`user_id`);
+  ADD KEY `fk_user_tech` (`id`),
+  ADD KEY `fk_tech_name` (`id_name`);
 
 --
 -- Index pour la table `USER_WISHES`
 --
 ALTER TABLE `USER_WISHES`
-  ADD PRIMARY KEY (`user_id`,`wish_name`);
+  ADD KEY `fk_user_wish` (`id`),
+  ADD KEY `fk_wish_name` (`id_name`);
 
 --
 -- Index pour la table `WISH`
@@ -211,6 +203,36 @@ ALTER TABLE `USER`
 --
 ALTER TABLE `WISH`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `MATCH`
+--
+ALTER TABLE `MATCH`
+  ADD CONSTRAINT `fk_user_match` FOREIGN KEY (`userid1`) REFERENCES `USER` (`id`);
+
+--
+-- Contraintes pour la table `MESSAGE`
+--
+ALTER TABLE `MESSAGE`
+  ADD CONSTRAINT `fk_user_sender` FOREIGN KEY (`sender`) REFERENCES `USER` (`id`);
+
+--
+-- Contraintes pour la table `USER_TECH`
+--
+ALTER TABLE `USER_TECH`
+  ADD CONSTRAINT `fk_tech_name` FOREIGN KEY (`id_name`) REFERENCES `TECH` (`id`),
+  ADD CONSTRAINT `fk_user_tech` FOREIGN KEY (`id`) REFERENCES `USER` (`id`);
+
+--
+-- Contraintes pour la table `USER_WISHES`
+--
+ALTER TABLE `USER_WISHES`
+  ADD CONSTRAINT `fk_user_wish` FOREIGN KEY (`id`) REFERENCES `USER` (`id`),
+  ADD CONSTRAINT `fk_wish_name` FOREIGN KEY (`id_name`) REFERENCES `WISH` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
