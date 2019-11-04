@@ -20,15 +20,17 @@
   background-color: $cardColor;
 
   img {
-    width: 80%;
+    width: 21.5vw;
   }
 }
 
 .location {
-  
+  // Added
+  height: 100%;
+  max-height: 80.9%;
   padding: 1.8rem;
   background-color: $primaryColorLight;
-  
+
   h2 {
     font-size: 1.3em;
     font-weight: bold;
@@ -55,7 +57,13 @@
     justify-content: flex-start;
     font-weight: bold;
     background-color: $cardColor;
-
+    // Added
+    width: 60%;
+    margin: auto;
+        @media screen and (device-aspect-ratio: 40/71){
+          width: 80%;
+          }
+    margin-bottom: 1rem;
     &:hover {
       background-color: $eventColorBlue;
       color: grey;
@@ -69,7 +77,9 @@
 }
 
 #see {
-  margin: 5.2rem 0 0.5rem 0;
+  width: 60%;
+  margin: auto;
+  
   background-color: $linkColor;
 
   &:hover {

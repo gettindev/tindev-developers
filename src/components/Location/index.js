@@ -39,7 +39,7 @@ const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
       <div className="location_newUser"> 
         <div id="header_location"><img src='src/data/logo.png'/></div>
         <div className="location">
-          <h2>Hello githubUserName</h2> 
+          <h2>Hello Dev</h2> 
           <p>Préférences de localisation des matchs</p>
           <h3>Choisis ton camp : <div className="choice">{userLoc}</div></h3>  
           <Button 
