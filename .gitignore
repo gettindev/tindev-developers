@@ -7,5 +7,6 @@ dist/
 Thumbs.db
 
 yarn-error.log
+.eslintrc
 
 

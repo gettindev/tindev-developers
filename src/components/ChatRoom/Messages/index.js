@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Col from 'react-bootstrap/Col';
+import { Col, Row } from 'react-bootstrap';
+
 
 import './messages.scss';
 
@@ -20,16 +21,16 @@ class Messages extends React.Component {
   render() {
     const { messages } = this.props;
     return (
-      <Col
+      <div
         ref={(elementDuDOM) => {
           this.chatZone = elementDuDOM;
         }}
-        className="messages no-gutters"
+        className="messages"
       >
         {messages.map((message) => (
           <Message key={message.id} {...message} />
         ))}
-      </Col>
+      </div>
     );
   }
 }
