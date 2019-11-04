@@ -1,4 +1,11 @@
+// Handle WebSocket connection and Axios request to API to fetch user matches and messages to be sent to MatchingContainer
+
+import axios from 'axios';
+
 import { WEBSOCKET_CONNECT, ADD_MESSAGE, receiveMessage } from 'src/store/reducer/chatroom';
+
+import { GET_MATCHES_MESSAGES } from 'src/store/reducer/chatlistReducer';
+
 
 let socket;
 console.log('socket.io connected');
@@ -33,9 +40,12 @@ const socketMiddleware = (store) => (next) => (action) => {
       }
       // console.log('newMessage:', newMessage);
       next(action);
-
       break;
     }
+
+    case GET_MATCHES_MESSAGES:
+      console.log('je recupere les messages et matchs');
+      break;
 
     default:
       next(action);
