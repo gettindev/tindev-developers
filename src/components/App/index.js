@@ -20,6 +20,8 @@ import EditUserProfil from 'src/containers/User/Profil/Edit';
 import ShowUserProfil from 'src/containers/User/Profil/Show';
 import NotFound from 'src/components/404/index';
 import Location from 'src/containers/Location/LocationContainer';
+import TermsOfUse from 'src/components/TermsOfUse';
+import HelpAndAssistance from 'src/components/HelpAndAssistance';
 
 // Import all Nav Components
 import Nav from 'src/components/Nav';
@@ -83,6 +85,14 @@ const App = ({ logged, doRequest, find, loading}) => {
               <NavChat />
               <Messages />
               <Form />
+            </Route>
+            <Route exact path ="/termsOfUse">
+              <Nav />
+              <TermsOfUse />             
+            </Route>
+            <Route exact path ="/help">
+              <Nav />
+              <HelpAndAssistance />             
             </Route>
             <Route path="/:slug">
               <NotFound />

@@ -1,0 +1,12 @@
+@import 'src/styles/vars';
+
+.termsOfUse {
+
+  margin: 1rem;
+  color: $textColor;
+
+  h1 {
+    color: $secondaryColor;
+    margin-bottom: 1rem;
+  }
+}

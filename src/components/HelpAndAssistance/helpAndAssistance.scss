@@ -1,0 +1,12 @@
+@import 'src/styles/vars';
+
+.helpAndAssistance {
+
+  margin: 1rem;
+  color: $textColor;
+
+  h1 {
+    color: $eventColorBlue;
+    margin-bottom: 1rem;
+  }
+}

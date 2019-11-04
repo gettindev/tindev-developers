@@ -10,6 +10,8 @@ import { FaMapMarkerAlt, FaGlobeEurope } from "react-icons/fa";
 // imports local
 import './location.scss';
 
+// == Import : Firebase
+import firebase from "firebase"
 
 // Component
 const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
@@ -71,6 +73,7 @@ const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
           to="/matching">
             Voir les profils
           </Button>
+          <Button onClick={() => firebase.auth().signOut()} size="lg" variant="danger" block>Déconnexion</Button>
         </div>
       </div>   
       </> 
