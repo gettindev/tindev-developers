@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import Page from 'src/components/Page';
 
 // Action Creators
-import { getDatas } from 'src/store/reducer/pageReducer';
+import { getDatas, getUserFind } from 'src/store/reducer/pageReducer';
+
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -21,7 +22,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   setLogFB: (bool) => {
     console.log(bool);
-  }
+  },
+
+  getUserFind: (email) => {
+    const action = getUserFind(email);
+    dispatch(action);
+},
 });
 
 // Container

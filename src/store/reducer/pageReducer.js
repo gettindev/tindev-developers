@@ -10,6 +10,7 @@ const initialState = {
 // == Types
 const DO_SOMETHING = 'DO_SOMETHING';
 const GET_DATAS = 'GET_DATAS';
+export const GET_USERFIND = 'GET_USERFIND';
 
 // == Reducer
 const page = (state = initialState, action = {}) => {
@@ -34,6 +35,11 @@ export const doSomething = message => ({
 export const getDatas = (datas) => ({
   type: GET_DATAS,
   datas,
+})
+
+export const getUserFind = email => ({
+  type: GET_USERFIND,
+  email,
 })
 
 

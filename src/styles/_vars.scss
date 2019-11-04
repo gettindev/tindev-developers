@@ -1,27 +1,28 @@
 // Vars Scss
 
 // All project colors
-$primaryColor :  #1A1647 ;
-$primaryColorLight : lighten(#1A1647, 10%);
-$primaryColorVeryLight : lighten(#1A1647, 15%);
-$cardColor :  #1d2c4e ;
-$eventColorPurple  :  #a11ec6 ;
-$eventColorBlue :  #92eaff ;
-$linkColor : #a31ec8 ;
-$secondaryColor : #fff922 ;
-$textColor  : #fff ;
-$font : 'Roboto Mono', monospace;
+$primaryColor: #1a1647;
+$primaryColorLight: lighten(#1a1647, 10%);
+$primaryColorVeryLight: lighten(#1a1647, 15%);
+$cardColor: #1d2c4e;
+$eventColorPurple: #a11ec6;
+$eventColorBlue: #92eaff;
+$linkColor: #a31ec8;
+$secondaryColor: #fff922;
+$textColor: #fff;
+$font: "Roboto Mono", monospace;
+$linear: linear-gradient(76.04deg, #ff815f -0.33%, #ff4282 100.08%);
+$linear1: linear-gradient(76.04deg, #febd3b -0.33%, #ff865b 100.08%);
+$linear3: linear-gradient(76.04deg, #ff3e86 -0.33%, #ff00a9 100.08%);
 // $font : 'Space Mono', monospace;
 
 // Media queries
-$xs : 576px;
-$sm : 768px;
-$md : 992px;
-$lg : 1200px;
-$xl : 2560px;
-
+$xs: 576px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+$xl: 2560px;
 
 // /!\ TIPS /!\
 
-// Put like this in a Scss file : @import 'src/styles/vars'; 
-
+// Put like this in a Scss file : @import 'src/styles/vars';

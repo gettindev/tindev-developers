@@ -27,7 +27,7 @@ class Page extends React.Component {
   state = { 
     isSignedIn : false,
     pseudo: "",
-    photoURL: "",
+    photo: "",
     email: "",
     idFire: "",
     userPref: [],
@@ -49,7 +49,7 @@ class Page extends React.Component {
       this.setState({
         isSignedIn:!!user,
         pseudo: firebase.auth().currentUser.displayName,
-        photoURL: firebase.auth().currentUser.photoURL,
+        photo: firebase.auth().currentUser.photoURL,
         email: firebase.auth().currentUser.email,
         idFire: firebase.auth().currentUser.uid,
       })
@@ -66,11 +66,12 @@ class Page extends React.Component {
 
   // Check if this user exist
   userExist = () => {
-    // Set the matching state loading : true
+    // Set the matching state loading : true to display the spinner
     this.props.setLoadingTrue;
     // Send a axios request
-    const id = this.state.idFire;
-    this.props.doRequest(id);
+    const email = this.state.email;
+    // From app Container
+    this.props.getUserFind(email);
   }
 
   // Set the user prefs in the state
@@ -133,7 +134,7 @@ class Page extends React.Component {
         )}
         
         {/* Page with User Prefs */}
-        {!this.props.find && (
+        {this.state.isSignedIn && !this.props.find && (
           <Matrix 
             prefs={this.props.prefs} 
             setPref={this.setPref}

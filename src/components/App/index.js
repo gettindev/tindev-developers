@@ -15,7 +15,7 @@ import Messages from 'src/containers/ChatRoom/Messages';
 import ChatList from 'src/components/ChatList';
 import Page from 'src/containers/Page';
 import MatchingContainer from 'src/containers/Matching/MatchingContainer';
-import UserMenu from 'src/components/User/Menu';
+import UserMenu from 'src/containers/Menu/index.js';
 import EditUserProfil from 'src/containers/User/Profil/Edit';
 import ShowUserProfil from 'src/containers/User/Profil/Show';
 import NotFound from 'src/components/404/index';

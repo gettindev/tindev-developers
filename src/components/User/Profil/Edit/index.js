@@ -37,7 +37,7 @@ class UserProfilEdit extends React.Component {
     sharedNewUrl: '',
     sharedNewTitleUrl: '',
   }
-  
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -108,11 +108,11 @@ class UserProfilEdit extends React.Component {
     } = this.state;
     return (
       <div className="edit-profil">
-        
+
         <Container className="text-left">
           <Header userName={userName} avatar={avatar} />
           <Form >
-            <h3>Les infos de ton profil</h3>
+            <h5>Les infos de ton profil</h5>
             <Form.Group controlId="formFirstName">
               <Form.Label>Prénom</Form.Label>
               <Form.Control type="text" placeholder="Entre ton prénom" name="firstName" value={firstName} onChange={this.handleChange} />
@@ -131,19 +131,19 @@ class UserProfilEdit extends React.Component {
                 value={biography}
                 onChange={this.handleChange}
               />
-              <Form.Text className="text-muted">
+              <Form.Text className="form-info">
                 Ici tu peux parler de toi, de tes side-projects et bien d'autre chose encore !
               </Form.Text>
             </Form.Group>
-            <h3>Ton niveau d'XP en Dev.</h3>
+            <h5>Ton niveau d'XP en Dev.</h5>
             <Form.Group controlId="formLevel.ControlSelect">
               <Form.Label>Choisis ton niveau</Form.Label>
-              <Form.Control as="select" value={level} name="level" onChange={this.handleChange}>
-                <option value="0">Noobyist (1 ans et moins)</option>
-                <option value="1">Noob éclairé (1 à 2 ans)</option>
-                <option value="2">Stackover Pro (2 à 4 ans)</option>
-                <option value="3">Ninja (4 à 6 ans)</option>
-                <option value="4">Binary God (6 ans et plus)</option>
+              <Form.Control className="level-select" as="select" value={level} name="level" onChange={this.handleChange}>
+                <option id="level-select" value="0">Noobyist (1 ans et moins)</option>
+                <option id="level-select" value="1">Noob éclairé (1 à 2 ans)</option>
+                <option id="level-select" value="2">Stackover Pro (2 à 4 ans)</option>
+                <option id="level-select" value="3">Ninja (4 à 6 ans)</option>
+                <option id="level-select" value="4">Binary God (6 ans et plus)</option>
               </Form.Control>
             </Form.Group>
             <Form.Group>
@@ -153,23 +153,23 @@ class UserProfilEdit extends React.Component {
                 multiple
                 onChange={(technos) => { this.setState({ technos }); }}
                 selected={technos}
-                options={['php', 'javascript', 'JSX', 'Ruby', 'Python', 'MongoBD']}
+                options={['php', 'javascript', 'JSX', 'React', 'Vue', 'Angular', 'Sass', 'Ruby', 'Python', 'MongoBD', 'CSS', 'html', 'MySQL', 'C#', 'Go', 'WordPress', 'Symfony', 'Java']}
                 name="technos"
                 id="formTechnos"
               />
             </Form.Group>
 
             <Form.Group controlId="formSharedUrls">
-              <Form.Label>Si tu veux montrer une url sur ton profil</Form.Label>
+              <Form.Label>Tu veux montrer une url sur ton profil?</Form.Label>
               <FormControl className="mb-3" placeholder="Donnes un titre à ton url" value={sharedNewTitleUrl} name="sharedNewTitleUrl" onChange={this.handleChange} />
               <InputGroup className="mb-3">
                 <FormControl placeholder="http://whatever.com/" value={sharedNewUrl} name="sharedNewUrl" onChange={this.handleChange} />
                 <InputGroup.Append>
-                  <Button variant="primary" onClick={this.handleAddUrl}>Ajouter</Button>
+                  <Button className="btn-mycolor" onClick={this.handleAddUrl}>Ajouter</Button>
                 </InputGroup.Append>
               </InputGroup>
-              <Form.Text className="text-muted">Ajouter des urls à votre profil</Form.Text>
-              <ul className="edit-profil-url-list">
+              <Form.Text className="form-info">Ajouter des urls à votre profil</Form.Text>
+              <ul className="edit-profil-url-list mb-1">
                 {sharedUrl.map((url) => {
                   return (
                     <li key={url.id}>
@@ -180,13 +180,13 @@ class UserProfilEdit extends React.Component {
                 })}
               </ul>
             </Form.Group>
-            <Button className="mb-10" onClick={this.handleSubmit} block variant="primary" type="submit">Sauvegarder</Button>
+            <Button className="mb-10" onClick={this.handleSubmit} block className="btn-mycolor" type="submit">Sauvegarder</Button>
           </Form>
           <Row>
             <Col className="mt-5">
-              <h4 className="text-danger">Wow, zone dangereuse !</h4>
+              <h5 className="text-danger font-weight-bold text-center">Wow, zone dangereuse!!</h5>
               <Button type="button" block variant="outline-danger">Supprimer mon compte</Button>
-              <small className="text-muted">Toutes les informations de ton compte seront définitivement supprimées. Nous ne conservons aucune données.</small>
+              <small className="form-info">Toutes les informations de ton compte seront définitivement supprimées. Nous ne conservons aucune données.</small>
             </Col>
           </Row>
         </Container>
