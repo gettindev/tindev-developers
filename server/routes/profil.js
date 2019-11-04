@@ -65,6 +65,25 @@ router.post('/', (req, res) => {
   });
 });
 
+// faire une route pour récupérer un user avec son email
+// en réponse toutes la data de l'utilisateur
+router.post('/exist', (req, res) => {
+  const { mail } = req.body;
+  UserModel.findAll({
+    attributes: ['mail'],
+    where: {
+      mail,
+    },
+  }).then((user) => {
+    if (user.length === 0) {
+      res.status(404).send('false');
+    }
+    res.status(200).send('true');
+  }).catch((err) => {
+    res.status(500).send('Something went wrong', err);
+  });
+});
+
 // FETCH user by ID
 router.get('/:id', (req, res) => {
   const { id } = req.params;
@@ -89,19 +108,6 @@ router.get('/:id', (req, res) => {
         model: LevelModel,
         // where: { id: Sequelize.col('levelId') },
       },
-      /*
-      Project.findAll({
-          include: [{
-              model: Task,
-              where: { state: Sequelize.col('project.state') }
-          }]
-      })
-      */
-      // {
-      //   model: LevelModel,
-      //   where: { levelsId: Sequelize.col('levels.id') }
-      // },
-      // { model: LevelModel },
     ],
   })
     .then((user) => {
