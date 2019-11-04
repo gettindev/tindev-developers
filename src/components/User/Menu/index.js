@@ -40,7 +40,7 @@ const UserProfil = () => {
         <Row>
           <Col>
             <Button size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
-            <Button size="lg" variant="outline-secondary" block>Aide et assistance</Button>
+            <Button href="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
             <Button size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
           </Col>
         </Row>
