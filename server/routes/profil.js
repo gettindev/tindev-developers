@@ -139,22 +139,13 @@ router.delete('/:id', (req, res) => {
 router.get('/settings/:id', (req, res) => {
   const { id } = req.params;
   UserModel.findByPk(id, {
-    attributes: ['id'],
+    attributes: ['id', 'location'],
     include: [
       {
         model: WishModel,
         through: {
           attributes: [],
         },
-      },
-      {
-        model: TechModel,
-        through: {
-          attributes: [],
-        },
-      },
-      {
-        model: LevelModel,
       },
     ],
   })
@@ -171,6 +162,7 @@ router.get('/settings/:id', (req, res) => {
 router.post('/settings/:id', (req, res) => {
   const { id } = req.params;
   const updatedWishes = req.body.wishesArray;
+  const { location } = req.body;
 
   const bulkCreator = (userIdentifier, array) => {
     const generateBulkCreate = array.map(
