@@ -40,6 +40,10 @@ const App = ({ logged, doRequest, find, loading}) => {
   //     doRequest();
   // }, []);
 
+  useEffect(() => {
+    
+  }, [logged = localStorage.getItem("logged") ? true : null]);
+
   return (
   <div className="app">
       
@@ -94,7 +98,7 @@ const App = ({ logged, doRequest, find, loading}) => {
               <Nav />
               <HelpAndAssistance />             
             </Route>
-            <Route path="/:slug">
+            <Route >
               <NotFound />
             </Route>
           </Switch>

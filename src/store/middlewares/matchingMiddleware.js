@@ -1,5 +1,6 @@
 // Import npm
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // Import actions
 import {
@@ -9,8 +10,6 @@ import { GET_USERFIND } from 'src/store/reducer/pageReducer';
 import { setLog } from 'src/store/reducer/app.js';
 
 const matchingMiddleware = (store) => (next) => (action) => {
-  //   console.log('I am the middleware, and I pass this action: ', action);
-
   switch (action.type) {
     case DO_REQUEST:
       //console.log(`Cet utilisteur à l\'id ${action.id}`);
@@ -20,29 +19,29 @@ const matchingMiddleware = (store) => (next) => (action) => {
       break;
     case GET_USERFIND:
       console.log(`Cet utilisteur à le mail ${action.email}`)
-      // axios.post('http://localhost:3001/profil', {
-      // email: action.mail
-      //}).then((response) => {
-              // if (response == null) {
-              //   return (
-              //     userNotFind(),
-              //     setLoadingFalse()
-              //   )
-              // } else {
-              //   return (
-              //     setLog (true)
-              //   )
-              // }
-      //       console.log('succès', response.data);
-      //       // je veux faire en sorte d'alimenter le state avec la réponse
-      //       })
-      //       .catch((error) => {
-      //       console.error(error);
-      //       })
-      //       .finally(() => {
-      //       });
-      userNotFind();
-      setLoadingFalse();
+      axios.post('http://localhost:3001/profil/exist', {
+      mail: action.email
+      }).then((response) => {
+          console.log(response.status == 200)
+              if (response.status == 200) {
+                return (
+                  store.dispatch(setLog(true)),
+                  localStorage.setItem('logged', true),
+                  window.location.replace("/matching")
+                )
+              } else {
+                return (
+                  store.dispatch(userNotFind()),
+                  store.dispatch(setLoadingFalse())
+                )
+              }
+            }).catch((error) => {
+            console.error(error);
+            })
+            .finally(() => {
+            });
+      // userNotFind();
+      // setLoadingFalse();
       break;
     case DO_LIKE:
       console.log('Cet utilisateur est envoyé dans mes profils likés');
