@@ -11,7 +11,7 @@ import {
 // == Import : Firebase
 import firebase from "firebase"
 
-import { NavLink } from'react-router-dom';
+import { NavLink, Link } from'react-router-dom';
 // import PropTypes from 'prop-types';
 
 // == Import : local
@@ -40,8 +40,10 @@ const UserProfil = () => {
         <Row>
           <Col>
             <Button size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
-            <Button href="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
-            <Button size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
+            <Button as={Link}
+            to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
+            <Button as={Link}
+            to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
           </Col>
         </Row>
       </Container>

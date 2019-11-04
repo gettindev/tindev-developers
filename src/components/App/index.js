@@ -86,9 +86,6 @@ const App = ({ logged, doRequest, find, loading}) => {
               <Messages />
               <Form />
             </Route>
-            <Route path="/:slug">
-              <NotFound />
-            </Route>
             <Route exact path ="/termsOfUse">
               <Nav />
               <TermsOfUse />             
@@ -96,6 +93,9 @@ const App = ({ logged, doRequest, find, loading}) => {
             <Route exact path ="/help">
               <Nav />
               <HelpAndAssistance />             
+            </Route>
+            <Route path="/:slug">
+              <NotFound />
             </Route>
           </Switch>
         </>
