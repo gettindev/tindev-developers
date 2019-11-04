@@ -9,11 +9,11 @@ import 'src/components/404/404.scss';
 const Notfound = () => {
 
   return (
-    <>
+    <div className="notfound">
       <h1 className="notfound-title">La page demandée n'existe pas (même dans node_modules)</h1>
       <Image roundedCircle className="notfound-img" src={kid} />
       <NavLink className="notfound-link" to ="/">Go Home</NavLink>
-    </>
+    </div>
   )
 }
 

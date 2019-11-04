@@ -54,7 +54,15 @@
 
     &:hover {
       transform: scale(1.02);
-      background-color: $eventColorBlue;
+      //background-color: $eventColorBlue;
+      color: $secondaryColor;
+      background: repeating-linear-gradient(
+      45deg,
+      $primaryColor,
+      $primaryColor 10px,
+      $primaryColorVeryLight 10px,
+      $primaryColorVeryLight 30px
+      );
     }
 
     &:checked {
@@ -64,21 +72,39 @@
     p {
       line-height: 6.5rem;
       font-size: 1em;
+          
     }
   }
 }
 
+
+
 #next{
-  margin: 0.8rem 0 0 15rem;
   font-size: 1.4em;
   color: $textColor;
 
-  &:hover {
-    color: $eventColorBlue;
-  }
+    &:hover {
+    color: $secondaryColor;
+    //background-color: $eventColorBlue;
+    }
 }
 
 .logo-matrix {
   width: 10rem;
 }
+
+// Set the p who were choosen by the user
+.on {
+  color: $secondaryColor;
+  //background-color: $eventColorBlue;
+  background: repeating-linear-gradient(
+  45deg,
+  $primaryColor,
+  $primaryColor 10px,
+  $primaryColorVeryLight 10px,
+  $primaryColorVeryLight 30px
+  );
+}
+
+
 

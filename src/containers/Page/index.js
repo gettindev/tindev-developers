@@ -5,16 +5,24 @@ import { connect } from 'react-redux';
 import Page from 'src/components/Page';
 
 // Action Creators
+import { getDatas } from 'src/store/reducer/pageReducer';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
   prefs: state.page.prefs,
-  step: state.page.step,
- 
 });
 
 /* === Actions === */
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  getDatas: (datas) => {
+    console.log(datas);
+    const action = getDatas(datas);
+    dispatch(action);
+  },
+  setLogFB: (bool) => {
+    console.log(bool);
+  }
+});
 
 // Container
 const PageContainer = connect(

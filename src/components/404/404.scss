@@ -2,6 +2,9 @@
 
 .notfound {
 
+  width: 400px;
+  margin: auto;
+
       &-title {
         font-size: 1.2rem;
         color: white;
@@ -12,15 +15,13 @@
         min-width: 300px !important;
         max-width: 400px !important;
         margin: auto;
-        position: fixed !important;
+        position: relative !important;
         left: 1.8rem;
       }
 
       &-link {
         font-size: 2rem;
         color: white;
-        position: relative !important;
-        left: 7.4rem;
-        top: 21.7rem;
+        margin: 3.8em;
       }
 }

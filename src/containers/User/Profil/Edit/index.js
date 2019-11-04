@@ -6,6 +6,7 @@ import EditUserProfil from 'src/components/User/Profil/Edit';
 
 // Action Creators
 import { sendRequest } from 'src/store/reducer/userEdit';
+import { changeState } from 'src/store/reducer/user';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -15,10 +16,14 @@ const mapStateToProps = (state, ownProps) => ({
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  sendRequest: () => {
-    const action = sendRequest();
+  sendRequest: (currentUserDatas) => {
+    const action = sendRequest(currentUserDatas);
     dispatch(action);
   },
+  changeState: (value) => {
+    const action = changeState(value);
+    dispatch(action);
+  }
 });
 
 // Container

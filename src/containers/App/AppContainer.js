@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import App from 'src/components/App';
 
 // Action Creators
-import { doRequest } from 'src/store/reducer/matching.js';
+import { doRequest, setLoadingTrue, setLoadingFalse } from 'src/store/reducer/matching.js';
 
 
 /* === State (datas) ===
@@ -16,7 +16,9 @@ import { doRequest } from 'src/store/reducer/matching.js';
  * No need transfer data ? const mapStateToProps = null;
  */
 const mapStateToProps = ( state ) => ({
-      logged: state.app.logged, // A changer par le state de matrix pour avoir le statut
+      logged: state.app.log, // A changer par le state de matrix pour avoir le statut
+      find: state.matching.find,
+      loading : state.matching.loading,
 });
 
 /* === Actions ===
@@ -27,10 +29,18 @@ const mapStateToProps = ( state ) => ({
  * No need transfer dispatch ? const mapDispatchToProps = {};
  */
 const mapDispatchToProps = ( dispatch ) => ({
-  doRequest: () => {
-      const action = doRequest();
+  doRequest: (id) => {
+      const action = doRequest(id);
       dispatch(action);
   },
+
+  setLoadingFalse: () => {
+      dispatch(setLoadingFalse());
+  },
+
+  setLoadingTrue: () => {
+      dispatch(setLoadingTrue());
+  }
 });
 
 // Container
