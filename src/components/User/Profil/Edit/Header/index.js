@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const Header = ({ userName, avatar }) => (
   <Row>
-    <Col>
+    <Col className="text-center mt-4 mb-4">
       <h2>Hello {userName}</h2>
       <p>Bienvenue sur l'édition de ton profil.</p>
       <Image src={avatar} alt={`Avatar du profil de ${userName}`} width="80" height="80" roundedCircle />

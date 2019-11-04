@@ -2,6 +2,9 @@ const Sequelize = require('sequelize');
 
 const db = require('../config/database');
 
+const LevelModel = require('../models/level');
+
+
 const User = db.define('users', {
   id: {
     field: 'id',
@@ -22,7 +25,7 @@ const User = db.define('users', {
     type: Sequelize.STRING,
     // allowNull: true,
   },
-  experience: {
+  levelId: {
     type: Sequelize.INTEGER,
   },
   photo: {
