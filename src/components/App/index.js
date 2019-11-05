@@ -33,13 +33,17 @@ import NavCloseRight from 'src/components/Nav/NavCloseRight.js';
 
 
 // == Composant
-const App = ({ logged, doRequest, find, loading}) => {
+const App = ({ logged, doRequest}) => {
 
   // // CDM - send Axios Request if User logged
   // useEffect(() => {
   //   console.log("Le Dom est créé");
   //     doRequest();
   // }, []);
+
+  useEffect(() => {
+    
+  }, [logged = localStorage.getItem("logged") ? true : null]);
 
   return (
   <div className="app">
@@ -48,13 +52,13 @@ const App = ({ logged, doRequest, find, loading}) => {
         <>
           <Switch>
             <Route exact path="/">
-              <Page doRequest={doRequest} find={find} loading={loading}/>
+              <Page doRequest={doRequest} find={find} />
             </Route>
             <Route exact path="/location">
               <Location />
             </Route>
             <Route >
-              <NotFound />
+              <NotFound logged={logged}/>
             </Route>
           </Switch>
         </>
@@ -98,9 +102,9 @@ const App = ({ logged, doRequest, find, loading}) => {
             <Route exact path ="/reporting">
               <Nav />
               <AccountReporting />             
-            </Route>
-            <Route path="/:slug">
-              <NotFound />
+            </Route>     
+            <Route >
+              <NotFound logged={logged}/>
             </Route>
           </Switch>
         </>

@@ -55,13 +55,11 @@ const UserProfil = ({ setLog }) => {
             <Button 
              onClick={() => {
               firebase.auth().signOut().then(function() {
-              console.log('Signed Out');
-              setLog(false);
+              localStorage.removeItem('logged');
+              window.location.replace("/");
             }, function(error) {
               console.error('Sign Out Error', error);
             })}} 
-            as={Link}
-            to="/"
             size="lg" 
             variant="danger" 
             block>Déconnexion</Button>

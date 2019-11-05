@@ -22,6 +22,10 @@
       &-link {
         font-size: 2rem;
         color: white;
-        margin: 3.8em;
+        margin: 3.2rem;
+
+          &:focus {
+            color: $secondaryColor;
+          }
       }
 }
