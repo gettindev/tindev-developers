@@ -19,6 +19,7 @@ const matching = require('./routes/matching');
 const wish = require('./routes/wish');
 const tech = require('./routes/tech');
 const level = require('./routes/level');
+const message = require('./routes/message');
 
 
 app.use('/profil', user);
@@ -26,6 +27,7 @@ app.use('/matching', matching);
 app.use('/wish', wish);
 app.use('/tech', tech);
 app.use('/level', level);
+app.use('/messages', message);
 
 app.get('/', (req, res) => {
   res.send('Tindev API');

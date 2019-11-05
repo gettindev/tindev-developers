@@ -53,6 +53,7 @@ class Page extends React.Component {
         email: firebase.auth().currentUser.email,
         idFire: firebase.auth().currentUser.uid,
       })
+      this.userExist();
     })
 
   }
@@ -60,17 +61,18 @@ class Page extends React.Component {
 
   componentDidUpdate = () => {
     //console.log(this.state.idFire);
-    console.log(firebase.auth().currentUser),
-    this.userExist();
+    //console.log(firebase.auth().currentUser),
+    
+    //this.userExist();
   }
 
   // Check if this user exist
   userExist = () => {
     // Set the matching state loading : true to display the spinner
-    this.props.setLoadingTrue;
+    this.props.setLoadingTrue();
     // Send a axios request
     const email = this.state.email;
-    // From app Container
+    // // From app Container
     this.props.getUserFind(email);
   }
 
@@ -107,7 +109,8 @@ class Page extends React.Component {
   setGlobalState = () => {
       
       const state = this.state;
-      this.props.getDatas(state);
+      console.log(state);
+      //this.props.getDatas(state);
   }
 
   render() {
@@ -116,9 +119,7 @@ class Page extends React.Component {
       <div>
         {/* Loading spinner waiting axios Request */}
         {this.props.loading &&  (
-
           <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-          
         )}
 
         {/* First Page with Github Auth */}
@@ -133,8 +134,8 @@ class Page extends React.Component {
         </> 
         )}
         
-        {/* Page with User Prefs */}
-        {this.state.isSignedIn && !this.props.find && (
+        {/*Page with User Prefs*/}
+        {this.props.find == false && (
           <Matrix 
             prefs={this.props.prefs} 
             setPref={this.setPref}
