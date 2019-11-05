@@ -12,7 +12,7 @@ const Notfound = ({ logged }) => {
     <div className="notfound">
       <h1 className="notfound-title">La page demandée n'existe pas (même dans node_modules)</h1>
       <Image roundedCircle className="notfound-img" src={kid} />
-      <NavLink className="notfound-link" to ={path = logged ? "/matching" : "/"}>Go Home</NavLink>
+      <NavLink className="notfound-link" to ={logged ? "/matching" : "/"}>Page d'accueil</NavLink>
     </div>
   )
 }

@@ -53,6 +53,7 @@ class Page extends React.Component {
         email: firebase.auth().currentUser.email,
         idFire: firebase.auth().currentUser.uid,
       })
+      this.userExist();
     })
 
   }
@@ -60,8 +61,9 @@ class Page extends React.Component {
 
   componentDidUpdate = () => {
     //console.log(this.state.idFire);
-    console.log(firebase.auth().currentUser),
-    this.userExist();
+    //console.log(firebase.auth().currentUser),
+    
+    //this.userExist();
   }
 
   // Check if this user exist
@@ -132,7 +134,7 @@ class Page extends React.Component {
         )}
         
         {/*Page with User Prefs*/}
-        {(!this.props.find & !this.props.loading) && (
+        {this.props.find == false && (
           <Matrix 
             prefs={this.props.prefs} 
             setPref={this.setPref}
