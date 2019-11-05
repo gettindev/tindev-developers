@@ -17,8 +17,8 @@ import { doRequest, setLoadingTrue, setLoadingFalse } from 'src/store/reducer/ma
  */
 const mapStateToProps = ( state ) => ({
       logged: state.app.log, // A changer par le state de matrix pour avoir le statut
-      find: state.matching.find,
-      loading : state.matching.loading,
+      
+      
 });
 
 /* === Actions ===

@@ -5,6 +5,7 @@ import  user  from 'src/data/user.js';
 const initialState = {
   users : user,
   loading: false,
+  find: null,
 };
 
 // == Types

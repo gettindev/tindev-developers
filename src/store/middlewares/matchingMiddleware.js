@@ -15,7 +15,6 @@ const matchingMiddleware = (store) => (next) => (action) => {
       //console.log(`Cet utilisteur à l\'id ${action.id}`);
       // Si l'utilisateur on set le state logged à true pour afficher la page mathing
       // Sinon on l'envoi vers la page Matrix
-      
       break;
     case GET_USERFIND:
       console.log(`Cet utilisteur à le mail ${action.email}`)
@@ -27,18 +26,18 @@ const matchingMiddleware = (store) => (next) => (action) => {
                 return (
                   store.dispatch(setLog(true)),
                   localStorage.setItem('logged', true),
+                  // Ajouter la valeur de son ID dans le localStorage
                   window.location.replace("/matching")
                 )
               } else {
                 return (
-                  store.dispatch(userNotFind()),
-                  store.dispatch(setLoadingFalse())
+                  store.dispatch(userNotFind())
                 )
               }
             }).catch((error) => {
             console.error(error);
-            })
-            .finally(() => {
+            }).finally(() => {
+              store.dispatch(setLoadingFalse())
             });
       // userNotFind();
       // setLoadingFalse();

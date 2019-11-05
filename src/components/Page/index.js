@@ -67,10 +67,10 @@ class Page extends React.Component {
   // Check if this user exist
   userExist = () => {
     // Set the matching state loading : true to display the spinner
-    this.props.setLoadingTrue;
+    this.props.setLoadingTrue();
     // Send a axios request
     const email = this.state.email;
-    // From app Container
+    // // From app Container
     this.props.getUserFind(email);
   }
 
@@ -116,9 +116,7 @@ class Page extends React.Component {
       <div>
         {/* Loading spinner waiting axios Request */}
         {this.props.loading &&  (
-
           <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-          
         )}
 
         {/* First Page with Github Auth */}
@@ -133,8 +131,8 @@ class Page extends React.Component {
         </> 
         )}
         
-        {/* Page with User Prefs */}
-        {this.state.isSignedIn && !this.props.find && (
+        {/*Page with User Prefs*/}
+        {(!this.props.find & !this.props.loading) && (
           <Matrix 
             prefs={this.props.prefs} 
             setPref={this.setPref}
