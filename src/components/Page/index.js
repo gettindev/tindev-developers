@@ -109,7 +109,8 @@ class Page extends React.Component {
   setGlobalState = () => {
       
       const state = this.state;
-      this.props.getDatas(state);
+      console.log(state);
+      //this.props.getDatas(state);
   }
 
   render() {

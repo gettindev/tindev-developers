@@ -32,6 +32,7 @@ const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
     const signBool = datas.isSignedIn
     // Send sign in bool to app reducer
     setLog(signBool);
+    localStorage.setItem('logged', true),
     // Send datas to the middleware
     sendDatas(allDatas);
   }

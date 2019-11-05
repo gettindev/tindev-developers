@@ -21,28 +21,29 @@ const matchingMiddleware = (store) => (next) => (action) => {
       axios.post('http://localhost:3001/profil/exist', {
       mail: action.email
       }).then((response) => {
-          console.log(response.status == 200)
-              if (response.status == 200) {
+        console.log(response.data)
+              if (response.data.length ) {
                 return (
                   store.dispatch(setLog(true)),
                   localStorage.setItem('logged', true),
                   // Ajouter la valeur de son ID dans le localStorage
+                  //localStorage.setItem('id', response.data.id)
                   window.location.replace("/matching")
                 )
-              } else {
-                return (
-                  store.dispatch(userNotFind())
-                )
-              }
+              } else
+            return (
+              store.dispatch(userNotFind()),
+              store.dispatch(setLoadingFalse())
+            )
             }).catch((error) => {
             console.error(error);
             }).finally(() => {
-              store.dispatch(setLoadingFalse())
-            });
+              
+             });
       // userNotFind();
       // setLoadingFalse();
       break;
-    case DO_LIKE:
+      case DO_LIKE:
       console.log('Cet utilisateur est envoyé dans mes profils likés');
       // axios.get('http://localhost:3001/profil')
       // .then((response) => {
