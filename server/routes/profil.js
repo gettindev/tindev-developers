@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
 // INSERT User
 router.post('/', (req, res) => {
   const {
-    pseudo, firstName, lastName, token, experience, photo, bio, url, mail, location,
+    pseudo, firstName, lastName, token, levelId, photo, bio, url, mail, location,
   } = req.body;
 
   const user = {
@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
     firstName,
     lastName,
     token,
-    experience,
+    levelId,
     photo,
     bio,
     url,
@@ -61,8 +61,8 @@ router.post('/', (req, res) => {
     location,
   };
 
-  UserModel.create(user).then(() => {
-    res.send(user);
+  UserModel.create(user).then((lastUser) => {
+    res.send(lastUser);
   });
 });
 
@@ -71,17 +71,12 @@ router.post('/', (req, res) => {
 router.post('/exist', (req, res) => {
   const { mail } = req.body;
   UserModel.findAll({
-    attributes: ['mail'],
+    attributes: ['id', 'mail'],
     where: {
       mail,
     },
   }).then((user) => {
-    if (user.length === 0) {
-      res.status(404).send('false');
-    }
-    res.status(200).send('true');
-  }).catch((err) => {
-    res.status(500).send('Something went wrong', err);
+    res.status(200).send(user);
   });
 });
 
