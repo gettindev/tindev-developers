@@ -38,10 +38,25 @@ router.post('/', (req, res) => {
         },
       ],
     },
+    order: [
+      ['createdAt', 'ASC'],
+    ],
   }).then((messages) => {
     res.send(messages);
   });
 });
 
+router.post('/add', (req, res) => {
+  const { currentId } = req.body;
+  const { userId } = req.body;
+  const { content } = req.body;
+  MessagesModel.create({
+    content,
+    sender: currentId,
+    receiver: userId,
+  }).then((newMessage) => {
+    res.send(newMessage);
+  });
+});
 
 module.exports = router;
