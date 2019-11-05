@@ -12,7 +12,7 @@ import messages from 'src/data/messages';
 import Form from 'src/containers/ChatRoom/Form';
 import Matrix from 'src/components/Matrix';
 import Messages from 'src/containers/ChatRoom/Messages';
-import ChatList from 'src/components/ChatList';
+import ChatList from 'src/containers/ChatList';
 import Page from 'src/containers/Page';
 import MatchingContainer from 'src/containers/Matching/MatchingContainer';
 import UserMenu from 'src/containers/Menu/index.js';
@@ -81,8 +81,8 @@ const App = ({ logged, doRequest, find, loading}) => {
               <NavBackLeft/>
               <ChatList />
             </Route>
-            <Route exact path ="/chat/1">
-              <NavChat />
+            <Route exact path ="/chat/:id">
+              <NavChat title="toto" />
               <Messages />
               <Form />
             </Route>

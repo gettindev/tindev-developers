@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import ChatList from 'src/components/ChatList/MessagesList';
+import ChatList from 'src/components/ChatList';
 
 // Action Creators
 // import { doSomething } from 'src/store/reducer';
@@ -15,7 +15,9 @@ import ChatList from 'src/components/ChatList/MessagesList';
  * No need transfer data ? const mapStateToProps = null;
  */
 const mapStateToProps = (state, ownProps) => ({
-  users: state.chatlistReducer.users,
+  mymatches: state.chatlistReducer.mymatches,
+//  matchlist: 'toto',
+
 });
 
 /* === Actions ===

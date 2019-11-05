@@ -26,7 +26,9 @@ class Matching extends Component {
     console.log("la partie matching vient d'être créée");
     this.props.getUsers();
     this.props.sendRequest();
-    this.props.getMatchesAndMessages();
+    this.props.getMatchesAndMessages(); // get only my matches
+    this.props.fetchMessages(); // get all messages between me and (all users)
+
     // A ajouter : requete pour obtenir les matchs et conversations en cours
   }
 

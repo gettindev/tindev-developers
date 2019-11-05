@@ -5,14 +5,15 @@ import users from 'src/data/users';
 
 // == Initial State
 const initialState = {
-  users,
+   mymatches: '',
+  // users,
   // conversations,
-  // matchlist
 };
 
 // == Types
 export const GET_MATCHES_MESSAGES = 'GET_MATCHES_MESSAGES';
 export const UPDATE_CONVERSATIONS = 'UPDATE_CONVERSATIONS';
+export const FETCH_CONVERSATIONS = 'FETCH_CONVERSATIONS';
 export const UPDATE_MATCHLIST = 'UPDATE_MATCHLIST';
 
 
@@ -28,7 +29,7 @@ const chatlist = (state = initialState, action = {}) => {
     case UPDATE_MATCHLIST:
       return {
         ...state,
-        matchlist: action.matchList,
+        mymatches: action.mymatches,
       };
     default:
       return state;
@@ -45,11 +46,15 @@ export const updateConversations = (conversations) => ({
   conversations,
 });
 
-export const updateMatchList = (matchList) => ({
+export const updateMatchList = (mymatches) => ({
   type: UPDATE_MATCHLIST,
-  matchList,
+  mymatches,
 });
 
+export const fetchMessages = (messages) => ({
+  type: FETCH_CONVERSATIONS,
+  messages
+});
 
 // == Selectors
 

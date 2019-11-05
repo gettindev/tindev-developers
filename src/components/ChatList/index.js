@@ -4,19 +4,19 @@ import React from 'react';
 // == Import : local
 // import MenuNav from './Menu';
 import Nav from 'src/components/Nav';
-import MatchList from 'src/containers/MatchList';
-import MessagesList from 'src/containers/ChatList';
+import MatchList from 'src/components/ChatList/MatchList';
+// import MessagesList from 'src/components/ChatList/MessagesList';
 
 
 // == Import : style
 // import './chatlist.scss';
 
 // == Composant
-const ChatList = () => (
+const ChatList = ({ mymatches }) => (
   <div className="chatlist">
     {/* <Nav nav="chat" /> */}
-    <MatchList />
-    <MessagesList />
+    <MatchList mymatches={mymatches} />
+    {/* <MessagesList /> */}
   </div>
 );
 
