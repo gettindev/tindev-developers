@@ -45,6 +45,10 @@ const socketMiddleware = (store) => (next) => (action) => {
 
     case GET_MATCHES_MESSAGES:
       console.log('je recupere les messages et matchs');
+      axios.get('http://localhost:3001/matching/2')
+        .then((response) => console.log(response.data))
+        .catch((error) => console.log(error));
+
       break;
 
     default:
