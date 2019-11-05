@@ -1,6 +1,6 @@
 // == Initial State
 const initialState = {
-  log: false,
+  log: true,
 };
 
 // == Types

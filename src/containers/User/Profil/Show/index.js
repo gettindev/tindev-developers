@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ShowUserProfil from 'src/components/User/Profil/Show';
 
 // Action Creators
+// import { doSomething } from 'src/store/reducer/user';
 
 /* === State (datas) ===
  * - mapStateToProps retrieves a prop object for the presentation component

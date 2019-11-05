@@ -4,7 +4,9 @@ import axios from 'axios';
 
 import { WEBSOCKET_CONNECT, ADD_MESSAGE, receiveMessage } from 'src/store/reducer/chatroom';
 
-import { GET_MATCHES_MESSAGES } from 'src/store/reducer/chatlistReducer';
+import { GET_MATCHES_MESSAGES, UPDATE_CONVERSATIONS,updateMatchList, FETCH_CONVERSATIONS, updateConversations } from 'src/store/reducer/chatlistReducer';
+
+// import { FETCH_CONVERSATIONS } from 'src/store/reducer/chatroom';
 
 
 let socket;
@@ -44,8 +46,28 @@ const socketMiddleware = (store) => (next) => (action) => {
     }
 
     case GET_MATCHES_MESSAGES:
-      console.log('je recupere les messages et matchs');
+      console.log(action);
+      const userId = 2;
+       axios.get(`http://localhost:3001/matching/${userId}`)
+       .then((result) => {
+        //  console.log(result);
+         const mymatches = result.data.usersListResult;
+        //  console.log(mymatches);
+         store.dispatch(updateMatchList(mymatches));
+       }).catch((error) => {
+         console.log(error);
+       });
       break;
+
+    case FETCH_CONVERSATIONS:
+      console.log(action);
+      console.log(`je veux recuperer les messages en BDD de l'utilisateur connecte: ${userId}`);
+      axios.get(`http://localhost:3001/profil/2`)
+        .then((result) => {
+          // envoyer les donnees au state
+        }).catch((error) => {
+          console.log(error);
+        });
 
     default:
       next(action);
