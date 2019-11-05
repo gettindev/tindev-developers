@@ -1,5 +1,5 @@
 // imports npm
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // imports styles
@@ -12,9 +12,14 @@ import './location.scss';
 
 // == Import : Firebase
 import firebase from "firebase"
+import { isBoolean } from 'util';
 
 // Component
-const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
+const Location = ({ locs, location, setUserLoc, datas, sendDatas, setLog }) => {
+
+  // Déclare une nouvelle variable d'état, que l'on va appeler « count »
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   // Set the user loc choice to state
   const handleLoc = (loc) => {
@@ -25,15 +30,18 @@ const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
   const handleSend = () => {
     
     // Default userLoc
-    if (userLoc.length < 4 ) {
+    if (location.length < 4 ) {
       setUserLoc("Wordwide");
     }
-    const allDatas = {...datas, userLoc};
-    const signBool = datas.isSignedIn
-    // Send sign in bool to app reducer
-    setLog(signBool);
-    // Send datas to the middleware
-    sendDatas(allDatas);
+
+    const allDatas = {firstName, lastName, ...datas , location};
+    const signBool = datas.isSignedIn;
+    const wishes = datas.wishesArray;
+    //Send sign in bool to app reducer
+    // setLog(signBool);
+    // localStorage.setItem('logged', true);
+    // //Send datas to the middleware
+    // sendDatas(allDatas, wishes);
   }
 
   return (
@@ -41,9 +49,11 @@ const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
       <div className="location_newUser"> 
         <div id="header_location"><img src='src/data/logo.png'/></div>
         <div className="location">
-          <h2>Hello githubUserName</h2> 
+          <h2>Hello Dev</h2> 
+          <input value={firstName} onChange={() => setFirstName(event.target.value)} className="input" placeholder="Ton prénom" required/>
+          <input value={lastName} onChange={() => setLastName(event.target.value)} className="input" placeholder="Ton nom" required/>
           <p>Préférences de localisation des matchs</p>
-          <h3>Choisis ton camp : <div className="choice">{userLoc}</div></h3>  
+          <h3>Choisis ton camp : <div className="choice">{location}</div></h3>  
           <Button 
           variant="primary" 
           size="lg" 
@@ -69,8 +79,9 @@ const Location = ({ locs, userLoc, setUserLoc, datas, sendDatas, setLog }) => {
           size="lg"  
           id="see" block
           onClick={()=> handleSend()}
-          as={Link}
-          to="/matching">
+          // as={Link}
+          // to="/matching"
+          >
             Voir les profils
           </Button>
         </div>

@@ -4,7 +4,8 @@ import  user  from 'src/data/user.js';
 // == Initial State
 const initialState = {
   users : user,
-  loading: false,
+  loading: null,
+  find: null,
 };
 
 // == Types

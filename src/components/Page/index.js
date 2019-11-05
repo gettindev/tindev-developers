@@ -28,9 +28,9 @@ class Page extends React.Component {
     isSignedIn : false,
     pseudo: "",
     photo: "",
-    email: "",
-    idFire: "",
-    userPref: [],
+    mail: "",
+    token: "",
+    wishesArray: [],
   }
 
 //== Firebase authentication
@@ -50,33 +50,35 @@ class Page extends React.Component {
         isSignedIn:!!user,
         pseudo: firebase.auth().currentUser.displayName,
         photo: firebase.auth().currentUser.photoURL,
-        email: firebase.auth().currentUser.email,
-        idFire: firebase.auth().currentUser.uid,
+        mail: firebase.auth().currentUser.email,
+        token: firebase.auth().currentUser.uid,
       })
+      this.userExist();
     })
 
   }
 
 
   componentDidUpdate = () => {
-    //console.log(this.state.idFire);
-    console.log(firebase.auth().currentUser),
-    this.userExist();
+    //console.log(this.state.token);
+    //console.log(firebase.auth().currentUser),
+    
+    //this.userExist();
   }
 
   // Check if this user exist
   userExist = () => {
     // Set the matching state loading : true to display the spinner
-    this.props.setLoadingTrue;
+    this.props.setLoadingTrue();
     // Send a axios request
-    const email = this.state.email;
-    // From app Container
+    const email = this.state.mail;
+    // // From app Container
     this.props.getUserFind(email);
   }
 
   // Set the user prefs in the state
   setPref = (value) => {
-    const array = this.state.userPref;
+    const array = this.state.wishesArray;
     // Create a bool
     const elemSearching = (element) => {
       // checks whether an element is even
@@ -87,7 +89,7 @@ class Page extends React.Component {
     if (!array.some(elemSearching)) {
       return (
         this.setState({
-        userPref: [...this.state.userPref,
+        wishesArray: [...this.state.wishesArray,
                   value]
         })
       ) 
@@ -96,7 +98,7 @@ class Page extends React.Component {
       const  newArray = array.filter(pref => pref !== value);
       return (
         this.setState({
-          userPref: newArray
+          wishesArray: newArray
         })
       )
     }
@@ -107,6 +109,7 @@ class Page extends React.Component {
   setGlobalState = () => {
       
       const state = this.state;
+      console.log(state);
       this.props.getDatas(state);
   }
 
@@ -116,9 +119,7 @@ class Page extends React.Component {
       <div>
         {/* Loading spinner waiting axios Request */}
         {this.props.loading &&  (
-
           <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-          
         )}
 
         {/* First Page with Github Auth */}
@@ -133,8 +134,8 @@ class Page extends React.Component {
         </> 
         )}
         
-        {/* Page with User Prefs */}
-        {this.state.isSignedIn && !this.props.find && (
+        {/*Page with User Prefs*/}
+        {this.props.find == false && (
           <Matrix 
             prefs={this.props.prefs} 
             setPref={this.setPref}
