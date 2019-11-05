@@ -28,9 +28,9 @@ class Page extends React.Component {
     isSignedIn : false,
     pseudo: "",
     photo: "",
-    email: "",
-    idFire: "",
-    userPref: [],
+    mail: "",
+    token: "",
+    wishesArray: [],
   }
 
 //== Firebase authentication
@@ -50,8 +50,8 @@ class Page extends React.Component {
         isSignedIn:!!user,
         pseudo: firebase.auth().currentUser.displayName,
         photo: firebase.auth().currentUser.photoURL,
-        email: firebase.auth().currentUser.email,
-        idFire: firebase.auth().currentUser.uid,
+        mail: firebase.auth().currentUser.email,
+        token: firebase.auth().currentUser.uid,
       })
       this.userExist();
     })
@@ -60,7 +60,7 @@ class Page extends React.Component {
 
 
   componentDidUpdate = () => {
-    //console.log(this.state.idFire);
+    //console.log(this.state.token);
     //console.log(firebase.auth().currentUser),
     
     //this.userExist();
@@ -71,14 +71,14 @@ class Page extends React.Component {
     // Set the matching state loading : true to display the spinner
     this.props.setLoadingTrue();
     // Send a axios request
-    const email = this.state.email;
+    const email = this.state.mail;
     // // From app Container
     this.props.getUserFind(email);
   }
 
   // Set the user prefs in the state
   setPref = (value) => {
-    const array = this.state.userPref;
+    const array = this.state.wishesArray;
     // Create a bool
     const elemSearching = (element) => {
       // checks whether an element is even
@@ -89,7 +89,7 @@ class Page extends React.Component {
     if (!array.some(elemSearching)) {
       return (
         this.setState({
-        userPref: [...this.state.userPref,
+        wishesArray: [...this.state.wishesArray,
                   value]
         })
       ) 
@@ -98,7 +98,7 @@ class Page extends React.Component {
       const  newArray = array.filter(pref => pref !== value);
       return (
         this.setState({
-          userPref: newArray
+          wishesArray: newArray
         })
       )
     }
@@ -110,7 +110,7 @@ class Page extends React.Component {
       
       const state = this.state;
       console.log(state);
-      //this.props.getDatas(state);
+      this.props.getDatas(state);
   }
 
   render() {

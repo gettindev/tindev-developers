@@ -4,7 +4,7 @@ import locs from "src/data/loc.js";
 // == Initial State
 const initialState = {
   locs, 
-  userLoc: "",
+  location: "",
 };
 
 // == Types
@@ -17,7 +17,7 @@ const location = (state = initialState, action = {}) => {
     case SET_USERLOC:
       return {
         ...state,
-        userLoc: action.loc,
+        location: action.loc,
       };
     default:
       return state;
@@ -30,9 +30,10 @@ export const setUserLoc = (loc) => ({
   loc,
 });
 
-export const sendDatas = (datas) => ({
+export const sendDatas = (datas, wishes) => ({
   type : SEND_DATAS,
   datas,
+  wishes
 })
 
 

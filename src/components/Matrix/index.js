@@ -40,7 +40,7 @@ const Matrix = ({ prefs, setPref, setGlobalState }) => {
       <section id="choice">
         {prefs.map((pref) =>
           
-          <div onClick={() => handlePref(pref.choice, event)} key={pref.id} >
+          <div onClick={() => handlePref(pref.id, event)} key={pref.id} >
             <p className="off">{pref.choice}</p>
           </div>
 

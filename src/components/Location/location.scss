@@ -20,13 +20,13 @@
   background-color: $cardColor;
 
   img {
-    width: 80%;
+    width: 54.1%;
   }
 }
 
 .location {
   
-  padding: 1.8rem;
+  padding: 2rem;
   background-color: $primaryColorLight;
 
   
@@ -39,7 +39,7 @@
   }
 
    p {
-     margin-top: 3rem;;
+     margin-top: .5rem;;
      font-size: 0.7em;
      color: $textColor;
      font-style: italic;
@@ -48,7 +48,7 @@
   h3 {
     font-size: 1em;
     margin-bottom: 2rem;
-    color: $eventColorBlue;
+    color: $secondaryColor;
   }
 
   .buttonChoice {
@@ -71,7 +71,7 @@
 }
 
 #see {
-  margin: 5.2rem 0 0.5rem 0;
+  margin: 1.5rem 0 0.5rem 0;
   background-color: $linkColor;
 
   &:hover {
@@ -81,8 +81,17 @@
 }
 
 .choice {
-  color: $secondaryColor;
+  color: white;
   font-size: 1.2em;
+}
+
+input.input {
+  background-color: #1d2c4e;
+  border: 5px solid $primaryColorVeryLight;
+  border-radius: 10px;
+  margin-bottom: .5rem;
+  padding: 0.5rem;
+  color: white;
 }
 
 

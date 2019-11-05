@@ -18,7 +18,7 @@ import { setLog } from 'src/store/reducer/app.js';
  */
 const mapStateToProps = ( state ) => ({
       locs: state.location.locs,
-      userLoc: state.location.userLoc,
+      location: state.location.location,
       datas: state.page.datas,
 });
 
