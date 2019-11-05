@@ -8,6 +8,7 @@ import {
 } from 'src/store/reducer/matching.js';
 import { GET_USERFIND } from 'src/store/reducer/pageReducer';
 import { setLog } from 'src/store/reducer/app.js';
+import { SEND_DATAS } from 'src/store/reducer/location.js';
 
 const matchingMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -27,6 +28,7 @@ const matchingMiddleware = (store) => (next) => (action) => {
                   store.dispatch(setLog(true)),
                   localStorage.setItem('logged', true),
                   // Ajouter la valeur de son ID dans le localStorage
+                  console.log(response.data.id),
                   //localStorage.setItem('id', response.data.id)
                   window.location.replace("/matching")
                 )
@@ -72,6 +74,21 @@ const matchingMiddleware = (store) => (next) => (action) => {
       //       })
       //       .finally(() => {
       //       });
+      break;
+    case SEND_DATAS:
+    console.log('j\'envois les données');
+        axios.post('http://localhost:3001/profil', {
+           ...action.datas
+       })
+      .then((response) => {
+            console.log('succès', response);
+            // je veux faire en sorte d'alimenter le state avec la réponse
+            })
+            .catch((error) => {
+            console.error(error);
+            })
+            .finally(() => {
+            });
       break;
     default:
       next(action);
