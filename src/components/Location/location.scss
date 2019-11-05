@@ -70,6 +70,15 @@
     padding-right: 1rem;
 }
 
+.dropdown-menu.show {
+  background-color: $cardColor;
+}
+
+.dropdown-item {
+  color: white !important;
+  font-size: 0.9em;
+}
+
 #see {
   margin: 5.2rem 0 0.5rem 0;
   background-color: $linkColor;

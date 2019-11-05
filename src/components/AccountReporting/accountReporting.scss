@@ -1,0 +1,37 @@
+@import 'src/styles/vars';
+
+.accountReporting {
+
+  margin: 1rem;
+  
+  h1 {
+    color: $secondaryColor;
+    margin-top: 2rem;
+  }
+
+  p {
+    color: $textColor;
+    margin: 2rem 0 2rem 0;
+  }
+
+  .form-label {
+    color: $secondaryColor;
+    margin-bottom: 0.5rem;
+  }
+
+  #reasonsForReporting {
+    margin-top: 0.5rem;
+    background-color: $primaryColorLight;
+    color: $textColor;
+  }
+
+  .confirmReport {
+    margin-top: 3rem;
+    background-color: $eventColorBlue;
+    color: grey;
+
+  &:hover {
+    background-color: $linkColor;
+    }
+  }
+}

@@ -22,6 +22,7 @@ import NotFound from 'src/components/404/index';
 import Location from 'src/containers/Location/LocationContainer';
 import TermsOfUse from 'src/components/TermsOfUse';
 import HelpAndAssistance from 'src/components/HelpAndAssistance';
+import AccountReporting from 'src/components/AccountReporting';
 
 // Import all Nav Components
 import Nav from 'src/components/Nav';
@@ -93,6 +94,10 @@ const App = ({ logged, doRequest, find, loading}) => {
             <Route exact path ="/help">
               <Nav />
               <HelpAndAssistance />             
+            </Route>
+            <Route exact path ="/reporting">
+              <Nav />
+              <AccountReporting />             
             </Route>
             <Route path="/:slug">
               <NotFound />
