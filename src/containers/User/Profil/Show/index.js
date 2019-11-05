@@ -6,7 +6,6 @@ import ShowUserProfil from 'src/components/User/Profil/Show';
 
 // Action Creators
 
-
 /* === State (datas) ===
  * - mapStateToProps retrieves a prop object for the presentation component
  * - mapStateToProps make available 2 params
