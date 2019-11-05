@@ -1,6 +1,12 @@
 @import "src/styles/vars";
 
+// #emoji::after {
+//   content: "\01F354";
+// }
+
 .edit-profil {
+
+  
   color: $textColor;
   // background-color: $primaryColorLight;
   background: repeating-linear-gradient(

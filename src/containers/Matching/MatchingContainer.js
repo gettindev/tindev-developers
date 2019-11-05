@@ -11,7 +11,7 @@ import {
 
 import { sendRequest } from 'src/store/reducer/userEdit';
 
-import { getMatchesAndMessages } from 'src/store/reducer/chatlistReducer';
+import { getMatchesAndMessages, fetchMessages } from 'src/store/reducer/chatlistReducer';
 
 /* === State (datas) ===
  * - mapStateToProps retrieves a prop object for the presentation component
@@ -54,6 +54,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getMatchesAndMessages: () => {
     const action = getMatchesAndMessages();
+    dispatch(action);
+  },
+  fetchMessages: () => {
+    const action = fetchMessages();
     dispatch(action);
   },
 });

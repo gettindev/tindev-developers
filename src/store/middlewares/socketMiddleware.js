@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { WEBSOCKET_CONNECT, ADD_MESSAGE, receiveMessage } from 'src/store/reducer/chatroom';
 
-import { GET_MATCHES_MESSAGES, UPDATE_CONVERSATIONS,updateMatchList, FETCH_CONVERSATIONS, updateConversations } from 'src/store/reducer/chatlistReducer';
+import { GET_MATCHES_MESSAGES, updateMatchList, FETCH_CONVERSATIONS, updateConversations } from 'src/store/reducer/chatlistReducer';
 
 // import { FETCH_CONVERSATIONS } from 'src/store/reducer/chatroom';
 
