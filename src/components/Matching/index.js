@@ -27,7 +27,7 @@ class Matching extends Component {
     this.props.getUsers();
     this.props.sendRequest();
     this.props.getMatchesAndMessages(); // get only my matches
-    this.props.fetchMessages(); // get all messages between me and (all users)
+    // this.props.fetchMessages(); // get all messages between me and (all users)
 
     // A ajouter : requete pour obtenir les matchs et conversations en cours
   }
