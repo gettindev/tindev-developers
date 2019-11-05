@@ -10,6 +10,7 @@ const initialState = {
 // == Types
 export const SET_USERLOC = 'SET_USERLOC';
 export const SEND_DATAS = 'SEND_DATAS';
+export const SEND_SETTINGS = 'SEND_SETTINGS';
 
 // == Reducer
 const location = (state = initialState, action = {}) => {
@@ -35,6 +36,13 @@ export const sendDatas = (datas, wishes) => ({
   datas,
   wishes
 })
+
+export const sendSettings = (settings, id) => ({
+  type : SEND_SETTINGS,
+  settings,
+  id
+})
+
 
 
 

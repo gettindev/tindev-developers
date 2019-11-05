@@ -8,7 +8,7 @@ import {
 } from 'src/store/reducer/matching.js';
 import { GET_USERFIND } from 'src/store/reducer/pageReducer';
 import { setLog } from 'src/store/reducer/app.js';
-import { SEND_DATAS } from 'src/store/reducer/location.js';
+import { SEND_DATAS, SEND_SETTINGS, sendGo } from 'src/store/reducer/location.js';
 
 const matchingMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -76,13 +76,18 @@ const matchingMiddleware = (store) => (next) => (action) => {
       //       });
       break;
     case SEND_DATAS:
-    console.log('j\'envois les données');
+        console.log('j\'envois les données', action.datas);
+        const wishes = action.wishes;
+        console.log(wishes);
         axios.post('http://localhost:3001/profil', {
            ...action.datas
-       })
-      .then((response) => {
-            console.log('succès', response);
-            // je veux faire en sorte d'alimenter le state avec la réponse
+       }).then((response) => {
+            console.log('succès', response.data.id);
+            localStorage.setItem('id', response.data.id);
+            localStorage.setItem('logged', true);
+            //store.dispatch(sendGo(response.data.id));
+            axios.post(`http://localhost:3001/profil/settings/${response.data.id}`, {wishesArray:wishes});
+            window.location.replace("/matching")
             })
             .catch((error) => {
             console.error(error);
@@ -90,6 +95,23 @@ const matchingMiddleware = (store) => (next) => (action) => {
             .finally(() => {
             });
       break;
+    case SEND_SETTINGS :
+          
+          console.log("j'envois les nouvelles settings", action.settings, action.id);
+          axios.post(`http://localhost:3001/profil/settings/${action.id}`, {
+
+            wishesArray: action.settings
+
+          }).then((response) => {
+            console.log('succès de send settings', response);
+            // je veux faire en sorte d'alimenter le state avec la réponse
+            })
+            .catch((error) => {
+            console.error(error);
+            })
+            .finally(() => {
+            });
+        
     default:
       next(action);
   }

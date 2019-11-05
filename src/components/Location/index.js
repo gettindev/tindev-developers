@@ -15,7 +15,7 @@ import firebase from "firebase"
 import { isBoolean } from 'util';
 
 // Component
-const Location = ({ locs, location, setUserLoc, datas, sendDatas, setLog }) => {
+const Location = ({ locs, location, setUserLoc, datas, sendDatas}) => {
 
   // Déclare une nouvelle variable d'état, que l'on va appeler « count »
   const [firstName, setFirstName] = useState("");
@@ -35,13 +35,11 @@ const Location = ({ locs, location, setUserLoc, datas, sendDatas, setLog }) => {
     }
 
     const allDatas = {firstName, lastName, ...datas , location};
-    const signBool = datas.isSignedIn;
     const wishes = datas.wishesArray;
-    //Send sign in bool to app reducer
-    // setLog(signBool);
-    // localStorage.setItem('logged', true);
-    // //Send datas to the middleware
-    // sendDatas(allDatas, wishes);
+
+    //Send datas to the middleware
+    sendDatas(allDatas, wishes);
+    
   }
 
   return (

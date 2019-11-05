@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Loc from 'src/components/Location';
 
 // Action Creators
-import { setUserLoc, sendDatas  } from 'src/store/reducer/location.js';
+import { setUserLoc, sendDatas, sendSettings  } from 'src/store/reducer/location.js';
 import { setLog } from 'src/store/reducer/app.js';
 
 
@@ -35,15 +35,20 @@ const mapDispatchToProps = ( dispatch ) => ({
       dispatch(action);
   },
 
-  sendDatas: (datas) => {
-    const action = sendDatas(datas);
+  sendDatas: (datas, wishes) => {
+    const action = sendDatas(datas, wishes);
     dispatch(action);
   },
 
   setLog: (bool) => {
     const action = setLog(bool);
     dispatch(action);
-  }
+  },
+
+  sendSettings: (settings, id) => {
+    const action = sendSettings(settings, id);
+    dispatch(action);
+  },
 
 });
 
