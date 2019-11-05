@@ -14,7 +14,7 @@ const NavChat = ({ username }) => (
     className="icon" onClick={(e) => {console.log('>>> Back Button', e)}}>
     <NavLink to ="/chat"><MdArrowBack className="icon" /></NavLink></Navbar.Text>
     <Navbar.Text className="td-navbar-username">{username}</Navbar.Text>
-    <Navbar.Text className="icon" onClick={(e) => {console.log('>>> User Chat', e)}}><FiInfo className='icon' /></Navbar.Text>
+    <NavLink to ="/reporting" className="icon" onClick={(e) => {console.log('>>> User Chat', e)}}><FiInfo className='icon' /></NavLink>
   </Navbar>
 );
 

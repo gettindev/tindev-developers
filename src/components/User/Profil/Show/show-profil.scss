@@ -1,8 +1,9 @@
 @import 'src/styles/vars';
 
 .show-profil {
-  background-color: white;
-  
+  background-color: $cardColor;
+  color: $textColor;
+
   &-info {
     text-align: center;
     .avatar{
@@ -15,6 +16,7 @@
     }
     h3{
       font-size: 1em;
+      color: $secondaryColor;
       small{
         background-color: black;
         color: blanchedalmond;
@@ -25,7 +27,7 @@
     }
     &-bio {
       padding: .8rem;
-      background-color: lighten($cardColor, 70%);
+      background-color: $primaryColorVeryLight;
       border-radius: .5rem;
       text-align: left;
       margin-bottom: 1.6rem;
@@ -45,6 +47,7 @@
         display: inline-block;
         margin-right: 1rem;
         font-weight: bold;
+        color: $linkColor;
       }
       :last-child{
         margin-right:0;
