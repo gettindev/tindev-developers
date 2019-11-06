@@ -62,28 +62,38 @@ router.get('/:id', async (req, res) => {
 });
 
 router.get('/alreadyseen/:id', async (req, res) => {
-  /* const alreadySwiped = await Matching.findAll({
+  // I want to get all the matchs with my id
+  // in currentUserId OR swipedUserId
+  const myMatchsIsCurrentOrSwiped = await Matching.findAll({
     where: {
-      currentUserId: req.params.id,
+      [Op.or]: [{ currentUserId: req.params.id }, { swipedUserId: req.params.id }],
     },
-  }); */
-
-  /* const alreadySwiped = await Matching.findAll({
+  });
+  // I want to get all the matchs with my id
+  // in swipedUserId AND the swipedUserStatus equal NULL
+  const myIdIsSwipedAndStatusNull = await Matching.findAll({
     where: {
       [Op.and]: [{ swipedUserId: req.params.id }, { swipedUserStatus: null }],
     },
-  }); */
-
-  const userIds = helpers.myUsersMatchList(parseInt(req.params.id, 10), alreadySwiped);
-
-  userIds.push(parseInt(req.params.id, 10));
-
+  });
+  // get an array with all the other user ids in all the matchs who i'm involved
+  const allIdsFiltered = helpers.myUsersMatchList(parseInt(req.params.id, 10), myMatchsIsCurrentOrSwiped);
+  // get an array with all the other user ids who i'm involved but my status on those matchs is null
+  const allMatchsWithMyStatusEqualNull = helpers.myUsersMatchList(parseInt(req.params.id, 10), myIdIsSwipedAndStatusNull);
+  // allIdsFiltered minus allMatchsWithMyStatusEqualNull (to keep all the matchs that i've give a YEP or NOPE)
+  const filteredUsersProfil = allIdsFiltered.filter((id) => !allMatchsWithMyStatusEqualNull.includes(id));
+  // add the current user id in the filtered ids array
+  // that way he never saw his own profile
+  filteredUsersProfil.push(parseInt(req.params.id, 10));
+  // the response give users 5 by 5 randomly with all the extended users informations
   const filteredUsers = await Users.findAll({
+    // all the profil but not in the users id list
     where: {
       id: {
-        [Op.notIn]: userIds,
+        [Op.notIn]: filteredUsersProfil,
       },
     },
+    // including all the extended users informations
     include: [
       {
         model: WishModel,
@@ -103,13 +113,17 @@ router.get('/alreadyseen/:id', async (req, res) => {
         model: LevelModel,
       },
     ],
+    // limited response 5 profil
     limit: 5,
+    // randomly
     order: db.random(),
   });
-
-  res.status(200).json({
-    alreadySwiped,
-    userIds,
+  res.status(200).send({
+    //myMatchsIsCurrentOrSwiped,
+    //allIdsFiltered,
+    //myIdIsSwipedAndStatusNull,
+    //allMatchsWithMyStatusEqualNull,
+    //filteredUsersProfil,
     filteredUsers,
   });
 });
