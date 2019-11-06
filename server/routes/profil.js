@@ -37,7 +37,27 @@ UserModel.belongsTo(LevelModel, { // will add levelId to UserModel
 
 // FETCH All users
 router.get('/', (req, res) => {
-  UserModel.findAll().then((users) => {
+  UserModel.findAll({
+    include: [
+      {
+        model: WishModel,
+        attributes: ['id', 'name'],
+        through: {
+          attributes: [],
+        },
+      },
+      {
+        model: TechModel,
+        attributes: ['id', 'name'],
+        through: {
+          attributes: [],
+        },
+      },
+      {
+        model: LevelModel,
+      },
+    ],
+  }).then((users) => {
     res.status(200).json(users);
   });
 });
