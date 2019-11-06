@@ -26,28 +26,27 @@ const socketMiddleware = (store) => (next) => (action) => {
         // const { id, text } = message.message;
         // const messageToState = { id, text };
         // const messageToState = message.message;
-        store.dispatch(receiveMessage(message));
+        store.dispatch(receiveMessage(...message));
       });
       break;
     case ADD_MESSAGE:
       const message = {
-        text: action.message,
+        content: action.message,
         author: action.currentId,
       }
       // if (newMessage.text.length > 0) {
         // return (
-      socket.emit('send_message', message );
+      socket.emit('send_message', message);
 
       store.dispatch(receiveMessage(message));
       // };
       // console.log('newMessage:', newMessage)
       break;
     case GET_MATCHES_MESSAGES: {
-      // console.log(action);
-      const currentId = 2;
+      const currentId = localStorage.getItem('id'); // 20
       axios.get(`http://localhost:3001/matching/${currentId}`)
         .then((result) => {
-          //  console.log(result);
+         console.log(result.data.usersListResult);
           const mymatches = result.data.usersListResult;
           //  console.log(mymatches);
           store.dispatch(updateMatchList(mymatches));
@@ -65,7 +64,7 @@ const socketMiddleware = (store) => (next) => (action) => {
       axios.post('http://localhost:3001/messages/', { currentId, userId })
         // { currentId, userId })
         .then((result) => {
-          console.log(result.data);
+          console.log('Message from DataBase: ', result.data);
           const messages = result.data;
           store.dispatch(updateMessages(messages));
         }).catch((error) => {

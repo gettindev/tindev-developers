@@ -13,9 +13,9 @@ class Messages extends React.Component {
   componentDidMount() {
     const { fetchMessages } = this.props;
     console.log('les messages vont arrives');
-    const currentId = localStorage.getItem('id');
-    const receiverId = window.location.pathname.split('/')[2];
-    fetchMessages(currentId, receiverId);
+    const sender = localStorage.getItem('id'); // sender == user connected
+    const receiver = window.location.pathname.split('/')[2]; // received == user I (user connected)  have exchanged messages with
+    fetchMessages(sender, receiver);
     this.chatZone.scrollBy(0, this.chatZone.scrollHeight);
   }
 
@@ -29,7 +29,8 @@ class Messages extends React.Component {
 
   render() {
     const { messages } = this.props;
-    console.log('les messages sont la', messages);
+    // console.log('les messages sont la', messages);
+
     return (
       <div
         ref={(elementDuDOM) => {

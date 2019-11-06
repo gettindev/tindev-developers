@@ -2,13 +2,12 @@
 import messageData from 'src/data/messages';
 
 export const initialState = {
-  messagesInDatabase: [],
+  // messagesInDatabase: [],
   messages: [],
   messageValue: '',
   currentId: 2,
   userId: 3,
   currentUser: 'toto',
-  sender: '',
 };
 
 // == Types
@@ -41,10 +40,12 @@ const chatroom = (state = initialState, action = {}) => {
           action.message,
         ],
       };
-    case UPDATE_MESSAGES:
+    case UPDATE_MESSAGES: // messages fetched from DB sent to state
       return {
         ...state,
-        messagesInDatabase: action.messages,
+        messages: [
+          action.messages,
+        ],
       };
     default:
       return state;

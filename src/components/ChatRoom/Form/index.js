@@ -12,8 +12,11 @@ const Form = ({ messageValue, doChange, addMessage }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const currentId = localStorage.getItem('id');
-    addMessage(messageValue, currentId);
+    const currentUserId = localStorage.getItem('id');
+    console.log(currentUserId);
+    // sender == userconnected
+    const sender = parseInt(currentUserId);
+    addMessage(messageValue, sender);
   };
 
   return (
