@@ -18,8 +18,15 @@ const ShowUserProfil = ({ user }) => {
   }); */
 
   // Destructor
-  const { avatar, firstName, lastName, githubName, level, biography} = user;
-  
+  const {
+    avatar,
+    firstName,
+    lastName,
+    githubName,
+  } = user;
+  const level = user.level === null ? 0 : user.level;
+  const biography = user.biography === null ? 'Pas de biographie pour cet utilisateur.' : user.biography;
+
   // I create a new tab with id and wish name ! //
   const tab = generalWishList.filter(item => userWishId.includes(item.id));
   console.log(tab);
@@ -44,14 +51,14 @@ const ShowUserProfil = ({ user }) => {
           <h4>Mes technos :</h4>
           <List list={userTechnos} />
         </section>
-        <section className="links">
+        {/* <section className="links">
           <h4>Mes liens :</h4>
           <ul>
             {userlinks.map((link) => (
               <li key={link.id}><a href={link.url}>{link.title}</a></li>
             ))}
           </ul>
-        </section>
+        </section> */}
       </Container>
     </div>
   );
@@ -76,6 +83,20 @@ ShowUserProfil.propTypes = {
     ),
     levelsList: PropTypes.array,
   }),
+};
+
+ShowUserProfil.defaultProps = {
+  user: {
+    avatar: 'hello',
+    firstName: 'Not set',
+    lastName: 'Not set',
+    level: 0,
+    githubName: 'Not set',
+    biography: 'Not set',
+    wishes: 'Not set',
+    technos: 'Not set',
+    levelsList: 'Not set',
+  },
 };
 
 export default ShowUserProfil;

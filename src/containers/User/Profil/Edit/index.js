@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   changeState: (value) => {
     const action = changeState(value);
     dispatch(action);
-  }
+  },
 });
 
 // Container

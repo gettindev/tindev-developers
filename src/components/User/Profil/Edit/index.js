@@ -93,7 +93,6 @@ class UserProfilEdit extends React.Component {
   }
 
   render() {
-    console.log(this.props.currentUser);
     const userName = 'myGithubName';
     const {
       avatar,
@@ -159,7 +158,7 @@ class UserProfilEdit extends React.Component {
               />
             </Form.Group>
 
-            <Form.Group controlId="formSharedUrls">
+            {/* <Form.Group controlId="formSharedUrls">
               <Form.Label>Tu veux montrer une url sur ton profil?</Form.Label>
               <FormControl className="mb-3" placeholder="Donnes un titre à ton url" value={sharedNewTitleUrl} name="sharedNewTitleUrl" onChange={this.handleChange} />
               <InputGroup className="mb-3">
@@ -179,7 +178,7 @@ class UserProfilEdit extends React.Component {
                   );
                 })}
               </ul>
-            </Form.Group>
+            </Form.Group> */}
             <Button className="mb-10" onClick={this.handleSubmit} block className="btn-mycolor" type="submit">Sauvegarder</Button>
           </Form>
           <Row>

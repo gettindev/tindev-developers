@@ -21,9 +21,10 @@ import './user-profil.scss';
 import Nav from 'src/components/Nav';
 
 // == Composant
-const UserProfil = ({ setLog }) => {
+const UserProfil = ({ user, setLog }) => {
   // use the state instaid //
-  const userName = 'Hello';
+  const userName = `${user.firstName} ${user.lastName}`;
+  const githubAvatar = user.avatar;
   //
   return (
     <div className="user-profil">
@@ -31,10 +32,8 @@ const UserProfil = ({ setLog }) => {
         <Row>
           <Col>
             <h2 className="user-profil-info-user-name">{userName}</h2>
-            <NavLink to ="/profil/show"><Image className="user-profil-info-avatar" src="http://placeimg.com/100/100/people" roundedCircle /></NavLink>
-            <p><MdEdit /><a className="user-profil-info--edit-link" 
-            href="#">
-            <NavLink to ="/profil/edit">Édites ton profil</NavLink></a></p>
+            <NavLink to="/profil/show"><Image className="user-profil-info-avatar" src={githubAvatar} roundedCircle /></NavLink>
+            <p><MdEdit /><NavLink to="/profil/edit" className="user-profil-info--edit-link">Édites ton profil</NavLink></p>
           </Col>
         </Row>
       </Container>
@@ -42,10 +41,17 @@ const UserProfil = ({ setLog }) => {
         <Row>
           <Col>
             <Button size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
-            <Button as={Link}
-            to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
-            <Button as={Link}
-            to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
+            <Button 
+              as={Link}
+              to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
+            <Button
+              as={Link}
+              to="/termsOfUse"
+              size="lg"
+              variant="outline-secondary"
+              block
+            >Régles d'utilisation
+            </Button>
           </Col>
         </Row>
       </Container>

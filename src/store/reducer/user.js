@@ -40,16 +40,16 @@ const user = (state = initialState, action = {}) => {
     case CHANGE_STATE:
       return {
         ...state,
-        // firstName: action.value.firstName,
-        // lastName: action.value.lastName,
-        // avatar: action.value.photo,
-        // githubName: action.value.pseudo,
-        // biography: action.value.bio,
-        // level: action.value.levelId,
+        firstName: action.value.firstName,
+        lastName: action.value.lastName,
+        avatar: action.value.photo,
+        githubName: action.value.pseudo,
+        biography: action.value.bio,
+        level: action.value.levelId,
         // location: action.value.location,
         // technos: action.value.techs,
         // wishes: action.value.wishes.name,
-        // //wishedId: action.value.wishes.id,
+        // wishedId: action.value.wishes.id,
         // links: action.value.url,
       };
     default:
