@@ -27,10 +27,10 @@ import Header from './Header';
 class UserProfilEdit extends React.Component {
 
   state = {
-    avatar: this.props.currentUser.avatar,
+    photo: this.props.currentUser.avatar,
     firstName: this.props.currentUser.firstName,
     lastName: this.props.currentUser.lastName,
-    biography: this.props.currentUser.biography,
+    bio: this.props.currentUser.biography,
     level: this.props.currentUser.level,
     technos: this.props.currentUser.technos,
     sharedUrl: this.props.currentUser.links,
@@ -96,10 +96,10 @@ class UserProfilEdit extends React.Component {
   render() {
     const userName = 'myGithubName';
     const {
-      avatar,
+      photo,
       firstName,
       lastName,
-      biography,
+      bio,
       level,
       technos,
       sharedNewUrl,
@@ -110,7 +110,7 @@ class UserProfilEdit extends React.Component {
       <div className="edit-profil">
 
         <Container className="text-left">
-          <Header userName={userName} avatar={avatar} />
+          <Header userName={userName} avatar={photo} />
           <Form >
             <h5>Les infos de ton profil</h5>
             <Form.Group controlId="formFirstName">
@@ -127,8 +127,8 @@ class UserProfilEdit extends React.Component {
                 as="textarea"
                 rows="4"
                 placeholder="Petite description qui parle de toi..."
-                name="biography"
-                value={biography}
+                name="bio"
+                value={bio}
                 onChange={this.handleChange}
               />
               <Form.Text className="form-info">

@@ -7,7 +7,7 @@ import EditUserProfil from 'src/components/User/Profil/Edit';
 // Action Creators
 import { sendRequest } from 'src/store/reducer/userEdit';
 import { changeState } from 'src/store/reducer/user';
-
+import { getMyInfos } from 'src/store/reducer/user';
 
 const mapStateToProps = (state, ownProps) => ({
   //**** get the state of UserCOntainer, nott EditUserContainer ****/
@@ -22,6 +22,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   changeState: (value) => {
     const action = changeState(value);
+    dispatch(action);
+  },
+  getMyInfos: () => {
+    const action = getMyInfos();
     dispatch(action);
   },
 });

@@ -25,7 +25,7 @@ const ShowUserProfil = ({ user }) => {
     githubName,
   } = user;
   const level = user.level === null ? 0 : user.level;
-  const biography = user.biography === null ? 'Pas de biographie pour cet utilisateur.' : user.biography;
+  const biography = user.bio === null ? 'Pas de biographie pour cet utilisateur.' : user.bio;
 
   // I create a new tab with id and wish name ! //
   const tab = generalWishList.filter(item => userWishId.includes(item.id));
@@ -71,7 +71,7 @@ ShowUserProfil.propTypes = {
     lastName: PropTypes.string,
     level: PropTypes.number,
     githubName: PropTypes.string,
-    biography: PropTypes.string,
+    bio: PropTypes.string,
     wishes: PropTypes.array,
     technos: PropTypes.array,
     links: PropTypes.arrayOf(
@@ -92,7 +92,7 @@ ShowUserProfil.defaultProps = {
     lastName: 'Not set',
     level: 0,
     githubName: 'Not set',
-    biography: 'Not set',
+    bio: 'Not set',
     wishes: 'Not set',
     technos: 'Not set',
     levelsList: 'Not set',

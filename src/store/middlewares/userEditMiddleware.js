@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Import actions
 import { SEND_REQUEST } from 'src/store/reducer/userEdit.js';
-import { GET_MY_INFOS, changeState } from 'src/store/reducer/user';
+import { GET_MY_INFOS, changeState, getMyInfos } from 'src/store/reducer/user';
 
 const userEditMiddleware = (store) => (next) => (action) => {
 
@@ -24,17 +24,18 @@ const userEditMiddleware = (store) => (next) => (action) => {
     case SEND_REQUEST:
       console.log("Une requête Ajax est envoyée pour mettre à jour la BDD");
       const value = action.userDatas;
-      console.log(value);
-      /* axios.put(`http://localhost:3001/profil/${id}`, {
+      const myId = localStorage.getItem('id');
+      console.log(myId);
+      axios.put(`http://localhost:3001/profil/${myId}`, {
         ...value,
       })
         .then((response) => {
-          console.log(response.data)
-          store.dispatch(changeState(response.data));
+          console.log('ALORS >>>>>>', response.config.data);
+          store.dispatch(getMyInfos());
         }).catch((error) => {
           console.error(error);
         }).finally(() => {
-      }); */
+      });
       break;
   default:
     next(action);
