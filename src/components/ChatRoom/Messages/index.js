@@ -10,11 +10,12 @@ import MessageDetailContainer from 'src/containers/ChatRoom/Messages';
 import Message from './Message';
 
 class Messages extends React.Component {
-
   componentDidMount() {
     const { fetchMessages } = this.props;
     console.log('les messages vont arrives');
-    fetchMessages();
+    const currentId = localStorage.getItem('id');
+    const receiverId = window.location.pathname.split('/')[2];
+    fetchMessages(currentId, receiverId);
     this.chatZone.scrollBy(0, this.chatZone.scrollHeight);
   }
 
@@ -37,20 +38,19 @@ class Messages extends React.Component {
         className="messages"
       >
         {messages.map((message) => (
-          <Message key={message.id} {...message} />
+          <Message key={message} {...message} />
         ))}
       </div>
     );
   }
 }
 
-
-// Messages.propTypes = {
-//   messages: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//     }),
-//   ).isRequired,
-// };
+Messages.propTypes = {
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+};
 
 export default Messages;

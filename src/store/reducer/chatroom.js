@@ -3,7 +3,7 @@ import messageData from 'src/data/messages';
 
 export const initialState = {
   messagesInDatabase: [],
-  messages: '',
+  messages: [],
   messageValue: '',
   currentId: 2,
   userId: 3,
@@ -56,8 +56,10 @@ const chatroom = (state = initialState, action = {}) => {
 //   type: DO_SOMETHING,
 //   message,
 // });
-export const addMessage = () => ({
+export const addMessage = (message, currentId) => ({
   type: ADD_MESSAGE,
+  message,
+  currentId,
 });
 
 export const receiveMessage = (message) => ({

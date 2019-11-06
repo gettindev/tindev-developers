@@ -8,17 +8,17 @@ import Messages from 'src/components/ChatRoom/Messages';
 import { fetchMessages, updateMessages } from 'src/store/reducer/chatroom';
 
 const mapStateToProps = (state) => {
-  console.log('console.log du state:', state.chatroom);
+  console.log('console.log du state:', state.chatroom.messages);
   return {
-    messages: state.chatroom.messagesInDatabase,
+    messages: state.chatroom.messages,
     currentUser: state.chatroom.currentUser,
   };
 };
 
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchMessages: () => {
-    const action = fetchMessages();
+  fetchMessages: (currentId, userId) => {
+    const action = fetchMessages(currentId, userId);
     dispatch(action);
   },
   updateMessages: (messages) => {
