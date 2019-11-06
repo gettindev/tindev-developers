@@ -4,18 +4,18 @@ import { Col, Row } from 'react-bootstrap';
 import classNames from 'classnames';
 
 
-const Message = ({ author, text, isMe }) =>
+const Message = ({ author, content, isMe }) =>
   // const CssToDisplay = !isMe ? 'message--not-mine' : 'message';
   (
     <>
       <div className="message">
         <div className="message-author">{author}</div>
-        <p className="message-content">{text}</p>
+        <p className="message-content">{content}</p>
       </div>
-      <div className="message--not-mine">
+      {/* <div className="message--not-mine">
         <div className="message-author">{author}</div>
         <p className="message-content">{text}</p>
-      </div>
+      </div> */}
     </>
   );
 

@@ -23,25 +23,25 @@ const matchingMiddleware = (store) => (next) => (action) => {
       mail: action.email
       }).then((response) => {
         console.log(response.data)
-              if (response.data.length ) {
-                return (
-                  store.dispatch(setLog(true)),
-                  localStorage.setItem('logged', true),
-                  // Ajouter la valeur de son ID dans le localStorage
-                  console.log(response.data.id),
-                  //localStorage.setItem('id', response.data.id)
-                  window.location.replace("/matching")
-                )
-              } else
-            return (
-              store.dispatch(userNotFind()),
-              store.dispatch(setLoadingFalse())
-            )
-            }).catch((error) => {
-            console.error(error);
-            }).finally(() => {
-              
-             });
+            if (response.data.length ) {
+              return (
+                store.dispatch(setLog(true)),
+                localStorage.setItem('logged', true),
+                // Ajouter la valeur de son ID dans le localStorage
+                console.log(response.data.id),
+                //localStorage.setItem('id', response.data.id)
+                window.location.replace("/matching")
+              )
+            } else
+          return (
+            store.dispatch(userNotFind()),
+            store.dispatch(setLoadingFalse())
+          )
+          }).catch((error) => {
+          console.error(error);
+          }).finally(() => {
+            
+            });
       // userNotFind();
       // setLoadingFalse();
       break;
