@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 .show-profil {
-  background-color: $cardColor;
+  background-color: $primaryColorVeryLight;
   color: $textColor;
 
   &-info {
@@ -27,7 +27,7 @@
     }
     &-bio {
       padding: .8rem;
-      background-color: $primaryColorVeryLight;
+      background-color: $cardColor;
       border-radius: .5rem;
       text-align: left;
       margin-bottom: 1.6rem;

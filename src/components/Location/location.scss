@@ -39,7 +39,7 @@
   }
 
    p {
-     margin-top: .5rem;;
+     margin-top: 1.5rem;;
      font-size: 0.7em;
      color: $textColor;
      font-style: italic;
@@ -47,7 +47,7 @@
 
   h3 {
     font-size: 1em;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: $secondaryColor;
   }
 
@@ -91,7 +91,10 @@
 
 .choice {
   color: white;
-  font-size: 1.2em;
+  font-size: 0.9em;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 0.5em;
 }
 
 input.input {
