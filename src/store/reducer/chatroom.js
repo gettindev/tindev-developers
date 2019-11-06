@@ -11,7 +11,7 @@ export const initialState = {
 // == Types
 const CHANGE_MESSAGE = 'CHANGE_MESSAGE';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
-export const FETCH_CONVERSATIONS = 'FETCH_CONVERSATIONS';
+// export const FETCH_CONVERSATIONS = 'FETCH_CONVERSATIONS';
 export const WEBSOCKET_CONNECT = 'WEBSOCKET_CONNECT';
 const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 
@@ -60,9 +60,7 @@ export const websocketConnect = () => ({
   type: WEBSOCKET_CONNECT,
 });
 
-export const fetchConversations = () => ({
-  type: FETCH_CONVERSATIONS,
-});
+
 
 // // == Selectors
 

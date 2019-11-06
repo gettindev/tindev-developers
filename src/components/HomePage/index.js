@@ -13,14 +13,13 @@ import './homePage.scss';
 
 // == Composant
 const HomePage = () => (
-  <>
-    <div id='home'>
+    <div id="home">
       <Carousel>   
 
         <Carousel.Item>
           <img 
           className="img-fluid"
-          src='./src/data/logo.png'
+          src="./src/data/logo.png"
           />
           <img
             className="img-responsive"
@@ -36,7 +35,7 @@ const HomePage = () => (
         <Carousel.Item>
           <img 
           className="img-fluid"
-          src='./src/data/logo.png'
+          src="./src/data/logo.png"
           />
           <img
             className="img-responsive"
@@ -52,7 +51,7 @@ const HomePage = () => (
         <Carousel.Item>
           <img 
           className="img-fluid"
-          src='./src/data/logo.png'
+          src="./src/data/logo.png"
           />
           <img
             className="img-responsive"
@@ -66,9 +65,9 @@ const HomePage = () => (
         </Carousel.Item>
 
         <Carousel.Item>
-          <img 
-          className="img-fluid"
-          src='./src/data/logo.png'
+          <img
+            className="img-fluid"
+            src="./src/data/logo.png"
           />
           <img
             className="img-responsive"
@@ -80,17 +79,13 @@ const HomePage = () => (
             <p>Ou manges des pizzas.</p>
           </Carousel.Caption>
         </Carousel.Item>
-
       </Carousel>
-      
-      <div className='footerHome'>
+      <div className="footerHome">
         <h2>Peu importe que tu sois Dev, CTO ou CEO, que tu préfères les Ninjas ou les NOObs</h2>
         <p>Trouves ici ton perfect Dev-Match pour staffer tes projets</p>
         {/* <Button href="/matrix" variant="info"> S'identifier via GitHub </Button> */}
-         
       </div>
     </div>  
-  </>
 );
 
 // == Export

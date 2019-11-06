@@ -11,6 +11,8 @@ import Matrix from 'src/components/Matrix'
 import Location from 'src/components/Location'
 import UserProfil from 'src/components/User/Menu';
 import 'src/components/Page/page.scss';
+import 'src/components/HomePage/homePage.scss';
+
 
 // == initialize Firebase
 firebase.initializeApp({
@@ -114,7 +116,6 @@ class Page extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         {/* Loading spinner waiting axios Request */}
@@ -124,14 +125,14 @@ class Page extends React.Component {
 
         {/* First Page with Github Auth */}
         {!this.state.isSignedIn && (
-          <>
-          <HomePage />   
-          <StyledFirebaseAuth
-            uiConfig={this.uiConfig}
-            firebaseAuth={firebase.auth()}
-            className="gitHubButton"
-          />
-        </> 
+          <div id="home-wrapper">
+            <HomePage />   
+            <StyledFirebaseAuth
+              uiConfig={this.uiConfig}
+              firebaseAuth={firebase.auth()}
+              className="gitHubButton"
+            />
+          </div>
         )}
         
         {/*Page with User Prefs*/}
