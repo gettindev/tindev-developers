@@ -24,6 +24,7 @@ class Matching extends Component {
 
   componentDidMount() {
     console.log("la partie matching vient d'être créée");
+    this.props.getMyInfos();
     this.props.getUsers();
     this.props.sendRequest();
     this.props.getMatchesAndMessages(); // get only my matches

@@ -9,6 +9,7 @@ const initialState = {
   githubName: 'regulardesigner',
   biography: "I'm a designer trying to become developer after 12 years designing website and mobile apps.",
   level: 1,
+  location: '',
   wishes: ['#entraide', '#stafferUnProjet', '#iHaveAnIdea'],
   wishedId: [0, 3, 8],
   technos: ['ES6', 'JSX', 'React', 'Redux', 'HTML5', 'CSS3'],
@@ -22,8 +23,8 @@ const initialState = {
 };
 
 // == Types
-
 export const CHANGE_STATE = 'CHANGE_STATE';
+export const GET_MY_INFOS = 'GET_MY_INFOS';
 /*
  * CREATE user infos
  * REMOVE user infos
@@ -39,14 +40,17 @@ const user = (state = initialState, action = {}) => {
     case CHANGE_STATE:
       return {
         ...state,
-        firstName: action.value.firstName,
-        lastName: action.value.lastName,
-        avatar: action.value.avatar,
-        githubName: action.value.githubName,
-        biography: action.value.biography,
-        level: action.value.level,
-        technos: action.value.technos,
-        links: action.value.sharedUrl,
+        // firstName: action.value.firstName,
+        // lastName: action.value.lastName,
+        // avatar: action.value.photo,
+        // githubName: action.value.pseudo,
+        // biography: action.value.bio,
+        // level: action.value.levelId,
+        // location: action.value.location,
+        // technos: action.value.techs,
+        // wishes: action.value.wishes.name,
+        // //wishedId: action.value.wishes.id,
+        // links: action.value.url,
       };
     default:
       return state;
@@ -57,6 +61,10 @@ const user = (state = initialState, action = {}) => {
 export const changeState = (value) => ({
   type: CHANGE_STATE,
   value
+})
+
+export const getMyInfos = () => ({
+  type: GET_MY_INFOS
 })
 // == Selectors
 

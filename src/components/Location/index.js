@@ -47,7 +47,7 @@ const Location = ({ locs, location, setUserLoc, datas, sendDatas}) => {
       <div className="location_newUser"> 
         <div id="header_location"><img src='src/data/logo.png'/></div>
         <div className="location">
-          <h2>Hello Dev</h2> 
+          <h2>Hello</h2> 
           <input value={firstName} onChange={() => setFirstName(event.target.value)} className="input" placeholder="Ton prénom" required/>
           <input value={lastName} onChange={() => setLastName(event.target.value)} className="input" placeholder="Ton nom" required/>
           <p>Préférences de localisation des matchs</p>
