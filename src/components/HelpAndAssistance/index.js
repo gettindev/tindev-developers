@@ -4,14 +4,30 @@ import React from 'react';
 // imports local
 import './helpAndAssistance.scss';
 
+// Bootstrap Components
+import { Button } from 'react-bootstrap';
+
 // Component
 const HelpAndAssistance = () => {
   return (
     <div className='helpAndAssistance'>
       <h1>Aide et assistance</h1>
         <p className="terms">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet praesentium qui quo ea non recusandae repellat nemo! Suscipit neque ipsam iure numquam rem nobis odio eaque ducimus voluptates explicabo facilis pariatur aliquam distinctio maiores, officia ullam, alias reprehenderit repellat dolorem? Molestias mollitia voluptatum qui velit labore quasi, aliquam accusantium magnam, alias tempora architecto at, iste optio ratione nesciunt eos eligendi laudantium! Officiis, voluptatem vitae dolor amet quas veritatis qui omnis tenetur inventore. Quaerat at possimus, consequuntur tempore dolorum sapiente, laudantium sed, quos accusantium voluptatum deleniti aliquid assumenda ullam? Tempora fuga pariatur ratione iure. Est recusandae aut quos eos quas necessitatibus!
+          1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet praesentium qui quo ea non recusandae repellat nemo! Suscipit neque ipsam iure numquam rem nobis odio eaque ducimus voluptates explicabo facilis pariatur.
         </p>
+        <p className="terms">
+          2. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet praesentium qui quo ea non recusandae repellat nemo.
+        </p>
+        <p className="terms">
+          3. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet praesentium necessitatibus!
+        </p>
+        <Button 
+        variant="outline-light"
+        size="lg"  
+        className="contact" block
+        onClick={()=> console.log('contact demandé')}>
+        Contact
+      </Button>
     </div>
   )
 }
