@@ -14,6 +14,9 @@ const UsersModel = require('../static/users');
 // Sequelize Models
 const Matching = require('../models/matching');
 const Users = require('../models/user');
+const WishModel = require('../models/wish');
+const TechModel = require('../models/tech');
+const LevelModel = require('../models/level');
 // helpers
 const helpers = require('./../helpers/matching');
 const userHelpers = require('./../helpers/users');
@@ -56,6 +59,59 @@ router.get('/:id', async (req, res) => {
     });
   }
   res.status(404).send('No matchs found!');
+});
+
+router.get('/alreadyseen/:id', async (req, res) => {
+  /* const alreadySwiped = await Matching.findAll({
+    where: {
+      currentUserId: req.params.id,
+    },
+  }); */
+
+  /* const alreadySwiped = await Matching.findAll({
+    where: {
+      [Op.and]: [{ swipedUserId: req.params.id }, { swipedUserStatus: null }],
+    },
+  }); */
+
+  const userIds = helpers.myUsersMatchList(parseInt(req.params.id, 10), alreadySwiped);
+
+  userIds.push(parseInt(req.params.id, 10));
+
+  const filteredUsers = await Users.findAll({
+    where: {
+      id: {
+        [Op.notIn]: userIds,
+      },
+    },
+    include: [
+      {
+        model: WishModel,
+        attributes: ['id', 'name'],
+        through: {
+          attributes: [],
+        },
+      },
+      {
+        model: TechModel,
+        attributes: ['id', 'name'],
+        through: {
+          attributes: [],
+        },
+      },
+      {
+        model: LevelModel,
+      },
+    ],
+    limit: 5,
+    order: db.random(),
+  });
+
+  res.status(200).json({
+    alreadySwiped,
+    userIds,
+    filteredUsers,
+  });
 });
 
 // this is the route to get the matchs with a YEP on the specified USER ID.
