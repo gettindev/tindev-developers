@@ -61,7 +61,7 @@ router.get('/:id', async (req, res) => {
   res.status(404).send('No matchs found!');
 });
 
-router.get('/alreadyseen/:id', async (req, res) => {
+router.get('/notsee/:id', async (req, res) => {
   // I want to get all the matchs with my id
   // in currentUserId OR swipedUserId
   const myMatchsIsCurrentOrSwiped = await Matching.findAll({
