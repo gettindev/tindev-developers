@@ -88,6 +88,7 @@ class UserProfilEdit extends React.Component {
     const { sendRequest } = this.props;
     const { changeState } = this.props;
     const currentUserDatas = this.state;
+    //console.log(currentUserDatas);
     sendRequest(currentUserDatas);
     changeState(currentUserDatas);
   }

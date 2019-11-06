@@ -42,10 +42,10 @@ const user = (state = initialState, action = {}) => {
         ...state,
         firstName: action.value.firstName,
         lastName: action.value.lastName,
-        avatar: action.value.photo,
-        githubName: action.value.pseudo,
-        biography: action.value.bio,
-        level: action.value.levelId,
+        photo: action.value.avatar,
+        pseudo: action.value.githubName,
+        bio: action.value.biography,
+        levelId: action.value.level,
         // location: action.value.location,
         // technos: action.value.techs,
         // wishes: action.value.wishes.name,
@@ -60,12 +60,12 @@ const user = (state = initialState, action = {}) => {
 // == Action Creators
 export const changeState = (value) => ({
   type: CHANGE_STATE,
-  value
-})
+  value,
+});
 
 export const getMyInfos = () => ({
-  type: GET_MY_INFOS
-})
+  type: GET_MY_INFOS,
+});
 // == Selectors
 
 
