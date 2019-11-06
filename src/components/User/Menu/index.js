@@ -32,7 +32,7 @@ const UserProfil = ({ user, setLog }) => {
         <Row>
           <Col>
             <h2 className="user-profil-info-user-name">{userName}</h2>
-            <NavLink to="/profil/show"><Image className="user-profil-info-avatar" src={githubAvatar} roundedCircle /></NavLink>
+            <NavLink to="/profil/show"><Image width="150" className="user-profil-info-avatar" src={githubAvatar} roundedCircle /></NavLink>
             <p><MdEdit /><NavLink to="/profil/edit" className="user-profil-info--edit-link">Édites ton profil</NavLink></p>
           </Col>
         </Row>

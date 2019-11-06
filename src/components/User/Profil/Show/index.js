@@ -38,7 +38,7 @@ const ShowUserProfil = ({ user }) => {
         <section className="show-profil-info">
           <img className="avatar" src={avatar} alt={`Avatar de ${firstName} ${lastName}`} height="120" width="120" />
           <h2>{`${firstName} ${lastName}`}</h2>
-          <h3>{userLevel[level].desc} <small>{githubName}</small></h3>
+          <h3>{userLevel[level].desc}{/*  <small>{githubName}</small> */}</h3>
           <section className="show-profil-info-bio">
             <p>{biography}</p>
           </section>

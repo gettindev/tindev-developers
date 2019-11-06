@@ -67,7 +67,7 @@ const App = ({ logged, doRequest}) => {
         <>
           <Switch>
             <Route exact path ="/profil">
-              <NavBackRight/>
+              <NavBackRight />
               <UserMenu />
             </Route>
             <Route exact path ="/profil/edit">
@@ -75,7 +75,7 @@ const App = ({ logged, doRequest}) => {
               <EditUserProfil />
             </Route>
             <Route exact path ="/profil/show">
-              <Nav />
+              <NavCloseRight title="Mon Profil" />
               <ShowUserProfil />
             </Route>
             <Route exact path="/matching">
