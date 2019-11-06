@@ -3,8 +3,8 @@ import wishesTable from 'src/data/wishes-table';
 
 // == Initial State
 const initialState = {
-  firstName: 'Damien',
-  lastName: 'Tailhades',
+  firstName: 'D',
+  lastName: 'T',
   avatar: 'https://avatars1.githubusercontent.com/u/1433968',
   githubName: 'regulardesigner',
   biography: "I'm a designer trying to become developer after 12 years designing website and mobile apps.",

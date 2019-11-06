@@ -22,13 +22,22 @@ const userEditMiddleware = (store) => (next) => (action) => {
       });
       break;
     case SEND_REQUEST:
-          console.log("Une requête Ajax est envoyée pour mettre à jour la BDD");
-          const value = action.userDatas;
-          // Si j'utilise changeState ici, la mise à jour ne se fait pas....
-          console.log(value);
-          break;
-      default:
-        next(action);
+      console.log("Une requête Ajax est envoyée pour mettre à jour la BDD");
+      const value = action.userDatas;
+      console.log(value);
+      /* axios.put(`http://localhost:3001/profil/${id}`, {
+        ...value,
+      })
+        .then((response) => {
+          console.log(response.data)
+          store.dispatch(changeState(response.data));
+        }).catch((error) => {
+          console.error(error);
+        }).finally(() => {
+      }); */
+      break;
+  default:
+    next(action);
   }
 };
 
