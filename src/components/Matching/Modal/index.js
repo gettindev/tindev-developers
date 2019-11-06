@@ -29,28 +29,29 @@ const Mod = (props) => {
       </Modal.Header>
       <Modal.Body className="mod-body" >
             <>
-              <Card.Img className="mod-body-img" variant="top" src={currentuser.img.src}/>
+              <Card.Img className="mod-body-img" variant="top" src={currentuser.photo}/>
               <Card.Body>
-                <Card.Title className="mod-body-name"><FaUserNinja className="mod-body-tag"/>{currentuser.name}</Card.Title>
-                <Card.Title className="mod-body-exp"><FaHotjar className="mod-body-tag"/>{currentuser.exp}</Card.Title>
-                <Card.Title className="mod-body-loc"><FaGlobeEurope className="mod-body-tag"/>{currentuser.local}</Card.Title>
+                <Card.Title className="mod-body-name"><FaUserNinja className="mod-body-tag"/>{currentuser.firstName}</Card.Title>
+                {/* <Card.Title className="mod-body-exp"><FaHotjar className="mod-body-tag"/>{currentuser.exp}</Card.Title> */}
+                <Card.Title className="mod-body-loc"><FaGlobeEurope className="mod-body-tag"/>{currentuser.location}</Card.Title>
                 <ListGroupItem  className="mod-body-bio">
                   <FaEnvelopeOpenText /> Bio : {currentuser.bio}
                 </ListGroupItem>
               </Card.Body>
               <ListGroup className="mod-body-bio">
-                <ListGroupItem className="mod-body-tag" ><FaLaptopCode className="mod-body-tag"/>{currentuser.tech}</ListGroupItem>
-                <ListGroupItem className="mod-body-tag" ><FaTags className="mod-body-tag"/>{currentuser.tag}</ListGroupItem>
+                {/* <ListGroupItem className="mod-body-tag" ><FaLaptopCode className="mod-body-tag"/>{currentuser.tech}</ListGroupItem> */}
+                {/* <ListGroupItem className="mod-body-tag" ><FaTags className="mod-body-tag"/>{currentuser.tag}</ListGroupItem> */}
               </ListGroup>
               <Card.Body>
-                {currentuser.links.map((link) =>
-                  <Card.Link 
-                  key={link.name} 
-                  href={link.href}
-                  target="blank"
-                  className="mod-body-link"
-                  ><FaExternalLinkAlt />{link.name}</Card.Link>
-                )}
+                {currentuser.url !== null && (
+                    currentuser.url.map((link) =>
+                    <Card.Link 
+                    key={link.name} 
+                    href={link.href}
+                    target="blank"
+                    className="mod-body-link"
+                    ><FaExternalLinkAlt />{link.name}</Card.Link>
+                  ))}
               </Card.Body>
             </>
       </Modal.Body>

@@ -6,7 +6,7 @@ import Matching from 'src/components/Matching';
 
 // Action Creators
 import {
-  doRequest, doLike, doUnlike, getUsers,
+  doRequest, doLike, doUnlike, getUsers, setUsers
 } from 'src/store/reducer/matching.js';
 
 import { sendRequest } from 'src/store/reducer/userEdit';
@@ -43,17 +43,22 @@ const mapDispatchToProps = (dispatch) => ({
     const action = getMyInfos();
     dispatch(action);
   },
-  
-  doLike: () => {
-    const action = doLike();
+
+  doLike: (currentUserId, swipeId) => {
+    const action = doLike(currentUserId, swipeId);
     dispatch(action);
   },
-  doUnlike: () => {
-    const action = doUnlike();
+  doUnlike: (currentUserId, swipeId) => {
+    const action = doUnlike(currentUserId, swipeId);
     dispatch(action);
   },
   getUsers: () => {
     const action = getUsers();
+    dispatch(action);
+  },
+
+  setUsers: (newUsers) => {
+    const action = setUsers(newUsers);
     dispatch(action);
   },
   sendRequest: (currentUserDatas) => {

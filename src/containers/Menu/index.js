@@ -7,6 +7,10 @@ import Menu from 'src/components/User/Menu';
 // Action Creators
 import { setUserLoc, sendDatas  } from 'src/store/reducer/location.js';
 import { setLog } from 'src/store/reducer/app.js';
+import {
+  doRequest, doLike, doUnlike, getUsers, setUsers
+} from 'src/store/reducer/matching.js';
+import { getMyInfos } from 'src/store/reducer/user';
 
 
 /* === State (datas) ===
@@ -30,7 +34,17 @@ const mapDispatchToProps = ( dispatch ) => ({
   setLog: (bool) => {
     const action = setLog(bool);
     dispatch(action);
-  }
+  },
+
+  getUsers: () => {
+    const action = getUsers();
+    dispatch(action);
+  },
+
+  getMyInfos: () => {
+    const action = getMyInfos();
+    dispatch(action);
+  },
 
 });
 
