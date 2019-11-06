@@ -68,7 +68,8 @@ const socketMiddleware = (store) => (next) => (action) => {
       const { currentId, userId } = action;
       console.log('les users en state:', currentId, userId);
       // // console.log('GAEL', `je veux recuperer les messages en BDD de l'utilisateur connecte: ${userId}`);
-      axios.post('http://localhost:3001/messages/', { currentId, userId })
+      axios.post('http://localhost:3001/messages/', { currentId: 2, userId: 3 })
+        // { currentId, userId })
         .then((result) => {
           console.log(result.data);
           const messages = result.data;

@@ -28,7 +28,7 @@ class Messages extends React.Component {
 
   render() {
     const { messages } = this.props;
-    console.log(messages);
+    console.log('les messages sont la', messages);
     return (
       <div
         ref={(elementDuDOM) => {
