@@ -19,7 +19,7 @@ const HomePage = () => (
         <Carousel.Item>
           <img 
           className="img-fluid"
-          src="./src/data/logo.png"
+          src="./src/data/logo-tindev-white-background.svg"
           />
           <img
             className="img-responsive"
@@ -35,7 +35,7 @@ const HomePage = () => (
         <Carousel.Item>
           <img 
           className="img-fluid"
-          src="./src/data/logo.png"
+          src="./src/data/logo-tindev-white-background.svg"
           />
           <img
             className="img-responsive"
@@ -51,7 +51,7 @@ const HomePage = () => (
         <Carousel.Item>
           <img 
           className="img-fluid"
-          src="./src/data/logo.png"
+          src="./src/data/logo-tindev-white-background.svg"
           />
           <img
             className="img-responsive"
@@ -67,7 +67,7 @@ const HomePage = () => (
         <Carousel.Item>
           <img
             className="img-fluid"
-            src="./src/data/logo.png"
+            src="./src/data/logo-tindev-white-background.svg"
           />
           <img
             className="img-responsive"
