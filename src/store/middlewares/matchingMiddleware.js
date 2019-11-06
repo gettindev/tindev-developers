@@ -22,14 +22,12 @@ const matchingMiddleware = (store) => (next) => (action) => {
       axios.post('http://localhost:3001/profil/exist', {
       mail: action.email
       }).then((response) => {
-        console.log(response.data)
               if (response.data.length ) {
                 return (
                   store.dispatch(setLog(true)),
                   localStorage.setItem('logged', true),
                   // Ajouter la valeur de son ID dans le localStorage
-                  console.log(response.data.id),
-                  //localStorage.setItem('id', response.data.id)
+                  localStorage.setItem('id', response.data[0].id),
                   window.location.replace("/matching")
                 )
               } else

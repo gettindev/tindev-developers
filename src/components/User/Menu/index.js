@@ -23,7 +23,7 @@ import Nav from 'src/components/Nav';
 // == Composant
 const UserProfil = ({ setLog }) => {
   // use the state instaid //
-  const userName = 'myGithubName';
+  const userName = 'Hello';
   //
   return (
     <div className="user-profil">
@@ -55,7 +55,7 @@ const UserProfil = ({ setLog }) => {
             <Button 
              onClick={() => {
               firebase.auth().signOut().then(function() {
-              localStorage.removeItem('logged');
+              localStorage.clear();
               window.location.replace("/");
             }, function(error) {
               console.error('Sign Out Error', error);

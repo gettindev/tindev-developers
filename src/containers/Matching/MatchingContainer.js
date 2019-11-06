@@ -11,6 +11,8 @@ import {
 
 import { sendRequest } from 'src/store/reducer/userEdit';
 
+import { getMyInfos } from 'src/store/reducer/user';
+
 import { getMatchesAndMessages, fetchMessages } from 'src/store/reducer/chatlistReducer';
 
 /* === State (datas) ===
@@ -36,6 +38,12 @@ const mapDispatchToProps = (dispatch) => ({
     const action = doRequest();
     dispatch(action);
   },
+
+  getMyInfos: () => {
+    const action = getMyInfos();
+    dispatch(action);
+  },
+  
   doLike: () => {
     const action = doLike();
     dispatch(action);
