@@ -4,6 +4,8 @@ const db = require('../config/database');
 
 const { Op } = Sequelize;
 
+const MessagesModel = require('../models/messages');
+
 const Matchings = db.define('matchings', {
   id: {
     field: 'id',
@@ -30,5 +32,7 @@ const Matchings = db.define('matchings', {
 }, {
   timestamps: false,
 });
+
+Matchings.hasMany(MessagesModel);
 
 module.exports = Matchings;

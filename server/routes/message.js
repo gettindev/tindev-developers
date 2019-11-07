@@ -8,7 +8,7 @@ const MessagesModel = require('../models/messages');
 
 const { Op } = Sequelize;
 
-// FETCH All wishes
+// FETCH All message
 router.get('/', (req, res) => {
   /* MessagesModel.bulkCreate([
     { content: 'Je suis totalement stressé...', sender: 2, receiver: 3 },
@@ -47,11 +47,13 @@ router.post('/', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
+  const { matchingId } = req.body;
   const { currentId } = req.body;
   const { userId } = req.body;
   const { content } = req.body;
   MessagesModel.create({
     content,
+    matchingId,
     sender: currentId,
     receiver: userId,
   }).then((newMessage) => {

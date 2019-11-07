@@ -19,18 +19,10 @@
 .carousel { 
 
   h3 {
-    margin-bottom: 9rem;
-    opacity: 0.85;
+    margin-bottom: 6rem;
   }
 
   & .carousel-control-next-icon, .carousel-control-prev-icon  { visibility: hidden; }
-}
-
-.img-fluid {
-  top: .3rem;
-  width: 15rem;
-  margin: 0 0 0 3.1rem;
-  position: absolute;
 }
 
 .img-responsive {
@@ -38,6 +30,7 @@
   max-height: 500px;
   -o-object-fit: cover;
   object-fit: cover;
+  opacity: 0.4;
 
   @media (min-width: $xs) {
     max-height: 800px;
@@ -52,6 +45,12 @@
   }
 }
 
+.img-fluid {
+  top: 2rem;
+  width: 13rem;
+  margin: 0 0 0 5rem;
+  position: absolute;
+}
 
 .footerHome {
 

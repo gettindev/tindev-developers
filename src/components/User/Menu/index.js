@@ -1,5 +1,9 @@
 // == Import : npm
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
+=======
+import React, { useState, useEffect } from 'react';
+>>>>>>> 03d727847e286409c96b4171054f0c1e0b836ee3
 import { MdEdit, MdSettings } from 'react-icons/md';
 import {
   Container,
@@ -43,18 +47,9 @@ const UserProfil = ({ user, setLog, getMyInfos }) => {
       <Container className="user-profil-navigation">
         <Row>
           <Col>
-            <Button size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
-            <Button 
-              as={Link}
-              to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
-            <Button
-              as={Link}
-              to="/termsOfUse"
-              size="lg"
-              variant="outline-secondary"
-              block
-            >Régles d'utilisation
-            </Button>
+            <Button as={Link} to="/preferences" size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
+            <Button as={Link} to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
+            <Button as={Link} to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
           </Col>
         </Row>
       </Container>
