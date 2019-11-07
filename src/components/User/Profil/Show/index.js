@@ -10,8 +10,8 @@ const ShowUserProfil = ({ user }) => {
   const userWishes = user.wishes;
   const userTechnos = user.technos;
   const userLevel = user.levelsList;
-  const generalWishList = user.wishesList;
-  const userWishId = user.wishedId;
+  const generalWishList = user.wishesList[0];
+  const userWishId = [0,2,3];
 
   /* const tab = userWishId.filter((item) => {
     return !generalWishList.includes(item);
@@ -27,8 +27,8 @@ const ShowUserProfil = ({ user }) => {
   const biography = user.bio === null ? 'Pas de biographie pour cet utilisateur.' : user.bio;
 
   // I create a new tab with id and wish name ! //
-  const tab = generalWishList.filter(item => userWishId.includes(item.id));
-  console.log(tab);
+  // const tab = generalWishList.filter(item => userWishId.includes(item.id));
+  // console.log(tab);
 
 
   return (

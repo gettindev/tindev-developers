@@ -3,14 +3,14 @@ import wishesTable from 'src/data/wishes-table';
 
 // == Initial State
 const initialState = {
-  firstName: 'D',
-  lastName: 'T',
-  photo: 'https://upload.wikimedia.org/wikipedia/en/2/26/Sun-emc-squared.jpg',
-  githubName: 'regulardesigner',
-  bio: "I'm a designer trying to become developer after 12 years designing website and mobile apps.",
+  firstName: '',
+  lastName: '',
+  photo: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+  githubName: '',
+  bio: '',
   levelId: 0,
   location: '',
-  wishes: ['#entraide', '#stafferUnProjet', '#iHaveAnIdea'],
+  wishes: [],
   wishedId: [0, 3, 8],
   technos: ['ES6', 'JSX', 'React', 'Redux', 'HTML5', 'CSS3'],
   links: [
@@ -47,8 +47,8 @@ const user = (state = initialState, action = {}) => {
         bio: action.value.bio,
         levelId: action.value.levelId,
         // location: action.value.location,
-        // technos: action.value.techs,
-        // wishes: action.value.wishes.name,
+        technos: action.value.techs.map((tech) => tech.name),
+        wishes: action.value.wishes.map((wish) => wish.name),
         // wishedId: action.value.wishes.id,
         // links: action.value.url,
       };

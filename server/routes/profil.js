@@ -14,7 +14,6 @@ const LevelModel = require('../models/level');
 const UserWishes = require('../models/user_wishes');
 const UserTechs = require('../models/user_techs');
 
-
 UserModel.belongsToMany(WishModel, {
   through: 'user_wishes',
   foreignKey: 'userId',
@@ -202,11 +201,10 @@ router.get('/settings/:id', (req, res) => {
     });
 });
 
-router.post('/settings/:id', (req, res) => {
+router.post('/settings/wishes/:id', (req, res) => {
   const { id } = req.params;
   const updatedWishes = req.body.wishesArray;
-  const udatesTechs = req.body.techsArray;
-  const { location } = req.body.location;
+  //const { location } = req.body.location;
 
   const bulkCreator = (userIdentifier, array) => {
     const generateBulkCreate = array.map(
@@ -223,6 +221,37 @@ router.post('/settings/:id', (req, res) => {
     },
   }).then(() => {
     UserWishes.bulkCreate(bulkCreator(id, updatedWishes)).then((user) => {
+      if (user) {
+        res.json(user);
+      }
+      else {
+        res.status(404).send();
+      }
+    });
+  });
+});
+
+module.exports = router;
+
+router.post('/settings/techs/:id', (req, res) => {
+  const { id } = req.params;
+  const udatesTechs = req.body.techsArray;
+
+  const bulkCreator = (userIdentifier, array) => {
+    const generateBulkCreate = array.map(
+      (item) => {
+        return { userId: parseInt(id, 10), techId: item };
+      },
+    );
+    return generateBulkCreate;
+  };
+
+  UserTechs.destroy({
+    where: {
+      userId: id,
+    },
+  }).then(() => {
+    UserTechs.bulkCreate(bulkCreator(id, udatesTechs)).then((user) => {
       if (user) {
         res.json(user);
       }
