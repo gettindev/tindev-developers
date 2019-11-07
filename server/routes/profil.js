@@ -231,13 +231,13 @@ router.post('/settings/wishes/:id', (req, res) => {
   });
 });
 
-module.exports = router;
-
-router.post('/settings/techs/:id', (req, res) => {
+router.post('/settings/:id', async (req, res) => {
   const { id } = req.params;
-  const udatesTechs = req.body.techsArray;
+  const techsToUpdate = req.body.techsArray;
+  const wishesToUpdate = req.body.wishesArray;
+  const { location } = req.body;
 
-  const bulkCreator = (userIdentifier, array) => {
+  const bulkCreatorTechs = (userIdentifier, array) => {
     const generateBulkCreate = array.map(
       (item) => {
         return { userId: parseInt(id, 10), techId: item };
@@ -246,19 +246,50 @@ router.post('/settings/techs/:id', (req, res) => {
     return generateBulkCreate;
   };
 
-  UserTechs.destroy({
+  const updateTechs = await UserTechs.destroy({
     where: {
       userId: id,
     },
   }).then(() => {
-    UserTechs.bulkCreate(bulkCreator(id, udatesTechs)).then((user) => {
-      if (user) {
-        res.json(user);
-      }
-      else {
-        res.status(404).send();
-      }
+    UserTechs.bulkCreate(bulkCreatorTechs(id, techsToUpdate)).then((user) => {
+      //res.json(user);
     });
+  });
+
+  const bulkCreatorWishes = (userIdentifier, array) => {
+    const generateBulkCreate = array.map(
+      (item) => {
+        return { userId: parseInt(id, 10), wishId: item };
+      },
+    );
+    return generateBulkCreate;
+  };
+
+  const updateWishes = await UserWishes.destroy({
+    where: {
+      userId: id,
+    },
+  }).then(() => {
+    UserWishes.bulkCreate(bulkCreatorWishes(id, wishesToUpdate)).then((user) => {
+      //res.json(user);
+    });
+  });
+
+  const updateLocation = await UserModel.update({
+    location,
+  },
+  {
+    where: {
+      id,
+    },
+  }).then((user) => {
+    //res.json(user);
+  });
+
+  res.status(200).send({
+    updateTechs,
+    updateWishes,
+    updateLocation,
   });
 });
 
