@@ -24,6 +24,7 @@ import TermsOfUse from 'src/components/TermsOfUse';
 import HelpAndAssistance from 'src/components/HelpAndAssistance';
 import AccountReporting from 'src/components/AccountReporting';
 import MatchPreferences from 'src/containers/MatchPreferences';
+import LocationSettings from 'src/containers/LocationSettings/LocationSettingsContainer';
 
 // Import all Nav Components
 import Nav from 'src/components/Nav';
@@ -94,11 +95,11 @@ const App = ({ logged, doRequest}) => {
               <Form />
             </Route>
             <Route exact path ="/termsOfUse">
-              <Nav />
+              <NavCloseRightLogo />
               <TermsOfUse />             
             </Route>
             <Route exact path ="/help">
-              <Nav />
+              <NavCloseRightLogo />
               <HelpAndAssistance />             
             </Route>
             <Route exact path ="/reporting">
@@ -108,7 +109,11 @@ const App = ({ logged, doRequest}) => {
             <Route exact path ="/preferences">
               <NavCloseRightLogo />
               <MatchPreferences />             
-            </Route>      
+            </Route> 
+            <Route exact path ="/my-pref">
+              <NavCloseRightLogo />
+              <LocationSettings />
+            </Route>  
             <Route >
               <NotFound logged={logged}/>
             </Route>

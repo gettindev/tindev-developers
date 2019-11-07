@@ -1,0 +1,97 @@
+@import 'src/styles/vars';
+
+.location_new {
+  text-align: center;
+  font-size: 1.2em;
+
+  @media (min-width: $md) {
+    font-size: 2em;
+  }
+
+  @media (min-width: $lg) {
+    font-size: 3em;
+  }
+}
+
+
+.loc {
+  
+  padding: 2rem;
+  background-color: $primaryColorVeryLight;
+
+  
+  
+  h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    color: $secondaryColor;
+  }
+
+   p {
+     margin-top: 1.5rem;;
+     font-size: 0.9em;
+     color: $textColor;
+     font-style: italic;
+   }
+
+  h3 {
+    font-size: 1em;
+    margin-bottom: 1rem;
+    color: $secondaryColor;
+  }
+
+  .buttonChoix {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    justify-content: flex-start;
+    font-weight: bold;
+    background-color: $cardColor;
+
+    &:hover {
+      background-color: $eventColorBlue;
+      color: grey;
+    }
+  }
+}
+
+.camp{
+    display: inline;
+    padding-right: 1rem;
+}
+
+.dropdown-menu.show {
+  background-color: $cardColor;
+}
+
+.dropdown-item {
+  color: white !important;
+  font-size: 0.9em;
+}
+
+#see-loc {
+  font-size: 1.3rem;
+  color: $textColor;
+  padding-top: 1rem;
+  margin: auto;
+    &:hover {
+    color: $secondaryColor;
+    //background-color: $eventColorBlue;
+    }
+}
+
+.choix {
+  color: $linkColor;
+  font-size: 0.9em;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+.img-earth {
+  width: 92px;
+
+          @media (min-width: $sm) {
+            width: 300px;
+        }
+}
