@@ -4,6 +4,8 @@ const router = express.Router();
 
 const Sequelize = require('sequelize');
 
+const db = require('../config/database');
+
 // const UserModel = require('../static/users');
 const WishModel = require('../models/wish');
 const TechModel = require('../models/tech');
@@ -57,6 +59,8 @@ router.get('/', (req, res) => {
         model: LevelModel,
       },
     ],
+    limit: 5,
+    order: db.random(),
   }).then((users) => {
     res.status(200).json(users);
   });

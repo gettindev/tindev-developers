@@ -12,6 +12,9 @@ const Messages = db.define('messages', {
   content: {
     type: Sequelize.STRING,
   },
+  matchingId: {
+    type: Sequelize.INTEGER,
+  },
   sender: {
     type: Sequelize.INTEGER,
   },
