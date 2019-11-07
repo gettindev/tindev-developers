@@ -22,9 +22,29 @@ class Matching extends Component {
   }
   
   componentDidMount() {
-    //this.props.sendRequest();
-    this.props.getMatchesAndMessages(); 
-    this.props.getUsers();// get only my matches
+    console.log("la partie matching vient d'être créée");
+    this.props.getUsers();
+    this.props.sendRequest();
+    this.props.getMatchesAndMessages(); // get only my matches
+    // this.props.fetchMessages(); // get all messages between me and (all users)
+
+
+    // A ajouter : requete pour obtenir les matchs et conversations en cours
+  }
+
+  /* Func who tcheck the end of the list */
+  checkEnd = () => {
+    if (this.state.index === this.props.users.length) {
+      this.setState({
+        ...this.state,
+        end: true,
+      });
+      /* Start the axios request to get new profiles */
+      if (this.state.end) {
+        this.getProfils();
+      }
+    }
+
   }
   
   /* Func to get new profiles */

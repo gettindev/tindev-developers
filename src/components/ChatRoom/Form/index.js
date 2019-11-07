@@ -5,14 +5,18 @@ import PropTypes from 'prop-types';
 
 import './form.scss';
 
-const Form = ({ messageValue, doChange, sendMessage }) => {
+const Form = ({ messageValue, doChange, addMessage }) => {
   const handleChange = (e) => {
     const { value } = e.target;
     doChange(value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendMessage();
+    const currentUserId = localStorage.getItem('id');
+    console.log(currentUserId);
+    // sender == userconnected
+    const sender = parseInt(currentUserId);
+    addMessage(messageValue, sender);
   };
 
   return (
@@ -33,7 +37,7 @@ const Form = ({ messageValue, doChange, sendMessage }) => {
 Form.propTypes = {
   messageValue: PropTypes.string.isRequired,
   doChange: PropTypes.func.isRequired,
-  sendMessage: PropTypes.func.isRequired,
+  addMessage: PropTypes.func.isRequired,
 };
 
 
