@@ -7,7 +7,7 @@ import { GET_MY_INFOS, changeState } from 'src/store/reducer/user';
 
 const userEditMiddleware = (store) => (next) => (action) => {
 
-  console.log('I am the middleware, and I pass this action: ', action);
+  // console.log('I am the middleware, and I pass this action: ', action);
   
   switch (action.type) {
       case GET_MY_INFOS:
