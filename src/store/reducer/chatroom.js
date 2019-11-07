@@ -2,17 +2,20 @@
 import messageData from 'src/data/messages';
 
 export const initialState = {
-  messages: messageData,
+  // messagesInDatabase: [],
+  messages: [],
   messageValue: '',
+  currentId: 2,
+  userId: 3,
   currentUser: 'toto',
-  sender: ''
 };
 
 // == Types
 const CHANGE_MESSAGE = 'CHANGE_MESSAGE';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
-// export const FETCH_CONVERSATIONS = 'FETCH_CONVERSATIONS';
+export const FETCH_MESSAGES = 'FETCH_MESSAGES';
 export const WEBSOCKET_CONNECT = 'WEBSOCKET_CONNECT';
+export const UPDATE_MESSAGES = 'UPDATE_MESSAGES';
 const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 
 const chatroom = (state = initialState, action = {}) => {
@@ -37,6 +40,13 @@ const chatroom = (state = initialState, action = {}) => {
           action.message,
         ],
       };
+    case UPDATE_MESSAGES: // messages fetched from DB sent to state
+      return {
+        ...state,
+        messages: [
+          action.messages,
+        ],
+      };
     default:
       return state;
   }
@@ -47,8 +57,10 @@ const chatroom = (state = initialState, action = {}) => {
 //   type: DO_SOMETHING,
 //   message,
 // });
-export const addMessage = () => ({
+export const addMessage = (message, currentId) => ({
   type: ADD_MESSAGE,
+  message,
+  currentId,
 });
 
 export const receiveMessage = (message) => ({
@@ -60,7 +72,16 @@ export const websocketConnect = () => ({
   type: WEBSOCKET_CONNECT,
 });
 
+export const fetchMessages = (currentId, userId) => ({
+  type: FETCH_MESSAGES,
+  currentId,
+  userId,
+});
 
+export const updateMessages = (messages) => ({
+  type: UPDATE_MESSAGES,
+  messages,
+});
 
 // // == Selectors
 
