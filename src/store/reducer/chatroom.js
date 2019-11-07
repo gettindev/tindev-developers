@@ -5,9 +5,7 @@ export const initialState = {
   // messagesInDatabase: [],
   messages: [],
   messageValue: '',
-  currentId: 2,
-  userId: 3,
-  currentUser: 20,
+  currentUser: '',
 };
 
 // == Types

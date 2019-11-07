@@ -32,15 +32,18 @@ const socketMiddleware = (store) => (next) => (action) => {
       });
       break;
     case ADD_MESSAGE:
+
+      const state = store.getState();
+      const {messageValue} = state.chatroom;
       const message = {
         content: action.message,
         currentId: action.currentId,
       }
-      // if (newMessage.text.length > 0) {
+      if (messageValue.length > 0) {
+        socket.emit('send_message', message);
+        store.dispatch(receiveMessage(message));
+      };
         // return (
-      socket.emit('send_message', message);
-
-      store.dispatch(receiveMessage(message));
       // };
       // console.log('newMessage:', newMessage)
       break;
