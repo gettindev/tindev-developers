@@ -1,9 +1,5 @@
 // == Import : npm
-<<<<<<< HEAD
 import React, { useEffect } from 'react';
-=======
-import React, { useState, useEffect } from 'react';
->>>>>>> 03d727847e286409c96b4171054f0c1e0b836ee3
 import { MdEdit, MdSettings } from 'react-icons/md';
 import {
   Container,
