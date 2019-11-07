@@ -201,10 +201,10 @@ router.get('/settings/:id', (req, res) => {
     });
 });
 
+// faire deux route pour les settings et les localisations
 router.post('/settings/wishes/:id', (req, res) => {
   const { id } = req.params;
   const updatedWishes = req.body.wishesArray;
-  //const { location } = req.body.location;
 
   const bulkCreator = (userIdentifier, array) => {
     const generateBulkCreate = array.map(
@@ -219,78 +219,35 @@ router.post('/settings/wishes/:id', (req, res) => {
     where: {
       userId: id,
     },
-  }).then(() => {
-    UserWishes.bulkCreate(bulkCreator(id, updatedWishes)).then((user) => {
-      if (user) {
-        res.json(user);
-      }
-      else {
-        res.status(404).send();
-      }
+  })
+    .then(() => {
+      UserWishes.bulkCreate(bulkCreator(id, updatedWishes)).then((user) => {
+        res.status(200).send(user);
+      });
+    })
+    .catch((err) => {
+      res.send(err);
     });
-  });
 });
 
-router.post('/settings/:id', async (req, res) => {
+router.post('/settings/location/:id', (req, res) => {
   const { id } = req.params;
-  const techsToUpdate = req.body.techsArray;
-  const wishesToUpdate = req.body.wishesArray;
   const { location } = req.body;
 
-  const bulkCreatorTechs = (userIdentifier, array) => {
-    const generateBulkCreate = array.map(
-      (item) => {
-        return { userId: parseInt(id, 10), techId: item };
-      },
-    );
-    return generateBulkCreate;
-  };
-
-  const updateTechs = await UserTechs.destroy({
-    where: {
-      userId: id,
-    },
-  }).then(() => {
-    UserTechs.bulkCreate(bulkCreatorTechs(id, techsToUpdate)).then((user) => {
-      //res.json(user);
-    });
-  });
-
-  const bulkCreatorWishes = (userIdentifier, array) => {
-    const generateBulkCreate = array.map(
-      (item) => {
-        return { userId: parseInt(id, 10), wishId: item };
-      },
-    );
-    return generateBulkCreate;
-  };
-
-  const updateWishes = await UserWishes.destroy({
-    where: {
-      userId: id,
-    },
-  }).then(() => {
-    UserWishes.bulkCreate(bulkCreatorWishes(id, wishesToUpdate)).then((user) => {
-      //res.json(user);
-    });
-  });
-
-  const updateLocation = await UserModel.update({
+  UserModel.update({
     location,
   },
   {
     where: {
       id,
     },
-  }).then((user) => {
-    //res.json(user);
-  });
-
-  res.status(200).send({
-    updateTechs,
-    updateWishes,
-    updateLocation,
-  });
+  })
+    .then((user) => {
+      res.status(200).send(user);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 });
 
 module.exports = router;
