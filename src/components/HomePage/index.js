@@ -1,26 +1,22 @@
 // == Import : npm
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import firebase from "firebase"
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
 // imports styles
-import { Button } from 'react-bootstrap';
 import { Carousel} from 'react-bootstrap';
 
 // == Import : local
 import './homePage.scss';
 
-// == Composant
+// == Component
 const HomePage = () => (
     <div id="home">
+      <img 
+        className="img-fluid"
+        src="./src/data/logo-tindev-white-background.svg"
+      />
       <Carousel>   
 
-        <Carousel.Item>
-          <img 
-          className="img-fluid"
-          src="./src/data/logo-tindev-white-background.svg"
-          />
+        <Carousel.Item>  
           <img
             className="img-responsive"
             src="./src/data/pictures/homePage-mobile.jpg"
@@ -32,11 +28,7 @@ const HomePage = () => (
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item>
-          <img 
-          className="img-fluid"
-          src="./src/data/logo-tindev-white-background.svg"
-          />
+        <Carousel.Item>         
           <img
             className="img-responsive"
             src="./src/data/pictures/side-project.jpg"
@@ -48,11 +40,7 @@ const HomePage = () => (
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item>
-          <img 
-          className="img-fluid"
-          src="./src/data/logo-tindev-white-background.svg"
-          />
+        <Carousel.Item>          
           <img
             className="img-responsive"
             src="./src/data/pictures/bangkok-breakfast.jpg"
@@ -64,11 +52,7 @@ const HomePage = () => (
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item>
-          <img
-            className="img-fluid"
-            src="./src/data/logo-tindev-white-background.svg"
-          />
+        <Carousel.Item>         
           <img
             className="img-responsive"
             src="./src/data/pictures/pizza.jpg"
@@ -83,7 +67,6 @@ const HomePage = () => (
       <div className="footerHome">
         <h2>Peu importe que tu sois Dev, CTO ou CEO, que tu préfères les Ninjas ou les NOObs</h2>
         <p>Trouves ici ton perfect Dev-Match pour staffer tes projets</p>
-        {/* <Button href="/matrix" variant="info"> S'identifier via GitHub </Button> */}
       </div>
     </div>  
 );
