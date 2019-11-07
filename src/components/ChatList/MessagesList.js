@@ -8,15 +8,18 @@ import MessagePreview from './MessagePreview';
 import './matchlist.scss';
 
 // == Composant
-const MessagesList = ({ users }) => (
-  <div className="messages-list">
-    {users.map((user) => (
-    <NavLink to ="/chat/1">
-      <MessagePreview key={user.username} />
-    </NavLink>
-    ))}
-  </div>
-);
+const MessagesList = ({ lastMessages }) => {
+  console.log(lastMessages);
+  return (
+    <div className="messages-list">
+      {/* {lastMessages.map((user) => (
+      <NavLink to ="/chat/1">
+        <MessagePreview key={user.username} />
+      </NavLink>
+      ))} */}
+    </div>
+  );
+};
 
 // == Export
 export default MessagesList;

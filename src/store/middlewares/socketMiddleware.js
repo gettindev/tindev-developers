@@ -46,10 +46,13 @@ const socketMiddleware = (store) => (next) => (action) => {
       const currentId = localStorage.getItem('id'); // 20
       axios.get(`http://localhost:3001/matching/${currentId}`)
         .then((result) => {
-         console.log(result.data.usersListResult);
+          // array of my last messages
+          const lastMessages = result.data.matchs.map((match) => match.messages);
+          //console.log('lastMessagesArray', lastMessages);
           const mymatches = result.data.usersListResult;
-          //  console.log(mymatches);
+          console.log('matchesArray', mymatches)
           store.dispatch(updateMatchList(mymatches));
+          store.dispatch(updateConversations(lastMessages));
         }).catch((error) => {
           console.log(error);
         });
@@ -57,7 +60,7 @@ const socketMiddleware = (store) => (next) => (action) => {
       break;
 
     case FETCH_MESSAGES: {
-      console.log(action);
+      // console.log(action);
       const { currentId, userId } = action;
       // console.log('les users en state:', currentId, userId);
       // // console.log('GAEL', `je veux recuperer les messages en BDD de l'utilisateur connecte: ${userId}`);

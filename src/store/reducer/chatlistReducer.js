@@ -5,7 +5,8 @@ import users from 'src/data/users';
 
 // == Initial State
 const initialState = {
-  mymatches: '',
+  myMatches: '',
+  lastMessages: '',
   // users,
   // conversations,
 };
@@ -22,12 +23,12 @@ const chatlist = (state = initialState, action = {}) => {
     case UPDATE_MATCHLIST:
       return {
         ...state,
-        mymatches: action.mymatches,
+        myMatches: action.myMatches,
       };
     case UPDATE_CONVERSATIONS:
       return {
         ...state,
-        conversations: action.conversations,
+        lastMessages: action.lastMessages,
       };
 
     default:
@@ -40,14 +41,14 @@ export const getMatchesAndMessages = () => ({
   type: GET_MATCHES_MESSAGES,
 });
 
-export const updateMatchList = (mymatches) => ({
+export const updateMatchList = (myMatches) => ({
   type: UPDATE_MATCHLIST,
-  mymatches,
+  myMatches,
 });
 
-export const updateConversations = (messages) => ({
+export const updateConversations = (lastMessages) => ({
   type: UPDATE_CONVERSATIONS,
-  messages,
+  lastMessages,
 });
 
 

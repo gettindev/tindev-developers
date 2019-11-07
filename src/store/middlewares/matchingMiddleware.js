@@ -51,7 +51,7 @@ const matchingMiddleware = (store) => (next) => (action) => {
           currentId : action.currentUserId,
           swipedId : action.swipeId    
       }).then((response) => {
-            console.log('succès', response.data);
+            // console.log('succès', response.data);
             // je veux faire en sorte d'alimenter le state avec la réponse
             })
             .catch((error) => {

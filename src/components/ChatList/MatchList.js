@@ -11,8 +11,8 @@ import './matchlist.scss';
 // == Import : style
 
 // == Composant
-const MatchList = ({ mymatches }) => {
-  console.log('mymatches', mymatches);
+const MatchList = ({ myMatches }) => {
+  console.log('mymatches', myMatches);
 
   return (
   <div className="scrolling-wrapper d-flex flex-nowrap">
@@ -26,7 +26,7 @@ const MatchList = ({ mymatches }) => {
       </NavLink>
     ))}
   </div>
-)};
+  )};
 
 // == Export
 export default MatchList;

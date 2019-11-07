@@ -14,11 +14,18 @@ import ChatList from 'src/components/ChatList';
  *  - ownProps : the props passed to the container
  * No need transfer data ? const mapStateToProps = null;
  */
-const mapStateToProps = (state, ownProps) => ({
-  mymatches: state.chatlistReducer.mymatches,
-//  matchlist: 'toto',
+// const mapStateToProps = (state, ownProps) => ({
 
-});
+
+const mapStateToProps = (state, ownProps) => {
+  const messages = state.chatlistReducer.lastMessages;
+  const matches = state.chatListReducer.myMatches;
+  console.log('STATE', state.chatlistReducer);
+  return {
+    myMatches: matches,
+    lastMessages: messages,
+  };
+};
 
 /* === Actions ===
  * - mapDispatchToProps retrieves a prop object for the presentation component
@@ -27,11 +34,7 @@ const mapStateToProps = (state, ownProps) => ({
  *  - ownProps : the props passed to the container
  * No need transfer dispatch ? const mapDispatchToProps = {};
  */
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  doSomething: () => {
-    dispatch(doSomething('Coucou'));
-  },
-});
+const mapDispatchToProps = {};
 
 // Container
 const ChatListContainer = connect(
