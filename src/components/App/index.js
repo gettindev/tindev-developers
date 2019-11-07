@@ -23,7 +23,7 @@ import Location from 'src/containers/Location/LocationContainer';
 import TermsOfUse from 'src/components/TermsOfUse';
 import HelpAndAssistance from 'src/components/HelpAndAssistance';
 import AccountReporting from 'src/components/AccountReporting';
-import MatchPreferences from 'src/components/MatchPreferences';
+import MatchPreferences from 'src/containers/MatchPreferences';
 
 // Import all Nav Components
 import Nav from 'src/components/Nav';
@@ -106,7 +106,7 @@ const App = ({ logged, doRequest}) => {
               <AccountReporting />             
             </Route>  
             <Route exact path ="/preferences">
-            <NavCloseRightLogo />
+              <NavCloseRightLogo />
               <MatchPreferences />             
             </Route>      
             <Route >

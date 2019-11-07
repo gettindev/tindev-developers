@@ -1,39 +1,37 @@
 @import 'src/styles/vars';
 
-#matchPreferences {
-  color: $textColor;
-  margin-top: 4rem;
+#matrix-re {
+  color: rgb(233, 233, 233);
+  padding: .5rem 0 0 0;
+  font-family: 'Oswald', sans-serif;
   font-size: 1.2em;
   text-align: center;
-  margin: 3rem 1rem 0 1rem;
 
   @media (min-width: $sm) {
       font-size: 1.8em;
   }
 
-  h3 {
-    font-size: 1.2em;
-    margin-bottom: 3rem;
-    color: $secondaryColor;
-
+  .h3 {
+    font-size: 1.3em;
+    color: $linkColor !important;
     @media (min-width: $sm) {
-      margin-top: 10rem;
-    }
+
+  }
   }
 
-  .go {
-    margin-top: 3rem;
-    background-color: $eventColorBlue;
-    color: grey;
-  
-  &:hover {
-    background-color: $linkColor;
-    }
+  p {
+    font-size: 0.6em;
+    margin-bottom: 0;
   }
 }
 
+.what{
+  padding: .5rem 0 1rem 0;
+  font-size: 0.9em;
+  color: $linkColor;
+}
 
-#prefs {
+#choice-re {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -41,10 +39,13 @@
   width: 100%;
   padding: 0 0 0 0.5rem;
   font-size: 0.7em;
+
   
   div {
     margin: 1rem;
-    background-color: $cardColor;
+    color: rgb(61, 61, 61);
+    background-color: rgb(214, 214, 214);
+    border : 1px solid $secondaryColor;  
     float: left;
     width: calc(33% - 8px);
     height: 6.5rem;
@@ -64,9 +65,48 @@
       );
     }
 
+    &:checked {
+      background-color: crimson;
+    }
+
     p {
       line-height: 6.5rem;
-      font-size: 0.9em;
+      font-size: 1em;
+          
     }
   }
+}
+
+#next-re{
+  font-size: 1.4em;
+  color: $textColor;
+  
+  margin: auto;
+    &:hover {
+    color: $secondaryColor;
+    //background-color: $eventColorBlue;
+    }
+}
+
+
+
+// Set the p who were choosen by the user
+.on {
+  color: $secondaryColor;
+  //background-color: $eventColorBlue;
+  background: repeating-linear-gradient(
+  45deg,
+  $primaryColor,
+  $primaryColor 10px,
+  $primaryColorVeryLight 10px,
+  $primaryColorVeryLight 30px
+  );
+}
+
+img.matrix-img.img-fluid.rounded-circle {
+  width: 92px;
+
+          @media (min-width: $sm) {
+            width: 300px;
+        }
 }

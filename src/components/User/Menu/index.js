@@ -1,6 +1,6 @@
 // == Import : npm
 import React, { useState, useEffect } from 'react';
-import { MdEdit, MdSettings } from 'react-icons/md';
+import { MdEdit, MdSettings, MdPlace } from 'react-icons/md';
 import {
   Container,
   Row,
@@ -46,6 +46,7 @@ const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
       <Container className="user-profil-navigation">
         <Row>
           <Col>
+            <Button as={Link} to="/profil" size="lg" variant="primary" block><MdPlace className="icon" /> Localisation</Button>
             <Button as={Link} to="/preferences" size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
             <Button as={Link} to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
             <Button as={Link} to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>

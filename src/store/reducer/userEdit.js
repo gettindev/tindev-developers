@@ -6,7 +6,7 @@ const initialState = {
 // == Types
 const DO_SOMETHING = 'DO_SOMETHING';
 export const SEND_REQUEST = 'SEND_REQUEST';
-
+export const SEND_MY_WISH = 'SEND_MY_WISH';
 
 // == Reducer
 const userEdit = (state = initialState, action = {}) => {
@@ -31,6 +31,12 @@ export const doSomething = message => ({
 export const sendRequest = (userDatas) => ({
   type: SEND_REQUEST,
   userDatas,
+})
+
+export const sendMyWish = (wish, id) => ({
+  type : SEND_MY_WISH,
+  wish,
+  id
 })
 
 
