@@ -25,7 +25,9 @@ const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
   // use the state instaid //
   const userName = 'Hello';
 
- 
+  useEffect(() => {
+    getUsers();// get only my matches
+  }, []);
   
   //
   return (

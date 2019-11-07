@@ -4,35 +4,21 @@ import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import Image from 'react-bootstrap/Image';
 import { TiArrowBack, TiArrowForward } from 'react-icons/ti';
-import  user  from 'src/data/user.js';
+import { FaRegClipboard, FaHashtag, FaGlobeEurope, FaUserNinja, FaUserSecret  } from "react-icons/fa";
 
 // == Import : local
-import Mod from './Modal';
 import './style/matching.scss';
 import './style/card.scss';
 
 
 // == Composant
 class Matching extends Component {
-  // Local State
-
-  state = {
-    end: false, /* If the user has ended matching profiles */
-    modalShow: false,
-  }
   
   componentDidMount() {
     //this.props.sendRequest();
     this.props.getMatchesAndMessages(); 
-    this.props.getUsers();// get only my matches
   }
   
-  /* Func to get new profiles */
-  // getProfils = () => {
-  //   console.log("Envoi d'une requête Ajax");
-  //   this.props.getUsers();
-  // }
-
   setGlobalStateOfUsers = (id) => {
     this.props.setUsers(this.props.users.filter((user) => user.id !== id))
   }
@@ -53,31 +39,11 @@ class Matching extends Component {
     doUnlike(myId, hisId);
   }
 
-  /* Open the Modal */
-  setModalShow = () => {
-    this.setState({
-      ...this.state,
-      modalShow: true,
-    });
-  }
-
-  /* Close the modal */
-  unsetModalShow = () => {
-    this.setState({
-      ...this.state,
-      modalShow: false,
-    });
-  }
-
-
   render() {
-    /* Destructuration */
-    const {
-      display, index, userLength, end, modalShow,
-    } = this.state;
+
+    /***** *****/
     const currentUserId = localStorage.getItem('id');
-    let userIndex = index;
-    /* console.log(index, end); */
+
     return (
 
       
@@ -104,11 +70,6 @@ class Matching extends Component {
         >
           {/** ***** The card swiped ***** */}
           <div className="card">
-
-            {/* Normal card when we have profil in the list */}
-            {end == false
-              && (
-                <>
                   <Image
                     roundedCircle
                     className="card-img-responsive"
@@ -117,26 +78,24 @@ class Matching extends Component {
                   />
                   <div className="card-top">
                     <div className="card-top-name">{user.firstName}</div>
-                    <div className="card-top-exp">{user.levelId}</div>
+                    <div className="card-top-exp">{user.levelId !== null ? user.level.name : "Top secret"}</div>
                   </div>
                   <div className="card-content">
-                    <p className="card-content-bio">Bio: {user.bio}</p>
-                    {/* <button
-                      className="card-content-btn"
-                      onClick={() => this.setModalShow()}
-                    >Voir le profil complet
-                  </button>
-                    <Mod
-                      show={modalShow}
-                      onHide={() => this.unsetModalShow()}
-                      currentuser={user}
-                    /> */}
-                    {/* <div className="card-content-tech">{display.tech}</div> */}
+                    <p className="card-content-bio">{user.bio}</p> 
+                    <div className="card-content-tech">{user.techs.length > 0 ? <FaRegClipboard/> : ""}
+                      {user.techs.map((tech) => 
+                      <div key={tech.id}>{tech.name}</div>
+                      )}
+                    </div>
+                    {user.pseudo !== null ? <div className="mod-body-pseudo"><FaUserNinja/> {user.pseudo}</div> : ""}
+                    <div className="mod-body-loc"><FaGlobeEurope/> {user.location}</div>
+                    <div className="card-wishes">{user.wishes.length > 0 ? <FaHashtag/> : ""}
+                      {user.wishes.map((w) => 
+                      <div key={w.id}>{w.name} </div> 
+                      )}
+                    </div>
                   </div>
-                  {/*<div className="card-tag">{display.tag}</div>*/}
                   <div className="footer"><TiArrowBack className="footer-left" />SWIPE<TiArrowForward className="footer-right" /></div>
-                </>
-              )}
           </div>
         </SwipeableListItem>
         ))}
@@ -149,6 +108,7 @@ class Matching extends Component {
     );
   }
 }
+
 
 // == Export
 export default Matching;
