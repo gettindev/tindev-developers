@@ -47,11 +47,13 @@ router.post('/', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
+  const { matchingId } = req.body;
   const { currentId } = req.body;
   const { userId } = req.body;
   const { content } = req.body;
   MessagesModel.create({
     content,
+    matchingId,
     sender: currentId,
     receiver: userId,
   }).then((newMessage) => {

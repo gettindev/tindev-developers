@@ -17,6 +17,7 @@ const Users = require('../models/user');
 const WishModel = require('../models/wish');
 const TechModel = require('../models/tech');
 const LevelModel = require('../models/level');
+const MessagesModel = require('../models/messages');
 // helpers
 const helpers = require('./../helpers/matching');
 const userHelpers = require('./../helpers/users');
@@ -37,6 +38,15 @@ router.get('/:id', async (req, res) => {
         [Op.and]: [{ currentUserStatus: true }, { swipedUserStatus: true }],
       },
     },
+    include: [
+      {
+        model: MessagesModel,
+        order: [
+          ['createdAt', 'DESC'],
+        ],
+        limit: 1,
+      },
+    ],
   });
   // All the users ids involved in the machs minus the req.params.id (the current user)
   if (matchs.length !== 0) {
