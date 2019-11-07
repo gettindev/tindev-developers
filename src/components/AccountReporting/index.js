@@ -25,7 +25,7 @@ const AccountReporting = () => {
         </Form.Group>
       </Form>
       <Button 
-        variant="secondary" 
+        variant="outline-secondary" 
         size="lg"  
         className="confirmReport" block
         onClick={()=> console.log('utilisateur signalé')}>
