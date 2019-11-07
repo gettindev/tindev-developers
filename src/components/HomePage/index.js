@@ -14,13 +14,13 @@ import './homePage.scss';
 // == Composant
 const HomePage = () => (
     <div id="home">
-      <Carousel>   
-
+      <img
+        className="img-logo"
+        src="./src/data/logo-tindev-white-background.svg"
+        alt="logo"
+      />
+      <Carousel>  
         <Carousel.Item>
-          <img 
-          className="img-fluid"
-          src="./src/data/logo-tindev-white-background.svg"
-          />
           <img
             className="img-responsive"
             src="./src/data/pictures/homePage-mobile.jpg"
@@ -33,10 +33,6 @@ const HomePage = () => (
         </Carousel.Item>
 
         <Carousel.Item>
-          <img 
-          className="img-fluid"
-          src="./src/data/logo-tindev-white-background.svg"
-          />
           <img
             className="img-responsive"
             src="./src/data/pictures/side-project.jpg"
@@ -49,10 +45,6 @@ const HomePage = () => (
         </Carousel.Item>
 
         <Carousel.Item>
-          <img 
-          className="img-fluid"
-          src="./src/data/logo-tindev-white-background.svg"
-          />
           <img
             className="img-responsive"
             src="./src/data/pictures/bangkok-breakfast.jpg"
@@ -65,10 +57,6 @@ const HomePage = () => (
         </Carousel.Item>
 
         <Carousel.Item>
-          <img
-            className="img-fluid"
-            src="./src/data/logo-tindev-white-background.svg"
-          />
           <img
             className="img-responsive"
             src="./src/data/pictures/pizza.jpg"

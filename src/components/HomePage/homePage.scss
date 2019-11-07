@@ -7,6 +7,15 @@
   #home {
   font-family: 'Oswald', sans-serif;
 
+  .img-logo {
+    top: 2rem;
+    width: 13rem;
+    // margin: 0 0 0 5rem;
+    position: absolute;
+    z-index: 9999;
+    left: calc(50% - (13rem / 2))
+  }
+
   @media (min-width: $sm) {
     font-size: 1.2em;
   }
@@ -45,12 +54,7 @@
   }
 }
 
-.img-fluid {
-  top: 2rem;
-  width: 13rem;
-  margin: 0 0 0 5rem;
-  position: absolute;
-}
+
 
 .footerHome {
 
