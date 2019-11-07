@@ -44,11 +44,9 @@ const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
       <Container className="user-profil-navigation">
         <Row>
           <Col>
-            <Button size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
-            <Button as={Link}
-            to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
-            <Button as={Link}
-            to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
+            <Button as={Link} to="/preferences" size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
+            <Button as={Link} to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
+            <Button as={Link} to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
           </Col>
         </Row>
       </Container>

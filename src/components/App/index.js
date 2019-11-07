@@ -23,6 +23,7 @@ import Location from 'src/containers/Location/LocationContainer';
 import TermsOfUse from 'src/components/TermsOfUse';
 import HelpAndAssistance from 'src/components/HelpAndAssistance';
 import AccountReporting from 'src/components/AccountReporting';
+import MatchPreferences from 'src/components/MatchPreferences';
 
 // Import all Nav Components
 import Nav from 'src/components/Nav';
@@ -30,6 +31,7 @@ import NavBackLeft from 'src/components/Nav/NavBackLeft.js';
 import NavChat from 'src/components/Nav/NavChat.js';
 import NavBackRight from 'src/components/Nav/NavBackRight.js';
 import NavCloseRight from 'src/components/Nav/NavCloseRight.js';
+import NavCloseRightLogo from 'src/components/Nav/NavCloseRightLogo.js';
 
 
 // == Composant
@@ -102,7 +104,11 @@ const App = ({ logged, doRequest}) => {
             <Route exact path ="/reporting">
               <Nav />
               <AccountReporting />             
-            </Route>     
+            </Route>  
+            <Route exact path ="/preferences">
+            <NavCloseRightLogo />
+              <MatchPreferences />             
+            </Route>      
             <Route >
               <NotFound logged={logged}/>
             </Route>
