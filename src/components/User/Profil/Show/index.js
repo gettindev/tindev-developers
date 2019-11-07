@@ -19,12 +19,11 @@ const ShowUserProfil = ({ user }) => {
 
   // Destructor
   const {
-    avatar,
+    photo,
     firstName,
     lastName,
-    githubName,
   } = user;
-  const level = user.level === null ? 0 : user.level;
+  const levelId = user.levelId === null ? 0 : user.levelId;
   const biography = user.bio === null ? 'Pas de biographie pour cet utilisateur.' : user.bio;
 
   // I create a new tab with id and wish name ! //
@@ -36,9 +35,9 @@ const ShowUserProfil = ({ user }) => {
     <div className="show-profil">
       <Container>
         <section className="show-profil-info">
-          <img className="avatar" src={avatar} alt={`Avatar de ${firstName} ${lastName}`} height="120" width="120" />
+          <img className="avatar" src={photo} alt={`Avatar de ${firstName} ${lastName}`} height="120" width="120" />
           <h2>{`${firstName} ${lastName}`}</h2>
-          <h3>{userLevel[level].desc}{/*  <small>{githubName}</small> */}</h3>
+          <h3>{userLevel[levelId].desc}{/*  <small>{githubName}</small> */}</h3>
           <section className="show-profil-info-bio">
             <p>{biography}</p>
           </section>
@@ -66,11 +65,10 @@ const ShowUserProfil = ({ user }) => {
 
 ShowUserProfil.propTypes = {
   user: PropTypes.shape({
-    avatar: PropTypes.string,
+    photo: PropTypes.string,
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     level: PropTypes.number,
-    githubName: PropTypes.string,
     bio: PropTypes.string,
     wishes: PropTypes.array,
     technos: PropTypes.array,
@@ -87,11 +85,10 @@ ShowUserProfil.propTypes = {
 
 ShowUserProfil.defaultProps = {
   user: {
-    avatar: 'hello',
+    photo: 'hello',
     firstName: 'Not set',
     lastName: 'Not set',
     level: 0,
-    githubName: 'Not set',
     bio: 'Not set',
     wishes: 'Not set',
     technos: 'Not set',

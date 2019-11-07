@@ -14,7 +14,7 @@ const userEditMiddleware = (store) => (next) => (action) => {
       const id = localStorage.getItem('id');
       axios.get(`http://localhost:3001/profil/${id}`)
         .then((response) => {
-          console.log(response.data)
+          console.log(response.data);
           store.dispatch(changeState(response.data));
         }).catch((error) => {
           console.error(error);
@@ -30,8 +30,9 @@ const userEditMiddleware = (store) => (next) => (action) => {
         ...value,
       })
         .then((response) => {
-          console.log('ALORS >>>>>>', response.config.data);
+          // console.log('ALORS >>>>>>', response.config.data);
           store.dispatch(getMyInfos());
+          store.dispatch(changeState(response.config.data));
         }).catch((error) => {
           console.error(error);
         }).finally(() => {

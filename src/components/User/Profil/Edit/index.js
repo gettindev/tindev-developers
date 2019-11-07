@@ -30,8 +30,8 @@ class UserProfilEdit extends React.Component {
     photo: this.props.currentUser.avatar,
     firstName: this.props.currentUser.firstName,
     lastName: this.props.currentUser.lastName,
-    bio: this.props.currentUser.biography,
-    level: this.props.currentUser.level,
+    bio: this.props.currentUser.bio,
+    levelId: this.props.currentUser.levelId,
     technos: this.props.currentUser.technos,
     sharedUrl: this.props.currentUser.links,
     sharedNewUrl: '',
@@ -43,6 +43,7 @@ class UserProfilEdit extends React.Component {
     this.setState({
       [name]: value,
     });
+    console.log(this.state);
   }
 
   removeInArrayFromId = (identifier) => (event) => {
@@ -100,18 +101,20 @@ class UserProfilEdit extends React.Component {
       firstName,
       lastName,
       bio,
-      level,
+      levelId,
       technos,
       sharedNewUrl,
       sharedNewTitleUrl,
       sharedUrl,
     } = this.state;
+
+    console.log(levelId);
     return (
       <div className="edit-profil">
 
         <Container className="text-left">
           <Header userName={userName} avatar={photo} />
-          <Form >
+          <Form>
             <h5>Les infos de ton profil</h5>
             <Form.Group controlId="formFirstName">
               <Form.Label>Prénom</Form.Label>
@@ -138,7 +141,8 @@ class UserProfilEdit extends React.Component {
             <h5>Ton niveau d'XP en Dev.</h5>
             <Form.Group controlId="formLevel.ControlSelect">
               <Form.Label>Choisis ton niveau</Form.Label>
-              <Form.Control className="level-select" as="select" value={level} name="level" onChange={this.handleChange}>
+              {console.log('LEVEL ID FROM THE VUE: ', levelId)}
+              <Form.Control className="level-select" as="select" value={levelId} name="levelId" onChange={this.handleChange}>
                 <option id="level-select" value="0">Noobyist (1 ans et moins)</option>
                 <option id="level-select" value="1">Noob éclairé (1 à 2 ans)</option>
                 <option id="level-select" value="2">Stackover Pro (2 à 4 ans)</option>

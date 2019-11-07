@@ -69,8 +69,12 @@ router.get('/', (req, res) => {
 // INSERT User
 router.post('/', (req, res) => {
   const {
-    pseudo, firstName, lastName, token, levelId, photo, bio, url, mail, location,
+    pseudo, firstName, lastName, token, photo, bio, url, mail, location,
   } = req.body;
+
+  let { levelId } = req.body;
+
+  levelId = parseInt(levelId, 10);
 
   const user = {
     pseudo,
@@ -143,7 +147,7 @@ router.get('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   const { id } = req.params;
   const {
-    pseudo, firstName, lastName, token, experience, photo, bio, url, mail, location,
+    pseudo, firstName, lastName, token, levelId, photo, bio, url, mail, location,
   } = req.body;
 
   UserModel.update(
@@ -152,7 +156,7 @@ router.put('/:id', (req, res) => {
       firstName,
       lastName,
       token,
-      experience,
+      levelId,
       photo,
       bio,
       url,
