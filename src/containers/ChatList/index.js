@@ -16,7 +16,7 @@ import ChatList from 'src/components/ChatList';
  */
 const mapStateToProps = (state, ownProps) => ({
   mymatches: state.chatlistReducer.mymatches,
-//  matchlist: 'toto',
+  conversations: state.chatlistReducer.conversations,
 
 });
 

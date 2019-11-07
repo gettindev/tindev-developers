@@ -29,7 +29,7 @@ class Messages extends React.Component {
 
   render() {
     const { messages } = this.props;
-    // console.log('les messages sont la', messages);
+    console.log('les messages envoyes au composant', messages);
 
     return (
       <div

@@ -79,7 +79,7 @@ const matchingMiddleware = (store) => (next) => (action) => {
       console.log('J\'obtiens de nouveaux profils et je les envoient dans le state');
       axios.get('http://localhost:3001/profil')
       .then((response) => {
-            console.log('succès', response.data);
+            //console.log('succès', response.data);
             // je veux faire en sorte d'alimenter le state avec la réponse
             store.dispatch(setUsers(response.data));
             })

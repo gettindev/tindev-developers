@@ -6,6 +6,8 @@ import users from 'src/data/users';
 // == Initial State
 const initialState = {
   mymatches: '',
+ conversations: [],
+
   // users,
   // conversations,
 };
@@ -45,9 +47,9 @@ export const updateMatchList = (mymatches) => ({
   mymatches,
 });
 
-export const updateConversations = (messages) => ({
+export const updateConversations = (conversations) => ({
   type: UPDATE_CONVERSATIONS,
-  messages,
+  conversations,
 });
 
 

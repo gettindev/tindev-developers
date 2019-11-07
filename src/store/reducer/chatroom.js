@@ -7,7 +7,7 @@ export const initialState = {
   messageValue: '',
   currentId: 2,
   userId: 3,
-  currentUser: 'toto',
+  currentUser: 20,
 };
 
 // == Types
@@ -43,9 +43,7 @@ const chatroom = (state = initialState, action = {}) => {
     case UPDATE_MESSAGES: // messages fetched from DB sent to state
       return {
         ...state,
-        messages: [
-          action.messages,
-        ],
+        messages: [...action.messages],
       };
     default:
       return state;

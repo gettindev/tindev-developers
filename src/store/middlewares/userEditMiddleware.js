@@ -23,10 +23,10 @@ const userEditMiddleware = (store) => (next) => (action) => {
               });
         break;
       case SEND_REQUEST:
-            console.log("Une requête Ajax est envoyée pour mettre à jour la BDD");
+            //console.log("Une requête Ajax est envoyée pour mettre à jour la BDD");
             const value = action.userDatas;
             // Si j'utilise changeState ici, la mise à jour ne se fait pas....
-            console.log(value);
+            //console.log(value);
             break;
        default:
           next(action);
