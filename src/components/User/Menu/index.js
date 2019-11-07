@@ -1,5 +1,5 @@
 // == Import : npm
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdEdit, MdSettings } from 'react-icons/md';
 import {
   Container,
@@ -21,9 +21,12 @@ import './user-profil.scss';
 import Nav from 'src/components/Nav';
 
 // == Composant
-const UserProfil = ({ setLog }) => {
+const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
   // use the state instaid //
   const userName = 'Hello';
+
+ 
+  
   //
   return (
     <div className="user-profil">

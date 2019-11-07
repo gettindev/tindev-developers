@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
   prefs: state.page.prefs,
   loading : state.matching.loading,
   find: state.matching.find,
+  link : state.matching.link,
 });
 
 /* === Actions === */
