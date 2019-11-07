@@ -1,59 +1,45 @@
 @import 'src/styles/vars';
 
-// page
-#matchPreferences {
-  color: $textColor;
-  margin-top: 4rem;
+
+#matrix-re {
+  color: rgb(233, 233, 233);
+  padding: .5rem 0 0 0;
+  font-family: 'Oswald', sans-serif;
+
   font-size: 1.2em;
   text-align: center;
-  margin: 3rem 1rem 0 1rem;
 
   @media (min-width: $sm) {
       font-size: 1.8em;
   }
 
-  h3 {
-    font-size: 1.2em;
-    margin: 2.5rem 0 2rem 0;
-    color: $secondaryColor;
+
+  .h3 {
+    font-size: 1.3em;
+    color: $linkColor !important;
 
     @media (min-width: $sm) {
-      margin-top: 10rem;
-    }
+
+  }
   }
 
-  .camp {
-  margin-top: 3.5rem;
-  }
 
-  .prefButton {
-    margin-top: 1rem;
-    padding: 1.5rem;
-    justify-content: flex-start;
-    font-weight: bold;
-    background-color: $cardColor;
-
-    &:hover {
-      background-color: $eventColorBlue;
-      color: grey;
-    }
-  }
-
-  // button 'Sauvegarder'
-  .go {
-    margin: 3rem 0 1rem 0;
-    background-color: $linkColor;
-    color: $textColor;
-  
-  &:hover {
-    background-color: $eventColorBlue;
-    color: grey;
-    }
+  p {
+    font-size: 0.6em;
+    margin-bottom: 0;
   }
 }
 
-// grid of choice
+.what{
+  padding: .5rem 0 1rem 0;
+  font-size: 0.9em;
+  color: $linkColor;
+}
+
+#choice-re {
+
 #prefs {
+
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -61,10 +47,13 @@
   width: 100%;
   padding: 0 0 0 0.5rem;
   font-size: 0.7em;
+
   
   div {
     margin: 1rem;
-    background-color: $cardColor;
+    color: rgb(61, 61, 61);
+    background-color: rgb(214, 214, 214);
+    border : 1px solid $secondaryColor;  
     float: left;
     width: calc(33% - 8px);
     height: 6.5rem;
@@ -84,157 +73,49 @@
       );
     }
 
+    &:checked {
+      background-color: crimson;
+    }
+
     p {
       line-height: 6.5rem;
-      font-size: 0.9em;
+      font-size: 1em;
+          
     }
   }
 }
 
 
-//*****************************************************
+#next-re{
+  font-size: 1.4em;
+  color: $textColor;
+  
+  margin: auto;
+    &:hover {
+    color: $secondaryColor;
+    //background-color: $eventColorBlue;
+    }
+}
 
-//custom checkbox 
 
-.notifications {
 
-  text-align: left;
-  display: flex;
-  margin-bottom: 1rem;
-  
-  p {
-    font-size: 0.8em;
-    margin-left: 1rem;
-  }
+// Set the p who were choosen by the user
+.on {
+  color: $secondaryColor;
+  //background-color: $eventColorBlue;
+  background: repeating-linear-gradient(
+  45deg,
+  $primaryColor,
+  $primaryColor 10px,
+  $primaryColorVeryLight 10px,
+  $primaryColorVeryLight 30px
+  );
+}
 
-  *, *:before, *:after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-  
-  html {
-    font-size: 62.5%;
-  }
-  
-  body {
-    font: normal 1.6rem/1.6 'Work Sans', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  main {
-    flex-direction: column;
-  }
-  
-  .item {
-    align-self: stretch;
-    padding: 2rem 0;
-    text-align: center;
-    
-    &:not(:last-of-type) {
-      border-bottom: 1px solid #ccc;
-    }
-    
-    h3 {
-      margin: 0 0 10px 0;
-      font-weight: normal;
-      font-size: 1.8rem;
-      color: #666;
-    }
-  }
-  
-  $input-bg-static: $cardColor;
-  $input-bg-pseudo-active: $eventColorBlue;
-  $input-bg-pseudo-static: $linkColor;
-  $input-bg-light-active: $secondaryColor;
-  
-  $input-width: 3rem; // adjust only this number for dimensions
-  
-  $input-radius: calc( #{$input-width} / 2 );
-  $input-height: calc( #{$input-width} / 2 );
-  $input-light-dims: calc( #{$input-height} / 2.5 );
-  
-  .knob-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .light {
-    display: inline-block;
-    width: $input-light-dims;
-    height: $input-light-dims;
-    border-radius: 100%;
-    background-color: $input-bg-static;
-    margin: 0 0 0 1rem;
-    box-shadow: 0 0 0 .25rem darken($input-bg-static, 7.5%);
-    transition: background 400ms ease;
-  }
-  
-  input[type="checkbox"] {
-    position: relative;
-    appearance: none;
-    width: $input-width;
-    height: $input-height;
-    background-color: $input-bg-static;
-    border-radius: $input-radius;
-    outline: none; // bad accessibility
-    transition: background 450ms ease;
-    box-shadow: 0 0 0 3px darken($input-bg-static, 7.5%);
-    
-    &:before, &:after {
-      position: absolute;
-      display: block;
-      content: "";
-      border-radius: 100%;
-      transition:
-        background 450ms ease,
-        transform 450ms ease;
-    }
-    
-    &:before {
-      width: calc( #{$input-width} / 2 );
-      height: $input-height;
-      background-color: $input-bg-pseudo-static;
-    }
-    
-    // active state
-    &:checked {
-      
-      &:before {
-        background-color: $input-bg-pseudo-active;
-        transform: translateX(100%);
-      }
-    }
-    
-    // conic gradient
-    &.conic {
-      
-      transition:
-        background 450ms ease,
-        transform 450ms ease;
-      
-      &:before {
-        box-shadow: inset 0 0 0 3px darken($input-bg-pseudo-static, 20%);
-        background: conic-gradient(
-          $input-bg-pseudo-static,
-          darken($input-bg-pseudo-static, 20%)
-        );
-      }
-      
-      &:checked {
-        
-        &:before {
-          box-shadow: inset 0 0 0 3px darken($input-bg-pseudo-active, 20%);
-          background: conic-gradient(
-            $input-bg-pseudo-active,
-            darken($input-bg-pseudo-active, 20%)
-          );
-          transform: translateX(100%) rotate(360deg);
+img.matrix-img.img-fluid.rounded-circle {
+  width: 92px;
+
+          @media (min-width: $sm) {
+            width: 300px;
         }
-      }
-    }
-}
 }

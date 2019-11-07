@@ -1,95 +1,111 @@
 // == Import : npm
-import React from 'react';
+import React, { useState} from 'react';
+import { Link } from 'react-router-dom';
+import Image from 'react-bootstrap/Image';
 
+// imports styles
+import { Button } from 'react-bootstrap';
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import batman from 'src/data/batman.gif';
 // == Import : local
 import './matchPreferences.scss';
+
 
 // Bootstrap Components
 import { Button, Dropdown } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaGlobeEurope } from "react-icons/fa";
 
-// Component
-const MatchPreferences = ({ prefs }) => (
+
+// == Composant
+class MatchPreferences extends React.Component {
   
-  <>
-  <div id="matchPreferences">
-    <h3>Tu changes tes plans?</h3>
+  state = {
+    wishesArray: [],
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.wishesArray)
+  }
+
+  // Set the user prefs in the state
+  setPref = (value) => {
+    const array = this.state.wishesArray;
+   
+    // Create a bool
+    const elemSearching = (element) => {
+      // checks whether an element is even
+      return element === value;
+    };
     
-    <section id="prefs">
-      <div><p>#entraide</p></div>
-      <div><p>#discussion</p></div>
-      <div><p>#pizzas</p></div>
-    </section>
-    <section id="prefs">   
-      <div><p>#l'amour</p></div>
-      <div><p>#sideProject</p></div>
-      <div><p>#meetUp</p></div>
-    </section>  
-    <section id="prefs">  
-      <div><p>#job</p></div>
-      <div><p>#iHaveAnIdea</p></div>
-      <div><p>#whatever</p></div>
-    </section> 
-    <h3>Choisis ton camp:</h3>
-    <Button 
-      variant="primary" 
-      size="lg" 
-      className="prefButton" 
-      block>
-        <div className="camp_logo"><FaGlobeEurope /></div>
-          Wordwide
-    </Button>                      
-    <Dropdown>
-      <Dropdown.Toggle 
-      variant="info" 
-      size="lg" 
-      className="prefButton" 
-      block>
-        <div className="camp_logo"><FaMapMarkerAlt /></div>
-          Local
-      </Dropdown.Toggle>
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Auvergne-Rhône-Alpes</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Bourgogne-Franche-Comté</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Bretagne</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Centre-Val de Loire</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Corse</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Grand Est</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Hauts-de-France</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Île-de-France</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Normandie</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Nouvelle-Aquitaine</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Occitanie</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Pays de la Loire</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Provence-Alpes-Côte d'Azur</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Guadeloupe</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Martinique</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Guyane</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">La Réunion</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Mayotte</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-    <h3 className="camp">Notifications de match:</h3>
-    <div className="notifications">
-      <input className="conic" type='checkbox'></input>
-      <p>Être averti par e-mail.</p>
-    </div> 
-    <div className="notifications">
-      <input className="conic" type='checkbox'></input>
-      <p>Être averti par Push notif.</p>
-    </div> 
-    <Button 
-        variant="secondary"
-        size="lg"  
-        className="go" block
-        onClick={()=> console.log('prefs changées')}>
-        Sauvegarder
-    </Button>
-  </div>
-  
-</>
-  
-);
+
+    // If the selected pref is don't find in the array
+    if (!array.some(elemSearching)) {
+      return (
+        this.setState({
+        wishesArray: [...this.state.wishesArray,
+                  value]
+        })
+      ) 
+    // Then, do the opposite
+    } else {
+      const  newArray = array.filter(pref => pref !== value);
+      return (
+        this.setState({
+          wishesArray: newArray
+        })
+      )
+    }
+
+  }
+
+  // Get the user prefs
+  handlePref = (value, event) => {
+    this.setPref(value);
+    // Set the background Color
+    if (event.target.className === "off") {
+      return (
+            event.target.className = "on"
+      )
+    } else {
+      return (
+            event.target.className = "off"
+      )
+    }
+  }
+
+  handleState = () => {
+    const id = localStorage.getItem("id");
+    this.props.sendMyWish(this.state.wishesArray, id);
+  }
+  render() {
+  return (
+    <>
+    <div id="matrix-re">
+      <h3 className="h3">Envie de changement ?</h3>
+      <Image fluid roundedCircle className="matrix-img" src="src/data/batman.gif" />
+      <h4 className="what">On part sur quoi ?</h4>
+      <section id="choice-re">
+        {this.props.prefs.map((pref) =>
+          
+          <div className="choice-re-choice"onClick={() => this.handlePref(pref.id, event)} key={pref.id} >
+            <p className="off">{pref.choice}</p>
+          </div>
+
+        )}
+      </section> 
+      
+      <Button 
+      as={Link} 
+      to="/profil"
+       id="next-re"  
+      variant="Link"
+      onClick={() => this.handleState()}
+      >Sauvegarder <FaArrowAltCircleRight/></Button>
+    </div>
+    </>
+  )}
+};
+
 
 // == Export
 export default MatchPreferences;
