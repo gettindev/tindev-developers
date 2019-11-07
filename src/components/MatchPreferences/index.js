@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 
 // imports styles
-import { Button } from 'react-bootstrap';
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import batman from 'src/data/batman.gif';
 // == Import : local
