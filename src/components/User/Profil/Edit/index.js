@@ -27,7 +27,7 @@ import Header from './Header';
 class UserProfilEdit extends React.Component {
 
   state = {
-    photo: this.props.currentUser.avatar,
+    photo: this.props.currentUser.photo,
     firstName: this.props.currentUser.firstName,
     lastName: this.props.currentUser.lastName,
     bio: this.props.currentUser.bio,
@@ -113,7 +113,7 @@ class UserProfilEdit extends React.Component {
       <div className="edit-profil">
 
         <Container className="text-left">
-          <Header userName={userName} avatar={photo} />
+          <Header userName={userName} photo={photo} />
           <Form>
             <h5>Les infos de ton profil</h5>
             <Form.Group controlId="formFirstName">

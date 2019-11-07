@@ -5,7 +5,7 @@ import wishesTable from 'src/data/wishes-table';
 const initialState = {
   firstName: 'D',
   lastName: 'T',
-  avatar: 'https://avatars1.githubusercontent.com/u/1433968',
+  photo: 'https://upload.wikimedia.org/wikipedia/en/2/26/Sun-emc-squared.jpg',
   githubName: 'regulardesigner',
   bio: "I'm a designer trying to become developer after 12 years designing website and mobile apps.",
   levelId: 0,

@@ -24,7 +24,7 @@ import Nav from 'src/components/Nav';
 const UserProfil = ({ user, setLog, getMyInfos }) => {
   // use the state instaid //
   const userName = `${user.firstName} ${user.lastName}`;
-  const githubAvatar = user.avatar;
+  const githubAvatar = user.photo;
   useEffect(() => {
     getMyInfos();
   }, []);

@@ -12,6 +12,7 @@ const TechModel = require('../models/tech');
 const UserModel = require('../models/user');
 const LevelModel = require('../models/level');
 const UserWishes = require('../models/user_wishes');
+const UserTechs = require('../models/user_techs');
 
 
 UserModel.belongsToMany(WishModel, {
@@ -204,7 +205,8 @@ router.get('/settings/:id', (req, res) => {
 router.post('/settings/:id', (req, res) => {
   const { id } = req.params;
   const updatedWishes = req.body.wishesArray;
-  const { location } = req.body;
+  const udatesTechs = req.body.techsArray;
+  const { location } = req.body.location;
 
   const bulkCreator = (userIdentifier, array) => {
     const generateBulkCreate = array.map(
