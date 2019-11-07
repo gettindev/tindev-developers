@@ -1,9 +1,11 @@
 @import 'src/styles/vars';
 
+
 #matrix-re {
   color: rgb(233, 233, 233);
   padding: .5rem 0 0 0;
   font-family: 'Oswald', sans-serif;
+
   font-size: 1.2em;
   text-align: center;
 
@@ -11,13 +13,16 @@
       font-size: 1.8em;
   }
 
+
   .h3 {
     font-size: 1.3em;
     color: $linkColor !important;
+
     @media (min-width: $sm) {
 
   }
   }
+
 
   p {
     font-size: 0.6em;
@@ -32,6 +37,9 @@
 }
 
 #choice-re {
+
+#prefs {
+
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -76,6 +84,7 @@
     }
   }
 }
+
 
 #next-re{
   font-size: 1.4em;

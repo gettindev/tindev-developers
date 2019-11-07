@@ -1,6 +1,7 @@
 // == Initial State
 const initialState = {
   message: 'Hello',
+  currentUser: '',
 };
 
 // == Types

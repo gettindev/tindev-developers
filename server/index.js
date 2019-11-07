@@ -62,7 +62,11 @@ let id = 0;
 
 io.on('connection', (socket) => {
   socket.on('send_message', (message) => {
+    console.log('send message:', message);
     message.id = ++id;
+    console.log('send message apres id++', message);
+
+
     io.emit('send_message', { message });
   });
 });

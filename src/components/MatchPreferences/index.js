@@ -11,6 +11,11 @@ import batman from 'src/data/batman.gif';
 import './matchPreferences.scss';
 
 
+// Bootstrap Components
+import { Button, Dropdown } from 'react-bootstrap';
+import { FaMapMarkerAlt, FaGlobeEurope } from "react-icons/fa";
+
+
 // == Composant
 class MatchPreferences extends React.Component {
   
@@ -32,6 +37,7 @@ class MatchPreferences extends React.Component {
       return element === value;
     };
     
+
     // If the selected pref is don't find in the array
     if (!array.some(elemSearching)) {
       return (
@@ -99,6 +105,7 @@ class MatchPreferences extends React.Component {
     </>
   )}
 };
+
 
 // == Export
 export default MatchPreferences;
