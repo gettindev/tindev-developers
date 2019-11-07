@@ -1,13 +1,13 @@
 @import 'src/styles/vars';
 
 .user-profil{
-  // background: repeating-linear-gradient(
-  // 45deg,
-  // $primaryColor,
-  // $primaryColor 10px,
-  // $primaryColorVeryLight 10px,
-  // $primaryColorVeryLight 30px
-  // );
+  background: repeating-linear-gradient(
+  45deg,
+  $primaryColor,
+  $primaryColor 10px,
+  $primaryColorVeryLight 10px,
+  $primaryColorVeryLight 30px
+  );
   min-height: 92vh;
   height: 100%;
   display: flex;
@@ -26,9 +26,10 @@
       margin-bottom: 1rem;
     }
     &--edit-link{
-      font-size:1em;
+      font-size:1.2em; 
     }
   }
+
   &-navigation{
     .btn{
       font-size: 1em;

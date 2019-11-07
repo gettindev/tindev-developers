@@ -37,7 +37,7 @@ const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
             <NavLink to ="/profil/show"><Image className="user-profil-info-avatar" src="http://placeimg.com/100/100/people" roundedCircle /></NavLink>
             <p><MdEdit /><a className="user-profil-info--edit-link" 
             href="#">
-            <NavLink to ="/profil/edit">Édites ton profil</NavLink></a></p>
+            <NavLink to ="/profil/edit"> Édites ton profil</NavLink></a></p>
           </Col>
         </Row>
       </Container>
