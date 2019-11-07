@@ -59,23 +59,23 @@ const ShowUserProfil = ({ user }) => {
 
 ShowUserProfil.propTypes = {
   user: PropTypes.shape({
-    avatar: PropTypes.string.isRequired,
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
-    level: PropTypes.number.isRequired,
-    githubName: PropTypes.string.isRequired,
-    biography: PropTypes.string.isRequired,
-    wishes: PropTypes.array.isRequired,
-    technos: PropTypes.array.isRequired,
+    avatar: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    level: PropTypes.number,
+    githubName: PropTypes.string,
+    biography: PropTypes.string,
+    wishes: PropTypes.array,
+    technos: PropTypes.array,
     links: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
+        id: PropTypes.number,
+        title: PropTypes.string,
+        url: PropTypes.string,
       }),
-    ).isRequired,
-    levelsList: PropTypes.array.isRequired,
-  }).isRequired,
+    ),
+    levelsList: PropTypes.array,
+  }),
 };
 
 export default ShowUserProfil;

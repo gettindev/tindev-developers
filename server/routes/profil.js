@@ -4,6 +4,8 @@ const router = express.Router();
 
 const Sequelize = require('sequelize');
 
+const db = require('../config/database');
+
 // const UserModel = require('../static/users');
 const WishModel = require('../models/wish');
 const TechModel = require('../models/tech');
@@ -37,7 +39,29 @@ UserModel.belongsTo(LevelModel, { // will add levelId to UserModel
 
 // FETCH All users
 router.get('/', (req, res) => {
-  UserModel.findAll().then((users) => {
+  UserModel.findAll({
+    include: [
+      {
+        model: WishModel,
+        attributes: ['id', 'name'],
+        through: {
+          attributes: [],
+        },
+      },
+      {
+        model: TechModel,
+        attributes: ['id', 'name'],
+        through: {
+          attributes: [],
+        },
+      },
+      {
+        model: LevelModel,
+      },
+    ],
+    limit: 5,
+    order: db.random(),
+  }).then((users) => {
     res.status(200).json(users);
   });
 });

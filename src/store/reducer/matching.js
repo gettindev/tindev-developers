@@ -6,6 +6,7 @@ const initialState = {
   users : user,
   loading: null,
   find: null,
+  link: false,
 };
 
 // == Types
@@ -18,6 +19,7 @@ export const USER_NOT_FIND = 'USER_NOT_FIND';
 export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
 export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
 export const SET_USERS = 'SET_USERS';
+export const SET_LINK = 'SET_LINK';
 
 // == Reducer
 const matching = (state = initialState, action = {}) => {
@@ -45,7 +47,12 @@ const matching = (state = initialState, action = {}) => {
     case SET_USERS:
       return {
         ...state,
-        users: actions.users
+        users: action.users
+      }
+    case SET_LINK:
+      return {
+        ...state,
+        link: true,
       }
     default:
       return state;
@@ -84,12 +91,20 @@ export const setLoadingFalse = () => ({
   type: SET_LOADING_FALSE
 })
 
-export const doLike = () => ({
+export const doLike = (currentUserId, swipeId) => ({
   type: DO_LIKE,
+  currentUserId,
+  swipeId
 })
 
-export const doUnlike = () => ({
+export const doUnlike = (currentUserId, swipeId) => ({
   type: DO_UNLIKE,
+  currentUserId,
+  swipeId
+})
+
+export const setLink = () => ({
+  type: SET_LINK,
 })
 
 

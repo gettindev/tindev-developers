@@ -1,9 +1,10 @@
 // == Import : npm
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import Image from 'react-bootstrap/Image';
 import { TiArrowBack, TiArrowForward } from 'react-icons/ti';
+import  user  from 'src/data/user.js';
 
 // == Import : local
 import Mod from './Modal';
@@ -14,14 +15,12 @@ import './style/card.scss';
 // == Composant
 class Matching extends Component {
   // Local State
+
   state = {
-    display: this.props.users[0], /* display element */
-    index: (this.props.users.length) - (this.props.users.length), /* index of the display element */
-    userLength: this.props.users.length - 1,
     end: false, /* If the user has ended matching profiles */
     modalShow: false,
   }
-
+  
   componentDidMount() {
     console.log("la partie matching vient d'être créée");
     this.props.getUsers();
@@ -45,32 +44,33 @@ class Matching extends Component {
         this.getProfils();
       }
     }
-  }
 
+  }
+  
   /* Func to get new profiles */
-  getProfils = () => {
-    console.log("Envoi d'une requête Ajax");
-    this.props.getUsers();
+  // getProfils = () => {
+  //   console.log("Envoi d'une requête Ajax");
+  //   this.props.getUsers();
+  // }
+
+  setGlobalStateOfUsers = (id) => {
+    this.props.setUsers(this.props.users.filter((user) => user.id !== id))
   }
 
   /* like an user */
-  likeProfil = () => {
-    console.log('Like done');
+  likeProfil = (myId, hisId) => {
     const { doLike } = this.props;
 
     if (this.state.end !== true) {
-      doLike();
+      doLike(myId, hisId);
     }
   }
 
   /* Unlike an user */
-  unlikeProfil = () => {
-    console.log('Unlike done');
+  unlikeProfil = (myId, hisId) => {
     const { doUnlike } = this.props;
 
-    if (this.state.end !== true) {
-      doUnlike();
-    }
+    doUnlike(myId, hisId);
   }
 
   /* Open the Modal */
@@ -95,37 +95,30 @@ class Matching extends Component {
     const {
       display, index, userLength, end, modalShow,
     } = this.state;
-    let userIndex = this.props.users.indexOf(display);
+    const currentUserId = localStorage.getItem('id');
+    let userIndex = index;
     /* console.log(index, end); */
     return (
 
-
+      
       <SwipeableList>
+        {this.props.users.map((user) => (
         <SwipeableListItem
+          key={user.id}
           swipeLeft={{
             content: <Image roundedCircle className="right" src="src/data/glass.gif" />,
             action: () => (
               console.info('swiped on left'),
-              this.setState({
-                ...this.state,
-                display: this.props.users[userIndex = userIndex < userLength ? userIndex + 1 : userIndex],
-                index: index + 1,
-              }),
-              this.checkEnd(),
-              this.unlikeProfil()
+              this.setGlobalStateOfUsers(user.id),
+              this.unlikeProfil(currentUserId, user.id)
             ),
           }}
           swipeRight={{
             content: <Image roundedCircle className="right" src="src/data/beer.gif" />,
             action: () => (
-              console.info('swiped on right'),
-              this.setState({
-                ...this.state,
-                display: this.props.users[userIndex = userIndex < userLength ? userIndex + 1 : userIndex],
-                index: index + 1,
-              }),
-              this.checkEnd(),
-              this.likeProfil()
+              console.info('swiped on left'),
+              this.setGlobalStateOfUsers(user.id),
+              this.likeProfil(currentUserId, user.id)
             ),
           }}
         >
@@ -139,16 +132,16 @@ class Matching extends Component {
                   <Image
                     roundedCircle
                     className="card-img-responsive"
-                    alt={display.img.alt}
-                    src={display.img.src}
+                    alt={user.firstName}
+                    src={user.photo}
                   />
                   <div className="card-top">
-                    <div className="card-top-name">{display.name}</div>
-                    <div className="card-top-exp">{display.exp}</div>
+                    <div className="card-top-name">{user.firstName}</div>
+                    <div className="card-top-exp">{user.levelId}</div>
                   </div>
                   <div className="card-content">
-                    <p className="card-content-bio">Bio: {display.bio}</p>
-                    <button
+                    <p className="card-content-bio">Bio: {user.bio}</p>
+                    {/* <button
                       className="card-content-btn"
                       onClick={() => this.setModalShow()}
                     >Voir le profil complet
@@ -156,29 +149,22 @@ class Matching extends Component {
                     <Mod
                       show={modalShow}
                       onHide={() => this.unsetModalShow()}
-                      currentuser={display}
-                    />
-                    <div className="card-content-tech">{display.tech}</div>
+                      currentuser={user}
+                    /> */}
+                    {/* <div className="card-content-tech">{display.tech}</div> */}
                   </div>
-                  <div className="card-tag">{display.tag}</div>
+                  {/*<div className="card-tag">{display.tag}</div>*/}
                   <div className="footer"><TiArrowBack className="footer-left" />SWIPE<TiArrowForward className="footer-right" /></div>
                 </>
               )}
-
-            {/* The card when list of cards is ended */}
-            {end
-              && (
-                <div className="card-special">
-                  <p className="card-content-bio-end">Plus de profil à proximité..</p>
-                  <Image fluid roundedCircle className="right" src="src/data/kid.gif" />
-                  <p className="card-content-bio-end">Nous en recherchons au plus vite..</p>
-                </div>
-              )}
           </div>
-
-
         </SwipeableListItem>
-
+        ))}
+        <div className="card-special">
+                  <p className="card-special-p">Plus de profil à proximité..</p>
+                  <Image fluid roundedCircle className="card-special-img" src="src/data/kid.gif" />
+                  <p className="card-special-p">Nous en recherchons au plus vite..</p>
+        </div>
       </SwipeableList>
     );
   }

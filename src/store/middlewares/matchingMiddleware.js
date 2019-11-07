@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 // Import actions
 import {
- DO_REQUEST, DO_LIKE, DO_UNLIKE, getUsers, userNotFind, setLoadingFalse, GET_USERS, setUsers
+ DO_REQUEST, DO_LIKE, DO_UNLIKE, getUsers, userNotFind, setLoadingFalse, GET_USERS, setUsers, setLink
 } from 'src/store/reducer/matching.js';
 import { GET_USERFIND } from 'src/store/reducer/pageReducer';
 import { setLog } from 'src/store/reducer/app.js';
@@ -22,58 +22,72 @@ const matchingMiddleware = (store) => (next) => (action) => {
       axios.post('http://localhost:3001/profil/exist', {
       mail: action.email
       }).then((response) => {
-        console.log(response.data)
-            if (response.data.length ) {
-              return (
-                store.dispatch(setLog(true)),
-                localStorage.setItem('logged', true),
-                // Ajouter la valeur de son ID dans le localStorage
-                console.log(response.data.id),
-                //localStorage.setItem('id', response.data.id)
-                window.location.replace("/matching")
-              )
-            } else
-          return (
-            store.dispatch(userNotFind()),
-            store.dispatch(setLoadingFalse())
-          )
-          }).catch((error) => {
-          console.error(error);
-          }).finally(() => {
-            
-            });
+              if (response.data.length ) {
+                return (
+                  store.dispatch(setLog(true)),
+                  store.dispatch(getUsers()),
+                  localStorage.setItem('logged', true),
+                  // Ajouter la valeur de son ID dans le localStorage
+                  localStorage.setItem('id', response.data[0].id),
+                  //localStorage.setItem('start', true),
+                  window.location.replace("/profil")  
+                )
+              } else
+            return (
+              store.dispatch(userNotFind()),
+              store.dispatch(setLoadingFalse())
+            )
+            }).catch((error) => {
+            console.error(error);
+            }).finally(() => {
+              
+             });
       // userNotFind();
       // setLoadingFalse();
       break;
       case DO_LIKE:
       console.log('Cet utilisateur est envoyé dans mes profils likés');
-      // axios.get('http://localhost:3001/profil')
-      // .then((response) => {
-      //       console.log('succès', response.data);
-      //       // je veux faire en sorte d'alimenter le state avec la réponse
-      //       })
-      //       .catch((error) => {
-      //       console.error(error);
-      //       })
-      //       .finally(() => {
-      //       });
+      axios.post('http://localhost:3001/matching/yep', {
+          currentId : action.currentUserId,
+          swipedId : action.swipeId    
+      }).then((response) => {
+            console.log('succès', response.data);
+            // je veux faire en sorte d'alimenter le state avec la réponse
+            })
+            .catch((error) => {
+            console.error(error);
+            })
+            .finally(() => {
+            });
       break;
     case DO_UNLIKE:
-      console.log('Cet utilisateur est envoyé dans mes profils Dislikés');
+      console.log('Cet utilisateur est envoyé dans mes profils Dislikés')
+      axios.post('http://localhost:3001/matching/nope', {
+        currentId : action.currentUserId,
+        swipedId : action.swipeId    
+    }).then((response) => {
+          console.log('succès', response.data);
+          // je veux faire en sorte d'alimenter le state avec la réponse
+          })
+          .catch((error) => {
+          console.error(error);
+          })
+          .finally(() => {
+          });
       break;
     case GET_USERS:
       console.log('J\'obtiens de nouveaux profils et je les envoient dans le state');
-      // axios.get('http://localhost:3001/profil')
-      // .then((response) => {
-      //       console.log('succès', response.data);
-      //       // je veux faire en sorte d'alimenter le state avec la réponse
-      //       setUsers(response)
-      //       })
-      //       .catch((error) => {
-      //       console.error(error);
-      //       })
-      //       .finally(() => {
-      //       });
+      axios.get('http://localhost:3001/profil')
+      .then((response) => {
+            console.log('succès', response.data);
+            // je veux faire en sorte d'alimenter le state avec la réponse
+            store.dispatch(setUsers(response.data));
+            })
+            .catch((error) => {
+            console.error(error);
+            })
+            .finally(() => {
+            });
       break;
     case SEND_DATAS:
         console.log('j\'envois les données', action.datas);
@@ -87,7 +101,7 @@ const matchingMiddleware = (store) => (next) => (action) => {
             localStorage.setItem('logged', true);
             //store.dispatch(sendGo(response.data.id));
             axios.post(`http://localhost:3001/profil/settings/${response.data.id}`, {wishesArray:wishes});
-            window.location.replace("/matching")
+            window.location.replace("/profil")
             })
             .catch((error) => {
             console.error(error);

@@ -1,5 +1,5 @@
 // == Import : npm
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdEdit, MdSettings } from 'react-icons/md';
 import {
   Container,
@@ -21,9 +21,12 @@ import './user-profil.scss';
 import Nav from 'src/components/Nav';
 
 // == Composant
-const UserProfil = ({ setLog }) => {
+const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
   // use the state instaid //
-  const userName = 'myGithubName';
+  const userName = 'Hello';
+
+ 
+  
   //
   return (
     <div className="user-profil">
@@ -41,11 +44,9 @@ const UserProfil = ({ setLog }) => {
       <Container className="user-profil-navigation">
         <Row>
           <Col>
-            <Button size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
-            <Button as={Link}
-            to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
-            <Button as={Link}
-            to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
+            <Button as={Link} to="/preferences" size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
+            <Button as={Link} to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
+            <Button as={Link} to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
           </Col>
         </Row>
       </Container>
@@ -55,7 +56,7 @@ const UserProfil = ({ setLog }) => {
             <Button 
              onClick={() => {
               firebase.auth().signOut().then(function() {
-              localStorage.removeItem('logged');
+              localStorage.clear();
               window.location.replace("/");
             }, function(error) {
               console.error('Sign Out Error', error);
