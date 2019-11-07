@@ -94,11 +94,11 @@ const App = ({ logged, doRequest}) => {
               <Form />
             </Route>
             <Route exact path ="/termsOfUse">
-              <Nav />
+              <NavCloseRightLogo />
               <TermsOfUse />             
             </Route>
             <Route exact path ="/help">
-              <Nav />
+              <NavCloseRightLogo />
               <HelpAndAssistance />             
             </Route>
             <Route exact path ="/reporting">

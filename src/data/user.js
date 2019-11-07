@@ -1,25 +1,21 @@
 const user = [
-  {
-    id: null,
-    firstName: "Jean-claude",
-    location : "Paris",
-    photo : "src/data/girl.jpg",
-    levelId: 1,
-    bio : "qdjnsqjdhdqdjsqhdlsqdqhdldhhdldqhfqlfhqslfhqlfhqslfhqlfqslfqhfqlfhqslfhqslfqhfqflhqfqsfqqFFSQfFFsqffqsfqsFSQfqffqfqfsqfFQFqsfqFQFqfqfFQFFFfFQFqsFFSQSfqfSQFqfqFQFQfqfFFF",
-    tech : "JS REACT REDUX",
-    tag : "#amour #entraide",
-    url : [
-      {
-        href : "www.google.com",
-        name : "Google"
-      },
-      {
-        href : "www.github.com",
-        name : "My Project"
-      }
-    ],
-  }
-]
+  {"id":15,
+  "firstName":"",
+  "lastName":null,
+  "token":null,
+  "pseudo":null,
+  "levelId":null,
+  "photo":null,
+  "bio":"LA PAGE VIENT D'ÊTRE RAFRAICHIE ? LES PROFILS ARRIVENT !",
+  "url":null,
+  "mail":null,
+  "location":"Dans les méandres du code",
+  "createdAt":null,
+  "updatedAt":null,
+  "wishes":[],
+  "techs":[],
+  "level":[]
+}]
 
 
 export default user;
