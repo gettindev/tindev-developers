@@ -30,13 +30,14 @@
   & .message-preview-container {
     padding: 0.6em;
     color: $textColor;
-    line-height: 0.9em;
+    line-height: 1.3em;
     vertical-align: middle;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    font-size: 1rem;
+    font-size: .8rem;
+    word-spacing: -0.3rem;
   }
 }
