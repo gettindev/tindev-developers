@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Form from 'src/components/ChatRoom/Form';
 
+import { addMessage } from 'src/store/reducer/chatroom';
 
 const mapStateToProps = (state) => {
   // console.log('mSTP called, props redistribuées, nouveau cycle de rendu');
@@ -20,10 +21,8 @@ const mapDispatchToProps = (dispatch) => ({
     };
     dispatch(action);
   },
-  sendMessage: () => {
-    const action = {
-      type: 'ADD_MESSAGE',
-    };
+  addMessage: (message, currentId) => {
+    const action = addMessage(message, currentId);
     dispatch(action);
   },
 });

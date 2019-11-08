@@ -83,7 +83,7 @@
             /* Regroup the bio, button and techs / On middle of the card */
             &-content {
               width: 90%;
-              height: 60%;
+              height: 66.4%;
               margin: -4.3% auto; 
               background-color: #8C99A6;
               border-radius: 5px;
@@ -101,7 +101,7 @@
                         height: 30%;
                         color: #fff !important;
                         overflow-wrap: break-word;
-
+                        padding-bottom: 6rem;
 
                             &-end {
 
@@ -112,37 +112,18 @@
                               padding-left: 0.7rem;
                             }
                       }
-          
-                      &-btn {
-                        background-color: $linkColor !important;
-                        color: white !important;
-                        padding: 0.2rem;
-                        border-radius: 5px;
-                        border: 0;
-                        position: relative;
-                        font-size: 0.8rem !important;
-                        margin-top: 6rem;
-                        width: 100%;
-                        text-align: center;
-                    
-                          @media screen and (device-aspect-ratio: 40/71){
-                          font-size: 0.7rem !important;
-                          margin-top: 6rem;
-                          }
-                      
-                          @media screen and (min-width: 425px) {
-                          margin: 37% auto 3%;
-                        }
-                      }
-          
 
                       &-tech {
                         color: black;
-                        font-size: 0.8rem;
-                        position: relative;
-                        text-align: center;
+                        font-size: .8rem;
                         margin-top: 0.2rem;
-
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        align-items: baseline;
+                        align-content: stretch;
+                        margin-bottom: .6rem;
                           @media screen and (device-aspect-ratio: 40/71){
                           font-size: 0.7rem !important;
                           }
@@ -214,6 +195,37 @@ padding: 0.5rem;
   color: white;
   text-align: center;
   margin-top: 3rem;
+}
+
+.card-wishes {
+  margin-top: .6rem;
+  font-size: .8rem;
+  color: $secondaryColor;
+  overflow-wrap: break-word;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: baseline;
+	align-content: stretch;
+}
+
+.mod-body-loc {
+
+    color: $linkColor;
+    font-size: .8rem;
+}
+
+.mod-body-pseudo {
+
+  color: $primaryColorVeryLight;
+  font-size: .8rem;
+  margin-bottom: .6rem;
+}
+
+p ~ div {
+  font-style: italic;
+  font-weight: bold;
 }
 
 

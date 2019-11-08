@@ -1,6 +1,6 @@
 // == Import : npm
-import React, { useEffect } from 'react';
-import { MdEdit, MdSettings } from 'react-icons/md';
+import React, { useState, useEffect } from 'react';
+import { MdEdit, MdSettings, MdPlace } from 'react-icons/md';
 import {
   Container,
   Row,
@@ -28,6 +28,8 @@ const UserProfil = ({ user, setLog, getMyInfos }) => {
   useEffect(() => {
     getMyInfos();
   }, []);
+
+ 
   //
   return (
     <div className="user-profil">
@@ -35,14 +37,17 @@ const UserProfil = ({ user, setLog, getMyInfos }) => {
         <Row>
           <Col>
             <h2 className="user-profil-info-user-name">{userName}</h2>
+
             <NavLink to="/profil/show"><Image width="150" className="user-profil-info-avatar" src={githubAvatar} roundedCircle /></NavLink>
-            <p><MdEdit /><NavLink to="/profil/edit" className="user-profil-info--edit-link">Édites ton profil</NavLink></p>
+            <Button as={Link} to="/profil/edit" type="submit" block size="sm" variant="primary"><MdEdit className="icon" /> Editer mon profil</Button>
+
           </Col>
         </Row>
       </Container>
       <Container className="user-profil-navigation">
         <Row>
           <Col>
+            <Button as={Link} to="/my-pref" size="lg" variant="primary" block><MdPlace className="icon" /> Localisation</Button>
             <Button as={Link} to="/preferences" size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
             <Button as={Link} to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
             <Button as={Link} to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>
