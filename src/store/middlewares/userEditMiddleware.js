@@ -94,7 +94,6 @@ const userEditMiddleware = (store) => (next) => (action) => {
             }).finally(() => {
           
             });
-              console.log(action.t)
             break;
        default:
           next(action);
