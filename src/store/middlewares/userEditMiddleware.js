@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Import actions
-import { GET_MY_INFOS, GET_TECHS, setTechs, changeState, getMyInfos } from 'src/store/reducer/user';
+import { GET_MY_INFOS, GET_TECHS, setTechs, changeState, getMyInfos, SEND_MY_TECHS } from 'src/store/reducer/user';
 import { SEND_REQUEST, SEND_MY_WISH, SEND_MY_LOC } from 'src/store/reducer/userEdit.js';
 
 const userEditMiddleware = (store) => (next) => (action) => {
@@ -70,15 +70,31 @@ const userEditMiddleware = (store) => (next) => (action) => {
             //   });
             break;
         case GET_TECHS:
-            axios.get(`http://localhost:3001/tech/`)
+            console.log("je veux avoir les techs")
+            axios.get(`http://localhost:3001/tech`)
               .then((response) => {
+                console.log('TECHS RESPONSE: ', response.data);
               store.dispatch(setTechs(response.data));
-              console.log('TECHS RESPONSE: ', response.data);
+              
               }).catch((error) => {
               console.error(error);
               }).finally(() => {
             
               });
+            break;
+        case SEND_MY_TECHS:
+            axios.post(`http://localhost:3001/profil/settings/techs/${action.userId}`, {
+              techsArray : action.t
+            })
+            .then((response) => {
+              console.log('TECHS RESPONSE: ', response.data);
+            
+            }).catch((error) => {
+            console.error(error);
+            }).finally(() => {
+          
+            });
+              console.log(action.t)
             break;
        default:
           next(action);

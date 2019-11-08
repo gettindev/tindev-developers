@@ -6,7 +6,7 @@ import EditUserProfil from 'src/components/User/Profil/Edit';
 
 // Action Creators
 import { sendRequest } from 'src/store/reducer/userEdit';
-import { changeState } from 'src/store/reducer/user';
+import { changeState, sendMyTechs } from 'src/store/reducer/user';
 import { getMyInfos } from 'src/store/reducer/user';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -28,6 +28,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     const action = getMyInfos();
     dispatch(action);
   },
+  sendMyTechs: (t, userId) => {
+    const action = sendMyTechs(t, userId);
+    dispatch(action);
+  }
 });
 
 // Container

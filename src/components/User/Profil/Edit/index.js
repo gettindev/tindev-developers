@@ -2,6 +2,7 @@
 import React from 'react';
 // this one generate warnings in the console because using componentWillReceiveProps()
 import { Typeahead } from 'react-bootstrap-typeahead';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 // == Import : local
@@ -38,9 +39,16 @@ class UserProfilEdit extends React.Component {
     sharedNewTitleUrl: '',
   }
 
-  componentDidUpdate(){
-    console.log('TECHNOS >>>> ', this.props.currentUser.techs);
-  };
+  // componentDidMount(){
+  //   console.log('TECHNOS >>>> ', this.props.currentUser.techsBDD)
+  //   const techsOfBdd = this.props.currentUser.techsBDD.map((tech) => tech.name);
+  //   console.log("mon tableau de Techs", techsOfBdd)
+  // };
+    componentDidUpdate() {
+      
+      console.log("Mes technos choisies:",this.state.technos)
+    }
+
 
   handleTechsGetInfo = () => {
     //const techs = this.props.currentUser.techs;
@@ -103,6 +111,14 @@ class UserProfilEdit extends React.Component {
     //changeState(currentUserDatas);
   }
 
+  handleTech = (name) => {
+    let nameTech = name;
+    let filterTech = this.props.currentUser.techsBDD.filter((tech)  => nameTech.includes(tech.name));
+    let filtered = filterTech.map((tech) => tech.id)
+    const userId = localStorage.getItem("id");
+    this.props.sendMyTechs(filtered, userId);
+  }
+
   render() {
     const userName = 'myGithubName';
     const {
@@ -116,7 +132,8 @@ class UserProfilEdit extends React.Component {
       sharedNewTitleUrl,
       sharedUrl,
     } = this.state;
-
+    const techsOfBdd = this.props.currentUser.techsBDD.map((tech) => tech.name);
+    const techsIdOfBdd = this.props.currentUser.techsBDD.map((tech) => tech.id);
     return (
       <div className="edit-profil">
 
@@ -162,9 +179,9 @@ class UserProfilEdit extends React.Component {
               <Typeahead
                 className="technosChoiceField"
                 multiple
-                onChange={(technos) => { this.setState({ technos }); }}
+                onChange={(value) => { this.handleTech(value) }}
                 selected={technos}
-                options={[...this.props.currentUser.techs.name]}
+                options={techsOfBdd}
                 name="technos"
                 id="formTechnos"
               />
@@ -191,7 +208,7 @@ class UserProfilEdit extends React.Component {
                 })}
               </ul>
             </Form.Group> */}
-            <Button className="mb-10" onClick={this.handleSubmit} block className="btn-mycolor" type="submit">Sauvegarder</Button>
+            <Button as={Link} to="/profil" className="mb-10" onClick={this.handleSubmit} block className="btn-mycolor" type="submit">Sauvegarder</Button>
           </Form>
           <Row>
             <Col className="mt-5">

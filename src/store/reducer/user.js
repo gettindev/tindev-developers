@@ -11,7 +11,7 @@ const initialState = {
   levelId: 0,
   location: '',
   wishes: [],
-  techs: [],
+  techsBDD: [],
   wishedId: [0, 3, 8],
   technos: ['ES6', 'JSX', 'React', 'Redux', 'HTML5', 'CSS3'],
   links: [
@@ -28,6 +28,7 @@ export const CHANGE_STATE = 'CHANGE_STATE';
 export const GET_MY_INFOS = 'GET_MY_INFOS';
 export const GET_TECHS = 'GET_TECHS';
 export const SET_TECHS = 'SET_TECHS';
+export const SEND_MY_TECHS = 'SEND_MY_TECHS';
 /*
  * CREATE user infos
  * REMOVE user infos
@@ -58,7 +59,7 @@ const user = (state = initialState, action = {}) => {
     case SET_TECHS:
       return {
         ...state,
-        techs: action.techs,
+        techsBDD: action.techs,
       };
     default:
       return state;
@@ -83,6 +84,12 @@ export const setTechs = (techs) => ({
   type: SET_TECHS,
   techs,
 });
+
+export const sendMyTechs = (t, userId) => ({
+  type : SEND_MY_TECHS,
+  t,
+  userId
+})
 // == Selectors
 
 // == Export
