@@ -27,11 +27,11 @@ import Header from './Header';
 class UserProfilEdit extends React.Component {
 
   state = {
-    avatar: this.props.currentUser.avatar,
+    photo: this.props.currentUser.photo,
     firstName: this.props.currentUser.firstName,
     lastName: this.props.currentUser.lastName,
-    biography: this.props.currentUser.biography,
-    level: this.props.currentUser.level,
+    bio: this.props.currentUser.bio,
+    levelId: this.props.currentUser.levelId,
     technos: this.props.currentUser.technos,
     sharedUrl: this.props.currentUser.links,
     sharedNewUrl: '',
@@ -43,6 +43,7 @@ class UserProfilEdit extends React.Component {
     this.setState({
       [name]: value,
     });
+    console.log(this.state);
   }
 
   removeInArrayFromId = (identifier) => (event) => {
@@ -88,30 +89,32 @@ class UserProfilEdit extends React.Component {
     const { sendRequest } = this.props;
     const { changeState } = this.props;
     const currentUserDatas = this.state;
+    //console.log(currentUserDatas);
     sendRequest(currentUserDatas);
-    changeState(currentUserDatas);
+    //changeState(currentUserDatas);
   }
 
   render() {
-    console.log(this.props.currentUser);
     const userName = 'myGithubName';
     const {
-      avatar,
+      photo,
       firstName,
       lastName,
-      biography,
-      level,
+      bio,
+      levelId,
       technos,
       sharedNewUrl,
       sharedNewTitleUrl,
       sharedUrl,
     } = this.state;
+
+    console.log(levelId);
     return (
       <div className="edit-profil">
 
         <Container className="text-left">
-          <Header userName={userName} avatar={avatar} />
-          <Form >
+          <Header userName={userName} photo={photo} />
+          <Form>
             <h5>Les infos de ton profil</h5>
             <Form.Group controlId="formFirstName">
               <Form.Label>Prénom</Form.Label>
@@ -127,8 +130,8 @@ class UserProfilEdit extends React.Component {
                 as="textarea"
                 rows="4"
                 placeholder="Petite description qui parle de toi..."
-                name="biography"
-                value={biography}
+                name="bio"
+                value={bio}
                 onChange={this.handleChange}
               />
               <Form.Text className="form-info">
@@ -138,7 +141,8 @@ class UserProfilEdit extends React.Component {
             <h5>Ton niveau d'XP en Dev.</h5>
             <Form.Group controlId="formLevel.ControlSelect">
               <Form.Label>Choisis ton niveau</Form.Label>
-              <Form.Control className="level-select" as="select" value={level} name="level" onChange={this.handleChange}>
+              {console.log('LEVEL ID FROM THE VUE: ', levelId)}
+              <Form.Control className="level-select" as="select" value={levelId} name="levelId" onChange={this.handleChange}>
                 <option id="level-select" value="0">Noobyist (1 ans et moins)</option>
                 <option id="level-select" value="1">Noob éclairé (1 à 2 ans)</option>
                 <option id="level-select" value="2">Stackover Pro (2 à 4 ans)</option>
@@ -159,7 +163,7 @@ class UserProfilEdit extends React.Component {
               />
             </Form.Group>
 
-            <Form.Group controlId="formSharedUrls">
+            {/* <Form.Group controlId="formSharedUrls">
               <Form.Label>Tu veux montrer une url sur ton profil?</Form.Label>
               <FormControl className="mb-3" placeholder="Donnes un titre à ton url" value={sharedNewTitleUrl} name="sharedNewTitleUrl" onChange={this.handleChange} />
               <InputGroup className="mb-3">
@@ -179,7 +183,7 @@ class UserProfilEdit extends React.Component {
                   );
                 })}
               </ul>
-            </Form.Group>
+            </Form.Group> */}
             <Button className="mb-10" onClick={this.handleSubmit} block className="btn-mycolor" type="submit">Sauvegarder</Button>
           </Form>
           <Row>

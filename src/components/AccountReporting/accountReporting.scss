@@ -27,11 +27,13 @@
 
   .confirmReport {
     margin-top: 3rem;
-    background-color: $eventColorBlue;
-    color: grey;
+    background-color: $linkColor;
+    color: $textColor;
+    
 
   &:hover {
-    background-color: $linkColor;
+    background-color: $eventColorBlue;
+    color: grey;
     }
   }
 }

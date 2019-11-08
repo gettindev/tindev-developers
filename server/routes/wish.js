@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router();
 
 const WishModel = require('../models/wish');
-const test = "test";
 
 // FETCH All wishes
 router.get('/', (req, res) => {

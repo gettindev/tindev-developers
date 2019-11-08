@@ -10,28 +10,34 @@ const ShowUserProfil = ({ user }) => {
   const userWishes = user.wishes;
   const userTechnos = user.technos;
   const userLevel = user.levelsList;
-  const generalWishList = user.wishesList;
-  const userWishId = user.wishedId;
+  const generalWishList = user.wishesList[0];
+  const userWishId = [0,2,3];
 
   /* const tab = userWishId.filter((item) => {
     return !generalWishList.includes(item);
   }); */
 
   // Destructor
-  const { avatar, firstName, lastName, githubName, level, biography} = user;
-  
+  const {
+    photo,
+    firstName,
+    lastName,
+  } = user;
+  const levelId = user.levelId === null ? 0 : user.levelId;
+  const biography = user.bio === null ? 'Pas de biographie pour cet utilisateur.' : user.bio;
+
   // I create a new tab with id and wish name ! //
-  const tab = generalWishList.filter(item => userWishId.includes(item.id));
-  console.log(tab);
+  // const tab = generalWishList.filter(item => userWishId.includes(item.id));
+  // console.log(tab);
 
 
   return (
     <div className="show-profil">
       <Container>
         <section className="show-profil-info">
-          <img className="avatar" src={avatar} alt={`Avatar de ${firstName} ${lastName}`} height="120" width="120" />
+          <img className="avatar" src={photo} alt={`Avatar de ${firstName} ${lastName}`} height="120" width="120" />
           <h2>{`${firstName} ${lastName}`}</h2>
-          <h3>{userLevel[level].desc} <small>{githubName}</small></h3>
+          <h3>{userLevel[levelId].desc}{/*  <small>{githubName}</small> */}</h3>
           <section className="show-profil-info-bio">
             <p>{biography}</p>
           </section>
@@ -44,14 +50,14 @@ const ShowUserProfil = ({ user }) => {
           <h4>Mes technos :</h4>
           <List list={userTechnos} />
         </section>
-        <section className="links">
+        {/* <section className="links">
           <h4>Mes liens :</h4>
           <ul>
             {userlinks.map((link) => (
               <li key={link.id}><a href={link.url}>{link.title}</a></li>
             ))}
           </ul>
-        </section>
+        </section> */}
       </Container>
     </div>
   );
@@ -59,12 +65,11 @@ const ShowUserProfil = ({ user }) => {
 
 ShowUserProfil.propTypes = {
   user: PropTypes.shape({
-    avatar: PropTypes.string,
+    photo: PropTypes.string,
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     level: PropTypes.number,
-    githubName: PropTypes.string,
-    biography: PropTypes.string,
+    bio: PropTypes.string,
     wishes: PropTypes.array,
     technos: PropTypes.array,
     links: PropTypes.arrayOf(
@@ -76,6 +81,19 @@ ShowUserProfil.propTypes = {
     ),
     levelsList: PropTypes.array,
   }),
+};
+
+ShowUserProfil.defaultProps = {
+  user: {
+    photo: 'hello',
+    firstName: 'Not set',
+    lastName: 'Not set',
+    level: 0,
+    bio: 'Not set',
+    wishes: 'Not set',
+    technos: 'Not set',
+    levelsList: 'Not set',
+  },
 };
 
 export default ShowUserProfil;

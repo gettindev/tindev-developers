@@ -1,6 +1,6 @@
 // == Import : npm
 import React, { useState, useEffect } from 'react';
-import { MdEdit, MdSettings } from 'react-icons/md';
+import { MdEdit, MdSettings, MdPlace } from 'react-icons/md';
 import {
   Container,
   Row,
@@ -21,12 +21,15 @@ import './user-profil.scss';
 import Nav from 'src/components/Nav';
 
 // == Composant
-const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
+const UserProfil = ({ user, setLog, getMyInfos }) => {
   // use the state instaid //
-  const userName = 'Hello';
+  const userName = `${user.firstName} ${user.lastName}`;
+  const githubAvatar = user.photo;
+  useEffect(() => {
+    getMyInfos();
+  }, []);
 
  
-  
   //
   return (
     <div className="user-profil">
@@ -34,16 +37,17 @@ const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
         <Row>
           <Col>
             <h2 className="user-profil-info-user-name">{userName}</h2>
-            <NavLink to ="/profil/show"><Image className="user-profil-info-avatar" src="http://placeimg.com/100/100/people" roundedCircle /></NavLink>
-            <p><MdEdit /><a className="user-profil-info--edit-link" 
-            href="#">
-            <NavLink to ="/profil/edit">Édites ton profil</NavLink></a></p>
+
+            <NavLink to="/profil/show"><Image width="150" className="user-profil-info-avatar" src={githubAvatar} roundedCircle /></NavLink>
+            <Button as={Link} to="/profil/edit" type="submit" block size="sm" variant="primary"><MdEdit className="icon" /> Editer mon profil</Button>
+
           </Col>
         </Row>
       </Container>
       <Container className="user-profil-navigation">
         <Row>
           <Col>
+            <Button as={Link} to="/my-pref" size="lg" variant="primary" block><MdPlace className="icon" /> Localisation</Button>
             <Button as={Link} to="/preferences" size="lg" variant="primary" block><MdSettings className="icon" /> Préférences de match</Button>
             <Button as={Link} to="/help" size="lg" variant="outline-secondary" block>Aide et assistance</Button>
             <Button as={Link} to="/termsOfUse" size="lg" variant="outline-secondary" block>Régles d'utilisation</Button>

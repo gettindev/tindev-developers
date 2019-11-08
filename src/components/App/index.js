@@ -15,7 +15,7 @@ import Messages from 'src/containers/ChatRoom/Messages';
 import ChatList from 'src/containers/ChatList';
 import Page from 'src/containers/Page';
 import MatchingContainer from 'src/containers/Matching/MatchingContainer';
-import UserMenu from 'src/containers/Menu/index.js';
+import UserMenu from 'src/containers/User/Menu';
 import EditUserProfil from 'src/containers/User/Profil/Edit';
 import ShowUserProfil from 'src/containers/User/Profil/Show';
 import NotFound from 'src/components/404/index';
@@ -23,7 +23,8 @@ import Location from 'src/containers/Location/LocationContainer';
 import TermsOfUse from 'src/components/TermsOfUse';
 import HelpAndAssistance from 'src/components/HelpAndAssistance';
 import AccountReporting from 'src/components/AccountReporting';
-import MatchPreferences from 'src/components/MatchPreferences';
+import MatchPreferences from 'src/containers/MatchPreferences';
+import LocationSettings from 'src/containers/LocationSettings/LocationSettingsContainer';
 
 // Import all Nav Components
 import Nav from 'src/components/Nav';
@@ -69,7 +70,7 @@ const App = ({ logged, doRequest}) => {
         <>
           <Switch>
             <Route exact path ="/profil">
-              <NavBackRight/>
+              <NavBackRight />
               <UserMenu />
             </Route>
             <Route exact path ="/profil/edit">
@@ -77,7 +78,7 @@ const App = ({ logged, doRequest}) => {
               <EditUserProfil />
             </Route>
             <Route exact path ="/profil/show">
-              <Nav />
+              <NavCloseRight title="Mon Profil" />
               <ShowUserProfil />
             </Route>
             <Route exact path="/matching">
@@ -94,11 +95,11 @@ const App = ({ logged, doRequest}) => {
               <Form />
             </Route>
             <Route exact path ="/termsOfUse">
-              <Nav />
+              <NavCloseRightLogo />
               <TermsOfUse />             
             </Route>
             <Route exact path ="/help">
-              <Nav />
+              <NavCloseRightLogo />
               <HelpAndAssistance />             
             </Route>
             <Route exact path ="/reporting">
@@ -106,9 +107,13 @@ const App = ({ logged, doRequest}) => {
               <AccountReporting />             
             </Route>  
             <Route exact path ="/preferences">
-            <NavCloseRightLogo />
+              <NavCloseRightLogo />
               <MatchPreferences />             
-            </Route>      
+            </Route> 
+            <Route exact path ="/my-pref">
+              <NavCloseRightLogo />
+              <LocationSettings />
+            </Route>  
             <Route >
               <NotFound logged={logged}/>
             </Route>

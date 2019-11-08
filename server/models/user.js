@@ -4,7 +4,6 @@ const db = require('../config/database');
 
 const LevelModel = require('../models/level');
 
-
 const User = db.define('users', {
   id: {
     field: 'id',

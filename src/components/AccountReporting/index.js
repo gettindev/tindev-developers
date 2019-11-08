@@ -13,19 +13,19 @@ const AccountReporting = () => {
     <div className='accountReporting'>
       <h1>Signaler ce compte?</h1>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Veuillez nous indiquer les raisons de votre signalement.
       </p>
       <p>
-        Lorem ipsum consequuntur tempore dolorum sapiente, laudantium sed, quos accusantium voluptatum deleniti aliquid assumenda ullam?
+        Vous pouvez signaler le profil après nous avoir indiqué un problème.
       </p>
       <Form>
         <Form.Group controlId="reasonsForReporting">
-          <Form.Label>Lorem ipsum dolorum :</Form.Label>
+          <Form.Label>ex: Contenu indésirable, propos inapropiés, etc...</Form.Label>
           <Form.Control as="textarea" rows="3" />
         </Form.Group>
       </Form>
       <Button 
-        variant="secondary" 
+        variant="outline-secondary" 
         size="lg"  
         className="confirmReport" block
         onClick={()=> console.log('utilisateur signalé')}>

@@ -66,3 +66,15 @@
     }
   }
 }
+
+a.btn.btn-primary.btn-block.btn-sm {
+  background-color: $primaryColorLight;
+  width: max-content;
+  margin: auto;
+  border: none;
+
+  &:hover{
+    background-color: lighten($primaryColorLight, 30%);
+    border: darken($primaryColorLight, 50%);
+  }
+}

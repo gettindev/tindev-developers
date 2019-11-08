@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 
 // import './header.scss';
 
-const Header = ({ userName, avatar }) => (
+const Header = ({ userName, photo }) => (
   <Row>
     <Col className="text-center mt-4 mb-4">
       <h4 id="emoji"> Hello {userName}
         {/* <span className="animated bounceIn infinite delay-1s d-block emoji" role="image" aria-label="Hi!"></span> */}
       </h4>
       <p className="subtitle">Bienvenue sur l'édition de ton profil.</p>
-      <Image src={avatar} alt={`Avatar du profil de ${userName}`} width="80" height="80" roundedCircle className="avatar" />
+      <Image src={photo} alt={`Avatar du profil de ${userName}`} width="80" height="80" roundedCircle className="avatar" />
     </Col>
   </Row>
 );

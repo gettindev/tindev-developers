@@ -8,9 +8,6 @@ const db = require('../config/database');
 
 const { Op } = Sequelize;
 
-// Model static
-const MatchingModel = require('../static/userMatching');
-const UsersModel = require('../static/users');
 // Sequelize Models
 const Matching = require('../models/matching');
 const Users = require('../models/user');
