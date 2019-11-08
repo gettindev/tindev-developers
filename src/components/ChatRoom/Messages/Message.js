@@ -5,18 +5,16 @@ import classNames from 'classnames';
 
 import { isReceiver, isSender, isMe } from 'src/store/selectors';
 
+const Message = (
+  message,
+  isReceiver,
+  isSender,
+  currentUser
+) => {
+  const { id, content, receiver, matchId } = message;
 
-
-const Message = ( message, isReceiver, isSender, currentUser ) => {
-  const { id, content, receiver, sender, matchId } = message; 
-
-  // const currentId = loc
-  // isReceiver = message.filter((user) => user === user.receiver);
-  // get all messages where user is receiver
-  // message.filter((user) => user == user.receiver)
-  // const CssToDisplay = !isMe ? 'message--not-mine' : 'message';
-  // console.log('message', message);
   const currentUserId = localStorage.getItem('id');
+
   console.log(currentUserId);
   return (
     <>

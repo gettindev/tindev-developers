@@ -9,6 +9,7 @@ import {
   ADD_MESSAGE,
   receiveMessage,
   updateMessages,
+  sendMessage,
   FETCH_MESSAGES,
 } from 'src/store/reducer/chatroom';
 
@@ -36,12 +37,16 @@ const socketMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       const {messageValue} = state.chatroom;
       const message = {
-        content: action.message,
         currentId: action.currentId,
+        content: action.message,
+        matchingId: action.matchingId,
+        sender: action.sender,
+        receiver: action.receiver,
+        updatedAt: new Date(),
       }
       if (messageValue.length > 0) {
         socket.emit('send_message', message);
-        store.dispatch(receiveMessage(message));
+        messageValue: '';
       };
         // return (
       // };

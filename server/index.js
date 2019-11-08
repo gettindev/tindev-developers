@@ -20,7 +20,7 @@ const wish = require('./routes/wish');
 const tech = require('./routes/tech');
 const level = require('./routes/level');
 const message = require('./routes/message');
-
+const Message = require('./models/messages');
 
 app.use('/profil', user);
 app.use('/matching', matching);
@@ -60,17 +60,32 @@ io.sockets.on('connection', () => {
  */
 let id = 0;
 
+// io.on('connection', (socket) => {
+//   socket.on('send_message', (message) => {
+//     console.log('send message:', message);
+//     message.id = ++id;
+//     console.log('send message apres id++', message);
 io.on('connection', (socket) => {
-  socket.on('send_message', (message) => {
-    console.log('send message:', message);
-    message.id = ++id;
-    console.log('send message apres id++', message);
+  socket.on('send_message',
+    ({currentId, content, matchingId, sender, receiver }) => {
+    console.log('send message:', currentId, content, matchingId, sender, receiver);
+    const message = new Message({
+        id: ++id,
+        content,
+        matchingId,
+        sender,
+        receiver,
+        createdAt: new Date(),
+      });
+
+      io.emit('send_message', {message});
+    });
 
 
-    io.emit('send_message', { message });
-  });
+    //   message.save()
+    //     .then(res => {
+    //       io.emit('send_message', message);
+    //     })
+    //     .catch(err => console.log(err))
+    // });
 });
-
-// const PORT = process.env.PORT || 3001;
-
-// app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

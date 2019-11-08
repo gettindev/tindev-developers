@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import './form.scss';
 
 const Form = ({ messageValue, doChange, addMessage }) => {
+
+
   const handleChange = (e) => {
     const { value } = e.target;
     doChange(value);
@@ -17,6 +19,7 @@ const Form = ({ messageValue, doChange, addMessage }) => {
     // sender == userconnected
     const sender = parseInt(currentUserId);
     addMessage(messageValue, sender);
+    console.log(e.target.value);
   };
 
   return (

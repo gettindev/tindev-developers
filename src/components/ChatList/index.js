@@ -12,7 +12,7 @@ import MessagesList from 'src/components/ChatList/MessagesList';
 // import './chatlist.scss';
 
 // == Composant
-const ChatList = ({ mymatches, conversations  }) => {
+const ChatList = ({ mymatches, conversations }) => {
   console.log(conversations);
   return (
     <div className="chatlist">
@@ -21,9 +21,7 @@ const ChatList = ({ mymatches, conversations  }) => {
       <MessagesList conversations={conversations} />
     </div>
   );
-}
-
-
+};
 
 // == Export
 export default ChatList;

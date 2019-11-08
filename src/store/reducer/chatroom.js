@@ -15,6 +15,7 @@ export const FETCH_MESSAGES = 'FETCH_MESSAGES';
 export const WEBSOCKET_CONNECT = 'WEBSOCKET_CONNECT';
 export const UPDATE_MESSAGES = 'UPDATE_MESSAGES';
 const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 const chatroom = (state = initialState, action = {}) => {
   // console.log(action);
@@ -30,6 +31,15 @@ const chatroom = (state = initialState, action = {}) => {
         messageValue: '',
       };
     }
+    case SEND_MESSAGE: {
+      return {
+        ...state,
+        messages: [
+          ...state.messages,
+          action.message,
+        ],
+      };
+    }
     case RECEIVE_MESSAGE:
       return {
         ...state,
@@ -43,6 +53,7 @@ const chatroom = (state = initialState, action = {}) => {
         ...state,
         messages: [...action.messages],
       };
+
     default:
       return state;
   }
@@ -53,14 +64,21 @@ const chatroom = (state = initialState, action = {}) => {
 //   type: DO_SOMETHING,
 //   message,
 // });
-export const addMessage = (message, currentId) => ({
+export const addMessage = (message, sender, receiver, matchId) => ({
   type: ADD_MESSAGE,
   message,
-  currentId,
+  sender,
+  receiver,
+  matchId,
 });
 
 export const receiveMessage = (message) => ({
   type: RECEIVE_MESSAGE,
+  message,
+});
+
+export const sendMessage = (message) => ({
+  type: SEND_MESSAGE,
   message,
 });
 
