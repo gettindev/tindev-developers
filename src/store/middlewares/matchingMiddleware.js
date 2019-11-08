@@ -102,7 +102,7 @@ const matchingMiddleware = (store) => (next) => (action) => {
             localStorage.setItem('id', response.data.id);
             localStorage.setItem('logged', true);
             //store.dispatch(sendGo(response.data.id));
-            axios.post(`http://localhost:3001/profil/settings/${response.data.id}`, {wishesArray:wishes});
+            axios.post(`http://localhost:3001/profil/settings/wishes/${response.data.id}`, {wishesArray:wishes});
             window.location.replace("/profil")
             })
             .catch((error) => {
