@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import UserMenu from 'src/components/User/Menu';
-import { getMyInfos } from 'src/store/reducer/user';
+import { getMyInfos, getTechs } from 'src/store/reducer/user';
 
 // Action Creators
 const mapStateToProps = (state) => ({
@@ -14,6 +14,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getMyInfos: () => {
     const action = getMyInfos();
+    dispatch(action);
+  },
+  getTechs: () => {
+    const action = getTechs();
     dispatch(action);
   },
 });

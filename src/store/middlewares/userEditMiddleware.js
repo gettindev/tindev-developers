@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Import actions
-import { GET_MY_INFOS, changeState, getMyInfos } from 'src/store/reducer/user';
+import { GET_MY_INFOS, GET_TECHS, setTechs, changeState, getMyInfos } from 'src/store/reducer/user';
 import { SEND_REQUEST, SEND_MY_WISH, SEND_MY_LOC } from 'src/store/reducer/userEdit.js';
 
 const userEditMiddleware = (store) => (next) => (action) => {
@@ -16,7 +16,8 @@ const userEditMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(changeState(response.data));
-        }).catch((error) => {
+        })
+        .catch((error) => {
           console.error(error);
         }).finally(() => {
       });
@@ -67,7 +68,18 @@ const userEditMiddleware = (store) => (next) => (action) => {
             //   }).finally(() => {
             
             //   });
-            break; 
+            break;
+        case GET_TECHS:
+            axios.get(`http://localhost:3001/tech/`)
+              .then((response) => {
+              store.dispatch(setTechs(response.data));
+              console.log('TECHS RESPONSE: ', response.data);
+              }).catch((error) => {
+              console.error(error);
+              }).finally(() => {
+            
+              });
+            break;
        default:
           next(action);
   }

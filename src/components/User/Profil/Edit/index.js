@@ -38,6 +38,15 @@ class UserProfilEdit extends React.Component {
     sharedNewTitleUrl: '',
   }
 
+  componentDidUpdate(){
+    console.log('TECHNOS >>>> ', this.props.currentUser.techs);
+  };
+
+  handleTechsGetInfo = () => {
+    const techs = this.props.currentUser.techs;
+    return techs.map((tech) => tech.name);
+  };
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -108,7 +117,6 @@ class UserProfilEdit extends React.Component {
       sharedUrl,
     } = this.state;
 
-    console.log(levelId);
     return (
       <div className="edit-profil">
 
@@ -141,7 +149,6 @@ class UserProfilEdit extends React.Component {
             <h5>Ton niveau d'XP en Dev.</h5>
             <Form.Group controlId="formLevel.ControlSelect">
               <Form.Label>Choisis ton niveau</Form.Label>
-              {console.log('LEVEL ID FROM THE VUE: ', levelId)}
               <Form.Control className="level-select" as="select" value={levelId} name="levelId" onChange={this.handleChange}>
                 <option id="level-select" value="0">Noobyist (1 ans et moins)</option>
                 <option id="level-select" value="1">Noob éclairé (1 à 2 ans)</option>
@@ -157,7 +164,7 @@ class UserProfilEdit extends React.Component {
                 multiple
                 onChange={(technos) => { this.setState({ technos }); }}
                 selected={technos}
-                options={['php', 'javascript', 'JSX', 'React', 'Vue', 'Angular', 'Sass', 'Ruby', 'Python', 'MongoBD', 'CSS', 'html', 'MySQL', 'C#', 'Go', 'WordPress', 'Symfony', 'Java']}
+                options={[...this.props.currentUser.techs.name]}
                 name="technos"
                 id="formTechnos"
               />
