@@ -9,18 +9,18 @@ import Image from 'react-bootstrap/Image';
 import './messagepreview.scss';
 
 // == Composant
-const MessagePreview = (conversations) => {
-  // console.log('content', oneMatchMessage);
+const MessagePreview = ({ singleMatchMessage }) => {
+  console.log('singleMatchMessage', singleMatchMessage);
   // console.log('CONVERSATIONS', conversations.matchs);
-  const singleMatchMessage = conversations.matchs.map((conversations)=> conversations);
+  // const singleMatchMessage = conversations.matchs.map((conversations)=> conversations);
   // console.log(singleMatchMessage.messages[0]);
 
 
   // const { content } = oneMatchMessage.messages;
 
   return (
-    <div className="message-wrapper d-flex active">toto
-      {/* <div className="avatar-mini my-auto">
+    <div className="message-wrapper d-flex active">
+      <div className="avatar-mini my-auto">
         <Image
           className="user-card"
           src="http://placeimg.com/500/500/people"
@@ -28,8 +28,8 @@ const MessagePreview = (conversations) => {
         />
       </div>
       <div className="message-preview-container my-auto ml-2">
-        <p>{content}</p>
-      </div> */}
+        <p>{singleMatchMessage}</p>
+      </div>
     </div>
   );
 };

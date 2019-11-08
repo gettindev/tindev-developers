@@ -12,18 +12,19 @@ const MessagesList = ({ conversations }) => {
   // conversations = array of matchwithlastmessage
   console.log('MessageList composant:', conversations);
 
-  const arrayOfMessagesFromMatch = conversations.matchs.map((messagepreview) => messagepreview);
+  const arrayOfMessagesFromMatch = conversations.matchs.map((messagepreview, index) => messagepreview.messages[0].content);
+  console.log('arrayOfMessagesFromMatch =', arrayOfMessagesFromMatch);
 
-  console.log('arrayOfMessagesFromMatch', arrayOfMessagesFromMatch);
-  console.log(arrayOfMessagesFromMatch.map((oneItem) => oneItem));
+  const singleMatchMessage = arrayOfMessagesFromMatch.map((oneItem) => oneItem);
+  console.log('singleMatchMessage =', singleMatchMessage);
 
   return (
     <div className="messages-list">
-      {arrayOfMessagesFromMatch.map((oneMatchMessage) => (
+      {conversations.matchs.map((oneMatchMessage) => (
         <NavLink to={`/chat/${oneMatchMessage.messages[0].receiver}`}>
           <MessagePreview
-            {...conversations}
-            key={oneMatchMessage.messages[0].id}
+            key={oneMatchMessage.messages[0].receiver}
+            singleMatchMessage={oneMatchMessage.messages[0].content}
           />
         </NavLink>
       ))}
