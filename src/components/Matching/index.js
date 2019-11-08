@@ -48,16 +48,12 @@ class Matching extends Component {
   /* like an user */
   likeProfil = (myId, hisId) => {
     const { doLike } = this.props;
-
-    if (this.state.end !== true) {
-      doLike(myId, hisId);
-    }
+    doLike(myId, hisId);
   }
 
   /* Unlike an user */
   unlikeProfil = (myId, hisId) => {
     const { doUnlike } = this.props;
-
     doUnlike(myId, hisId);
   }
 
@@ -71,25 +67,25 @@ class Matching extends Component {
       
       <SwipeableList>
         {this.props.users.map((user) => (
-        <SwipeableListItem
-          key={user.id}
-          swipeLeft={{
-            content: <Image roundedCircle className="right" src="src/data/glass.gif" />,
-            action: () => (
-              console.info('swiped on left'),
-              this.setGlobalStateOfUsers(user.id),
-              this.unlikeProfil(currentUserId, user.id)
-            ),
-          }}
-          swipeRight={{
-            content: <Image roundedCircle className="right" src="src/data/beer.gif" />,
-            action: () => (
-              console.info('swiped on left'),
-              this.setGlobalStateOfUsers(user.id),
-              this.likeProfil(currentUserId, user.id)
-            ),
-          }}
-        >
+          <SwipeableListItem
+            key={user.id}
+            swipeLeft={{
+              content: <Image roundedCircle className="right" src="src/data/glass.gif" />,
+              action: () => (
+                console.info('swiped on left'),
+                this.setGlobalStateOfUsers(user.id),
+                this.unlikeProfil(currentUserId, user.id)
+              ),
+            }}
+            swipeRight={{
+              content: <Image roundedCircle className="right" src="src/data/beer.gif" />,
+              action: () => (
+                console.info('swiped on left'),
+                this.setGlobalStateOfUsers(user.id),
+                this.likeProfil(currentUserId, user.id)
+              ),
+            }}
+          >
           {/** ***** The card swiped ***** */}
           <div className="card">
                   <Image

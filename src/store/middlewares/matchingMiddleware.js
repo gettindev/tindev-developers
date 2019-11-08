@@ -46,7 +46,7 @@ const matchingMiddleware = (store) => (next) => (action) => {
       // setLoadingFalse();
       break;
       case DO_LIKE:
-      console.log('Cet utilisateur est envoyé dans mes profils likés');
+      console.log('Cet utilisateur est envoyé dans mes profils likés', action.currentUserId, action.swipeId);
       axios.post('http://localhost:3001/matching/yep', {
           currentId : action.currentUserId,
           swipedId : action.swipeId    
@@ -61,7 +61,7 @@ const matchingMiddleware = (store) => (next) => (action) => {
             });
       break;
     case DO_UNLIKE:
-      console.log('Cet utilisateur est envoyé dans mes profils Dislikés')
+      console.log('Cet utilisateur est envoyé dans mes profils Dislikés' , action.currentUserId, action.swipeId)
       axios.post('http://localhost:3001/matching/nope', {
         currentId : action.currentUserId,
         swipedId : action.swipeId    
