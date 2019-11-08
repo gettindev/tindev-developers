@@ -40,33 +40,33 @@ const userEditMiddleware = (store) => (next) => (action) => {
       break;
       case SEND_MY_WISH:
             console.log("les wishes que j'envois", action.wish, "je suis l'id:", action.id)
-            // axios.post(`http://localhost:3001/profil/settings/wishes`, {
-            //     whishes: action.wish,
-            //     currentId : action.id,
-            // })
-            //   .then((response) => {
-            //   console.log(response.data)
-            //   store.dispatch(changeState(response.data));
-            //   }).catch((error) => {
-            //   console.error(error);
-            //   }).finally(() => {
+            axios.post(`http://localhost:3001/profil/settings/wishes/${action.id}`, {
+                wishesArray: action.wish,
                 
-            //   });
+            })
+              .then((response) => {
+              console.log(response.data)
+              store.dispatch(changeState(response.data));
+              }).catch((error) => {
+              console.error(error);
+              }).finally(() => {
+                
+              });
             break;
       case SEND_MY_LOC:
             console.log("Ma localisation", action.loc, "je suis l'id:", action.id)
-            // axios.post(`http://localhost:3001/profil/settings/location`, {
-            //     location: action.loc,
-            //     currentId : action.id,
-            // })
-            //   .then((response) => {
-            //   console.log(response.data)
-            //   store.dispatch(changeState(response.data));
-            //   }).catch((error) => {
-            //   console.error(error);
-            //   }).finally(() => {
+            axios.post(`http://localhost:3001/profil/settings/location/${action.id}`, {
+                location: action.loc,
+                
+            })
+              .then((response) => {
+              console.log(response.data)
+              store.dispatch(changeState(response.data));
+              }).catch((error) => {
+              console.error(error);
+              }).finally(() => {
             
-            //   });
+              });
             break; 
        default:
           next(action);
