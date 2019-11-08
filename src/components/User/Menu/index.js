@@ -21,12 +21,13 @@ import './user-profil.scss';
 import Nav from 'src/components/Nav';
 
 // == Composant
-const UserProfil = ({ user, setLog, getMyInfos }) => {
+const UserProfil = ({ user, setLog, getMyInfos, getTechs }) => {
   // use the state instaid //
   const userName = `${user.firstName} ${user.lastName}`;
   const githubAvatar = user.photo;
   useEffect(() => {
     getMyInfos();
+    getTechs();
   }, []);
 
  

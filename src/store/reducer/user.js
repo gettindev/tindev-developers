@@ -11,6 +11,7 @@ const initialState = {
   levelId: 0,
   location: '',
   wishes: [],
+  techsBDD: [],
   wishedId: [0, 3, 8],
   technos: ['ES6', 'JSX', 'React', 'Redux', 'HTML5', 'CSS3'],
   links: [
@@ -25,6 +26,9 @@ const initialState = {
 // == Types
 export const CHANGE_STATE = 'CHANGE_STATE';
 export const GET_MY_INFOS = 'GET_MY_INFOS';
+export const GET_TECHS = 'GET_TECHS';
+export const SET_TECHS = 'SET_TECHS';
+export const SEND_MY_TECHS = 'SEND_MY_TECHS';
 /*
  * CREATE user infos
  * REMOVE user infos
@@ -52,6 +56,11 @@ const user = (state = initialState, action = {}) => {
         // wishedId: action.value.wishes.id,
         // links: action.value.url,
       };
+    case SET_TECHS:
+      return {
+        ...state,
+        techsBDD: action.techs,
+      };
     default:
       return state;
   }
@@ -66,8 +75,22 @@ export const changeState = (value) => ({
 export const getMyInfos = () => ({
   type: GET_MY_INFOS,
 });
-// == Selectors
 
+export const getTechs = () => ({
+  type: GET_TECHS,
+});
+
+export const setTechs = (techs) => ({
+  type: SET_TECHS,
+  techs,
+});
+
+export const sendMyTechs = (t, userId) => ({
+  type : SEND_MY_TECHS,
+  t,
+  userId
+})
+// == Selectors
 
 // == Export
 export default user;

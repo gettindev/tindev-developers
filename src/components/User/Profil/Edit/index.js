@@ -2,6 +2,7 @@
 import React from 'react';
 // this one generate warnings in the console because using componentWillReceiveProps()
 import { Typeahead } from 'react-bootstrap-typeahead';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 // == Import : local
@@ -37,6 +38,22 @@ class UserProfilEdit extends React.Component {
     sharedNewUrl: '',
     sharedNewTitleUrl: '',
   }
+
+  // componentDidMount(){
+  //   console.log('TECHNOS >>>> ', this.props.currentUser.techsBDD)
+  //   const techsOfBdd = this.props.currentUser.techsBDD.map((tech) => tech.name);
+  //   console.log("mon tableau de Techs", techsOfBdd)
+  // };
+    componentDidUpdate() {
+      
+      console.log("Mes technos choisies:",this.state.technos)
+    }
+
+
+  handleTechsGetInfo = () => {
+    //const techs = this.props.currentUser.techs;
+    //return techs.map((tech) => tech.name);
+  };
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -94,6 +111,14 @@ class UserProfilEdit extends React.Component {
     //changeState(currentUserDatas);
   }
 
+  handleTech = (name) => {
+    let nameTech = name;
+    let filterTech = this.props.currentUser.techsBDD.filter((tech)  => nameTech.includes(tech.name));
+    let filtered = filterTech.map((tech) => tech.id)
+    const userId = localStorage.getItem("id");
+    this.props.sendMyTechs(filtered, userId);
+  }
+
   render() {
     const userName = 'myGithubName';
     const {
@@ -107,8 +132,8 @@ class UserProfilEdit extends React.Component {
       sharedNewTitleUrl,
       sharedUrl,
     } = this.state;
-
-    console.log(levelId);
+    const techsOfBdd = this.props.currentUser.techsBDD.map((tech) => tech.name);
+    const techsIdOfBdd = this.props.currentUser.techsBDD.map((tech) => tech.id);
     return (
       <div className="edit-profil">
 
@@ -141,7 +166,6 @@ class UserProfilEdit extends React.Component {
             <h5>Ton niveau d'XP en Dev.</h5>
             <Form.Group controlId="formLevel.ControlSelect">
               <Form.Label>Choisis ton niveau</Form.Label>
-              {console.log('LEVEL ID FROM THE VUE: ', levelId)}
               <Form.Control className="level-select" as="select" value={levelId} name="levelId" onChange={this.handleChange}>
                 <option id="level-select" value="0">Noobyist (1 ans et moins)</option>
                 <option id="level-select" value="1">Noob éclairé (1 à 2 ans)</option>
@@ -155,9 +179,9 @@ class UserProfilEdit extends React.Component {
               <Typeahead
                 className="technosChoiceField"
                 multiple
-                onChange={(technos) => { this.setState({ technos }); }}
+                onChange={(value) => { this.handleTech(value) }}
                 selected={technos}
-                options={['php', 'javascript', 'JSX', 'React', 'Vue', 'Angular', 'Sass', 'Ruby', 'Python', 'MongoBD', 'CSS', 'html', 'MySQL', 'C#', 'Go', 'WordPress', 'Symfony', 'Java']}
+                options={techsOfBdd}
                 name="technos"
                 id="formTechnos"
               />
@@ -184,7 +208,7 @@ class UserProfilEdit extends React.Component {
                 })}
               </ul>
             </Form.Group> */}
-            <Button className="mb-10" onClick={this.handleSubmit} block className="btn-mycolor" type="submit">Sauvegarder</Button>
+            <Button as={Link} to="/profil" className="mb-10" onClick={this.handleSubmit} block className="btn-mycolor" type="submit">Sauvegarder</Button>
           </Form>
           <Row>
             <Col className="mt-5">

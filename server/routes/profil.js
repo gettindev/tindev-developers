@@ -250,4 +250,32 @@ router.post('/settings/location/:id', (req, res) => {
     });
 });
 
+router.post('/settings/techs/:id', (req, res) => {
+  const { id } = req.params;
+  const updatedtechs = req.body.techsArray;
+
+  const bulkCreator = (userIdentifier, array) => {
+    const generateBulkCreate = array.map(
+      (item) => {
+        return { userId: parseInt(id, 10), techId: item };
+      },
+    );
+    return generateBulkCreate;
+  };
+
+  UserTechs.destroy({
+    where: {
+      userId: id,
+    },
+  })
+    .then(() => {
+      UserTechs.bulkCreate(bulkCreator(id, updatedtechs)).then((user) => {
+        res.status(200).send(user);
+      });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
 module.exports = router;
