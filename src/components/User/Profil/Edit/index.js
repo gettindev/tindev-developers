@@ -43,8 +43,8 @@ class UserProfilEdit extends React.Component {
   };
 
   handleTechsGetInfo = () => {
-    const techs = this.props.currentUser.techs;
-    return techs.map((tech) => tech.name);
+    //const techs = this.props.currentUser.techs;
+    //return techs.map((tech) => tech.name);
   };
 
   handleChange = (event) => {
