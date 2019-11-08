@@ -52,6 +52,13 @@ const userEditMiddleware = (store) => (next) => (action) => {
               }).finally(() => {
                 
               });
+
+        break;
+      case SEND_REQUEST:
+            //console.log("Une requête Ajax est envoyée pour mettre à jour la BDD");
+            const value = action.userDatas;
+            // Si j'utilise changeState ici, la mise à jour ne se fait pas....
+            //console.log(value);
             break;
       case SEND_MY_LOC:
             console.log("Ma localisation", action.loc, "je suis l'id:", action.id)

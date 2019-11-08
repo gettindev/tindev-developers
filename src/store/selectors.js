@@ -11,3 +11,9 @@ export const getMaxId = (messages) => {
 
 
 export const isMe = (messageAuthor, currentUser) => messageAuthor === currentUser;
+
+
+export const isReceiver = (message, user) => message.filter(user === user.receiver);
+
+
+export const isSender = (message, user) => message.filter(user === user.sender);

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 // Handle WebSocket connection and Axios request to API to fetch user matches and messages to be sent to MatchingContainer
 
 import axios from 'axios';
@@ -7,6 +9,7 @@ import {
   ADD_MESSAGE,
   receiveMessage,
   updateMessages,
+  sendMessage,
   FETCH_MESSAGES,
 } from 'src/store/reducer/chatroom';
 
@@ -26,19 +29,26 @@ const socketMiddleware = (store) => (next) => (action) => {
         // const { id, text } = message.message;
         // const messageToState = { id, text };
         // const messageToState = message.message;
-        store.dispatch(receiveMessage(...message));
+        store.dispatch(receiveMessage(message));
       });
       break;
     case ADD_MESSAGE:
-      const message = {
-        content: action.message,
-        author: action.currentId,
-      }
-      // if (newMessage.text.length > 0) {
-        // return (
-      socket.emit('send_message', message);
 
-      store.dispatch(receiveMessage(message));
+      const state = store.getState();
+      const {messageValue} = state.chatroom;
+      const message = {
+        currentId: action.currentId,
+        content: action.message,
+        matchingId: action.matchingId,
+        sender: action.sender,
+        receiver: action.receiver,
+        updatedAt: new Date(),
+      }
+      if (messageValue.length > 0) {
+        socket.emit('send_message', message);
+        messageValue: '';
+      };
+        // return (
       // };
       // console.log('newMessage:', newMessage)
       break;
@@ -46,10 +56,14 @@ const socketMiddleware = (store) => (next) => (action) => {
       const currentId = localStorage.getItem('id'); // 20
       axios.get(`http://localhost:3001/matching/${currentId}`)
         .then((result) => {
-         console.log(result.data.usersListResult);
+          console.log('Liste Des Matchs', result.data.usersListResult);
+
           const mymatches = result.data.usersListResult;
-          //  console.log(mymatches);
+          // const lastMessages = result.data.matchs.map((match) => match.messages);
+          console.log(`Result.DATA matching/${currentId}`, result.data);
           store.dispatch(updateMatchList(mymatches));
+          // console.log(lastMessages);
+          store.dispatch(updateConversations(result.data));
         }).catch((error) => {
           console.log(error);
         });
@@ -59,8 +73,9 @@ const socketMiddleware = (store) => (next) => (action) => {
     case FETCH_MESSAGES: {
       console.log(action);
       const { currentId, userId } = action;
+      console.log('FETCH USER ID MESSAGES', userId);
       // console.log('les users en state:', currentId, userId);
-      // // console.log('GAEL', `je veux recuperer les messages en BDD de l'utilisateur connecte: ${userId}`);
+      // FETCH messages between me and other I have already exchanged with
       axios.post('http://localhost:3001/messages/', { currentId, userId })
         // { currentId, userId })
         .then((result) => {

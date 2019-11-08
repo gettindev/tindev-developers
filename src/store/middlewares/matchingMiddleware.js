@@ -80,7 +80,7 @@ const matchingMiddleware = (store) => (next) => (action) => {
       const currentId = localStorage.getItem("id");
       axios.get(`http://localhost:3001/matching/notsee/${currentId}`)
       .then((response) => {
-            console.log('succès', response.data);
+            //console.log('succès', response.data);
             // je veux faire en sorte d'alimenter le state avec la réponse
             store.dispatch(setUsers(response.data.filteredUsers));
             //console.log(response.data.filteredUsers)
