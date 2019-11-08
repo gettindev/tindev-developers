@@ -10,7 +10,7 @@ import { Navbar } from 'react-bootstrap';
 const NavBackRight = () => (
   <Navbar className="td-navbar">
     <Navbar.Collapse className="justify-content-right">
-      <Navbar.Text className="navbar-title padding-right">Mon profil</Navbar.Text>
+      <Navbar.Text className="navbar-title padding-right">Mon Profil</Navbar.Text>
     </Navbar.Collapse>
     <Navbar.Collapse className="justify-content-end">
       <Navbar.Text 

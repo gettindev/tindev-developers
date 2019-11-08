@@ -15,7 +15,7 @@ import Messages from 'src/containers/ChatRoom/Messages';
 import ChatList from 'src/containers/ChatList';
 import Page from 'src/containers/Page';
 import MatchingContainer from 'src/containers/Matching/MatchingContainer';
-import UserMenu from 'src/containers/Menu/index.js';
+import UserMenu from 'src/containers/User/Menu';
 import EditUserProfil from 'src/containers/User/Profil/Edit';
 import ShowUserProfil from 'src/containers/User/Profil/Show';
 import NotFound from 'src/components/404/index';
@@ -70,7 +70,7 @@ const App = ({ logged, doRequest}) => {
         <>
           <Switch>
             <Route exact path ="/profil">
-              <NavBackRight/>
+              <NavBackRight />
               <UserMenu />
             </Route>
             <Route exact path ="/profil/edit">
@@ -78,7 +78,7 @@ const App = ({ logged, doRequest}) => {
               <EditUserProfil />
             </Route>
             <Route exact path ="/profil/show">
-              <Nav />
+              <NavCloseRight title="Mon Profil" />
               <ShowUserProfil />
             </Route>
             <Route exact path="/matching">

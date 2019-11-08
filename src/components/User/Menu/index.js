@@ -21,14 +21,15 @@ import './user-profil.scss';
 import Nav from 'src/components/Nav';
 
 // == Composant
-const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
+const UserProfil = ({ user, setLog, getMyInfos }) => {
   // use the state instaid //
-  const userName = 'Hello';
-
+  const userName = `${user.firstName} ${user.lastName}`;
+  const githubAvatar = user.photo;
   useEffect(() => {
-    getUsers();// get only my matches
+    getMyInfos();
   }, []);
-  
+
+ 
   //
   return (
     <div className="user-profil">
@@ -36,8 +37,10 @@ const UserProfil = ({ setLog, getMyInfos, getUsers }) => {
         <Row>
           <Col>
             <h2 className="user-profil-info-user-name">{userName}</h2>
-            <NavLink to ="/profil/show"><Image className="user-profil-info-avatar" src="http://placeimg.com/100/100/people" roundedCircle /></NavLink>
+
+            <NavLink to="/profil/show"><Image width="150" className="user-profil-info-avatar" src={githubAvatar} roundedCircle /></NavLink>
             <Button as={Link} to="/profil/edit" type="submit" block size="sm" variant="primary"><MdEdit className="icon" /> Editer mon profil</Button>
+
           </Col>
         </Row>
       </Container>
