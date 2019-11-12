@@ -60,7 +60,7 @@ const userEditMiddleware = (store) => (next) => (action) => {
             // const value = action.userDatas;
             // Si j'utilise changeState ici, la mise à jour ne se fait pas....
             //console.log(value);
-            break;
+        break;
       case SEND_MY_LOC:
             console.log("Ma localisation", action.loc, "je suis l'id:", action.id)
             axios.post(`http://localhost:3001/profil/settings/location/${action.id}`, {
@@ -73,9 +73,8 @@ const userEditMiddleware = (store) => (next) => (action) => {
               }).catch((error) => {
               console.error(error);
               }).finally(() => {
-            
-
-            //   });
+                
+              });
             break;
         case GET_TECHS:
             console.log("je veux avoir les techs")
@@ -90,6 +89,7 @@ const userEditMiddleware = (store) => (next) => (action) => {
             
               });
             break;
+
         case SEND_MY_TECHS:
             axios.post(`http://localhost:3001/profil/settings/techs/${action.userId}`, {
               techsArray : action.t
