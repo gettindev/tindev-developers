@@ -35,6 +35,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
+    "heroku-postbuild": "webpack -p && node server/index.js",
     "clean": "rm -rf dist",
     "clean:all": "rm -rf dist node_modules",
     "build:dev": "NODE_ENV=development webpack",
